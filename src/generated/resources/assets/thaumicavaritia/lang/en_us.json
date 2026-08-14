@@ -2,5 +2,9 @@
   "item.thaumicavaritia.akashic_record": "Akashic Records",
   "item.thaumicavaritia.extremely_primordial_pearl": "Extremely Primordial Pearl",
   "item.thaumicavaritia.wand_cap_crystal": "Wand Cap: Crystal Matrix",
-  "item.thaumicavaritia.wand_rod_studded_cosmic_neutronium": "Wand Rod: Studded Cosmic Neutronium"
+  "item.thaumicavaritia.wand_rod_studded_cosmic_neutronium": "Wand Rod: Studded Cosmic Neutronium",
+  "itemGroup.thaumicavaritia": "Thaumic Avaritia",
+  "singularity.thaumicavaritia.brass": "Brass Singularity",
+  "singularity.thaumicavaritia.thaumium": "Thaumium Singularity",
+  "singularity.thaumicavaritia.void": "Void Singularity"
 }

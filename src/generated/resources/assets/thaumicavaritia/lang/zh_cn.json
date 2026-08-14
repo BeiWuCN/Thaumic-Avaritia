@@ -2,5 +2,9 @@
   "item.thaumicavaritia.akashic_record": "阿卡西记录",
   "item.thaumicavaritia.extremely_primordial_pearl": "极元始珍珠",
   "item.thaumicavaritia.wand_cap_crystal": "水晶矩阵杖端",
-  "item.thaumicavaritia.wand_rod_studded_cosmic_neutronium": "宇宙中子态素杖柄"
+  "item.thaumicavaritia.wand_rod_studded_cosmic_neutronium": "宇宙中子态素杖柄",
+  "itemGroup.thaumicavaritia": "神秘无尽",
+  "singularity.thaumicavaritia.brass": "黄铜奇点",
+  "singularity.thaumicavaritia.thaumium": "神秘奇点",
+  "singularity.thaumicavaritia.void": "虚空奇点"
 }

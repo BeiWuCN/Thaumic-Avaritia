@@ -1,6 +1,7 @@
 // 主类：无尽贪婪（Re:Avaritia）与神秘时代（Thaumaturge）联动内容。
 package com.blackmoss.thaumicavaritia;
 
+import com.blackmoss.thaumicavaritia.registry.TACreativeModeTabs;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import com.blackmoss.thaumicavaritia.registry.TAWandParts;
 import com.mojang.logging.LogUtils;
@@ -15,9 +16,8 @@ public class ThaumicAvaritia {
     public static final String MODID = "thaumicavaritia";
     public static final Logger LOGGER = LogUtils.getLogger();
     public ThaumicAvaritia(IEventBus modEventBus) {
-        // 法杖部件注册到 Thaumaturge 的法杖注册表。
-        TAWandParts.register(modEventBus);
-        // 联动物品注册。
+        TACreativeModeTabs.register(modEventBus);
         TAItems.register(modEventBus);
+        TAWandParts.register(modEventBus);
     }
 }

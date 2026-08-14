@@ -12,9 +12,15 @@ public final class TAZhCnProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        add("itemGroup.thaumicavaritia", "神秘无尽");
+
         add("item.thaumicavaritia.extremely_primordial_pearl", "极元始珍珠");
         add("item.thaumicavaritia.akashic_record", "阿卡西记录");
         add("item.thaumicavaritia.wand_cap_crystal", "水晶矩阵杖端");
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "宇宙中子态素杖柄");
+
+        add("singularity.thaumicavaritia.brass", "黄铜奇点");
+        add("singularity.thaumicavaritia.thaumium", "神秘奇点");
+        add("singularity.thaumicavaritia.void", "虚空奇点");
     }
 }

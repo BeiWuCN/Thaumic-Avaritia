@@ -1,0 +1,11 @@
+{
+  "type": "avaritia:compressor",
+  "ingredient": "thaumaturge:ingot_brass",
+  "result": {
+    "components": {
+      "avaritia:singularity_id": "thaumicavaritia:brass"
+    },
+    "id": "avaritia:singularity"
+  },
+  "timeCost": 240
+}
