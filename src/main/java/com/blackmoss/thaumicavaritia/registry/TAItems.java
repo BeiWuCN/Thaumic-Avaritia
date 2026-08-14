@@ -3,6 +3,7 @@ package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.content.item.AkashicRecordsItem;
+import com.blackmoss.thaumicavaritia.content.item.ArcaneSingularityFocusItem;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandRod;
 import net.minecraft.world.item.Item;
@@ -40,6 +41,12 @@ public final class TAItems {
             "wand_rod_studded_cosmic_neutronium",
             props -> new ItemWandRod(props, TAWandParts.ROD_INFINITY),
             props -> props.rarity(Rarity.EPIC));
+
+    // 奥法奇点核心：复杂度上限无限的法术核心。
+    public static final DeferredItem<ArcaneSingularityFocusItem> ARCANE_SINGULARITY_FOCUS = ITEMS.registerItem(
+            "arcane_singularity_focus",
+            ArcaneSingularityFocusItem::new,
+            props -> props.stacksTo(1).rarity(Rarity.EPIC));
 
     private TAItems() {
     }

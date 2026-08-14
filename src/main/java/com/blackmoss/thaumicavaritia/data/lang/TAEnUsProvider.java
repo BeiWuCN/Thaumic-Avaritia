@@ -19,6 +19,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_cap_crystal", "Charged Crystal Matrix Cap");
         add("item.thaumicavaritia.wand_cap_crystal_inter", "Inter Crystal Matrix Cap");
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "Studded Cosmic Neutronium Rod");
+        add("item.thaumicavaritia.arcane_singularity_focus", "Arcane Singularity Focus");
 
         add("wand.thaumaturge.cap.crystal", "Crystal Matrix");
         add("wand.thaumaturge.rod.infinity", "Studded Cosmic Neutronium");

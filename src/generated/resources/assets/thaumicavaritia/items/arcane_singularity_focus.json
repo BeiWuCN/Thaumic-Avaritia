@@ -1,0 +1,11 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "thaumicavaritia:item/arcane_singularity_focus",
+    "tints": [
+      {
+        "type": "thaumaturge:focus_color"
+      }
+    ]
+  }
+}

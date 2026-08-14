@@ -71,7 +71,18 @@
 | `extremely_primordial_pearl`         | `ExtremelyPrimordialPearlItem` | 极元始珍珠，注魔材料（EPIC）          |
 | `akashic_record`                     | `AkashicRecordsItem`           | 阿卡西记录，使用后授予全部要素研究点  |
 | `wand_cap_crystal`                   | `ItemWandCap`                  | 水晶矩阵杖端，90% Vis 减免            |
+| `wand_cap_crystal_inter`             | `Item`                         | 惰性水晶矩阵杖端（无 halo，普通扁平模型）|
 | `wand_rod_studded_cosmic_neutronium` | `ItemWandRod`                  | 宇宙中子态素杖柄，超高容量 + 自动回满 |
+| `arcane_singularity_focus`           | `ArcaneSingularityFocusItem`   | 奥法奇点核心，复杂度上限 `Integer.MAX_VALUE`（无限）|
+
+### 法术核心（`content/item/ArcaneSingularityFocusItem.java`）
+- 继承 Thaumaturge 的 `ItemFocus`，构造传 `Integer.MAX_VALUE` 实现无限复杂度（原版 FOCUS_1/2/3 为 15/25/50）。
+- 模型与原版核心一致：`FLAT_ITEM` + `FocusColorTint`（`thaumaturge:focus_color`，颜色随核心内法术元素）。当前 layer0 临时引用 `thaumaturge:item/focus_3`，若用户自绘 `textures/item/arcane_singularity_focus.png` 后改回 `TextureMapping.layer0(item)`。
+
+### Mixin 基础设施（`mixin/` + `thaumicavaritia.mixins.json`）
+- `neoforge.mods.toml` 模板已启用 `[[mixins]] config="${mod_id}.mixins.json"`；NeoForge 26.x 用官方映射，mixin **无需 refmap**。
+- **`BlockEntityFocalManipulatorMixin`**：`@Redirect` `startCraft` 中的 `ItemFocus.getMaxComplexity()` 调用，奥法奇点核心返回 0 → 组装 Vis 公式 `totalComplexity * 10 + maxComplexity / 5` 的上限基础成本归零（仅剩内容复杂度成本），普通核心不受影响。
+- 注意：`BlockEntityFocalManipulator` 是 `final class`，mixin 改字节码不受影响。`getMaxComplexity()` 同时被 UI 复用（`FocalManipulatorScreen` 显示 `totalComplexity/maxComplexity` + 校验 `totalComplexity <= maxComplexity`），所以不能靠覆写它归零——UI 校验会把任何组装判为非法；mixin 只作用于 `startCraft`，不影响 UI 的无限上限显示与永真校验。
 
 ### 法杖部件（`registry/TAWandParts.java`）
 - 注册到 Thaumaturge 的法杖注册表（`WandCap.REGISTRY_KEY` / `WandRod.REGISTRY_KEY`），不是物品注册表。

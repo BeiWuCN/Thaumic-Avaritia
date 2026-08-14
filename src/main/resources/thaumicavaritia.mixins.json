@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.blackmoss.thaumicavaritia.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlockEntityFocalManipulatorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
