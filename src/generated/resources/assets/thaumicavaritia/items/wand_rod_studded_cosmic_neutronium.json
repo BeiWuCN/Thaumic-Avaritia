@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "avaritia:halo",
+    "model": "thaumicavaritia:item/wand_rod_studded_cosmic_neutronium",
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo"
+  }
+}

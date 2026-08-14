@@ -1,0 +1,27 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 32,
+      "aspect": "thaumaturge:alienis"
+    },
+    {
+      "amount": 16,
+      "aspect": "thaumaturge:perditio"
+    }
+  ],
+  "catalyst": "thaumaturge:primordial_pearl",
+  "components": [
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:primordial_pearl"
+  ],
+  "instability": 4,
+  "result": {
+    "id": "thaumicavaritia:extremely_primordial_pearl"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "thaumicavaritia:item/wand_rod_studded_cosmic_neutronium"
+  }
+}

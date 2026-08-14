@@ -1,0 +1,28 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 64,
+      "aspect": "thaumaturge:cognitio"
+    },
+    {
+      "amount": 64,
+      "aspect": "thaumaturge:praecantatio"
+    },
+    {
+      "amount": 32,
+      "aspect": "thaumaturge:alienis"
+    }
+  ],
+  "catalyst": "#thaumaturge:curios",
+  "components": [
+    "avaritia:infinity_ingot",
+    "avaritia:infinity_ingot",
+    "avaritia:infinity_ingot",
+    "avaritia:infinity_ingot"
+  ],
+  "instability": 4,
+  "result": {
+    "id": "thaumicavaritia:akashic_record"
+  }
+}
