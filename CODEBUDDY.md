@@ -100,6 +100,13 @@
 - 阿卡西记录：催化剂 `#thaumaturge:curios` + 4 × `ModItems.infinity_ingot` 注魔（Cognitio×64 / Praecantatio×64 / Alienis×32）。
 - 全部使用 `InfusionRecipeBuilder`，已带 `.unlockedBy(...)`。
 
+### 研究类别（`data/worldgen/research/TACategoryBootstrap.java`）
+- "神秘无尽"（`thaumicavaritia:arcane_infinity`）类别：`IResearchCategory.REGISTRY_KEY` datapack registry，用 `BootstrapContext` 注册（与 aspect 同机制），DataGen 生成到 `data/<ns>/thaumaturge/research_category/`。
+- 门控 `required_research = thaumicavaritia:unlock_thaumicavaritia`（**该研究条目尚未创建**，创建后类别才在魔导手册可见）。
+- `icon` = `thaumicavaritia:textures/item/akashic_record.png`（阿卡西记录图标），`background` = `avaritia:textures/block/diamond_lattice_block.png`，`overlay_background` = Thaumaturge 的 `gui_research_back_over.png`（跨命名空间直接引用纹理 Identifier，运行时 Thaumaturge/avaritia 必在）。`index=7` 排在 Thaumaturge 原版 6 类之后。
+- `formula` 决定扫描要素转知识点的权重（applyFormula 用平方根）。lang 键 `research_category.thaumicavaritia.arcane_infinity`。
+- 注意：研究条目本身是**手写 JSON**（`data/<ns>/thaumaturge/research_entry/`），不经过 DataGen；只有类别经 bootstrap+runData 生成。
+
 ### 无尽工作台配方（`data/recipe/TARecipeProvider.java`）
 - 水晶杖端：`avaritia:shaped_table`（9x9，`tier=4` 无尽工作台），当前为铁锭占位 pattern（9×9 边框），正式材料待替换。
 - 写法参考：构造 `ShapedRecipePattern.of(Map<Character,Ingredient>, String...)` + `new ShapedTableCraftingRecipe(pattern, new ItemStackTemplate(...), tier, compatible)`，再 `output.accept(ResourceKey.create(Registries.RECIPE, ...), recipe, null)`（advancement 传 null）。

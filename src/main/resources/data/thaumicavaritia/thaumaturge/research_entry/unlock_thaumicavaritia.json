@@ -1,0 +1,53 @@
+{
+  "category": "thaumaturge:basics",
+  "name": "research.thaumaturge.unlock_thaumicavaritia.title",
+  "parents": [
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:unlock_eldritch"
+  ],
+  "column": -8,
+  "row": 6,
+  "meta": [
+    "round",
+    "spiky",
+    "hidden"
+  ],
+  "icons": [
+    "avaritia:crystal_matrix_ingot"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_0",
+      "required_knowledge": [
+        {
+          "type": "observation",
+          "category": "thaumaturge:basics",
+          "amount": 1
+        },
+        {
+          "type": "observation",
+          "category": "thaumaturge:eldritch",
+          "amount": 1
+        }
+      ],
+      "required_research": [
+        "thaumaturge:f_voidseed"
+      ],
+      "warp": 5
+    },
+    {
+      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_1"
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:alienis",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturge:tenebrae",
+      "amount": 3
+    }
+  ],
+  "complexity": 3
+}
