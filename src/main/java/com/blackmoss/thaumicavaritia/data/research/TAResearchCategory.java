@@ -1,5 +1,3 @@
-// 研究类别 bootstrap：注册"神秘无尽"（Arcane Infinity）类别，
-// 门控研究为 thaumicavaritia:unlock_thaumicavaritia（尚未创建）。
 package com.blackmoss.thaumicavaritia.data.research;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
@@ -9,17 +7,15 @@ import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
 import com.leclowndu93150.thaumaturge.api.research.IResearchCategory;
 import com.leclowndu93150.thaumaturge.content.research.ResearchCategory;
-import java.util.List;
-import java.util.Optional;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 
-public final class TAResearchCategory {
-    private static final Identifier OVERLAY =
-            Identifier.fromNamespaceAndPath("thaumaturge", "textures/gui/gui_research_back_over.png");
+import java.util.List;
+import java.util.Optional;
 
+public final class TAResearchCategory {
     private TAResearchCategory() {
     }
 
@@ -47,8 +43,9 @@ public final class TAResearchCategory {
                         Identifier.fromNamespaceAndPath(
                                 ThaumicAvaritia.MODID, "textures/item/akashic_record.png"),
                         Identifier.fromNamespaceAndPath(
-                                "avaritia", "textures/block/resource/diamond_lattice_block.png"),
-                        Optional.of(OVERLAY),
+                                "thaumaturge", "textures/gui/gui_research_back_over.png"),
+                        Optional.of(
+                                Identifier.fromNamespaceAndPath("thaumaturge", "textures/gui/gui_research_back_over.png")),
                         7));
     }
 

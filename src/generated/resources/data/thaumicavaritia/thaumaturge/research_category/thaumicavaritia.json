@@ -1,5 +1,5 @@
 {
-  "background": "avaritia:textures/block/resource/diamond_lattice_block.png",
+  "background": "thaumaturge:textures/gui/gui_research_back_over.png",
   "formula": [
     {
       "amount": 20,

@@ -1,0 +1,34 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.ta_wand_cap_crystal.title",
+  "parents": [
+    "thaumicavaritia:ta_akashic_record"
+  ],
+  "column": 5,
+  "row": 0,
+  "meta": [
+    "round"
+  ],
+  "icons": [
+    "thaumicavaritia:wand_cap_crystal"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.ta_wand_cap_crystal.stage_0",
+      "recipes": [
+        "thaumicavaritia:wand_cap_crystal"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:crystallum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:machina",
+      "amount": 2
+    }
+  ],
+  "complexity": 2
+}

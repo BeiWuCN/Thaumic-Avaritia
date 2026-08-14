@@ -1,0 +1,48 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.ta_arcane_singularity_focus.title",
+  "parents": [
+    "thaumicavaritia:ta_wand_cap_crystal",
+    "thaumicavaritia:ta_wand_rod_neutronium"
+  ],
+  "column": 9,
+  "row": 2,
+  "meta": [
+    "round",
+    "spiky"
+  ],
+  "icons": [
+    "thaumicavaritia:arcane_singularity_focus"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.ta_arcane_singularity_focus.stage_0",
+      "recipes": [
+        "thaumicavaritia:arcane_singularity_focus"
+      ]
+    },
+    {
+      "text": "research.thaumaturge.ta_arcane_singularity_focus.stage_1",
+      "required_research": [
+        "thaumicavaritia:ta_wand_cap_crystal",
+        "thaumicavaritia:ta_wand_rod_neutronium"
+      ],
+      "warp": 2
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturge:alienis",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:vitium",
+      "amount": 2
+    }
+  ],
+  "complexity": 3
+}

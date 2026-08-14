@@ -2,8 +2,7 @@
   "category": "thaumaturge:basics",
   "name": "research.thaumaturge.unlock_thaumicavaritia.title",
   "parents": [
-    "thaumaturge:primordial_pearl",
-    "thaumaturge:unlock_eldritch"
+    "thaumaturge:primordial_pearl"
   ],
   "column": -8,
   "row": 6,
@@ -13,30 +12,59 @@
     "hidden"
   ],
   "icons": [
-    "avaritia:crystal_matrix_ingot"
+    "thaumicavaritia:extremely_primordial_pearl"
   ],
   "stages": [
     {
       "text": "research.thaumaturge.unlock_thaumicavaritia.stage_0",
-      "required_knowledge": [
+      "obtain": [
         {
-          "type": "observation",
-          "category": "thaumaturge:basics",
-          "amount": 1
-        },
-        {
-          "type": "observation",
-          "category": "thaumaturge:eldritch",
+          "items": "thaumaturge:primordial_pearl",
           "amount": 1
         }
       ],
-      "required_research": [
-        "thaumaturge:f_voidseed"
-      ],
-      "warp": 5
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturge:auromancy",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturge:infusion",
+          "amount": 1
+        }
+      ]
     },
     {
-      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_1"
+      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_1",
+      "recipes": [
+        "thaumicavaritia:extremely_primordial_pearl"
+      ],
+      "craft": [
+        {
+          "items": "thaumicavaritia:extremely_primordial_pearl",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturge:auromancy",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturge:infusion",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_2",
+      "recipes": [
+        "thaumicavaritia:extremely_primordial_pearl"
+      ]
     }
   ],
   "note_aspects": [
@@ -45,8 +73,12 @@
       "amount": 4
     },
     {
-      "aspect": "thaumaturge:tenebrae",
+      "aspect": "thaumaturge:perditio",
       "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 2
     }
   ],
   "complexity": 3

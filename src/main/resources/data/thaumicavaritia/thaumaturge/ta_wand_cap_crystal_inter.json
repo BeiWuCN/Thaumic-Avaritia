@@ -1,0 +1,27 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.ta_wand_cap_crystal_inter.title",
+  "parents": [
+    "thaumicavaritia:ta_wand_cap_crystal"
+  ],
+  "column": 7,
+  "row": 1,
+  "meta": [
+    "round"
+  ],
+  "icons": [
+    "thaumicavaritia:wand_cap_crystal_inter"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.ta_wand_cap_crystal_inter.stage_0"
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:crystallum",
+      "amount": 2
+    }
+  ],
+  "complexity": 1
+}

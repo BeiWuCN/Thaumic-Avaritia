@@ -21,7 +21,6 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
@@ -62,12 +61,12 @@ public final class TARecipeProvider extends RecipeProvider {
         // 阿卡西记录
         new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
                 new ItemStackTemplate(TAItems.AKASHIC_RECORDS.get()),
-                Ingredient.of(items.getOrThrow(TATags.THAUMATURGE_CURIOS))).
-                component(Ingredient.of(ModItems.infinity_ingot.get())).
-                component(Ingredient.of(ModItems.infinity_ingot.get())).
-                component(Ingredient.of(ModItems.infinity_ingot.get())).
-                component(Ingredient.of(ModItems.infinity_ingot.get())).
-                aspect(TCAspects.COGNITIO, 64)
+                Ingredient.of(items.getOrThrow(TATags.THAUMATURGE_CURIOS)))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .aspect(TCAspects.COGNITIO, 64)
                 .aspect(TCAspects.PRAECANTATIO, 64)
                 .aspect(TCAspects.ALIENIS, 32)
                 .instability(4)
@@ -77,40 +76,40 @@ public final class TARecipeProvider extends RecipeProvider {
         // 充能水晶矩阵杖端
         new InfusionRecipeBuilder(aspects, RecipeCategory.TOOLS,
                 new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL.get()),
-                Ingredient.of(TAItems.WAND_CAP_CRYSTAL_INTER.get())).
-                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.FOCUS_3.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.FOCUS_3.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.FOCUS_3.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.FOCUS_3.get())).
-                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
-                aspect(TCAspects.PRAECANTATIO, 640)
+                Ingredient.of(TAItems.WAND_CAP_CRYSTAL_INTER.get()))
+                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.FOCUS_3.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.FOCUS_3.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.FOCUS_3.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.FOCUS_3.get()))
+                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .aspect(TCAspects.PRAECANTATIO, 640)
                 .aspect(TCAspects.AURAM, 320)
                 .aspect(TCAspects.INSTRUMENTUM, 320)
                 .aspect(TCAspects.ORDO, 320)

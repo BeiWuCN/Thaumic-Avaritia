@@ -1,0 +1,80 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.akashic_record.title",
+  "parents": [
+    "thaumicavaritia:base_thaumicavaritia"
+  ],
+  "column": 2,
+  "row": 2,
+  "meta": [
+    "round",
+    "spiky"
+  ],
+  "icons": [
+    "thaumicavaritia:akashic_record"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.akashic_record.stage_0",
+      "obtain": [
+        {
+          "items": "thaumaturge:curio_arcane",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:curio_preserved",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:curio_ancient",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:curio_eldritch",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:curio_knowledge",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:curio_twisted",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:curio_rites",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        }
+      ],
+      "warp": 2
+    },
+    {
+      "text": "research.thaumaturge.akashic_record.stage_1",
+      "recipes": [
+        "thaumicavaritia:akashic_record"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:cognitio",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:alienis",
+      "amount": 2
+    }
+  ],
+  "complexity": 3
+}

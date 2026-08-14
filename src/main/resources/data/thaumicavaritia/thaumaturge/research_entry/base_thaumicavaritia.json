@@ -1,0 +1,36 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.base_thaumicavaritia.title",
+  "parents": [
+    "thaumicavaritia:unlock_thaumicavaritia"
+  ],
+  "column": 0,
+  "row": 0,
+  "meta": [
+    "round",
+    "hidden"
+  ],
+  "icons": [
+    "thaumicavaritia:textures/item/akashic_record.png"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.base_thaumicavaritia.stage_0"
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:alienis",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:cognitio",
+      "amount": 3
+    }
+  ],
+  "complexity": 2
+}
