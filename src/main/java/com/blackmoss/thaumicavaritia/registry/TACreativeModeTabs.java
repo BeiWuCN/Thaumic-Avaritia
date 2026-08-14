@@ -35,7 +35,7 @@ public class TACreativeModeTabs {
                                     TAWandParts.CAP_CRYSTAL.get(),
                                     TAWandParts.ROD_INFINITY.get(),
                                     false));
-                            output.accept(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
+                            output.accept(TAItems.ARCANE_SINGULARITY_FOCUS.get());
                         }).build());
     }
 }

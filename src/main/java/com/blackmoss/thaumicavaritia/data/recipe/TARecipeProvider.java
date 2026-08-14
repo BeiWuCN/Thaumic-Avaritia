@@ -7,6 +7,7 @@ import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionRecipeBuilder;
 import com.leclowndu93150.thaumaturge.registry.TCItems;
+import committee.nova.mods.avaritia.common.crafting.recipe.ExtremeSmithingRecipe;
 import committee.nova.mods.avaritia.common.crafting.recipe.ShapedTableCraftingRecipe;
 import committee.nova.mods.avaritia.init.registry.ModBlocks;
 import committee.nova.mods.avaritia.init.registry.ModItems;
@@ -20,9 +21,11 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import net.neoforged.neoforge.common.crafting.CompoundIngredient;
 import org.jspecify.annotations.NonNull;
 
 import java.util.Map;
@@ -40,9 +43,7 @@ public final class TARecipeProvider extends RecipeProvider {
         HolderGetter<Item> items = registries.lookupOrThrow(Registries.ITEM);
 
         // 极元始珍珠
-        new InfusionRecipeBuilder(
-                aspects,
-                RecipeCategory.MISC,
+        new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
                 new ItemStackTemplate(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()),
                 Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
                 .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
@@ -59,16 +60,14 @@ public final class TARecipeProvider extends RecipeProvider {
                 .save(output, ThaumicAvaritia.MODID + ":extremely_primordial_pearl");
 
         // 阿卡西记录
-        new InfusionRecipeBuilder(
-                aspects,
-                RecipeCategory.MISC,
+        new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
                 new ItemStackTemplate(TAItems.AKASHIC_RECORDS.get()),
-                Ingredient.of(items.getOrThrow(TATags.THAUMATURGE_CURIOS)))
-                .component(Ingredient.of(ModItems.infinity_ingot.get()))
-                .component(Ingredient.of(ModItems.infinity_ingot.get()))
-                .component(Ingredient.of(ModItems.infinity_ingot.get()))
-                .component(Ingredient.of(ModItems.infinity_ingot.get()))
-                .aspect(TCAspects.COGNITIO, 64)
+                Ingredient.of(items.getOrThrow(TATags.THAUMATURGE_CURIOS))).
+                component(Ingredient.of(ModItems.infinity_ingot.get())).
+                component(Ingredient.of(ModItems.infinity_ingot.get())).
+                component(Ingredient.of(ModItems.infinity_ingot.get())).
+                component(Ingredient.of(ModItems.infinity_ingot.get())).
+                aspect(TCAspects.COGNITIO, 64)
                 .aspect(TCAspects.PRAECANTATIO, 64)
                 .aspect(TCAspects.ALIENIS, 32)
                 .instability(4)
@@ -76,44 +75,42 @@ public final class TARecipeProvider extends RecipeProvider {
                 .save(output, ThaumicAvaritia.MODID + ":akashic_record");
 
         // 充能水晶矩阵杖端
-        new InfusionRecipeBuilder(
-                aspects,
-                RecipeCategory.TOOLS,
+        new InfusionRecipeBuilder(aspects, RecipeCategory.TOOLS,
                 new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL.get()),
-                Ingredient.of(TAItems.WAND_CAP_CRYSTAL_INTER.get()))
-                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.FOCUS_3.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.FOCUS_3.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.FOCUS_3.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.FOCUS_3.get()))
-                .component(Ingredient.of(TCItems.PRIMAL_CHARM.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
-                .aspect(TCAspects.PRAECANTATIO, 640)
+                Ingredient.of(TAItems.WAND_CAP_CRYSTAL_INTER.get())).
+                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.FOCUS_3.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.FOCUS_3.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.FOCUS_3.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.FOCUS_3.get())).
+                component(Ingredient.of(TCItems.PRIMAL_CHARM.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                component(Ingredient.of(TCItems.SALIS_MUNDUS.get())).
+                aspect(TCAspects.PRAECANTATIO, 640)
                 .aspect(TCAspects.AURAM, 320)
                 .aspect(TCAspects.INSTRUMENTUM, 320)
                 .aspect(TCAspects.ORDO, 320)
@@ -123,8 +120,8 @@ public final class TARecipeProvider extends RecipeProvider {
                 .save(output, ThaumicAvaritia.MODID + ":wand_cap_crystal");
 
         // 惰性水晶矩阵杖端
-        ShapedRecipePattern wandCapCrystalPattern = ShapedRecipePattern.of(
-                Map.of('Q', Ingredient.of(TCItems.NUGGET_QUICKSILVER.get()),
+        ShapedRecipePattern wandCapCrystalPattern = ShapedRecipePattern.of(Map.of(
+                        'Q', Ingredient.of(TCItems.NUGGET_QUICKSILVER.get()),
                         'L', Ingredient.of(ModItems.diamond_lattice.get()),
                         'B', Ingredient.of(ModBlocks.diamond_lattice_block.get()),
                         'V', Ingredient.of(TCItems.WAND_CAP_VOID.get()),
@@ -139,16 +136,15 @@ public final class TARecipeProvider extends RecipeProvider {
                 "LBLLSLLBL",
                 "LLLSSSLLL",
                 "SSSQQQSSS");
-        output.accept(
-                ResourceKey.create(
-                        Registries.RECIPE,
+        output.accept(ResourceKey.create(Registries.RECIPE,
                         Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "wand_cap_crystal_inter")),
-                new ShapedTableCraftingRecipe(
-                        wandCapCrystalPattern, new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL_INTER.get()), 4, false),
-                null);
+                new ShapedTableCraftingRecipe(wandCapCrystalPattern,
+                        new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL_INTER.get()),
+                        4, false), null);
 
-        ShapedRecipePattern wandRodStuddedCosmicNeutronium = ShapedRecipePattern.of(
-                Map.of('N', Ingredient.of(ModItems.infinity_nugget.get()),
+        // 中子态素杖柄
+        ShapedRecipePattern wandRodStuddedCosmicNeutronium = ShapedRecipePattern.of(Map.of(
+                        'N', Ingredient.of(ModItems.infinity_nugget.get()),
                         'n', Ingredient.of(ModItems.neutron_nugget.get()),
                         'I', Ingredient.of(ModItems.neutron_ingot.get()),
                         'C', Ingredient.of(ModItems.infinity_catalyst.get()),
@@ -165,13 +161,22 @@ public final class TARecipeProvider extends RecipeProvider {
                 "nNIbInN  ",
                 "NCNInN   ",
                 "NNnnN    ");
-        output.accept(
-                ResourceKey.create(
-                        Registries.RECIPE,
-                        Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "wand_rod_studded_cosmic_neutronium")),
-                new ShapedTableCraftingRecipe(
-                        wandRodStuddedCosmicNeutronium, new ItemStackTemplate(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get()), 4, false),
-                null);
+        output.accept(ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(
+                        ThaumicAvaritia.MODID, "wand_rod_studded_cosmic_neutronium")),
+                new ShapedTableCraftingRecipe(wandRodStuddedCosmicNeutronium,
+                        new ItemStackTemplate(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get()),
+                        4, false), null);
+
+        // 奥法奇点核心：无尽锻造。base=大师核心，template=升级锻造模板，
+        // addition=极元始珍珠 + 无瑕核心 + 悖论物质（compound，三选一）。
+        output.accept(ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(
+                        ThaumicAvaritia.MODID, "arcane_singularity_focus")),
+                new ExtremeSmithingRecipe(Ingredient.of(ModItems.upgrade_smithing_template.get()),
+                        Ingredient.of(TCItems.FOCUS_3.get()),
+                        CompoundIngredient.of(Ingredient.of(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()),
+                                Ingredient.of(ModItems.enhancement_core.get()),
+                                Ingredient.of(TCItems.CAUSALITY_COLLAPSER.get())),
+                        new ItemStackTemplate(TAItems.ARCANE_SINGULARITY_FOCUS.get())), null);
     }
 
     public static final class Runner extends RecipeProvider.Runner {

@@ -106,6 +106,10 @@
 - `tier` 决定所需工作台等级（4=无尽工作台；0=不限制）；`compatible` 不参与合成匹配，传 `false` 使 JSON 与原版一致（无该字段）。
 - avaritia 的 `AvaritiaRecipeProvider` 全是 private 方法，addon 无法复用其 helper，只能参考 JSON 格式；`ShapedTableCraftingRecipe` 是唯一可构造的公开配方类。
 
+### 无尽锻造配方（`data/recipe/TARecipeProvider.java`）
+- 奥法奇点核心：`avaritia:extreme_smithing`。template=`avaritia:upgrade_smithing_template`，base=`thaumaturge:focus_3`，addition=`CompoundIngredient`（极元始珍珠 / `avaritia:enhancement_core` / `thaumaturge:causality_collapser` 三选一）。
+- **必须用 `new ItemStackTemplate(item)` 构造 result**，不能用 `new ItemStack(item)`——后者在 datagen 环境触发物品默认组件解析，抛 `NullPointerException: Components not bound yet`（wand 配方的 `Ingredient.of` 与 `ItemStackTemplate` 均安全，仅 `new ItemStack` 不行）。
+
 ### 无尽催化剂配方覆盖（`src/main/resources/data/avaritia/recipe/`）
 - 用**数据包覆盖**（同名文件）把 `extremely_primordial_pearl` 追加进 avaritia 原版的两个 `type=avaritia:infinity_catalyst` 配方：`infinity_catalyst.json`（default 组）与 `infinity_catalyst_eternal.json`（`group=eternal_singularity`）。
 - 覆盖文件必须放在 **`data/avaritia/`** 命名空间（本 mod `ordering=AFTER avaritia`，数据包后者覆盖前者）；放在 `data/thaumicavaritia/` 只会**新增**独立配方而非修改原版。

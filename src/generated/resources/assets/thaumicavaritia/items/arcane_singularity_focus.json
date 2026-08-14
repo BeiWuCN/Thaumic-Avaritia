@@ -1,11 +1,9 @@
 {
   "model": {
-    "type": "minecraft:model",
+    "type": "avaritia:halo",
     "model": "thaumicavaritia:item/arcane_singularity_focus",
-    "tints": [
-      {
-        "type": "thaumaturge:focus_color"
-      }
-    ]
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "avaritia:extreme_smithing",
+  "addition": {
+    "neoforge:ingredient_type": "neoforge:compound",
+    "children": [
+      "thaumicavaritia:extremely_primordial_pearl",
+      "avaritia:enhancement_core",
+      "thaumaturge:causality_collapser"
+    ]
+  },
+  "base": "thaumaturge:focus_3",
+  "result": {
+    "id": "thaumicavaritia:arcane_singularity_focus"
+  },
+  "template": "avaritia:upgrade_smithing_template"
+}

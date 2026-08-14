@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "thaumaturge:item/focus_3"
+    "layer0": "thaumicavaritia:item/arcane_singularity_focus"
   }
 }
