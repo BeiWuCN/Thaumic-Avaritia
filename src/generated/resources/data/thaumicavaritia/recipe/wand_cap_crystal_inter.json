@@ -1,0 +1,26 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "B": "avaritia:diamond_lattice_block",
+    "L": "avaritia:diamond_lattice",
+    "P": "thaumaturge:primordial_pearl",
+    "Q": "thaumaturge:nugget_quicksilver",
+    "S": "thaumaturge:salis_mundus",
+    "V": "thaumaturge:wand_cap_void"
+  },
+  "pattern": [
+    "QQLLLLLQQ",
+    "QLLBBBLLQ",
+    "LLBBBBBLL",
+    "LBBVPVBBL",
+    "LBBBBBBBL",
+    "LBBBLBBBL",
+    "LBLLSLLBL",
+    "LLLSSSLLL",
+    "SSSQQQSSS"
+  ],
+  "result": {
+    "id": "thaumicavaritia:wand_cap_crystal_inter"
+  },
+  "tier": 4
+}

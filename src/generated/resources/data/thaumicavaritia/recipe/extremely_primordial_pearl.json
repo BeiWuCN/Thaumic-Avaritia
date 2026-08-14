@@ -2,11 +2,11 @@
   "type": "thaumaturge:infusion",
   "aspects": [
     {
-      "amount": 32,
+      "amount": 64,
       "aspect": "thaumaturge:alienis"
     },
     {
-      "amount": 16,
+      "amount": 64,
       "aspect": "thaumaturge:perditio"
     }
   ],

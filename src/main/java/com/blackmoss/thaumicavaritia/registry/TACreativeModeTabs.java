@@ -1,6 +1,8 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.leclowndu93150.thaumaturge.content.wands.ItemWand;
+import com.leclowndu93150.thaumaturge.registry.TCItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -25,8 +27,14 @@ public class TACreativeModeTabs {
                         .displayItems((_, output) -> {
                             output.accept(TAItems.AKASHIC_RECORDS.get());
                             output.accept(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get());
+                            output.accept(TAItems.WAND_CAP_CRYSTAL_INTER.get());
                             output.accept(TAItems.WAND_CAP_CRYSTAL.get());
                             output.accept(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
+                            output.accept(ItemWand.create(
+                                    TCItems.WAND.get(),
+                                    TAWandParts.CAP_CRYSTAL.get(),
+                                    TAWandParts.ROD_INFINITY.get(),
+                                    false));
                         }).build());
     }
 }

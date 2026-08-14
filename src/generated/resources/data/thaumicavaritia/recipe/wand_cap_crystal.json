@@ -1,0 +1,64 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:praecantatio"
+    },
+    {
+      "amount": 320,
+      "aspect": "thaumaturge:auram"
+    },
+    {
+      "amount": 320,
+      "aspect": "thaumaturge:instrumentum"
+    },
+    {
+      "amount": 320,
+      "aspect": "thaumaturge:ordo"
+    },
+    {
+      "amount": 320,
+      "aspect": "thaumaturge:potentia"
+    }
+  ],
+  "catalyst": "thaumicavaritia:wand_cap_crystal_inter",
+  "components": [
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:primal_charm",
+    "thaumaturge:focus_3",
+    "thaumaturge:primal_charm",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:primal_charm",
+    "thaumaturge:focus_3",
+    "thaumaturge:primal_charm",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:primal_charm",
+    "thaumaturge:focus_3",
+    "thaumaturge:primal_charm",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:primordial_pearl",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:primal_charm",
+    "thaumaturge:focus_3",
+    "thaumaturge:primal_charm",
+    "thaumaturge:salis_mundus",
+    "thaumaturge:salis_mundus"
+  ],
+  "instability": 6,
+  "result": {
+    "id": "thaumicavaritia:wand_cap_crystal"
+  }
+}

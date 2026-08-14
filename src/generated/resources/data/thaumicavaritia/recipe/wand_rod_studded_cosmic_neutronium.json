@@ -1,0 +1,28 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "B": "avaritia:infinity",
+    "C": "avaritia:infinity_catalyst",
+    "I": "avaritia:neutron_ingot",
+    "N": "avaritia:infinity_nugget",
+    "P": "thaumaturge:primordial_pearl",
+    "R": "thaumaturge:staff_rod_primal",
+    "b": "avaritia:neutron",
+    "n": "avaritia:neutron_nugget"
+  },
+  "pattern": [
+    "    NnnNN",
+    "   NnINCN",
+    "  NnIbINn",
+    " NnIPRbIn",
+    "NnIPBPInN",
+    "nIbRPInN ",
+    "nNIbInN  ",
+    "NCNInN   ",
+    "NNnnN    "
+  ],
+  "result": {
+    "id": "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
+  },
+  "tier": 4
+}

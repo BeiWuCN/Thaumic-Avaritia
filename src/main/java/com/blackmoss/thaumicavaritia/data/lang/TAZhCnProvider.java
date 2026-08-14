@@ -16,8 +16,12 @@ public final class TAZhCnProvider extends LanguageProvider {
 
         add("item.thaumicavaritia.extremely_primordial_pearl", "极元始珍珠");
         add("item.thaumicavaritia.akashic_record", "阿卡西记录");
-        add("item.thaumicavaritia.wand_cap_crystal", "水晶矩阵杖端");
+        add("item.thaumicavaritia.wand_cap_crystal", "充能水晶矩阵杖端");
+        add("item.thaumicavaritia.wand_cap_crystal_inter", "惰性水晶矩阵杖端");
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "宇宙中子态素杖柄");
+
+        add("wand.thaumaturge.cap.crystal", "水晶矩阵杖端");
+        add("wand.thaumaturge.rod.infinity", "缠绕宇宙中子态素");
 
         add("singularity.thaumicavaritia.brass", "黄铜奇点");
         add("singularity.thaumicavaritia.thaumium", "神秘奇点");

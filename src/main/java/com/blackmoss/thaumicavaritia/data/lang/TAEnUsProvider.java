@@ -16,8 +16,12 @@ public final class TAEnUsProvider extends LanguageProvider {
 
         add("item.thaumicavaritia.extremely_primordial_pearl", "Extremely Primordial Pearl");
         add("item.thaumicavaritia.akashic_record", "Akashic Records");
-        add("item.thaumicavaritia.wand_cap_crystal", "Wand Cap: Crystal Matrix");
-        add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "Wand Rod: Studded Cosmic Neutronium");
+        add("item.thaumicavaritia.wand_cap_crystal", "Charged Crystal Matrix Cap");
+        add("item.thaumicavaritia.wand_cap_crystal_inter", "Inter Crystal Matrix Cap");
+        add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "Studded Cosmic Neutronium Rod");
+
+        add("wand.thaumaturge.cap.crystal", "Crystal Matrix");
+        add("wand.thaumaturge.rod.infinity", "Studded Cosmic Neutronium");
 
         add("singularity.thaumicavaritia.brass", "Brass Singularity");
         add("singularity.thaumicavaritia.thaumium", "Thaumium Singularity");

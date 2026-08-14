@@ -89,6 +89,24 @@
 - 阿卡西记录：催化剂 `#thaumaturge:curios` + 4 × `ModItems.infinity_ingot` 注魔（Cognitio×64 / Praecantatio×64 / Alienis×32）。
 - 全部使用 `InfusionRecipeBuilder`，已带 `.unlockedBy(...)`。
 
+### 无尽工作台配方（`data/recipe/TARecipeProvider.java`）
+- 水晶杖端：`avaritia:shaped_table`（9x9，`tier=4` 无尽工作台），当前为铁锭占位 pattern（9×9 边框），正式材料待替换。
+- 写法参考：构造 `ShapedRecipePattern.of(Map<Character,Ingredient>, String...)` + `new ShapedTableCraftingRecipe(pattern, new ItemStackTemplate(...), tier, compatible)`，再 `output.accept(ResourceKey.create(Registries.RECIPE, ...), recipe, null)`（advancement 传 null）。
+- `tier` 决定所需工作台等级（4=无尽工作台；0=不限制）；`compatible` 不参与合成匹配，传 `false` 使 JSON 与原版一致（无该字段）。
+- avaritia 的 `AvaritiaRecipeProvider` 全是 private 方法，addon 无法复用其 helper，只能参考 JSON 格式；`ShapedTableCraftingRecipe` 是唯一可构造的公开配方类。
+
+### 无尽催化剂配方覆盖（`src/main/resources/data/avaritia/recipe/`）
+- 用**数据包覆盖**（同名文件）把 `extremely_primordial_pearl` 追加进 avaritia 原版的两个 `type=avaritia:infinity_catalyst` 配方：`infinity_catalyst.json`（default 组）与 `infinity_catalyst_eternal.json`（`group=eternal_singularity`）。
+- 覆盖文件必须放在 **`data/avaritia/`** 命名空间（本 mod `ordering=AFTER avaritia`，数据包后者覆盖前者）；放在 `data/thaumicavaritia/` 只会**新增**独立配方而非修改原版。
+- 注意 `InfinityCatalystCraftRecipe` 的 default 组是动态配方：运行时会把所有已注册 singularity 物品追加进 ingredients，且匹配要求输入数量 = singularityCount + originalInputs.size()。珍珠不是 singularity，不会进入动态部分，只作为固定材料。
+
+### 奇点（`src/main/resources/data/thaumicavaritia/singularities/` + `recipe/`）
+- 注册 3 个 Thaumaturge 金属奇点：`brass`（`thaumaturge:ingot_brass`）、`thaumium`（`thaumaturge:ingot_thaumium`）、`void`（`thaumaturge:ingot_void`）。
+- singularity 由**数据文件**定义（`data/<ns>/singularities/<name>.json`，字段 `name`/`ingredient`/`displayName`/`overlayColor`/`underlayColor`），由 avaritia 的 `SingularityReloadListener` 加载；文件路径按 `name` 字段命名空间输出。必须用自己的命名空间 `thaumicavaritia:`（否则会覆盖/污染 avaritia 命名空间）。
+- 合成配方：`data/thaumicavaritia/recipe/<name>_singularity.json`，`type=avaritia:compressor`，`result` 带 `avaritia:singularity_id` component，`timeCost=240`（参照原版 iron_singularity 格式）。
+- 注册后奇点自动进入 default 组无尽催化剂配方的**动态材料**部分（`InfinityCatalystCraftRecipe.getIngredients` 会把所有 `hasIngredient` 的 singularity 追加进去）。
+- 翻译键：`singularity.thaumicavaritia.<name>`（DataGen lang）。
+
 ### 标签（`registry/TATags.java` + `data/tag/TATagsProvider.java`）
 - `#avaritia:endless`（`ModTags.IMMORTAL_ITEM`）：珍珠、阿卡西、杖端、杖柄全部加入。
 - `#thaumaturge:curios`（`TATags.THAUMATURGE_CURIOS`）：Thaumaturge 的 7 个珍宝加入，供阿卡西配方取用。
