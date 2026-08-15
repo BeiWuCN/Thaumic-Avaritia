@@ -90,6 +90,18 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("wand.thaumaturge.cap.crystal_matrix", "Crystal Matrix");
         add("wand.thaumaturge.rod.studded_cosmic_neutronium", "Studded Cosmic Neutronium");
 
+        // Cosmic Neutronium Essentia Smeltery
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.title", "Cosmic Neutronium Essentia Smeltery");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0", "The void-metal essentia smeltery is surely stronger than the basic one, yet it still drags along at a maddening pace — the slurry breaks down ever so slowly, and the essentia pollution it bleeds off fouls the whole surroundings besides.<BR>I've had my fill of that inefficiency and filth. Since the void smeltery can be taken apart, its frame, piping and Vis circuitry are surely the very place to begin my redesign.");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1", "Tearing it down alone won't suffice. I need a material that can rewrite the smelting logic entirely — and the pure neutronium sealed within the full matter cluster is precisely my answer.<BR>Let it be the core, and scrub away both pollution and loss in one stroke. I mean to build a smeltery that wastes not a wisp of essentia, nor exhales a speck of filth.");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2", "As the last full matter cluster vanishes, a brand-new essentia smeltery takes shape in my hands. It no longer grinds the slurry down at a crawl, nor reeks of essentia pollution — only efficiency, and perfection.<BR>From this day forth, smelting essentia shall be the simplest thing in the world.");
+
+        // Gushing Charger
+        add("research.thaumaturge.infinity_charger.title", "Gushing Charger");
+        add("research.thaumaturge.infinity_charger.stage_0", "The arcane workbench charger is convenient, sure — but it has a deadly flaw: it drinks the aura of the whole surrounding area bone dry.<BR>With the aura drained away, my wand is all but useless; worse still, the aura it violently churns up leaves behind more flux than aura, and that sort of build-up can kill. I need a way to keep the charging, yet stop it from starving the land or stirring up flux.");
+        add("research.thaumaturge.infinity_charger.stage_1", "My thoughts turn to those jarred nodes — sealed in glass, yet they still quietly condense and generate their own vis, never once begging the world for a sip of aura.<BR>If I could carry that self-sufficiency over, let the charger make its own vis, wouldn't it stop draining the aura and stop spawning flux altogether? The studded cosmic neutronium rod connects to the vis of the whole universe — this charger ought to share a similar knack.");
+        add("research.thaumaturge.infinity_charger.stage_2", "As the last jarred node sinks into the infusion's swirl, a gushing charger takes shape in my hands. It no longer greedily bleeds the surrounding aura dry, nor leaves behind any dangerous flux — it simply wells up with endless vis of its own.<BR>Set it atop an arcane workbench, and from this day forth, charging comes with no strings attached.");
+
         add("singularity.thaumicavaritia.brass", "Brass Singularity");
         add("singularity.thaumicavaritia.thaumium", "Thaumium Singularity");
         add("singularity.thaumicavaritia.void", "Void Singularity");

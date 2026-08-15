@@ -251,18 +251,22 @@ public final class TARecipeProvider extends RecipeProvider {
                 .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
                 .save(output, ThaumicAvaritia.MODID + ":infinity_charger");
 
-        // 宇宙中子态素源质冶炼厂：以虚空冶炼炉为基座，注入无限之力，0 燃料/0 污染/瞬间产出。
+        // 宇宙中子态素源质冶炼厂
         new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
                 new ItemStackTemplate(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get()),
                 Ingredient.of(TCItems.SMELTER_VOID.get()))
                 .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .component(Ingredient.of(ModItems.full_matter_cluster.get()))
                 .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .component(Ingredient.of(ModItems.full_matter_cluster.get()))
                 .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .component(Ingredient.of(ModItems.full_matter_cluster.get()))
                 .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .component(Ingredient.of(ModItems.full_matter_cluster.get()))
                 .aspect(TCAspects.AURAM, 640)
                 .aspect(TCAspects.PRAECANTATIO, 640)
                 .aspect(TCAspects.VACUOS, 640)

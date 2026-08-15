@@ -89,6 +89,18 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("wand.thaumaturge.cap.crystal_matrix", "水晶矩阵杖端");
         add("wand.thaumaturge.rod.studded_cosmic_neutronium", "缠绕宇宙中子态素");
 
+        // 宇宙中子态素源质冶炼厂
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.title", "宇宙中子态素源质冶炼厂");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0", "虚空金属源质冶炼厂确实比基础款强了不少，可它依旧慢得让人心烦——黏浆分解得磨磨蹭蹭，更别提冶炼时逸散的源质污染，把周遭环境糟蹋得一塌糊涂。<BR>我受够了这份低效与肮脏。既然虚空冶炼厂能拆，那它身上的结构、管道与魔力回路，想必正是我改良的起点。");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1", "光拆解可不够。我需要一种能彻底重写冶炼逻辑的材料——满载物质团里封存的纯粹中子态素，正是我要的答案。<BR>以它为本，将污染与损耗一并抹去。我想造一座不浪费一丝源质、也不吐出一点污物的冶炼厂。");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2", "当最后一个满载物质团消失时，一座全新的源质冶炼厂在我手中成型。它运转时再无缓慢的黏浆分解，也无刺鼻的源质污染——只有效率，与极致。<BR>从今往后，冶炼源质，将是再简单不过的事。");
+
+        // 涌流充能器
+        add("research.thaumaturge.infinity_charger.title", "涌流充能器");
+        add("research.thaumaturge.infinity_charger.stage_0", "奥术工作台充能器确实方便，可它有个要命的毛病——它会把周遭区域的灵气吸得一干二净。<BR>灵气被抽空后，我的法杖根本使不出来；更糟的是，被强行搅动的灵气里咒波比灵气还多，那东西聚起来可是会要命的。得想个法子，既要留住充能的本事，又别把环境榨干、别招来咒波。");
+        add("research.thaumaturge.infinity_charger.stage_1", "我琢磨起那些缸中节点——它们被封在罐子里，却依旧能自顾自地凝聚、产生魔力，从不需要外界喂一口灵气。<BR>若是将这份“自给自足”的本事搬过来，让充能器自己生魔力，不就既不吸光灵气、也不搅出咒波了吗？宇宙中子态素杖柄能连通全宇宙的魔力，这充能器，也该有相似的能耐。");
+        add("research.thaumaturge.infinity_charger.stage_2", "注魔既毕，眼前的涌流充能器已然苏醒——它不再贪婪地榨取周遭灵气，也不会留下危险的咒波，只是由内而外涌动着取之不尽的魔力。<BR>把它架在奥术工作台之上，从此充能，再无后顾之忧。");
+
         add("singularity.thaumicavaritia.brass", "黄铜奇点");
         add("singularity.thaumicavaritia.thaumium", "神秘奇点");
         add("singularity.thaumicavaritia.void", "虚空奇点");

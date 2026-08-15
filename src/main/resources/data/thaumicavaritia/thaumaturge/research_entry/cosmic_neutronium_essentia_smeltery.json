@@ -1,0 +1,78 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.title",
+  "parents": [
+    "thaumicavaritia:base_thaumicavaritia",
+    "thaumaturge:essentia_smelter_void"
+  ],
+  "column": -3,
+  "row": -1,
+  "icons": [
+    "thaumicavaritia:cosmic_neutronium_essentia_smeltery"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0",
+      "obtain": [
+        {
+          "items": "thaumaturge:smelter_void",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        }
+      ],
+      "warp": 5
+    },
+    {
+      "text": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1",
+      "obtain": [
+        {
+          "items": "avaritia:full_matter_cluster",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        }
+      ],
+      "warp": 5
+    },
+    {
+      "text": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2",
+      "recipes": [
+        "thaumicavaritia:cosmic_neutronium_essentia_smeltery"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:perditio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:metallum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:auram",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus",
+      "amount": 1
+    }
+  ],
+  "complexity": 3
+}

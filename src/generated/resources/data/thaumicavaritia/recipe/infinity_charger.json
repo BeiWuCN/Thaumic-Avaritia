@@ -14,6 +14,10 @@
       "aspect": "thaumaturge:vacuos"
     },
     {
+      "amount": 640,
+      "aspect": "thaumaturge:machina"
+    },
+    {
       "amount": 16,
       "aspect": "thaumicavaritia:infinitus"
     }
