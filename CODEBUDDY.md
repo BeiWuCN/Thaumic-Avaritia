@@ -86,9 +86,9 @@
 
 ### 法杖部件（`registry/TAWandParts.java`）
 - 注册到 Thaumaturge 的法杖注册表（`WandCap.REGISTRY_KEY` / `WandRod.REGISTRY_KEY`），不是物品注册表。
-- `CAP_CRYSTAL`：`baseCostModifier = 0.1F`（90% 减免）。
-- `ROD_INFINITY`：`capacity = 9_999_999`（vis，Thaumaturge 内部以 centivis 存储，写入时乘 100），`onUpdate = InfinityOnUpdate` 每 tick 把全部原初要素补满（写入 `TCDataComponents.WAND_VIS`）。
-- 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`wand_rod_neutronium.png`；物品形态另有 `textures/item/` 下同名 PNG（**纹理由用户手绘，AI 不要生成图片**）。注意迁移时已修正：旧代码曾引用 `wand_cap_crystal_matrix.png` / `wand_rod_infinity.png`，与用户实际文件不符，已对齐。
+- `CRYSTAL_MATRIX`：`baseCostModifier = 0.1F`（90% 减免）。
+- `STUDDED_COSMIC_NEUTRONIUM`：`capacity = 9_999_999`（vis，Thaumaturge 内部以 centivis 存储，写入时乘 100），`onUpdate = InfinityOnUpdate` 每 tick 把全部原初要素补满（写入 `TCDataComponents.WAND_VIS`）。
+- 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`wand_rod_studded_cosmic_neutronium.png`；物品形态另有 `textures/item/` 下同名 PNG（**纹理由用户手绘，AI 不要生成图片**）。注意迁移时已修正：旧代码曾引用 `wand_cap_crystal_matrix.png` / `wand_rod_infinity.png`，与用户实际文件不符，已对齐。
 
 ### 物品模型（`data/model/TAModelProvider.java`）
 - 全部 4 个物品使用 avaritia 的**无尽背景光圈（halo）**：内层模型（`createFlatItemModel`，自动引用 `item/<注册名>.png`）+ `AvaritiaItemModelLoaders.Halo` 物品模型（`pulse=false, size=6, texture=avaritia:misc/halo`）。

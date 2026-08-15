@@ -1,17 +1,17 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.wand_cap_crystal.title",
+  "name": "research.thaumaturge.wand_cap_crystal_matrix.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia"
   ],
   "column": 1,
   "row": 2,
   "icons": [
-    "thaumicavaritia:wand_cap_crystal"
+    "thaumicavaritia:wand_cap_crystal_matrix"
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.wand_cap_crystal.stage_0",
+      "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_0",
       "obtain": [
         {
           "items": "avaritia:crystal_matrix_ingot",
@@ -33,7 +33,7 @@
       "warp": 1
     },
     {
-      "text": "research.thaumaturge.wand_cap_crystal.stage_1",
+      "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_1",
       "craft": [
         {
           "items": "thaumaturge:wand_cap_void",
@@ -57,10 +57,10 @@
       ]
     },
     {
-      "text": "research.thaumaturge.wand_cap_crystal.stage_2",
+      "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_2",
       "craft": [
         {
-          "items": "thaumicavaritia:wand_cap_crystal_inter",
+          "items": "thaumicavaritia:wand_cap_crystal_matrix_inter",
           "amount": 1
         }
       ],
@@ -72,14 +72,13 @@
         }
       ],
       "recipes": [
-        "thaumicavaritia:wand_cap_crystal_inter"
+        "thaumicavaritia:wand_cap_crystal_matrix_inter"
       ]
     },
     {
-      "text": "research.thaumaturge.wand_cap_crystal.stage_3",
+      "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_3",
       "recipes": [
-        "thaumicavaritia:wand_cap_crystal_inter",
-        "thaumicavaritia:wand_cap_crystal"
+        "thaumicavaritia:wand_cap_crystal_matrix"
       ]
     }
   ],

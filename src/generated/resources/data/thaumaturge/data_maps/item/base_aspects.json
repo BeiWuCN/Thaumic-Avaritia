@@ -1965,46 +1965,6 @@
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
-    "thaumicavaritia:wand_cap_crystal": [
-      {
-        "amount": 100,
-        "aspect": "thaumaturge:praecantatio"
-      },
-      {
-        "amount": 100,
-        "aspect": "thaumaturge:auram"
-      },
-      {
-        "amount": 100,
-        "aspect": "thaumaturge:vitreus"
-      },
-      {
-        "amount": 80,
-        "aspect": "thaumaturge:ordo"
-      },
-      {
-        "amount": 12,
-        "aspect": "thaumicavaritia:infinitus"
-      }
-    ],
-    "thaumicavaritia:wand_cap_crystal_inter": [
-      {
-        "amount": 40,
-        "aspect": "thaumaturge:vitreus"
-      },
-      {
-        "amount": 40,
-        "aspect": "thaumaturge:metallum"
-      },
-      {
-        "amount": 20,
-        "aspect": "thaumaturge:praecantatio"
-      },
-      {
-        "amount": 4,
-        "aspect": "thaumicavaritia:infinitus"
-      }
-    ],
     "thaumicavaritia:wand_rod_studded_cosmic_neutronium": [
       {
         "amount": 100,

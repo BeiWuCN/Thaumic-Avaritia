@@ -49,10 +49,7 @@
       ]
     },
     {
-      "text": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_2",
-      "recipes": [
-        "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
-      ]
+      "text": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_2"
     }
   ],
   "note_aspects": [

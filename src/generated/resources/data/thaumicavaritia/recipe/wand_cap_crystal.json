@@ -26,7 +26,7 @@
       "aspect": "thaumicavaritia:infinitus"
     }
   ],
-  "catalyst": "thaumicavaritia:wand_cap_crystal_inter",
+  "catalyst": "thaumicavaritia:wand_cap_crystal_matrix_inter",
   "components": [
     "thaumaturge:primordial_pearl",
     "thaumaturge:salis_mundus",
@@ -63,6 +63,6 @@
   ],
   "instability": 6,
   "result": {
-    "id": "thaumicavaritia:wand_cap_crystal"
+    "id": "thaumicavaritia:wand_cap_crystal_matrix"
   }
 }

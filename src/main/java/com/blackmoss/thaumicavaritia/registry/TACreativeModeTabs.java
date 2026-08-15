@@ -27,13 +27,13 @@ public class TACreativeModeTabs {
                         .displayItems((_, output) -> {
                             output.accept(TAItems.AKASHIC_RECORDS.get());
                             output.accept(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get());
-                            output.accept(TAItems.WAND_CAP_CRYSTAL_INTER.get());
-                            output.accept(TAItems.WAND_CAP_CRYSTAL.get());
+                            output.accept(TAItems.WAND_CAP_CRYSTAL_MATRIX_INTER.get());
+                            output.accept(TAItems.WAND_CAP_CRYSTAL_MATRIX.get());
                             output.accept(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
                             output.accept(ItemWand.create(
                                     TCItems.WAND.get(),
-                                    TAWandParts.CAP_CRYSTAL.get(),
-                                    TAWandParts.ROD_INFINITY.get(),
+                                    TAWandParts.CRYSTAL_MATRIX.get(),
+                                    TAWandParts.STUDDED_COSMIC_NEUTRONIUM.get(),
                                     false));
                             output.accept(TAItems.ARCANE_SINGULARITY_FOCUS.get());
                         }).build());

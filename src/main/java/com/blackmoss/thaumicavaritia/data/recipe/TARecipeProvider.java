@@ -80,8 +80,8 @@ public final class TARecipeProvider extends RecipeProvider {
 
         // 充能水晶矩阵杖端
         new InfusionRecipeBuilder(aspects, RecipeCategory.TOOLS,
-                new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL.get()),
-                Ingredient.of(TAItems.WAND_CAP_CRYSTAL_INTER.get()))
+                new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL_MATRIX.get()),
+                Ingredient.of(TAItems.WAND_CAP_CRYSTAL_MATRIX_INTER.get()))
                 .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
                 .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
                 .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
@@ -144,7 +144,7 @@ public final class TARecipeProvider extends RecipeProvider {
         output.accept(ResourceKey.create(Registries.RECIPE,
                         Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "wand_cap_crystal_inter")),
                 new ShapedTableCraftingRecipe(wandCapCrystalPattern,
-                        new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL_INTER.get()),
+                        new ItemStackTemplate(TAItems.WAND_CAP_CRYSTAL_MATRIX_INTER.get()),
                         4, false), null);
 
         // 中子态素杖柄

@@ -28,21 +28,21 @@ public final class TAItems {
             AkashicRecordsItem::new,
             props -> props.rarity(Rarity.EPIC));
 
-    public static final DeferredItem<Item> WAND_CAP_CRYSTAL_INTER = ITEMS.registerSimpleItem("wand_cap_crystal_inter");
+    public static final DeferredItem<Item> WAND_CAP_CRYSTAL_MATRIX_INTER = ITEMS.registerSimpleItem("wand_cap_crystal_matrix_inter");
 
     // 水晶矩阵杖端：水晶缠绕宇宙中子态素法杖的杖端，提供 90% Vis 减免。
-    public static final DeferredItem<ItemWandCap> WAND_CAP_CRYSTAL = ITEMS.registerItem(
-            "wand_cap_crystal",
-            props -> new ItemWandCap(props, TAWandParts.CAP_CRYSTAL),
+    public static final DeferredItem<ItemWandCap> WAND_CAP_CRYSTAL_MATRIX = ITEMS.registerItem(
+            "wand_cap_crystal_matrix",
+            props -> new ItemWandCap(props, TAWandParts.CRYSTAL_MATRIX),
             props -> props.rarity(Rarity.EPIC));
 
-    // 宇宙杖柄：水晶缠绕宇宙中子态素法杖的杖柄，超高容量并自动回满。
+    // 宇宙中子态素杖柄
     public static final DeferredItem<ItemWandRod> WAND_ROD_STUDDED_COSMIC_NEUTRONIUM = ITEMS.registerItem(
             "wand_rod_studded_cosmic_neutronium",
-            props -> new ItemWandRod(props, TAWandParts.ROD_INFINITY),
+            props -> new ItemWandRod(props, TAWandParts.STUDDED_COSMIC_NEUTRONIUM),
             props -> props.rarity(Rarity.EPIC));
 
-    // 奥法奇点核心：复杂度上限无限的法术核心。
+    // 奥法奇点核心
     public static final DeferredItem<ArcaneSingularityFocusItem> ARCANE_SINGULARITY_FOCUS = ITEMS.registerItem(
             "arcane_singularity_focus",
             ArcaneSingularityFocusItem::new,

@@ -39,7 +39,7 @@ public final class TATagsProvider implements DataProvider {
                 tag(ModTags.IMMORTAL_ITEM).add(
                         TAItems.EXTREMELY_PRIMORDIAL_PEARL.get(),
                         TAItems.AKASHIC_RECORDS.get(),
-                        TAItems.WAND_CAP_CRYSTAL.get(),
+                        TAItems.WAND_CAP_CRYSTAL_MATRIX.get(),
                         TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get()
                 );
 

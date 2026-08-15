@@ -26,17 +26,17 @@ public final class TAWandParts {
     public static final DeferredRegister<WandRod> RODS = DeferredRegister.create(WandRod.REGISTRY_KEY, ThaumicAvaritia.MODID);
 
     // 水晶矩阵杖端：90% Vis 消耗减免（成本倍率 0.1）。
-    public static final DeferredHolder<WandCap, WandCap> CAP_CRYSTAL = CAPS.register(
-            "crystal",
-            () -> new WandCap(0.1F, List.of(), 0.0F, 9, capTexture("crystal")));
+    public static final DeferredHolder<WandCap, WandCap> CRYSTAL_MATRIX = CAPS.register(
+            "crystal_matrix",
+            () -> new WandCap(0.1F, List.of(), 0.0F, 9, capTexture("crystal_matrix")));
 
     // 无尽杖柄：超高容量，携带时自动回满。
-    public static final DeferredHolder<WandRod, WandRod> ROD_INFINITY = RODS.register(
-            "infinity",
+    public static final DeferredHolder<WandRod, WandRod> STUDDED_COSMIC_NEUTRONIUM = RODS.register(
+            "studded_cosmic_neutronium",
             () -> new WandRod(
                     INFINITY_CAPACITY_VIS,
                     9,
-                    rodTexture("neutronium"),
+                    rodTexture("studded_cosmic_neutronium"),
                     new InfinityOnUpdate(),
                     true,
                     false,
