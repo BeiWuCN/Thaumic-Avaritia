@@ -1,0 +1,40 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:auram"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:praecantatio"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:vacuos"
+    },
+    {
+      "amount": 16,
+      "aspect": "thaumicavaritia:infinitus"
+    }
+  ],
+  "catalyst": "thaumaturge:arcane_workbench_charger",
+  "components": [
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "thaumaturge:jar_node",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "thaumaturge:jar_node",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "thaumaturge:jar_node",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "thaumaturge:jar_node"
+  ],
+  "instability": 5,
+  "result": {
+    "id": "thaumicavaritia:infinity_charger"
+  }
+}

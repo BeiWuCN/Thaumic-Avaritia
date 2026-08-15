@@ -9,6 +9,7 @@ import com.blackmoss.thaumicavaritia.content.item.ExtremelyPrimordialPearlItem;
 import com.blackmoss.thaumicavaritia.content.item.InfinityScribingToolsItem;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandRod;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
@@ -72,6 +73,10 @@ public final class TAItems {
             props -> props
                     .stacksTo(16)
                     .rarity(Rarity.EPIC));
+
+    // 涌流充能器
+    public static final DeferredItem<BlockItem> INFINITY_CHARGER =
+            ITEMS.registerSimpleBlockItem(TABlocks.INFINITY_CHARGER);
 
     private TAItems() {
     }

@@ -2,6 +2,7 @@ package com.blackmoss.thaumicavaritia.data.recipe;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
+import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import com.blackmoss.thaumicavaritia.registry.TATags;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
@@ -225,6 +226,30 @@ public final class TARecipeProvider extends RecipeProvider {
                 .instability(4)
                 .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
                 .save(output, ThaumicAvaritia.MODID + ":infinity_scribing_tools");
+
+        // 涌流充能器
+        new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
+                new ItemStackTemplate(TAItems.INFINITY_CHARGER.get()),
+                Ingredient.of(TCItems.ARCANE_WORKBENCH_CHARGER.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(TCItems.JAR_NODE.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(TCItems.JAR_NODE.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(TCItems.JAR_NODE.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(TCItems.JAR_NODE.get()))
+                .aspect(TCAspects.AURAM, 640)
+                .aspect(TCAspects.PRAECANTATIO, 640)
+                .aspect(TCAspects.VACUOS, 640)
+                .aspect(TAAspects.INFINITUS, 16)
+                .instability(5)
+                .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
+                .save(output, ThaumicAvaritia.MODID + ":infinity_charger");
     }
 
     public static final class Runner extends RecipeProvider.Runner {

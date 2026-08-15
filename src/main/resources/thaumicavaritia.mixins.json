@@ -4,12 +4,14 @@
   "package": "com.blackmoss.thaumicavaritia.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BlockEntityArcaneWorkbenchMixin",
     "BlockEntityFocalManipulatorMixin",
     "BlockEntityResearchTableMixin",
     "EntityFluxRiftMixin",
     "GapingVoidEntityMixin"
   ],
   "client": [
+    "client.ArcaneWorkbenchScreenMixin",
     "GapingVoidRenderMixin"
   ],
   "injectors": {

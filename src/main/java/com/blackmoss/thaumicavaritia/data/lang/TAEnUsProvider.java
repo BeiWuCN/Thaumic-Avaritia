@@ -26,6 +26,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.arcane_singularity_focus", "Arcane Singularity Focus");
         add("item.thaumicavaritia.infinity_scribing_tools", "Divinely Inspired Scribing Tools");
         add("item.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
+        add("block.thaumicavaritia.infinity_charger", "Gushing Charger");
 
         // Item descriptions (lore)
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "The origin of the world.");

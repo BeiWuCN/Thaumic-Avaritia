@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWand;
 import com.leclowndu93150.thaumaturge.registry.TCItems;
 import net.minecraft.core.registries.Registries;
@@ -33,6 +34,7 @@ public class TACreativeModeTabs {
                                     false));
                             output.accept(TAItems.ARCANE_SINGULARITY_FOCUS.get());
                             output.accept(TAItems.CAUSALITY_COLLAPSER_PEARL.get());
+                            output.accept(TAItems.INFINITY_CHARGER.get());
                         }).build());
     }
 

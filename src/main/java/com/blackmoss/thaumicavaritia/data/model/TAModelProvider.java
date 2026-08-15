@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia.data.model;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import committee.nova.mods.avaritia.client.model.loader.AvaritiaItemModelLoaders;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -57,5 +58,14 @@ public final class TAModelProvider extends ModelProvider {
         generateHaloItem(itemModels, TAItems.ARCANE_SINGULARITY_FOCUS.get());
         generateHaloItem(itemModels, TAItems.INFINITY_SCRIBING_TOOLS.get());
         generateHaloItem(itemModels, TAItems.CAUSALITY_COLLAPSER_PEARL.get());
+
+        // 无限充能器：blockstate 与物品模型由 DataGen 生成，均引用手写的 tcmesh block 模型
+        // （assets/thaumicavaritia/models/block/infinity_charger.json，复用 Thaumaturge 网格）。
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(
+                TABlocks.INFINITY_CHARGER.get(),
+                BlockModelGenerators.plainVariant(
+                        ModelLocationUtils.getModelLocation(TABlocks.INFINITY_CHARGER.get()))));
+        blockModels.registerSimpleItemModel(
+                TABlocks.INFINITY_CHARGER.get(), ModelLocationUtils.getModelLocation(TABlocks.INFINITY_CHARGER.get()));
     }
 }

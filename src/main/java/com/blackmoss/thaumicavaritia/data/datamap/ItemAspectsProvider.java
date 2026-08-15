@@ -230,8 +230,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                 aspects(
                         TCAspects.IGNIS, 25,
                         TCAspects.POTENTIA, 15,
-                        TCAspects.PERDITIO, 10,
-                        TAAspects.INFINITUS, 1));
+                        TCAspects.PERDITIO, 10));
         add(b, items, "avaritia", "neutron_gear",
                 aspects(
                         TCAspects.METALLUM, 35,
