@@ -1,0 +1,136 @@
+{
+  "values": {
+    "avaritia:crystal_matrix_ingot": [
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:praecantatio"
+      }
+    ],
+    "avaritia:endest_pearl": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:auram"
+      }
+    ],
+    "avaritia:infinity_catalyst": [
+      {
+        "amount": 50,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:perditio"
+      }
+    ],
+    "avaritia:infinity_ingot": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:alienis"
+      }
+    ],
+    "avaritia:infinity_nugget": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:metallum"
+      }
+    ],
+    "avaritia:neutron_ingot": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:metallum"
+      }
+    ],
+    "avaritia:neutron_pile": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 2,
+        "aspect": "thaumaturge:praecantatio"
+      }
+    ],
+    "thaumicavaritia:akashic_record": [
+      {
+        "amount": 64,
+        "aspect": "thaumaturge:cognitio"
+      },
+      {
+        "amount": 48,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 32,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 32,
+        "aspect": "thaumaturge:spiritus"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumaturge:desiderium"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 8,
+        "aspect": "thaumaturge:vacuos"
+      }
+    ]
+  }
+}

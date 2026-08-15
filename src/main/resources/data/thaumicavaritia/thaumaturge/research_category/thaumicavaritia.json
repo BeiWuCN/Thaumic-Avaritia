@@ -1,37 +1,41 @@
 {
-  "background": "thaumaturge:textures/gui/gui_research_back_over.png",
+  "background": "avaritia:textures/block/resource/diamond_lattice_block.png",
   "formula": [
     {
-      "amount": 20,
+      "amount": 100,
       "aspect": "thaumaturge:alienis"
     },
     {
-      "amount": 20,
+      "amount": 100,
       "aspect": "thaumaturge:praecantatio"
     },
     {
-      "amount": 10,
+      "amount": 100,
       "aspect": "thaumaturge:cognitio"
     },
     {
-      "amount": 10,
+      "amount": 100,
       "aspect": "thaumaturge:metallum"
     },
     {
-      "amount": 10,
+      "amount": 100,
       "aspect": "thaumaturge:machina"
     },
     {
-      "amount": 5,
+      "amount": 100,
       "aspect": "thaumaturge:auram"
     },
     {
-      "amount": 5,
+      "amount": 100,
       "aspect": "thaumaturge:vitium"
     },
     {
-      "amount": 5,
+      "amount": 100,
       "aspect": "thaumaturge:tenebrae"
+    },
+    {
+      "amount": 100,
+      "aspect": "thaumicavaritia:infinitus"
     }
   ],
   "icon": "thaumicavaritia:textures/item/akashic_record.png",

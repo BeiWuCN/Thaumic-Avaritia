@@ -21,6 +21,10 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "Studded Cosmic Neutronium Rod");
         add("item.thaumicavaritia.arcane_singularity_focus", "Arcane Singularity Focus");
 
+        add("aspect.thaumicavaritia.infinitus", "Infinitus");
+        add("aspect.thaumicavaritia.infinitus.desc", "Infinite, boundless, without end.");
+        add("aspect.thaumicavaritia.infinitus.help", "Never-ending.");
+
         add("research_category.thaumicavaritia.thaumicavaritia", "Thaumic Avaritia");
 
         // Towards Infinity (root node = Extremely Primordial Pearl, entropy-reversing 3 stages)

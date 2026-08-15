@@ -14,6 +14,10 @@ public final class TAZhCnProvider extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup.thaumicavaritia", "神秘无尽");
 
+        add("aspect.thaumicavaritia.infinitus", "无限");
+        add("aspect.thaumicavaritia.infinitus.desc", "无限，无穷，无边无际");
+        add("aspect.thaumicavaritia.infinitus.help", "永无止境");
+
         add("item.thaumicavaritia.extremely_primordial_pearl", "极元始珍珠");
         add("item.thaumicavaritia.akashic_record", "阿卡西记录");
         add("item.thaumicavaritia.wand_cap_crystal", "充能水晶矩阵杖端");

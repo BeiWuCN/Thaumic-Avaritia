@@ -65,15 +65,11 @@
   "note_aspects": [
     {
       "aspect": "thaumaturge:cognitio",
-      "amount": 4
+      "amount": 1
     },
     {
       "aspect": "thaumaturge:praecantatio",
-      "amount": 3
-    },
-    {
-      "aspect": "thaumaturge:alienis",
-      "amount": 2
+      "amount": 1
     }
   ],
   "complexity": 3
