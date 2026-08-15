@@ -41,12 +41,26 @@ public final class ItemAspectsProvider extends DataMapProvider {
 
         add(b, items, "avaritia", "double_compressed_crafting_table",
                 list(TCAspects.INSTRUMENTUM, 5));
+        add(b, items, "avaritia", "blaze_cube",
+                list(TCAspects.IGNIS, 15, TCAspects.POTENTIA, 10));
+        add(b, items, "avaritia", "blaze_sword",
+                list(TCAspects.IGNIS, 20, TCAspects.POTENTIA, 20, TCAspects.METALLUM, 15));
+        add(b, items, "avaritia", "blaze_axe",
+                list(TCAspects.IGNIS, 20, TCAspects.POTENTIA, 20, TCAspects.INSTRUMENTUM, 15));
+        add(b, items, "avaritia", "blaze_pickaxe",
+                list(TCAspects.IGNIS, 20, TCAspects.POTENTIA, 20, TCAspects.INSTRUMENTUM, 15));
+        add(b, items, "avaritia", "blaze_shovel",
+                list(TCAspects.IGNIS, 20, TCAspects.POTENTIA, 20, TCAspects.INSTRUMENTUM, 15));
+        add(b, items, "avaritia", "blaze_hoe",
+                list(TCAspects.IGNIS, 20, TCAspects.POTENTIA, 20, TCAspects.INSTRUMENTUM, 15));
+        add(b, items, "avaritia", "blaze_bow",
+                list(TCAspects.IGNIS, 20, TCAspects.AER, 20, TCAspects.POTENTIA, 15));
 
-        // 基础材料（含微量无尽）
+        // 基础材料
         add(b, items, "avaritia", "crystal_matrix_ingot",
-                list(TCAspects.VITREUS, 10, TCAspects.METALLUM, 15, TCAspects.PRAECANTATIO, 5).add(infinitus(), 1));
+                list(TCAspects.VITREUS, 10, TCAspects.METALLUM, 15, TCAspects.PRAECANTATIO, 5));
         add(b, items, "avaritia", "neutron_ingot",
-                list(TCAspects.PRAECANTATIO, 15, TCAspects.PERDITIO, 20, TCAspects.METALLUM, 10).add(infinitus(), 1));
+                list(TCAspects.PRAECANTATIO, 15, TCAspects.PERDITIO, 20, TCAspects.METALLUM, 10));
 
         // 核心无限材料（含可观无尽）
         add(b, items, "avaritia", "infinity_ingot",
@@ -54,9 +68,46 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         .add(infinitus(), 10));
         add(b, items, "avaritia", "infinity_catalyst",
                 list(TCAspects.PRAECANTATIO, 50, TCAspects.ALIENIS, 25, TCAspects.AURAM, 25, TCAspects.PERDITIO, 10)
-                        .add(infinitus(), 30));
+                        .add(infinitus(), 8));
         add(b, items, "avaritia", "eternal_singularity",
-                list(TCAspects.PRAECANTATIO, 40, TCAspects.ALIENIS, 20, TCAspects.METALLUM, 40).add(infinitus(), 5));
+                list(TCAspects.PRAECANTATIO, 40, TCAspects.ALIENIS, 20, TCAspects.METALLUM, 40)
+                        .add(infinitus(), 5));
+        add(b, items, "avaritia", "enhancement_core",
+                list(TCAspects.PRAECANTATIO, 60, TCAspects.ALIENIS, 30, TCAspects.METALLUM, 20)
+                        .add(infinitus(), 10));
+
+        // 中阶工具
+        add(b, items, "avaritia", "crystal_sword",
+                list(TCAspects.VITREUS, 20, TCAspects.METALLUM, 20, TCAspects.POTENTIA, 20, TCAspects.INSTRUMENTUM, 10));
+        add(b, items, "avaritia", "crystal_axe",
+                list(TCAspects.VITREUS, 20, TCAspects.METALLUM, 20, TCAspects.INSTRUMENTUM, 20));
+        add(b, items, "avaritia", "crystal_pickaxe",
+                list(TCAspects.VITREUS, 20, TCAspects.METALLUM, 20, TCAspects.INSTRUMENTUM, 20));
+        add(b, items, "avaritia", "crystal_shovel",
+                list(TCAspects.VITREUS, 20, TCAspects.METALLUM, 20, TCAspects.INSTRUMENTUM, 20));
+        add(b, items, "avaritia", "crystal_hoe",
+                list(TCAspects.VITREUS, 20, TCAspects.METALLUM, 20, TCAspects.INSTRUMENTUM, 20));
+        add(b, items, "avaritia", "crystal_bow",
+                list(TCAspects.VITREUS, 20, TCAspects.AER, 20, TCAspects.INSTRUMENTUM, 15));
+
+        // 杂项
+        add(b, items, "avaritia", "neutron_horse_armor",
+                list(TCAspects.METALLUM, 15, TCAspects.VITREUS, 10, TCAspects.PERDITIO, 5)
+                        .add(infinitus(), 16));
+        add(b, items, "avaritia", "side_config_card",
+                list(TCAspects.INSTRUMENTUM, 10, TCAspects.POTENTIA, 5));
+        add(b, items, "avaritia", "upgrade_smithing_template",
+                list(TCAspects.INSTRUMENTUM, 15, TCAspects.FABRICO, 10, TCAspects.PRAECANTATIO, 10).add(infinitus(), 3));
+        add(b, items, "avaritia", "ultimate_stew",
+                list(TCAspects.VICTUS, 15, TCAspects.HERBA, 10, TCAspects.PRAECANTATIO, 10));
+        add(b, items, "avaritia", "cosmic_meatballs",
+                list(TCAspects.VICTUS, 15, TCAspects.SPIRITUS, 10, TCAspects.PRAECANTATIO, 5));
+        add(b, items, "avaritia", "infinity_clock",
+                list(TCAspects.METALLUM, 15, TCAspects.VITREUS, 10, TCAspects.PERDITIO, 5)
+                        .add(infinitus(), 20));
+        add(b, items, "avaritia", "infinity_totem",
+                list(TCAspects.METALLUM, 15, TCAspects.VITREUS, 10, TCAspects.PERDITIO, 5)
+                        .add(infinitus(), 12));
 
         // 终极装备（含较高无尽）
         add(b, items, "avaritia", "infinity_sword",
@@ -80,15 +131,20 @@ public final class ItemAspectsProvider extends DataMapProvider {
         add(b, items, "avaritia", "infinity_mace",
                 list(TCAspects.PRAECANTATIO, 30, TCAspects.METALLUM, 30, TCAspects.POTENTIA, 30).add(infinitus(), 16));
         add(b, items, "avaritia", "infinity_bucket",
-                list(TCAspects.AQUA, 20, TCAspects.METALLUM, 20).add(infinitus(), 10));
+                list(TCAspects.AQUA, 20, TCAspects.METALLUM, 20)
+                        .add(infinitus(), 16));
         add(b, items, "avaritia", "infinity_helmet",
-                list(TCAspects.PRAEMUNIO, 20, TCAspects.METALLUM, 20).add(infinitus(), 12));
+                list(TCAspects.PRAEMUNIO, 20, TCAspects.METALLUM, 20)
+                        .add(infinitus(), 12));
         add(b, items, "avaritia", "infinity_chestplate",
-                list(TCAspects.PRAEMUNIO, 25, TCAspects.METALLUM, 25).add(infinitus(), 12));
+                list(TCAspects.PRAEMUNIO, 25, TCAspects.METALLUM, 25)
+                        .add(infinitus(), 12));
         add(b, items, "avaritia", "infinity_pants",
-                list(TCAspects.PRAEMUNIO, 20, TCAspects.METALLUM, 20).add(infinitus(), 12));
+                list(TCAspects.PRAEMUNIO, 20, TCAspects.METALLUM, 20)
+                        .add(infinitus(), 12));
         add(b, items, "avaritia", "infinity_boots",
-                list(TCAspects.PRAEMUNIO, 20, TCAspects.METALLUM, 20).add(infinitus(), 12));
+                list(TCAspects.PRAEMUNIO, 20, TCAspects.METALLUM, 20)
+                        .add(infinitus(), 12));
         add(b, items, "avaritia", "infinity_elytra",
                 list(TCAspects.AER, 30, TCAspects.MOTUS, 30).add(infinitus(), 12));
 
@@ -110,12 +166,13 @@ public final class ItemAspectsProvider extends DataMapProvider {
                 list(TCAspects.INSTRUMENTUM, 20, TCAspects.FABRICO, 15, TCAspects.PRAECANTATIO, 15, TCAspects.METALLUM, 10)
                         .add(infinitus(), 6));
         add(b, items, "avaritia", "extreme_anvil",
-                list(TCAspects.INSTRUMENTUM, 20, TCAspects.METALLUM, 20, TCAspects.PRAECANTATIO, 10).add(infinitus(), 5));
+                list(TCAspects.INSTRUMENTUM, 20, TCAspects.METALLUM, 20, TCAspects.PRAECANTATIO, 10)
+                        .add(infinitus(), 16));
         add(b, items, "avaritia", "compressed_chest",
                 list(TCAspects.VACUOS, 15, TCAspects.METALLUM, 10, TCAspects.FABRICO, 5));
         add(b, items, "avaritia", "infinity_chest",
                 list(TCAspects.VACUOS, 30, TCAspects.PRAECANTATIO, 20, TCAspects.AURAM, 15, TCAspects.METALLUM, 10)
-                        .add(infinitus(), 8));
+                        .add(infinitus(), 16));
         add(b, items, "avaritia", "soul_farmland",
                 list(TCAspects.SPIRITUS, 15, TCAspects.VICTUS, 10, TCAspects.HERBA, 10, TCAspects.TERRA, 5));
         add(b, items, "avaritia", "diamond_lattice_block",
@@ -125,17 +182,10 @@ public final class ItemAspectsProvider extends DataMapProvider {
         add(b, items, "avaritia", "refined_coal_block",
                 list(TCAspects.IGNIS, 15, TCAspects.POTENTIA, 10, TCAspects.PERDITIO, 5));
         add(b, items, "avaritia", "star_fuel_block",
-                list(TCAspects.IGNIS, 25, TCAspects.POTENTIA, 20, TCAspects.AURAM, 15).add(infinitus(), 4));
+                list(TCAspects.IGNIS, 25, TCAspects.POTENTIA, 20, TCAspects.AURAM, 15));
         add(b, items, "avaritia", "endless_cake",
-                list(TCAspects.VICTUS, 20, TCAspects.HERBA, 10, TCAspects.PRAECANTATIO, 15).add(infinitus(), 6));
-        add(b, items, "avaritia", "neutron",
-                list(TCAspects.PERDITIO, 20, TCAspects.METALLUM, 15, TCAspects.PRAECANTATIO, 10).add(infinitus(), 2));
-        add(b, items, "avaritia", "crystal_matrix",
-                list(TCAspects.VITREUS, 20, TCAspects.METALLUM, 15, TCAspects.PRAECANTATIO, 10).add(infinitus(), 4));
-        add(b, items, "avaritia", "infinity",
-                list(TCAspects.PRAECANTATIO, 30, TCAspects.ALIENIS, 20, TCAspects.AURAM, 20, TCAspects.METALLUM, 15)
-                        .add(aspects.getOrThrow(TCAspects.VACUOS), 10)
-                        .add(infinitus(), 8));
+                list(TCAspects.VICTUS, 20, TCAspects.HERBA, 10, TCAspects.PRAECANTATIO, 15)
+                        .add(infinitus(), 12));
         add(b, items, "avaritia", "neutron_collector",
                 list(TCAspects.MACHINA, 15, TCAspects.MOTUS, 10, TCAspects.METALLUM, 10, TCAspects.PERDITIO, 5));
         add(b, items, "avaritia", "dense_neutron_collector",
@@ -177,13 +227,13 @@ public final class ItemAspectsProvider extends DataMapProvider {
                 list(TCAspects.VITREUS, 20, TCAspects.METALLUM, 20, TCAspects.PRAECANTATIO, 10));
         add(b, items, ThaumicAvaritia.MODID, "wand_cap_crystal",
                 list(TCAspects.PRAECANTATIO, 40, TCAspects.AURAM, 40, TCAspects.VITREUS, 40, TCAspects.ORDO, 40)
-                        .add(infinitus(), 1));
+                        .add(infinitus(), 12));
         add(b, items, ThaumicAvaritia.MODID, "wand_rod_studded_cosmic_neutronium",
                 list(TCAspects.PRAECANTATIO, 40, TCAspects.PERDITIO, 40, TCAspects.METALLUM, 40, TCAspects.AURAM, 40)
                         .add(infinitus(), 12));
         add(b, items, ThaumicAvaritia.MODID, "arcane_singularity_focus",
                 list(TCAspects.PRAECANTATIO, 60, TCAspects.AURAM, 60, TCAspects.ALIENIS, 60, TCAspects.VACUOS, 60)
-                        .add(infinitus(), 32));
+                        .add(infinitus(), 16));
     }
 
     private Holder<IAspect> infinitus() {
