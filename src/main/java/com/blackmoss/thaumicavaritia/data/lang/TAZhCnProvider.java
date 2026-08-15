@@ -54,10 +54,11 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_1", "效果很好，但魔力没过一会就全跑了，我再加点无限进去试试？也许能自己产生魔力呢……");
         add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_2", "我搞错了，存不下不是坏事，而是好事！中子态素包含住无限的结构看起来只是一根棍子，但是这根中子态素杖柄实际上连接着全宇宙的魔力！这下子永远也不缺魔力了！");
 
-        // 奥法奇点核心（树顶汇合）
+        // 奥法奇点核心
         add("research.thaumaturge.arcane_singularity_focus.title", "奥法奇点核心");
-        add("research.thaumaturge.arcane_singularity_focus.stage_0", "当水晶杖端与中子杖柄合而为一，奥法的奇点便不再受复杂度的桎梏——无限，本就该如此。");
-        add("research.thaumaturge.arcane_singularity_focus.stage_1", "我以贪婪铸成了这枚核心，它吞噬一切法术的边界。神秘学在我手中，终于抵达了无限。");
+        add("research.thaumaturge.arcane_singularity_focus.stage_0", "现在我拥有了无限的魔力，为何还要受到核心的限制？我认为是时候来做一个奇点般强大的核心了！先从这个普通的大师核心开刀吧。");
+        add("research.thaumaturge.arcane_singularity_focus.stage_1", "看起来我不需要费劲研究什么，这甚至是最简单的一步，给它上点中子态素保护内部用无限做内核，我指的不是材料上简单而是理论上简单。");
+        add("research.thaumaturge.arcane_singularity_focus.stage_2", "这颗无限的、悖论的、虚空的核心，就是所有法术的终点。");
 
         add("wand.thaumaturge.cap.crystal_matrix", "水晶矩阵杖端");
         add("wand.thaumaturge.rod.studded_cosmic_neutronium", "缠绕宇宙中子态素");

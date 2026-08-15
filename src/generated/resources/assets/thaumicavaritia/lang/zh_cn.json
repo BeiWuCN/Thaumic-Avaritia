@@ -12,8 +12,9 @@
   "research.thaumaturge.akashic_record.stage_0": "以极致的贪婪之物为引，我终于唤醒了这本全知之书。它封存着一切神秘知识，如今为我所用。",
   "research.thaumaturge.akashic_record.stage_1": "贪欲的造物激活了阿卡西记录，万千要素如潮水般涌入我的心智——神秘学，自此成为我掌中之物。",
   "research.thaumaturge.akashic_record.title": "阿卡西记录",
-  "research.thaumaturge.arcane_singularity_focus.stage_0": "当水晶杖端与中子杖柄合而为一，奥法的奇点便不再受复杂度的桎梏——无限，本就该如此。",
-  "research.thaumaturge.arcane_singularity_focus.stage_1": "我以贪婪铸成了这枚核心，它吞噬一切法术的边界。神秘学在我手中，终于抵达了无限。",
+  "research.thaumaturge.arcane_singularity_focus.stage_0": "现在我拥有了无限的魔力，为何还要受到核心的限制？我认为是时候来做一个奇点般强大的核心了！先从这个普通的大师核心开刀吧。",
+  "research.thaumaturge.arcane_singularity_focus.stage_1": "看起来我不需要费劲研究什么，这甚至是最简单的一步，给它上点中子态素保护内部用无限做内核，我指的不是材料上简单而是理论上简单。",
+  "research.thaumaturge.arcane_singularity_focus.stage_2": "这颗无限的、悖论的、虚空的核心，就是所有法术的终点。",
   "research.thaumaturge.arcane_singularity_focus.title": "奥法奇点核心",
   "research.thaumaturge.base_thaumicavaritia.stage_0": "我觉得……我的时间被浪费了，它们明明可以用在更有意义的事情，比起一次次地重复劳动，我更想……获得一些……更强的力量……或者说……无尽的力量……",
   "research.thaumaturge.base_thaumicavaritia.title": "神秘无尽",
@@ -35,5 +36,5 @@
   "singularity.thaumicavaritia.thaumium": "神秘奇点",
   "singularity.thaumicavaritia.void": "虚空奇点",
   "wand.thaumaturge.cap.crystal_matrix": "水晶矩阵杖端",
-  "wand.thaumaturge.rod.infinity": "缠绕宇宙中子态素"
+  "wand.thaumaturge.rod.studded_cosmic_neutronium": "缠绕宇宙中子态素"
 }
