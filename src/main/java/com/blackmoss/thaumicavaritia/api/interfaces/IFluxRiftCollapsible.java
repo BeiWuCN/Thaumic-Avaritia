@@ -4,5 +4,6 @@
 package com.blackmoss.thaumicavaritia.api.interfaces;
 
 public interface IFluxRiftCollapsible {
-    void thaumicavaritia$collapse();
+    // 触发裂隙坍缩，并在指定 tick 数内（durationTicks）同步坍缩完毕，与黑洞生命周期等长。
+    void thaumicavaritia$collapse(int durationTicks);
 }

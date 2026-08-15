@@ -6,7 +6,11 @@
   "mixins": [
     "BlockEntityFocalManipulatorMixin",
     "BlockEntityResearchTableMixin",
-    "EntityFluxRiftMixin"
+    "EntityFluxRiftMixin",
+    "GapingVoidEntityMixin"
+  ],
+  "client": [
+    "GapingVoidRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

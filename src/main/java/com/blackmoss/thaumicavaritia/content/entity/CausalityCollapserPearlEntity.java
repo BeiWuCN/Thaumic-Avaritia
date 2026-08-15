@@ -20,11 +20,10 @@ import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.NonNull;
 
 public final class CausalityCollapserPearlEntity extends ThrowableItemProjectile {
-    // 效果参数（相对原版加强）
-    private static final float EXPLOSION_STRENGTH = 4.0F;
-    private static final double RIFT_COLLAPSE_RANGE = 6.0;
-    private static final double DAMAGE_RANGE = 8.0;
-    private static final float DAMAGE_AMOUNT = 20.0F;
+    private static final float EXPLOSION_STRENGTH = 16.0F;
+    private static final double RIFT_COLLAPSE_RANGE = 24.0;
+    private static final double DAMAGE_RANGE = 32.0;
+    private static final float DAMAGE_AMOUNT = 32.0F;
     // 拖尾参数（同悖论物质）
     private static final int TRAIL_STEPS = 3;
     private static final float TRAIL_JITTER = 0.0125F;
@@ -92,11 +91,12 @@ public final class CausalityCollapserPearlEntity extends ThrowableItemProjectile
         if (this.level().isClientSide()) {
             return;
         }
-        // 裂隙坍缩（悖论物质原 3.0 → 6.0），通过本 mod 接口触发，不直接依赖 Thaumaturge content。
+        // 裂隙坍缩（悖论物质原 3.0 → 24.0），与黑洞生命周期同步：在黑洞结束前以相同比例速度消亡。
+        // 通过本 mod 接口触发，不直接依赖 Thaumaturge content。
         for (Entity entity : this.level()
                 .getEntities(this, this.getBoundingBox()
                         .inflate(RIFT_COLLAPSE_RANGE), e -> e instanceof IFluxRiftCollapsible)) {
-            ((IFluxRiftCollapsible) entity).thaumicavaritia$collapse();
+            ((IFluxRiftCollapsible) entity).thaumicavaritia$collapse(GapingVoidEntity.maxLifetime);
         }
         // 范围伤害（终望珍珠加强：8 格内 20 点）。
         Entity owner = this.getOwner();
