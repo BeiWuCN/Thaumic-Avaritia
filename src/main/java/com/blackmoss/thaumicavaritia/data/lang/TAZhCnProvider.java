@@ -27,22 +27,22 @@ public final class TAZhCnProvider extends LanguageProvider {
 
         add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
 
-        // 迈向无限（根节点 = 极元始珍珠，逆熵凝聚 3 段叙事）
+        // 迈向无限
         add("research.thaumaturge.unlock_thaumicavaritia.title", "迈向无限");
         add("research.thaumaturge.unlock_thaumicavaritia.stage_0", "元始珍珠，创世之初的残余，蕴藏着纯粹的原始要素。可它们如此珍贵，却大多已退化成结核，甚至尘埃——放任不管，终将归于虚无。我以一颗珍珠为样本，结合神秘学与注魔学的知识，剖析它衰败的本质，寻找逆转这场退化的方法。");
         add("research.thaumaturge.unlock_thaumicavaritia.stage_1", "在神秘学与注魔学的一次次研究中，我终于读懂了它。九颗将死之物已足够作为献祭，我那座注魔祭坛是时候派上用场了——让它们在我手中重生。");
         add("research.thaumaturge.unlock_thaumicavaritia.stage_2", "太美了，这实在是太美妙了……纯粹的原始要素在我手中重生。或许，是我对更强大力量那无法餍足的贪婪，正一点点将我推向疯狂的边缘。");
 
-        // 神秘无尽分类根节点（隐藏，正中间 0,0）
+        // 神秘无尽分类根节点
         add("research.thaumaturge.base_thaumicavaritia.title", "神秘无尽");
         add("research.thaumaturge.base_thaumicavaritia.stage_0", "我觉得……我的时间被浪费了，它们明明可以用在更有意义的事情，比起一次次地重复劳动，我更想……获得一些……更强的力量……或者说……无尽的力量……");
 
-        // 阿卡西记录（桥接枢纽）
+        // 阿卡西记录
         add("research.thaumaturge.akashic_record.title", "阿卡西记录");
         add("research.thaumaturge.akashic_record.stage_0", "以极致的贪婪之物为引，我终于唤醒了这本全知之书。它封存着一切神秘知识，如今为我所用。");
         add("research.thaumaturge.akashic_record.stage_1", "贪欲的造物激活了阿卡西记录，万千要素如潮水般涌入我的心智——神秘学，自此成为我掌中之物。");
 
-        // 法杖支线
+        // 法杖
         add("research.thaumaturge.wand_cap_crystal_matrix.title", "水晶矩阵杖端");
         add("research.thaumaturge.wand_cap_crystal_matrix.stage_0", "我认为相信钻石、下界合金、下界之星混合而成的水晶能承载足够强大的魔力，不过在此之前我需要规划一下……");
         add("research.thaumaturge.wand_cap_crystal_matrix.stage_1", "事实证明水晶很适合用于减少魔力的消耗，但并不能很好地导出魔力，这倒是让我想到虚空杖端了，虚空金属很擅长传导魔力，也许可以加些世界盐什么的试试，当然也可能是水晶矩阵的潜力没被激发出来……");
