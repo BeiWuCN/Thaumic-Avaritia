@@ -5,10 +5,8 @@ package com.blackmoss.thaumicavaritia.data.aspect;
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
-import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
 import com.leclowndu93150.thaumaturge.content.aspect.Aspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
-import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 
@@ -20,17 +18,14 @@ public final class TAAspectBootstrap {
     }
 
     public static void bootstrap(BootstrapContext<IAspect> ctx) {
-        // 先注册 Thaumaturge 全部要素，保证父要素 lookup 可解析。
         AspectBootstrap.bootstrap(ctx);
-        // 无尽 = 渴望（贪婪）+ 虚空。
-        Holder<IAspect> desiderium = ctx.lookup(IAspect.REGISTRY_KEY).getOrThrow(TCAspects.DESIDERIUM);
-        Holder<IAspect> vacuos = ctx.lookup(IAspect.REGISTRY_KEY).getOrThrow(TCAspects.VACUOS);
+        // 无尽：不设父要素（components 为空），要素合成器无法用其他要素强行合成
         ctx.register(
                 TAAspects.INFINITUS,
                 new Aspect(
                         "infinitus",
                         0x1E1E1E,
-                        List.of(desiderium, vacuos),
+                        List.of(),
                         Optional.empty(),
                         Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "textures/aspects/infinitus.png"),
                         Aspect.DEFAULT_BLEND));

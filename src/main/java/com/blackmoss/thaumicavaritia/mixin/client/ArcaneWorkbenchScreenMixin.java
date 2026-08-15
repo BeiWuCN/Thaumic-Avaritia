@@ -1,29 +1,27 @@
-// 涌流充能器：奥术工作台界面中，当可用灵气为无限（Integer.MAX_VALUE）时显示为"∞"。
-// @Redirect 拦截 vis_available 的 Component.translatable 调用（target 为 Minecraft 的
-// Component 类，IDE 可解析，不受 flatDir 依赖限制）；其它翻译调用原样透传。
 package com.blackmoss.thaumicavaritia.mixin.client;
 
 import com.leclowndu93150.thaumaturge.client.screen.workbench.ArcaneWorkbenchScreen;
-import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(ArcaneWorkbenchScreen.class)
 public abstract class ArcaneWorkbenchScreenMixin {
 
+    @Unique
     private static final int INFINITE_VIS = Integer.MAX_VALUE;
 
-    @Redirect(
-            method = "extractBackgroundOverlay",
+    @ModifyArg(method = "extractBackgroundOverlay",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/Component;"))
-    private Component thaumicavaritia$infinityVisText(String key, Object[] args) {
-        if ("gui.thaumaturge.arcane_workbench.vis_available".equals(key)
-                && ((ArcaneWorkbenchScreen) (Object) this).getMenu().getCachedVis() >= INFINITE_VIS) {
-            return Component.translatable(key, "\u221E");
+                    ordinal = 0,
+                    target = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;"),
+            index = 1)
+    private Object[] thaumicavaritia$infinityVis(Object[] args) {
+        if (((ArcaneWorkbenchScreen) (Object) this).getMenu().getCachedVis() >= INFINITE_VIS) {
+            return new Object[]{"∞"};
         }
-        return Component.translatable(key, args);
+        return args;
     }
 }
