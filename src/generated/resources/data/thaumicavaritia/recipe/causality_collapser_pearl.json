@@ -1,0 +1,39 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:alienis"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:perditio"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:vacuos"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:praecantatio"
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus"
+    }
+  ],
+  "catalyst": "thaumaturge:causality_collapser",
+  "components": [
+    "avaritia:endest_pearl",
+    "avaritia:endest_pearl",
+    "avaritia:endest_pearl",
+    "avaritia:endest_pearl",
+    "avaritia:endest_pearl",
+    "avaritia:endest_pearl",
+    "avaritia:endest_pearl",
+    "avaritia:endest_pearl"
+  ],
+  "instability": 6,
+  "result": {
+    "id": "thaumicavaritia:causality_collapser_pearl"
+  }
+}

@@ -4,7 +4,7 @@
   "parents": [
     "thaumicavaritia:base_thaumicavaritia"
   ],
-  "column": 2,
+  "column": 3,
   "row": 1,
   "meta": [
     "spiky"
@@ -76,11 +76,39 @@
   "note_aspects": [
     {
       "aspect": "thaumaturge:cognitio",
-      "amount": 1
+      "amount": 5
     },
     {
       "aspect": "thaumaturge:praecantatio",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturge:auram",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:spiritus",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:desiderium",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturge:alienis",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturge:metallum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturge:vacuos",
       "amount": 1
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus",
+      "amount": 2
     }
   ],
   "complexity": 3

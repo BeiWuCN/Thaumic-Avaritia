@@ -2,6 +2,7 @@
 package com.blackmoss.thaumicavaritia;
 
 import com.blackmoss.thaumicavaritia.registry.TACreativeModeTabs;
+import com.blackmoss.thaumicavaritia.registry.TAEntities;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import com.blackmoss.thaumicavaritia.registry.TAWandParts;
 import com.mojang.logging.LogUtils;
@@ -20,5 +21,6 @@ public class ThaumicAvaritia {
         TACreativeModeTabs.register(modEventBus);
         TAItems.register(modEventBus);
         TAWandParts.register(modEventBus);
+        TAEntities.register(modEventBus);
     }
 }

@@ -5,7 +5,7 @@
     "thaumicavaritia:base_thaumicavaritia"
   ],
   "column": -1,
-  "row": 2,
+  "row": 3,
   "icons": [
     "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
   ],
@@ -56,8 +56,24 @@
   "note_aspects": [
     {
       "aspect": "thaumaturge:praecantatio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:perditio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:metallum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:auram",
       "amount": 2
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus",
+      "amount": 1
     }
   ],
-  "complexity": 2
+  "complexity": 3
 }

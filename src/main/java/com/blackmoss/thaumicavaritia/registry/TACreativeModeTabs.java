@@ -32,6 +32,7 @@ public class TACreativeModeTabs {
                                     TAWandParts.STUDDED_COSMIC_NEUTRONIUM.get(),
                                     false));
                             output.accept(TAItems.ARCANE_SINGULARITY_FOCUS.get());
+                            output.accept(TAItems.CAUSALITY_COLLAPSER_PEARL.get());
                         }).build());
     }
 

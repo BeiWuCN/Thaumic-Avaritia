@@ -34,6 +34,9 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium.desc", "A handheld black hole.");
         add("item.thaumicavaritia.arcane_singularity_focus.desc", "Do not consume.");
 
+        add("item.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
+        add("item.thaumicavaritia.causality_collapser_pearl.desc", "Unsolved mystery");
+
         // Divinely Inspired Pen and Ink
         add("research.thaumaturge.infinity_scribing_tools.title", "Divinely Inspired Pen and Ink");
         add("research.thaumaturge.infinity_scribing_tools.stage_0", "Bards and common folk alike have surely used the \"pen\" — compared to millennia of knotted cords and carved stone tablets, the pen is undoubtedly a great invention. The only flaw is... how quickly the ink runs out. And upon this research table, that flaw is magnified to the extreme — every stroke of study costs the tools a measure of durability. If only the ink could be inexhaustible...");

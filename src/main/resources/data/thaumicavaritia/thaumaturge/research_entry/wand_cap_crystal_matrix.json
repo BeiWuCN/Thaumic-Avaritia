@@ -5,7 +5,7 @@
     "thaumicavaritia:base_thaumicavaritia"
   ],
   "column": 1,
-  "row": 2,
+  "row": 3,
   "icons": [
     "thaumicavaritia:wand_cap_crystal_matrix"
   ],
@@ -87,8 +87,24 @@
   "note_aspects": [
     {
       "aspect": "thaumaturge:vitreus",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:auram",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:ordo",
       "amount": 2
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus",
+      "amount": 1
     }
   ],
-  "complexity": 2
+  "complexity": 3
 }

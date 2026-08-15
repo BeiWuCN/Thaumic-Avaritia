@@ -690,6 +690,14 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.ALIENIS, 150,
                         TCAspects.VACUOS, 150,
                         TAAspects.INFINITUS, 16));
+        add(b, items, ThaumicAvaritia.MODID, "causality_collapser_pearl",
+                aspects(
+                        TCAspects.ALIENIS, 60,
+                        TCAspects.VACUOS, 60,
+                        TCAspects.PRAECANTATIO, 60,
+                        TCAspects.PERDITIO, 40,
+                        TCAspects.TENEBRAE, 30,
+                        TAAspects.INFINITUS, 16));
     }
 
     // 统一构造器：键/量交替的变参，替代 list() 多重重载与零散 .add() 链式。

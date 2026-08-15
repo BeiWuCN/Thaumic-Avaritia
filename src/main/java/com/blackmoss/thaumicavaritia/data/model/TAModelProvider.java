@@ -56,5 +56,6 @@ public final class TAModelProvider extends ModelProvider {
         generateHaloItem(itemModels, TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
         generateHaloItem(itemModels, TAItems.ARCANE_SINGULARITY_FOCUS.get());
         generateHaloItem(itemModels, TAItems.INFINITY_SCRIBING_TOOLS.get());
+        generateHaloItem(itemModels, TAItems.CAUSALITY_COLLAPSER_PEARL.get());
     }
 }

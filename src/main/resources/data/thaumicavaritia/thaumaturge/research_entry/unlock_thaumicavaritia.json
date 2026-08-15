@@ -81,6 +81,10 @@
     {
       "aspect": "thaumaturge:praecantatio",
       "amount": 2
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus",
+      "amount": 1
     }
   ],
   "complexity": 3

@@ -1942,6 +1942,32 @@
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
+    "thaumicavaritia:causality_collapser_pearl": [
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:tenebrae"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
     "thaumicavaritia:extremely_primordial_pearl": [
       {
         "amount": 80,

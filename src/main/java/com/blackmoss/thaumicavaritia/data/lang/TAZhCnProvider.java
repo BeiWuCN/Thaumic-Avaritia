@@ -34,6 +34,9 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium.desc", "手持式黑洞");
         add("item.thaumicavaritia.arcane_singularity_focus.desc", "不宜口服");
 
+        add("item.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
+        add("item.thaumicavaritia.causality_collapser_pearl.desc", "未解之谜");
+
         add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
 
         // 迈向无限

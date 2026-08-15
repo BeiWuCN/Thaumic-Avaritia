@@ -2,27 +2,27 @@
   "type": "thaumaturge:infusion",
   "aspects": [
     {
-      "amount": 128,
+      "amount": 640,
       "aspect": "thaumaturge:cognitio"
     },
     {
-      "amount": 128,
+      "amount": 640,
       "aspect": "thaumaturge:praecantatio"
     },
     {
-      "amount": 64,
+      "amount": 640,
       "aspect": "thaumaturge:auram"
     },
     {
-      "amount": 64,
+      "amount": 640,
       "aspect": "thaumaturge:spiritus"
     },
     {
-      "amount": 32,
+      "amount": 640,
       "aspect": "thaumaturge:alienis"
     },
     {
-      "amount": 16,
+      "amount": 640,
       "aspect": "thaumaturge:desiderium"
     },
     {

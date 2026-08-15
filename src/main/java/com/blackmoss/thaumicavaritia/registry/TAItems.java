@@ -4,6 +4,7 @@ package com.blackmoss.thaumicavaritia.registry;
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.content.item.AkashicRecordsItem;
 import com.blackmoss.thaumicavaritia.content.item.ArcaneSingularityFocusItem;
+import com.blackmoss.thaumicavaritia.content.item.CausalityCollapserPearlItem;
 import com.blackmoss.thaumicavaritia.content.item.ExtremelyPrimordialPearlItem;
 import com.blackmoss.thaumicavaritia.content.item.InfinityScribingToolsItem;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
@@ -63,6 +64,14 @@ public final class TAItems {
                     .stacksTo(1)
                     .rarity(Rarity.EPIC)
                     .durability(InfinityScribingToolsItem.MAX_DAMAGE));
+
+    // 悖论珍珠：结合悖论物质与终望珍珠功能并加强的投掷物。
+    public static final DeferredItem<CausalityCollapserPearlItem> CAUSALITY_COLLAPSER_PEARL = ITEMS.registerItem(
+            "causality_collapser_pearl",
+            CausalityCollapserPearlItem::new,
+            props -> props
+                    .stacksTo(16)
+                    .rarity(Rarity.EPIC));
 
     private TAItems() {
     }

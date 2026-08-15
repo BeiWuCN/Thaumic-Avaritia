@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "avaritia:halo",
+    "model": "thaumicavaritia:item/causality_collapser_pearl",
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo"
+  }
+}

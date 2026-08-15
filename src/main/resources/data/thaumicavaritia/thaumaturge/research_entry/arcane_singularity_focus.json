@@ -6,7 +6,7 @@
     "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
   ],
   "column": 0,
-  "row": 4,
+  "row": 5,
   "meta": [
     "round",
     "spiky"
@@ -68,7 +68,19 @@
       "amount": 3
     },
     {
+      "aspect": "thaumaturge:auram",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:vacuos",
+      "amount": 3
+    },
+    {
       "aspect": "thaumaturge:vitium",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus",
       "amount": 2
     }
   ],
