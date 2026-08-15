@@ -25,6 +25,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "Studded Cosmic Neutronium Rod");
         add("item.thaumicavaritia.arcane_singularity_focus", "Arcane Singularity Focus");
         add("item.thaumicavaritia.infinity_scribing_tools", "Divinely Inspired Scribing Tools");
+        add("item.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
 
         // Item descriptions (lore)
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "The origin of the world.");
@@ -33,18 +34,22 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_cap_crystal_matrix.desc", "Crystal clear.");
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium.desc", "A handheld black hole.");
         add("item.thaumicavaritia.arcane_singularity_focus.desc", "Do not consume.");
+        add("item.thaumicavaritia.causality_collapser_pearl.desc", "Remember to wear sunglasses");
 
-        add("item.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
-        add("item.thaumicavaritia.causality_collapser_pearl.desc", "Unsolved mystery");
+        add("research_category.thaumicavaritia.thaumicavaritia", "Thaumic Avaritia");
+
+        // Causality Collapser Pearl
+        add("research.thaumaturge.causality_collapser_pearl.title", "Causality Collapser Pearl");
+        add("research.thaumaturge.causality_collapser_pearl.stage_0", "The endest pearl is certainly a fine thing, yet that black pull sets my mind wandering... Perhaps this very pull could be used to condense aspects?");
+        add("research.thaumaturge.causality_collapser_pearl.stage_1", "The more I toy with the endest pearl, the more it strikes me how alike it is to the causality collapser — the collapser drives destructive energy into a rift and forces it to collapse upon itself, while the endest pearl devours all things with a black-hole pull, dragging everything into nothingness. One shatters space, the other swallows the world — plainly two faces of the very same power.<BR>So... what if I were to merge the two? A pearl that can shatter rifts, yawn into a black hole, and even spit what it has devoured back out as aspects? The thought keeps me awake at night.");
+        add("research.thaumaturge.causality_collapser_pearl.stage_2", "The infusion was far more perilous than I imagined. With the collapser at its core and eight endest pearls circling it, the flood of vacuousness and magic nearly tore the altar apart. I gritted my teeth through the most dangerous moment, and in the last wisp of chaos, I breathed a sliver of \"infinity\" into it.<BR>It worked. The pearl lies quietly in my palm, pitch black, yet a crimson glow churns deep within. It will explode, shatter rifts, yawn into a black hole that devours all — and when the void fades, it will return everything it consumed to this world as a node of aura. This is not destruction; it is creation in another guise.");
 
         // Divinely Inspired Pen and Ink
         add("research.thaumaturge.infinity_scribing_tools.title", "Divinely Inspired Pen and Ink");
         add("research.thaumaturge.infinity_scribing_tools.stage_0", "Bards and common folk alike have surely used the \"pen\" — compared to millennia of knotted cords and carved stone tablets, the pen is undoubtedly a great invention. The only flaw is... how quickly the ink runs out. And upon this research table, that flaw is magnified to the extreme — every stroke of study costs the tools a measure of durability. If only the ink could be inexhaustible...");
         add("research.thaumaturge.infinity_scribing_tools.stage_1", "With infinity ingot as the bone and neutronium as the guide, I have let the infusion altar bestow upon this pen a well of ink that never runs dry. From now on, every stroke flows as if guided by divine inspiration — never again will I fret over ink.");
 
-        add("research_category.thaumicavaritia.thaumicavaritia", "Thaumic Avaritia");
-
-        // Towards Infinity (root node = Extremely Primordial Pearl, entropy-reversing 3 stages)
+        // Towards Infinity
         add("research.thaumaturge.unlock_thaumicavaritia.title", "Towards Infinity");
         add("research.thaumaturge.unlock_thaumicavaritia.stage_0", "The primordial pearl — a remnant of creation, holding pure primal essence. So precious, yet most have degenerated into nodules, even motes; left alone, they will fade into nothing.<BR>I take a single fading pearl as my sample, poring over the tomes of auromancy and infusion to dissect the nature of its decay. This is no ordinary rot — it is a slow, utter self-dissolution. If left alone, even the last mote would fade into nothing. I must find a way to reverse this decay.");
         add("research.thaumaturge.unlock_thaumicavaritia.stage_1", "Through study after study in auromancy and infusion, I have finally come to understand it — what we call decay is merely primal power slowly guttering out across the ages. Then let the fires of my infusion altar rekindle them!<BR>Nine dying remnants will serve as the offering, and my precious sample shall be the catalyst upon the altar. Let them be reborn in my hands, condensed into the purest primal essence that has never before existed.");

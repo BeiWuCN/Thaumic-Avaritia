@@ -25,6 +25,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "宇宙中子态素杖柄");
         add("item.thaumicavaritia.arcane_singularity_focus", "奥法奇点核心");
         add("item.thaumicavaritia.infinity_scribing_tools", "下笔如有神之笔与墨");
+        add("item.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
 
         // 物品描述
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "世界的本源");
@@ -33,9 +34,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_cap_crystal_matrix.desc", "晶莹剔透");
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium.desc", "手持式黑洞");
         add("item.thaumicavaritia.arcane_singularity_focus.desc", "不宜口服");
-
-        add("item.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
-        add("item.thaumicavaritia.causality_collapser_pearl.desc", "未解之谜");
+        add("item.thaumicavaritia.causality_collapser_pearl.desc", "记得带墨镜");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
 
@@ -76,6 +75,12 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("research.thaumaturge.arcane_singularity_focus.stage_0", "现在我拥有了无限的魔力，为何还要受核心的限制？是时候锻造一颗奇点般强大的核心了！<BR>先从这个普通的大师核心开刀吧。");
         add("research.thaumaturge.arcane_singularity_focus.stage_1", "看起来这一步甚至不需要费劲研究。给它覆上中子态素作护壳，内部以无限为内核——我说的简单，不是材料上的简单，而是理论上的简单。");
         add("research.thaumaturge.arcane_singularity_focus.stage_2", "这颗核心，无限而悖论，生于虚空，归于虚无——它便是所有法术的终点。");
+
+        // 悖论珍珠
+        add("research.thaumaturge.causality_collapser_pearl.title", "悖论珍珠");
+        add("research.thaumaturge.causality_collapser_pearl.stage_0", "终望珍珠无疑是个好东西，不过那股黑色的吸力让我浮想联翩……似乎可以利用这股吸力来聚合要素？");
+        add("research.thaumaturge.causality_collapser_pearl.stage_1", "我越是把玩终望珍珠，就越是觉得它与悖论物质神似——悖论物质将破坏性的能量送入裂隙，迫其自我坍缩；终望珍珠则以黑洞般的吸力吞噬万物，将一切拖入虚无。一个崩碎空间，一个吞没世界，分明是同一种力量的两副面孔。<BR>那么……若是将二者合一，会怎样？一颗既能崩碎裂隙、又能张开黑洞、甚至能将吞噬之物化作要素吐出的珍珠？这个念头，让我夜不能寐。");
+        add("research.thaumaturge.causality_collapser_pearl.stage_2", "注魔远比想象中凶险。以悖论物质为核，八颗终望珍珠环绕四周，虚空与魔法的洪流几乎将祭坛撕碎。我咬牙撑过最危险的时刻，在最后一缕混沌中，将一丝“无限”点入其中。<BR>成功了。悖论珍珠静静躺在我掌心，通体漆黑，深处却流转着赤红的光。它会爆炸、会崩碎裂隙、会张开黑洞吞噬一切——而当黑洞消散，它还会把吞噬过的一切化作灵气节点，归还这个世界。这分明不是毁灭，而是另一种意义上的创世。");
 
         add("wand.thaumaturge.cap.crystal_matrix", "水晶矩阵杖端");
         add("wand.thaumaturge.rod.studded_cosmic_neutronium", "缠绕宇宙中子态素");

@@ -1,0 +1,99 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.causality_collapser_pearl.title",
+  "parents": [
+    "thaumicavaritia:base_thaumicavaritia",
+    "thaumaturge:rift_closer"
+  ],
+  "column": 0,
+  "row": -3,
+  "meta": [
+    "round",
+    "spiky"
+  ],
+  "icons": [
+    "thaumicavaritia:causality_collapser_pearl"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.causality_collapser_pearl.stage_0",
+      "obtain": [
+        {
+          "items": "thaumaturge:causality_collapser",
+          "amount": 1
+        },
+        {
+          "items": "avaritia:endest_pearl",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturge:auromancy",
+          "amount": 1
+        }
+      ],
+      "warp": 5
+    },
+    {
+      "text": "research.thaumaturge.causality_collapser_pearl.stage_1",
+      "obtain": [
+        {
+          "items": "thaumaturge:causality_collapser",
+          "amount": 1
+        },
+        {
+          "items": "avaritia:endest_pearl",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        }
+      ],
+      "warp": 5
+    },
+    {
+      "text": "research.thaumaturge.causality_collapser_pearl.stage_2",
+      "recipes": [
+        "thaumicavaritia:causality_collapser_pearl"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturge:alienis",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:auram",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:vacuos",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:vitium",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumicavaritia:infinitus",
+      "amount": 2
+    }
+  ],
+  "complexity": 3
+}

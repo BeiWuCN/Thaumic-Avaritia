@@ -61,7 +61,7 @@ public abstract class GapingVoidEntityMixin {
                     if (item == Items.AIR) {
                         continue;
                     }
-                    @SuppressWarnings("deprecation") // 与 Thaumaturge AspectIndexBuilder 一致，查询 item datamap。
+                    @SuppressWarnings("deprecation")
                     AspectList blockAspects = item.builtInRegistryHolder().getData(AspectDataMaps.BASE_ASPECTS);
                     if (blockAspects == null) {
                         continue;
