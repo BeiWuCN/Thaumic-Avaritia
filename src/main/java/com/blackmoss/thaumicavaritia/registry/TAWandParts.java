@@ -3,19 +3,16 @@ package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
-import com.leclowndu93150.thaumaturge.api.wands.IWandRodOnUpdate;
-import com.leclowndu93150.thaumaturge.api.wands.WandAccess;
-import com.leclowndu93150.thaumaturge.api.wands.WandCap;
-import com.leclowndu93150.thaumaturge.api.wands.WandRod;
-import com.leclowndu93150.thaumaturge.api.wands.WandVis;
+import com.leclowndu93150.thaumaturge.api.wands.*;
 import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
-import java.util.List;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.List;
 
 public final class TAWandParts {
 
@@ -46,6 +43,19 @@ public final class TAWandParts {
     private TAWandParts() {
     }
 
+    private static Identifier capTexture(String name) {
+        return Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "textures/models/wand_cap_" + name + ".png");
+    }
+
+    private static Identifier rodTexture(String name) {
+        return Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "textures/models/wand_rod_" + name + ".png");
+    }
+
+    public static void register(IEventBus modBus) {
+        CAPS.register(modBus);
+        RODS.register(modBus);
+    }
+
     // 无尽杖柄的自动回满回调：每 tick 将全部原初要素补满。
     private static final class InfinityOnUpdate implements IWandRodOnUpdate {
         @Override
@@ -59,18 +69,5 @@ public final class TAWandParts {
                 wand.set(TCDataComponents.WAND_VIS.get(), full);
             }
         }
-    }
-
-    private static Identifier capTexture(String name) {
-        return Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "textures/models/wand_cap_" + name + ".png");
-    }
-
-    private static Identifier rodTexture(String name) {
-        return Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "textures/models/wand_rod_" + name + ".png");
-    }
-
-    public static void register(IEventBus modBus) {
-        CAPS.register(modBus);
-        RODS.register(modBus);
     }
 }

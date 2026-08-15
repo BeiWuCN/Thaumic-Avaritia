@@ -15,6 +15,7 @@ public class ThaumicAvaritia {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "thaumicavaritia";
     public static final Logger LOGGER = LogUtils.getLogger();
+
     public ThaumicAvaritia(IEventBus modEventBus) {
         TACreativeModeTabs.register(modEventBus);
         TAItems.register(modEventBus);

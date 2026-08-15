@@ -1,13 +1,14 @@
 package com.blackmoss.thaumicavaritia.content.item;
 
 import com.leclowndu93150.thaumaturge.content.casters.ItemFocus;
-import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
+
+import java.util.function.Consumer;
 
 public class ArcaneSingularityFocusItem extends ItemFocus {
 
@@ -16,7 +17,6 @@ public class ArcaneSingularityFocusItem extends ItemFocus {
         super(properties, Integer.MAX_VALUE);
     }
 
-    @SuppressWarnings("deprecation") // 构建 classpath 中 5 参 appendHoverText 为唯一可覆写点（无 4 参新签名）。
     @Override
     public void appendHoverText(
             ItemStack stack,

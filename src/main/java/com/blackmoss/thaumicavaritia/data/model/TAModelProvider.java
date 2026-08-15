@@ -21,17 +21,6 @@ public final class TAModelProvider extends ModelProvider {
         super(output, ThaumicAvaritia.MODID);
     }
 
-    @Override
-    protected void registerModels(@NonNull BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
-        itemModels.generateFlatItem(TAItems.WAND_CAP_CRYSTAL_MATRIX_INTER.get(), ModelTemplates.FLAT_ITEM);
-        generateHaloItem(itemModels, TAItems.EXTREMELY_PRIMORDIAL_PEARL.get());
-        generateHaloItem(itemModels, TAItems.AKASHIC_RECORDS.get());
-        generateHaloItem(itemModels, TAItems.WAND_CAP_CRYSTAL_MATRIX.get());
-        generateHaloItem(itemModels, TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
-        generateHaloItem(itemModels, TAItems.ARCANE_SINGULARITY_FOCUS.get());
-        generateHaloItem(itemModels, TAItems.INFINITY_SCRIBING_TOOLS.get());
-    }
-
     private static void generateHaloItem(ItemModelGenerators itemModels, Item item) {
         itemModels.createFlatItemModel(item, ModelTemplates.FLAT_ITEM);
         itemModels.itemModelOutput.accept(
@@ -56,5 +45,16 @@ public final class TAModelProvider extends ModelProvider {
                         6,
                         false,
                         List.of()));
+    }
+
+    @Override
+    protected void registerModels(@NonNull BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+        itemModels.generateFlatItem(TAItems.WAND_CAP_CRYSTAL_MATRIX_INTER.get(), ModelTemplates.FLAT_ITEM);
+        generateHaloItem(itemModels, TAItems.EXTREMELY_PRIMORDIAL_PEARL.get());
+        generateHaloItem(itemModels, TAItems.AKASHIC_RECORDS.get());
+        generateHaloItem(itemModels, TAItems.WAND_CAP_CRYSTAL_MATRIX.get());
+        generateHaloItem(itemModels, TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
+        generateHaloItem(itemModels, TAItems.ARCANE_SINGULARITY_FOCUS.get());
+        generateHaloItem(itemModels, TAItems.INFINITY_SCRIBING_TOOLS.get());
     }
 }

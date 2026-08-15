@@ -1,13 +1,14 @@
 package com.blackmoss.thaumicavaritia.content.item;
 
-import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import org.jspecify.annotations.NonNull;
+
+import java.util.function.Consumer;
 
 public final class ExtremelyPrimordialPearlItem extends Item {
 

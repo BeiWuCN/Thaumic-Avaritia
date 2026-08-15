@@ -5,7 +5,6 @@ import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.research.pool.AspectPoolAccess;
-import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -16,10 +15,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import org.jspecify.annotations.NonNull;
+
+import java.util.function.Consumer;
 
 public final class AkashicRecordsItem extends Item {
 
@@ -27,6 +28,19 @@ public final class AkashicRecordsItem extends Item {
 
     public AkashicRecordsItem(Properties properties) {
         super(properties);
+    }
+
+    // 将注册表中每个要素以固定数量授予玩家。
+    private static void grantAllAspects(ServerPlayer player) {
+        Registry<IAspect> registry = player.level().registryAccess().lookup(IAspect.REGISTRY_KEY).orElse(null);
+        if (registry == null) {
+            return;
+        }
+        AspectList grants = AspectList.EMPTY;
+        for (Holder.Reference<IAspect> holder : registry.listElements().toList()) {
+            grants = grants.add(new AspectInstance(holder, GRANT_AMOUNT));
+        }
+        AspectPoolAccess.grantAll(player, grants);
     }
 
     @SuppressWarnings("deprecation") // 构建 classpath 中 5 参 appendHoverText 为唯一可覆写点（无 4 参新签名）。
@@ -50,18 +64,5 @@ public final class AkashicRecordsItem extends Item {
         grantAllAspects(serverPlayer);
         player.getItemInHand(hand).shrink(1);
         return InteractionResult.SUCCESS;
-    }
-
-    // 将注册表中每个要素以固定数量授予玩家。
-    private static void grantAllAspects(ServerPlayer player) {
-        Registry<IAspect> registry = player.level().registryAccess().lookup(IAspect.REGISTRY_KEY).orElse(null);
-        if (registry == null) {
-            return;
-        }
-        AspectList grants = AspectList.EMPTY;
-        for (Holder.Reference<IAspect> holder : registry.listElements().toList()) {
-            grants = grants.add(new AspectInstance(holder, GRANT_AMOUNT));
-        }
-        AspectPoolAccess.grantAll(player, grants);
     }
 }

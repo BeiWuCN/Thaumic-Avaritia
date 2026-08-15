@@ -8,11 +8,12 @@ import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
 import com.leclowndu93150.thaumaturge.content.aspect.Aspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
-import java.util.List;
-import java.util.Optional;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
+
+import java.util.List;
+import java.util.Optional;
 
 public final class TAAspectBootstrap {
     private TAAspectBootstrap() {

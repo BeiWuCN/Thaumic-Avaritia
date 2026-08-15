@@ -14,10 +14,6 @@ public class TACreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS;
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THAUMIC_AVARITIA;
 
-    public static void register(IEventBus modBus) {
-        CREATIVE_MODE_TABS.register(modBus);
-    }
-
     static {
         CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ThaumicAvaritia.MODID);
         THAUMIC_AVARITIA = CREATIVE_MODE_TABS.register(ThaumicAvaritia.MODID,
@@ -37,5 +33,9 @@ public class TACreativeModeTabs {
                                     false));
                             output.accept(TAItems.ARCANE_SINGULARITY_FOCUS.get());
                         }).build());
+    }
+
+    public static void register(IEventBus modBus) {
+        CREATIVE_MODE_TABS.register(modBus);
     }
 }

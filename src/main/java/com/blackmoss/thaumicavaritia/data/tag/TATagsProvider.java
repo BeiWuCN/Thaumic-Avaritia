@@ -20,16 +20,6 @@ import java.util.concurrent.CompletableFuture;
 public final class TATagsProvider implements DataProvider {
     private final IntrinsicHolderTagsProvider<Item> itemTags;
 
-    @Override
-    public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
-        return itemTags.run(cache);
-    }
-
-    @Override
-    public @NonNull String getName() {
-        return "Thaumic Avaritia Tags";
-    }
-
     @SuppressWarnings("deprecation") // 构建 classpath 中 builtInRegistryHolder 为获取物品 key 的唯一途径。
     public TATagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
         this.itemTags = new IntrinsicHolderTagsProvider<>(output, Registries.ITEM, lookup,
@@ -58,5 +48,15 @@ public final class TATagsProvider implements DataProvider {
                         TCItems.PECH_WAND.get());
             }
         };
+    }
+
+    @Override
+    public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
+        return itemTags.run(cache);
+    }
+
+    @Override
+    public @NonNull String getName() {
+        return "Thaumic Avaritia Tags";
     }
 }
