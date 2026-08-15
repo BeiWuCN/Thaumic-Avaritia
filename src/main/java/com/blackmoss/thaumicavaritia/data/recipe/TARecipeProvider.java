@@ -160,7 +160,6 @@ public final class TARecipeProvider extends RecipeProvider {
                         'b', Ingredient.of(ModBlocks.neutron.get()),
                         'P', Ingredient.of(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()),
                         'R', Ingredient.of(TCItems.STAFF_ROD_PRIMAL.get()),
-                        'B', Ingredient.of(ModBlocks.infinity.get()),
                         'I', Ingredient.of(ModItems.infinity_ingot.get())),
                 "    NnnNN",
                 "   NniNCN",

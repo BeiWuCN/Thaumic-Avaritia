@@ -1,24 +1,24 @@
 {
   "type": "avaritia:shaped_table",
   "key": {
-    "B": "avaritia:infinity",
     "C": "avaritia:infinity_catalyst",
-    "I": "avaritia:neutron_ingot",
+    "I": "avaritia:infinity_ingot",
     "N": "avaritia:infinity_nugget",
-    "P": "thaumaturge:primordial_pearl",
+    "P": "thaumicavaritia:extremely_primordial_pearl",
     "R": "thaumaturge:staff_rod_primal",
     "b": "avaritia:neutron",
+    "i": "avaritia:neutron_ingot",
     "n": "avaritia:neutron_nugget"
   },
   "pattern": [
     "    NnnNN",
-    "   NnINCN",
-    "  NnIbINn",
-    " NnIPRbIn",
-    "NnIPBPInN",
-    "nIbRPInN ",
-    "nNIbInN  ",
-    "NCNInN   ",
+    "   NniNCN",
+    "  NnibiNn",
+    " NniIRbin",
+    "NniIPIinN",
+    "nibRIinN ",
+    "nNibinN  ",
+    "NCNinN   ",
     "NNnnN    "
   ],
   "result": {

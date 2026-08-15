@@ -636,10 +636,6 @@
       {
         "amount": 30,
         "aspect": "thaumaturge:spiritus"
-      },
-      {
-        "amount": 8,
-        "aspect": "thaumicavaritia:infinitus"
       }
     ],
     "avaritia:endless_cake": [
@@ -778,10 +774,6 @@
       {
         "amount": 30,
         "aspect": "thaumaturge:auram"
-      },
-      {
-        "amount": 6,
-        "aspect": "thaumicavaritia:infinitus"
       }
     ],
     "avaritia:extreme_smithing_table": [
@@ -814,7 +806,7 @@
         "aspect": "thaumaturge:machina"
       },
       {
-        "amount": 6,
+        "amount": 16,
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
@@ -1202,7 +1194,7 @@
         "aspect": "thaumaturge:perditio"
       },
       {
-        "amount": 10,
+        "amount": 9,
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
@@ -1246,7 +1238,6 @@
         "aspect": "thaumaturge:perditio"
       },
       {
-        "amount": 3,
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
@@ -1488,7 +1479,7 @@
         "aspect": "thaumaturge:metallum"
       },
       {
-        "amount": 8,
+        "amount": 12,
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
@@ -1815,6 +1806,10 @@
       {
         "amount": 30,
         "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumicavaritia:infinitus"
       }
     ],
     "avaritia:star_fuel_block": [
@@ -1883,7 +1878,7 @@
         "aspect": "thaumaturge:vitreus"
       },
       {
-        "amount": 3,
+        "amount": 20,
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
@@ -1961,8 +1956,43 @@
         "aspect": "thaumaturge:praecantatio"
       },
       {
-        "amount": 8,
         "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:wand_cap_crystal_matrix": [
+      {
+        "amount": 100,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 100,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 100,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 80,
+        "aspect": "thaumaturge:ordo"
+      },
+      {
+        "amount": 12,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:wand_cap_crystal_matrix_inter": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:praecantatio"
       }
     ],
     "thaumicavaritia:wand_rod_studded_cosmic_neutronium": [

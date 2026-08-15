@@ -663,13 +663,12 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.METALLUM, 32,
                         TCAspects.VACUOS, 16,
                         TAAspects.INFINITUS, 8));
-        add(b, items, ThaumicAvaritia.MODID, "wand_cap_crystal_inter",
+        add(b, items, ThaumicAvaritia.MODID, "wand_cap_crystal_matrix_inter",
                 aspects(
                         TCAspects.VITREUS, 40,
                         TCAspects.METALLUM, 40,
-                        TCAspects.PRAECANTATIO, 20,
-                        TAAspects.INFINITUS, 4));
-        add(b, items, ThaumicAvaritia.MODID, "wand_cap_crystal",
+                        TCAspects.PRAECANTATIO, 20));
+        add(b, items, ThaumicAvaritia.MODID, "wand_cap_crystal_matrix",
                 aspects(
                         TCAspects.PRAECANTATIO, 100,
                         TCAspects.AURAM, 100,
