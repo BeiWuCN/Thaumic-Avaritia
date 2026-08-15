@@ -5,13 +5,19 @@ import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.research.pool.AspectPoolAccess;
+import java.util.function.Consumer;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jspecify.annotations.NonNull;
 
@@ -21,6 +27,18 @@ public final class AkashicRecordsItem extends Item {
 
     public AkashicRecordsItem(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public void appendHoverText(
+            @NonNull ItemStack stack,
+            Item.@NonNull TooltipContext context,
+            @NonNull TooltipDisplay display,
+            @NonNull Consumer<Component> tooltip,
+            @NonNull TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltip, flag);
+        tooltip.accept(Component.translatable("item.thaumicavaritia.akashic_record.desc")
+                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
     }
 
     @Override

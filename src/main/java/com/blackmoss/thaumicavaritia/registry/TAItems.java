@@ -4,6 +4,7 @@ package com.blackmoss.thaumicavaritia.registry;
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.content.item.AkashicRecordsItem;
 import com.blackmoss.thaumicavaritia.content.item.ArcaneSingularityFocusItem;
+import com.blackmoss.thaumicavaritia.content.item.ExtremelyPrimordialPearlItem;
 import com.blackmoss.thaumicavaritia.content.item.InfinityScribingToolsItem;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandRod;
@@ -17,10 +18,10 @@ public final class TAItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThaumicAvaritia.MODID);
 
-    // 极元始珍珠：由 8 颗终末珍珠注魔而成，用作高价值注魔材料。
-    public static final DeferredItem<Item> EXTREMELY_PRIMORDIAL_PEARL = ITEMS.registerItem(
+    // 极元始珍珠：由 9 颗元始珍珠注魔而成，用作高价值注魔材料。
+    public static final DeferredItem<ExtremelyPrimordialPearlItem> EXTREMELY_PRIMORDIAL_PEARL = ITEMS.registerItem(
             "extremely_primordial_pearl",
-            Item::new,
+            ExtremelyPrimordialPearlItem::new,
             props -> props.rarity(Rarity.EPIC));
 
     // 阿卡西记录（Akashic Records）：使用后给予玩家全部要素的研究点。

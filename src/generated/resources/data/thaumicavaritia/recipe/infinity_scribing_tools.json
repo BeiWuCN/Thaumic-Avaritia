@@ -1,0 +1,44 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 128,
+      "aspect": "thaumaturge:cognitio"
+    },
+    {
+      "amount": 128,
+      "aspect": "thaumaturge:praecantatio"
+    },
+    {
+      "amount": 64,
+      "aspect": "thaumaturge:auram"
+    },
+    {
+      "amount": 64,
+      "aspect": "thaumaturge:spiritus"
+    },
+    {
+      "amount": 32,
+      "aspect": "thaumaturge:alienis"
+    },
+    {
+      "amount": 16,
+      "aspect": "thaumaturge:desiderium"
+    },
+    {
+      "amount": 3,
+      "aspect": "thaumicavaritia:infinitus"
+    }
+  ],
+  "catalyst": "thaumaturge:scribing_tools",
+  "components": [
+    "avaritia:neutron_ingot",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "avaritia:infinity_ingot"
+  ],
+  "instability": 4,
+  "result": {
+    "id": "thaumicavaritia:infinity_scribing_tools"
+  }
+}

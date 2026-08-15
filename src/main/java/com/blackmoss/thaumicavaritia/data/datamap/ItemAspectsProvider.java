@@ -77,8 +77,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PRAECANTATIO, 50,
                         TCAspects.VITREUS, 40,
                         TCAspects.METALLUM, 40,
-                        TCAspects.AURAM, 30,
-                        TAAspects.INFINITUS, 6));
+                        TCAspects.AURAM, 30));
         add(b, items, "avaritia", "extreme_smithing_table",
                 aspects(
                         TCAspects.INSTRUMENTUM, 60,
@@ -88,7 +87,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.VITREUS, 40,
                         TCAspects.PERDITIO, 30,
                         TCAspects.MACHINA, 40,
-                        TAAspects.INFINITUS, 6));
+                        TAAspects.INFINITUS, 16));
         add(b, items, "avaritia", "extreme_anvil",
                 aspects(
                         TCAspects.INSTRUMENTUM, 60,
@@ -254,7 +253,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PRAECANTATIO, 15,
                         TCAspects.METALLUM, 12,
                         TCAspects.PERDITIO, 8,
-                        TAAspects.INFINITUS, 3));
+                        TAAspects.INFINITUS, 1));
         add(b, items, "avaritia", "infinity_ingot",
                 aspects(
                         TCAspects.PRAECANTATIO, 80,
@@ -263,15 +262,14 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.ALIENIS, 30,
                         TCAspects.VITREUS, 20,
                         TCAspects.PERDITIO, 20,
-                        TAAspects.INFINITUS, 10));
+                        TAAspects.INFINITUS, 9));
         add(b, items, "avaritia", "endest_pearl",
                 aspects(
                         TCAspects.ALIENIS, 80,
                         TCAspects.VACUOS, 60,
                         TCAspects.PRAECANTATIO, 50,
                         TCAspects.TENEBRAE, 40,
-                        TCAspects.SPIRITUS, 30,
-                        TAAspects.INFINITUS, 8));
+                        TCAspects.SPIRITUS, 30));
         add(b, items, "avaritia", "record_fragment",
                 aspects(
                         TCAspects.COGNITIO, 30,
@@ -282,7 +280,8 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.IGNIS, 60,
                         TCAspects.POTENTIA, 50,
                         TCAspects.PERDITIO, 40,
-                        TCAspects.PRAECANTATIO, 30));
+                        TCAspects.PRAECANTATIO, 30,
+                        TAAspects.INFINITUS, 5));
         add(b, items, "avaritia", "infinity_catalyst",
                 aspects(
                         TCAspects.PRAECANTATIO, 120,
@@ -316,7 +315,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.POTENTIA, 80,
                         TCAspects.ALIENIS, 50,
                         TCAspects.METALLUM, 40,
-                        TAAspects.INFINITUS, 8));
+                        TAAspects.INFINITUS, 12));
         add(b, items, "avaritia", "matter_cluster",
                 aspects(
                         TCAspects.PERMUTATIO, 40,
@@ -462,7 +461,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PRAECANTATIO, 30,
                         TCAspects.METALLUM, 30,
                         TCAspects.VITREUS, 30,
-                        TAAspects.INFINITUS, 3));
+                        TAAspects.INFINITUS, 20));
         add(b, items, "avaritia", "ultimate_stew",
                 aspects(
                         TCAspects.VICTUS, 50,
@@ -652,7 +651,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.ALIENIS, 80,
                         TCAspects.PERDITIO, 80,
                         TCAspects.PRAECANTATIO, 50,
-                        TAAspects.INFINITUS, 8));
+                        TAAspects.INFINITUS, 1));
         add(b, items, ThaumicAvaritia.MODID, "akashic_record",
                 aspects(
                         TCAspects.COGNITIO, 128,

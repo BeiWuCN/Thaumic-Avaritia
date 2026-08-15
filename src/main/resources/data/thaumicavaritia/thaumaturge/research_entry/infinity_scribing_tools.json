@@ -1,0 +1,59 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.infinity_scribing_tools.title",
+  "parents": [
+    "thaumicavaritia:base_thaumicavaritia"
+  ],
+  "column": 2,
+  "row": -1,
+  "meta": [
+    "spiky"
+  ],
+  "icons": [
+    "thaumicavaritia:infinity_scribing_tools"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.infinity_scribing_tools.stage_0",
+      "obtain": [
+        {
+          "items": "thaumaturge:scribing_tools",
+          "amount": 1
+        },
+        {
+          "items": "avaritia:infinity_ingot",
+          "amount": 1
+        },
+        {
+          "items": "avaritia:neutron_ingot",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        }
+      ],
+      "warp": 5
+    },
+    {
+      "text": "research.thaumaturge.infinity_scribing_tools.stage_1",
+      "recipes": [
+        "thaumicavaritia:infinity_scribing_tools"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:cognitio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 1
+    }
+  ],
+  "complexity": 3
+}

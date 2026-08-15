@@ -33,9 +33,13 @@
   "catalyst": "#thaumaturge:curios",
   "components": [
     "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
     "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
     "avaritia:infinity_ingot",
-    "avaritia:infinity_ingot"
+    "avaritia:neutron_ingot",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot"
   ],
   "instability": 4,
   "result": {

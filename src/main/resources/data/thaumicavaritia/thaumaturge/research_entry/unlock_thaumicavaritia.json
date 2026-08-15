@@ -34,7 +34,8 @@
           "category": "thaumaturge:infusion",
           "amount": 1
         }
-      ]
+      ],
+      "warp": 5
     },
     {
       "text": "research.thaumaturge.unlock_thaumicavaritia.stage_1",
@@ -58,7 +59,8 @@
           "category": "thaumaturge:infusion",
           "amount": 1
         }
-      ]
+      ],
+      "warp": 5
     },
     {
       "text": "research.thaumaturge.unlock_thaumicavaritia.stage_2",

@@ -47,6 +47,14 @@
         {
           "items": "thaumaturge:pech_wand",
           "amount": 1
+        },
+        {
+          "items": "avaritia:infinity_ingot",
+          "amount": 1
+        },
+        {
+          "items": "avaritia:neutron_ingot",
+          "amount": 1
         }
       ],
       "required_knowledge": [
@@ -56,7 +64,7 @@
           "amount": 1
         }
       ],
-      "warp": 2
+      "warp": 5
     },
     {
       "text": "research.thaumaturge.akashic_record.stage_1",

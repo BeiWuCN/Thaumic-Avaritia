@@ -6,11 +6,16 @@
 package com.blackmoss.thaumicavaritia.content.item;
 
 import com.leclowndu93150.thaumaturge.api.items.IScribeTools;
+import java.util.function.Consumer;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.TooltipFlag;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
@@ -21,6 +26,18 @@ public final class InfinityScribingToolsItem extends Item implements IScribeTool
 
     public InfinityScribingToolsItem(Item.Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public void appendHoverText(
+            @NonNull ItemStack stack,
+            Item.@NonNull TooltipContext context,
+            @NonNull TooltipDisplay display,
+            @NonNull Consumer<Component> tooltip,
+            @NonNull TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltip, flag);
+        tooltip.accept(Component.translatable("item.thaumicavaritia.infinity_scribing_tools.desc")
+                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
     }
 
     @Override

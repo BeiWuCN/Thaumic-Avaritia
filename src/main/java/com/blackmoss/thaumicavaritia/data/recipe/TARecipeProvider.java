@@ -64,9 +64,13 @@ public final class TARecipeProvider extends RecipeProvider {
                 new ItemStackTemplate(TAItems.AKASHIC_RECORDS.get()),
                 Ingredient.of(items.getOrThrow(TATags.THAUMATURGE_CURIOS)))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .aspect(TCAspects.COGNITIO, 128)
                 .aspect(TCAspects.PRAECANTATIO, 128)
                 .aspect(TCAspects.AURAM, 64)
@@ -119,7 +123,7 @@ public final class TARecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.INSTRUMENTUM, 320)
                 .aspect(TCAspects.ORDO, 320)
                 .aspect(TCAspects.POTENTIA, 320)
-                .aspect(TAAspects.INFINITUS, 64)
+                .aspect(TAAspects.INFINITUS, 32)
                 .instability(6)
                 .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
                 .save(output, ThaumicAvaritia.MODID + ":wand_cap_crystal");
@@ -151,20 +155,21 @@ public final class TARecipeProvider extends RecipeProvider {
         ShapedRecipePattern wandRodStuddedCosmicNeutronium = ShapedRecipePattern.of(Map.of(
                         'N', Ingredient.of(ModItems.infinity_nugget.get()),
                         'n', Ingredient.of(ModItems.neutron_nugget.get()),
-                        'I', Ingredient.of(ModItems.neutron_ingot.get()),
+                        'i', Ingredient.of(ModItems.neutron_ingot.get()),
                         'C', Ingredient.of(ModItems.infinity_catalyst.get()),
                         'b', Ingredient.of(ModBlocks.neutron.get()),
-                        'P', Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()),
+                        'P', Ingredient.of(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()),
                         'R', Ingredient.of(TCItems.STAFF_ROD_PRIMAL.get()),
-                        'B', Ingredient.of(ModBlocks.infinity.get())),
+                        'B', Ingredient.of(ModBlocks.infinity.get()),
+                        'I', Ingredient.of(ModItems.infinity_ingot.get())),
                 "    NnnNN",
-                "   NnINCN",
-                "  NnIbINn",
-                " NnIPRbIn",
-                "NnIPBPInN",
-                "nIbRPInN ",
-                "nNIbInN  ",
-                "NCNInN   ",
+                "   NniNCN",
+                "  NnibiNn",
+                " NniIRbin",
+                "NniIPIinN",
+                "nibRIinN ",
+                "nNibinN  ",
+                "NCNinN   ",
                 "NNnnN    ");
         output.accept(ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(
                         ThaumicAvaritia.MODID, "wand_rod_studded_cosmic_neutronium")),
@@ -172,8 +177,7 @@ public final class TARecipeProvider extends RecipeProvider {
                         new ItemStackTemplate(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get()),
                         4, false), null);
 
-        // 奥法奇点核心：无尽锻造。base=大师核心，template=升级锻造模板，
-        // addition=极元始珍珠 + 无瑕核心 + 悖论物质（compound，三选一）。
+        // 奥法奇点核心
         output.accept(ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(
                         ThaumicAvaritia.MODID, "arcane_singularity_focus")),
                 new ExtremeSmithingRecipe(Ingredient.of(ModItems.upgrade_smithing_template.get()),
@@ -182,6 +186,25 @@ public final class TARecipeProvider extends RecipeProvider {
                                 Ingredient.of(ModItems.enhancement_core.get()),
                                 Ingredient.of(TCItems.CAUSALITY_COLLAPSER.get())),
                         new ItemStackTemplate(TAItems.ARCANE_SINGULARITY_FOCUS.get())), null);
+
+        // 下笔如有神之笔与墨
+        new InfusionRecipeBuilder(aspects, RecipeCategory.TOOLS,
+                new ItemStackTemplate(TAItems.INFINITY_SCRIBING_TOOLS.get()),
+                Ingredient.of(TCItems.SCRIBING_TOOLS.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .aspect(TCAspects.COGNITIO, 128)
+                .aspect(TCAspects.PRAECANTATIO, 128)
+                .aspect(TCAspects.AURAM, 64)
+                .aspect(TCAspects.SPIRITUS, 64)
+                .aspect(TCAspects.ALIENIS, 32)
+                .aspect(TCAspects.DESIDERIUM, 16)
+                .aspect(TAAspects.INFINITUS, 3)
+                .instability(4)
+                .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
+                .save(output, ThaumicAvaritia.MODID + ":infinity_scribing_tools");
     }
 
     public static final class Runner extends RecipeProvider.Runner {

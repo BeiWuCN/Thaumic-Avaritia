@@ -30,7 +30,7 @@
           "amount": 1
         }
       ],
-      "warp": 1
+      "warp": 5
     },
     {
       "text": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_1",
@@ -46,7 +46,8 @@
           "category": "thaumicavaritia:thaumicavaritia",
           "amount": 1
         }
-      ]
+      ],
+      "warp": 5
     },
     {
       "text": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_2"
