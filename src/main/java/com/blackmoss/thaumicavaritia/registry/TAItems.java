@@ -4,6 +4,7 @@ package com.blackmoss.thaumicavaritia.registry;
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.content.item.AkashicRecordsItem;
 import com.blackmoss.thaumicavaritia.content.item.ArcaneSingularityFocusItem;
+import com.blackmoss.thaumicavaritia.content.item.InfinityScribingToolsItem;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandRod;
 import net.minecraft.world.item.Item;
@@ -34,19 +35,33 @@ public final class TAItems {
     public static final DeferredItem<ItemWandCap> WAND_CAP_CRYSTAL_MATRIX = ITEMS.registerItem(
             "wand_cap_crystal_matrix",
             props -> new ItemWandCap(props, TAWandParts.CRYSTAL_MATRIX),
-            props -> props.rarity(Rarity.EPIC));
+            props -> props
+                    .rarity(Rarity.EPIC));
 
     // 宇宙中子态素杖柄
     public static final DeferredItem<ItemWandRod> WAND_ROD_STUDDED_COSMIC_NEUTRONIUM = ITEMS.registerItem(
             "wand_rod_studded_cosmic_neutronium",
             props -> new ItemWandRod(props, TAWandParts.STUDDED_COSMIC_NEUTRONIUM),
-            props -> props.rarity(Rarity.EPIC));
+            props -> props
+                    .rarity(Rarity.EPIC));
 
     // 奥法奇点核心
     public static final DeferredItem<ArcaneSingularityFocusItem> ARCANE_SINGULARITY_FOCUS = ITEMS.registerItem(
             "arcane_singularity_focus",
             ArcaneSingularityFocusItem::new,
-            props -> props.stacksTo(1).rarity(Rarity.EPIC));
+            props -> props
+                    .stacksTo(1)
+                    .rarity(Rarity.EPIC));
+
+    // 笔如有神之笔与墨：无尽研究台笔具。研究台判定要求 maxDamage > 0，故设大耐久，
+    // 实际由 inventoryTick 每 tick 回满，永不损坏。
+    public static final DeferredItem<InfinityScribingToolsItem> INFINITY_SCRIBING_TOOLS = ITEMS.registerItem(
+            "infinity_scribing_tools",
+            InfinityScribingToolsItem::new,
+            props -> props
+                    .stacksTo(1)
+                    .rarity(Rarity.EPIC)
+                    .durability(InfinityScribingToolsItem.MAX_DAMAGE));
 
     private TAItems() {
     }

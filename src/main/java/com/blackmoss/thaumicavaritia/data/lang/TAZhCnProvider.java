@@ -24,6 +24,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_cap_crystal_matrix_inter", "惰性水晶矩阵杖端");
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "宇宙中子态素杖柄");
         add("item.thaumicavaritia.arcane_singularity_focus", "奥法奇点核心");
+        add("item.thaumicavaritia.infinity_scribing_tools", "下笔如有神之笔与墨");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
 
