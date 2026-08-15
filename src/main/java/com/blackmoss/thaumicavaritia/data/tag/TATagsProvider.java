@@ -30,6 +30,7 @@ public final class TATagsProvider implements DataProvider {
         return "Thaumic Avaritia Tags";
     }
 
+    @SuppressWarnings("deprecation") // 构建 classpath 中 builtInRegistryHolder 为获取物品 key 的唯一途径。
     public TATagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
         this.itemTags = new IntrinsicHolderTagsProvider<>(output, Registries.ITEM, lookup,
                 item -> item.builtInRegistryHolder().key(), ThaumicAvaritia.MODID) {

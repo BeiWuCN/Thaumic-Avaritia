@@ -16,6 +16,7 @@ public class ArcaneSingularityFocusItem extends ItemFocus {
         super(properties, Integer.MAX_VALUE);
     }
 
+    @SuppressWarnings("deprecation") // 构建 classpath 中 5 参 appendHoverText 为唯一可覆写点（无 4 参新签名）。
     @Override
     public void appendHoverText(
             ItemStack stack,

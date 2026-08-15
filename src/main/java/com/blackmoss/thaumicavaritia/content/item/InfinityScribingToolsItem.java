@@ -28,6 +28,7 @@ public final class InfinityScribingToolsItem extends Item implements IScribeTool
         super(properties);
     }
 
+    @SuppressWarnings("deprecation") // 构建 classpath 中 5 参 appendHoverText 为唯一可覆写点（无 4 参新签名）。
     @Override
     public void appendHoverText(
             @NonNull ItemStack stack,
