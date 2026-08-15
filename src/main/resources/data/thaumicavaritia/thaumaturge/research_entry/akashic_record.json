@@ -5,9 +5,8 @@
     "thaumicavaritia:base_thaumicavaritia"
   ],
   "column": 2,
-  "row": 2,
+  "row": 1,
   "meta": [
-    "round",
     "spiky"
   ],
   "icons": [
@@ -43,6 +42,10 @@
         },
         {
           "items": "thaumaturge:curio_rites",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:pech_wand",
           "amount": 1
         }
       ],

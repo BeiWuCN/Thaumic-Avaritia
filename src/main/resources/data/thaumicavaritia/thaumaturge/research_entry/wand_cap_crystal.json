@@ -1,0 +1,93 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.wand_cap_crystal.title",
+  "parents": [
+    "thaumicavaritia:base_thaumicavaritia"
+  ],
+  "column": 1,
+  "row": 2,
+  "icons": [
+    "thaumicavaritia:wand_cap_crystal"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.wand_cap_crystal.stage_0",
+      "obtain": [
+        {
+          "items": "avaritia:crystal_matrix_ingot",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturge:auromancy",
+          "amount": 1
+        }
+      ],
+      "warp": 1
+    },
+    {
+      "text": "research.thaumaturge.wand_cap_crystal.stage_1",
+      "craft": [
+        {
+          "items": "thaumaturge:wand_cap_void",
+          "amount": 1
+        },
+        {
+          "items": "thaumaturge:salis_mundus",
+          "amount": 2
+        },
+        {
+          "items": "thaumaturge:nugget_quicksilver",
+          "amount": 2
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturge:infusion",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "text": "research.thaumaturge.wand_cap_crystal.stage_2",
+      "craft": [
+        {
+          "items": "thaumicavaritia:wand_cap_crystal_inter",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturge:infusion",
+          "amount": 2
+        }
+      ],
+      "recipes": [
+        "thaumicavaritia:wand_cap_crystal_inter"
+      ]
+    },
+    {
+      "text": "research.thaumaturge.wand_cap_crystal.stage_3",
+      "recipes": [
+        "thaumicavaritia:wand_cap_crystal_inter",
+        "thaumicavaritia:wand_cap_crystal"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:vitreus",
+      "amount": 2
+    }
+  ],
+  "complexity": 2
+}

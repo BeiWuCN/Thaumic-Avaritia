@@ -1,12 +1,12 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.ta_arcane_singularity_focus.title",
+  "name": "research.thaumaturge.arcane_singularity_focus.title",
   "parents": [
-    "thaumicavaritia:ta_wand_cap_crystal",
-    "thaumicavaritia:ta_wand_rod_neutronium"
+    "thaumicavaritia:wand_cap_crystal",
+    "thaumicavaritia:wand_rod_neutronium"
   ],
-  "column": 9,
-  "row": 2,
+  "column": 0,
+  "row": 4,
   "meta": [
     "round",
     "spiky"
@@ -20,14 +20,6 @@
       "recipes": [
         "thaumicavaritia:arcane_singularity_focus"
       ]
-    },
-    {
-      "text": "research.thaumaturge.ta_arcane_singularity_focus.stage_1",
-      "required_research": [
-        "thaumicavaritia:ta_wand_cap_crystal",
-        "thaumicavaritia:ta_wand_rod_neutronium"
-      ],
-      "warp": 2
     }
   ],
   "note_aspects": [

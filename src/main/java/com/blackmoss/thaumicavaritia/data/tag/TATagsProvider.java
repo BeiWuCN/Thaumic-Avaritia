@@ -51,7 +51,8 @@ public final class TATagsProvider implements DataProvider {
                         TCItems.CURIO_ELDRITCH.get(),
                         TCItems.CURIO_KNOWLEDGE.get(),
                         TCItems.CURIO_TWISTED.get(),
-                        TCItems.CURIO_RITES.get());
+                        TCItems.CURIO_RITES.get(),
+                        TCItems.PECH_WAND.get());
             }
         };
     }

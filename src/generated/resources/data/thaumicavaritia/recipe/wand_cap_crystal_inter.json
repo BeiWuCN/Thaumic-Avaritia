@@ -1,8 +1,8 @@
 {
   "type": "avaritia:shaped_table",
   "key": {
-    "B": "avaritia:diamond_lattice_block",
-    "L": "avaritia:diamond_lattice",
+    "B": "avaritia:crystal_matrix",
+    "L": "avaritia:crystal_matrix_ingot",
     "P": "thaumaturge:primordial_pearl",
     "Q": "thaumaturge:nugget_quicksilver",
     "S": "thaumaturge:salis_mundus",

@@ -1,0 +1,65 @@
+{
+  "category": "thaumicavaritia:thaumicavaritia",
+  "name": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.title",
+  "parents": [
+    "thaumicavaritia:base_thaumicavaritia"
+  ],
+  "column": -1,
+  "row": 2,
+  "icons": [
+    "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_0",
+      "obtain": [
+        {
+          "items": "thaumaturge:staff_rod_primal",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturge:auromancy",
+          "amount": 1
+        }
+      ],
+      "warp": 1
+    },
+    {
+      "text": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_1",
+      "obtain": [
+        {
+          "items": "avaritia:infinity_ingot",
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumicavaritia:thaumicavaritia",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "text": "research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_2",
+      "recipes": [
+        "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:praecantatio",
+      "amount": 2
+    }
+  ],
+  "complexity": 2
+}

@@ -42,20 +42,22 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("research.thaumaturge.akashic_record.stage_0", "以极致的贪婪之物为引，我终于唤醒了这本全知之书。它封存着一切神秘知识，如今为我所用。");
         add("research.thaumaturge.akashic_record.stage_1", "贪欲的造物激活了阿卡西记录，万千要素如潮水般涌入我的心智——神秘学，自此成为我掌中之物。");
 
-        // 法杖工业支线
-        add("research.thaumaturge.ta_wand_cap_crystal.title", "充能水晶矩阵杖端");
-        add("research.thaumaturge.ta_wand_cap_crystal.stage_0", "以水晶矩阵缠绕杖身，Vis 的消耗将被无限压低。贪婪的工业，亦能侍奉奥术。");
+        // 法杖支线
+        add("research.thaumaturge.wand_cap_crystal.title", "水晶矩阵杖端");
+        add("research.thaumaturge.wand_cap_crystal.stage_0", "我认为相信钻石、下界合金、下界之星混合而成的水晶能承载足够强大的魔力，不过在此之前我需要规划一下……");
+        add("research.thaumaturge.wand_cap_crystal.stage_1", "事实证明水晶很适合用于减少魔力的消耗，但并不能很好地导出魔力，这倒是让我想到虚空杖端了，虚空金属很擅长传导魔力，也许可以加些世界盐什么的试试，当然也可能是水晶矩阵的潜力没被激发出来……");
+        add("research.thaumaturge.wand_cap_crystal.stage_2", "测试成功了！，真如前言所叙，水晶矩阵需要经过充能才能发挥其全部威力，那我找些材料加上去就行了，元始魔力先加几个保持稳定，要不……加点元始珍珠？");
+        add("research.thaumaturge.wand_cap_crystal.stage_3", "注魔有惊无险，水晶矩阵潜藏的威力被激发出来了！这种材料作为杖端是独一份的强力！其只会消耗10%的魔力！");
 
-        add("research.thaumaturge.ta_wand_cap_crystal_inter.title", "惰性水晶矩阵杖端");
-        add("research.thaumaturge.ta_wand_cap_crystal_inter.stage_0", "剥离了光环的水晶杖端，不再喧哗，却依旧承载着那份被无限压缩的奥术效率。");
-
-        add("research.thaumaturge.ta_wand_rod_neutronium.title", "宇宙中子态素杖柄");
-        add("research.thaumaturge.ta_wand_rod_neutronium.stage_0", "中子态素的容量近乎无穷，且能自行回满。这柄杖，从此再无枯竭之虞。");
+        add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.title", "宇宙中子态素杖柄");
+        add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_0", "中子态素可是好东西，它能包容万象……那魔力呢？我似乎可以把魔力存储在中子态素的容器中，或许我可以从改造元始杖芯开始。");
+        add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_1", "效果很好，但魔力没过一会就全跑了，我再加点无限进去试试？也许能自己产生魔力呢……");
+        add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_2", "我搞错了，存不下不是坏事，而是好事！中子态素包含住无限的结构看起来只是一根棍子，但是这根中子态素杖柄实际上连接着全宇宙的魔力！这下子永远也不缺魔力了！");
 
         // 奥法奇点核心（树顶汇合）
-        add("research.thaumaturge.ta_arcane_singularity_focus.title", "奥法奇点核心");
-        add("research.thaumaturge.ta_arcane_singularity_focus.stage_0", "当水晶杖端与中子杖柄合而为一，奥法的奇点便不再受复杂度的桎梏——无限，本就该如此。");
-        add("research.thaumaturge.ta_arcane_singularity_focus.stage_1", "我以贪婪铸成了这枚核心，它吞噬一切法术的边界。神秘学在我手中，终于抵达了无限。");
+        add("research.thaumaturge.arcane_singularity_focus.title", "奥法奇点核心");
+        add("research.thaumaturge.arcane_singularity_focus.stage_0", "当水晶杖端与中子杖柄合而为一，奥法的奇点便不再受复杂度的桎梏——无限，本就该如此。");
+        add("research.thaumaturge.arcane_singularity_focus.stage_1", "我以贪婪铸成了这枚核心，它吞噬一切法术的边界。神秘学在我手中，终于抵达了无限。");
 
         add("wand.thaumaturge.cap.crystal", "水晶矩阵杖端");
         add("wand.thaumaturge.rod.infinity", "缠绕宇宙中子态素");

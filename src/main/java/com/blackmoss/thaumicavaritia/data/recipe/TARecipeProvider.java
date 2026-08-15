@@ -127,8 +127,8 @@ public final class TARecipeProvider extends RecipeProvider {
         // 惰性水晶矩阵杖端
         ShapedRecipePattern wandCapCrystalPattern = ShapedRecipePattern.of(Map.of(
                         'Q', Ingredient.of(TCItems.NUGGET_QUICKSILVER.get()),
-                        'L', Ingredient.of(ModItems.diamond_lattice.get()),
-                        'B', Ingredient.of(ModBlocks.diamond_lattice_block.get()),
+                        'L', Ingredient.of(ModItems.crystal_matrix_ingot.get()),
+                        'B', Ingredient.of(ModBlocks.crystal_matrix.get()),
                         'V', Ingredient.of(TCItems.WAND_CAP_VOID.get()),
                         'P', Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()),
                         'S', Ingredient.of(TCItems.SALIS_MUNDUS.get())),
