@@ -20,6 +20,10 @@
     {
       "amount": 320,
       "aspect": "thaumaturge:potentia"
+    },
+    {
+      "amount": 64,
+      "aspect": "thaumicavaritia:infinitus"
     }
   ],
   "catalyst": "thaumicavaritia:wand_cap_crystal_inter",

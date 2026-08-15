@@ -1,5 +1,65 @@
 {
   "values": {
+    "avaritia:blaze_cube_block": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:ignis"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:potentia"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:perditio"
+      }
+    ],
+    "avaritia:compressed_chest": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:fabrico"
+      }
+    ],
+    "avaritia:compressed_crafting_table": [
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:machina"
+      }
+    ],
+    "avaritia:crystal_matrix": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 4,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
     "avaritia:crystal_matrix_ingot": [
       {
         "amount": 10,
@@ -12,20 +72,385 @@
       {
         "amount": 5,
         "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "aspect": "thaumicavaritia:infinitus"
       }
     ],
-    "avaritia:endest_pearl": [
+    "avaritia:dense_neutron_collector": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:machina"
+      },
       {
         "amount": 15,
-        "aspect": "thaumaturge:alienis"
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
       },
       {
         "amount": 10,
         "aspect": "thaumaturge:perditio"
       },
       {
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:dense_neutron_compressor": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:ordo"
+      },
+      {
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:denser_neutron_collector": [
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 2,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:denser_neutron_compressor": [
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:ordo"
+      },
+      {
+        "amount": 2,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:densest_neutron_collector": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 3,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:densest_neutron_compressor": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:ordo"
+      },
+      {
+        "amount": 3,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:diamond_lattice_block": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
         "amount": 5,
+        "aspect": "thaumaturge:ordo"
+      }
+    ],
+    "avaritia:double_compressed_crafting_table": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:machina"
+      }
+    ],
+    "avaritia:end_crafting_table": [
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:tenebrae"
+      }
+    ],
+    "avaritia:endless_cake": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:victus"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 6,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:eternal_singularity": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:extreme_anvil": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:extreme_crafting_table": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 6,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:extreme_smithing_table": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 6,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 20,
         "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 8,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_axe": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_boots": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:praemunio"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 12,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_bow": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:aer"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:potentia"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_bucket": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:aqua"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumicavaritia:infinitus"
       }
     ],
     "avaritia:infinity_catalyst": [
@@ -44,6 +469,110 @@
       {
         "amount": 10,
         "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_chest": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 8,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_chestplate": [
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:praemunio"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 12,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_crossbow": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:aer"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:potentia"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_elytra": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:aer"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 12,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_helmet": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:praemunio"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 12,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_hoe": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
       }
     ],
     "avaritia:infinity_ingot": [
@@ -62,16 +591,204 @@
       {
         "amount": 5,
         "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumicavaritia:infinitus"
       }
     ],
-    "avaritia:infinity_nugget": [
+    "avaritia:infinity_mace": [
       {
-        "amount": 5,
+        "amount": 30,
         "aspect": "thaumaturge:praecantatio"
       },
       {
-        "amount": 5,
+        "amount": 30,
         "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:potentia"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_pants": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:praemunio"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 12,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_pickaxe": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_shield": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:praemunio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_shovel": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_sword": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:potentia"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:infinity_trident": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:aqua"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:potentia"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:nether_crafting_table": [
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:ignis"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:alienis"
+      }
+    ],
+    "avaritia:neutron": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 2,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "avaritia:neutron_collector": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:perditio"
+      }
+    ],
+    "avaritia:neutron_compressor": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:motus"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:ordo"
       }
     ],
     "avaritia:neutron_ingot": [
@@ -86,16 +803,77 @@
       {
         "amount": 10,
         "aspect": "thaumaturge:metallum"
+      },
+      {
+        "aspect": "thaumicavaritia:infinitus"
       }
     ],
-    "avaritia:neutron_pile": [
+    "avaritia:refined_coal_block": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:ignis"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:potentia"
+      },
       {
         "amount": 5,
         "aspect": "thaumaturge:perditio"
+      }
+    ],
+    "avaritia:sculk_crafting_table": [
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:tenebrae"
       },
       {
-        "amount": 2,
-        "aspect": "thaumaturge:praecantatio"
+        "amount": 10,
+        "aspect": "thaumaturge:spiritus"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:alienis"
+      }
+    ],
+    "avaritia:soul_farmland": [
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:spiritus"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:victus"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:terra"
+      }
+    ],
+    "avaritia:star_fuel_block": [
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:ignis"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:potentia"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 4,
+        "aspect": "thaumicavaritia:infinitus"
       }
     ],
     "thaumicavaritia:akashic_record": [
@@ -130,6 +908,112 @@
       {
         "amount": 8,
         "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 32,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:arcane_singularity_focus": [
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 48,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:extremely_primordial_pearl": [
+      {
+        "amount": 32,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 32,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 8,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:wand_cap_crystal": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:ordo"
+      },
+      {
+        "amount": 24,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:wand_cap_crystal_inter": [
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 4,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:wand_rod_studded_cosmic_neutronium": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 32,
+        "aspect": "thaumicavaritia:infinitus"
       }
     ]
   }

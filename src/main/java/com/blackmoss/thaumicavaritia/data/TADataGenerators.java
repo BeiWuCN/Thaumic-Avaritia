@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia.data;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.data.aspect.TAAspectBootstrap;
 import com.blackmoss.thaumicavaritia.data.lang.TAEnUsProvider;
 import com.blackmoss.thaumicavaritia.data.lang.TAZhCnProvider;
 import com.blackmoss.thaumicavaritia.data.datamap.ItemAspectsProvider;
@@ -8,7 +9,6 @@ import com.blackmoss.thaumicavaritia.data.model.TAModelProvider;
 import com.blackmoss.thaumicavaritia.data.recipe.TARecipeProvider;
 import com.blackmoss.thaumicavaritia.data.tag.TATagsProvider;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
-import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
 import net.minecraft.core.RegistrySetBuilder;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -23,7 +23,7 @@ public final class TADataGenerators {
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent.Client event) {
         RegistrySetBuilder registries = new RegistrySetBuilder()
-                .add(IAspect.REGISTRY_KEY, AspectBootstrap::bootstrap);
+                .add(IAspect.REGISTRY_KEY, TAAspectBootstrap::bootstrap);
         event.createDatapackRegistryObjects(registries);
 
         event.createProvider(TAEnUsProvider::new);

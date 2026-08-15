@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia.data.recipe;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import com.blackmoss.thaumicavaritia.registry.TATags;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
@@ -72,6 +73,7 @@ public final class TARecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.SPIRITUS, 64)
                 .aspect(TCAspects.ALIENIS, 32)
                 .aspect(TCAspects.DESIDERIUM, 16)
+                .aspect(TAAspects.INFINITUS, 32)
                 .instability(4)
                 .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
                 .save(output, ThaumicAvaritia.MODID + ":akashic_record");
@@ -117,6 +119,7 @@ public final class TARecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.INSTRUMENTUM, 320)
                 .aspect(TCAspects.ORDO, 320)
                 .aspect(TCAspects.POTENTIA, 320)
+                .aspect(TAAspects.INFINITUS, 64)
                 .instability(6)
                 .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
                 .save(output, ThaumicAvaritia.MODID + ":wand_cap_crystal");

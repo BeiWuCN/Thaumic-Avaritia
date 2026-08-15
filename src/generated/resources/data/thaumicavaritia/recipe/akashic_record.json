@@ -24,6 +24,10 @@
     {
       "amount": 16,
       "aspect": "thaumaturge:desiderium"
+    },
+    {
+      "amount": 32,
+      "aspect": "thaumicavaritia:infinitus"
     }
   ],
   "catalyst": "#thaumaturge:curios",
