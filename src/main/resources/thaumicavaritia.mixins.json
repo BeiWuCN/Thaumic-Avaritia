@@ -7,6 +7,7 @@
     "BlockEntityArcaneWorkbenchMixin",
     "BlockEntityFocalManipulatorMixin",
     "BlockEntityResearchTableMixin",
+    "BlockEntitySmelterMixin",
     "EntityFluxRiftMixin",
     "GapingVoidEntityMixin"
   ],

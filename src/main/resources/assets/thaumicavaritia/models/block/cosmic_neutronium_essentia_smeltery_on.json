@@ -1,0 +1,6 @@
+{
+  "parent": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_off",
+  "textures": {
+    "north": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_front_on"
+  }
+}

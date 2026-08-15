@@ -33,7 +33,8 @@ public final class TATagsProvider implements DataProvider {
                         TAItems.WAND_CAP_CRYSTAL_MATRIX.get(),
                         TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get(),
                         TAItems.ARCANE_SINGULARITY_FOCUS.get(),
-                        TAItems.INFINITY_SCRIBING_TOOLS.get()
+                        TAItems.INFINITY_SCRIBING_TOOLS.get(),
+                        TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get()
                 );
 
                 // Thaumaturge 珍宝（curio）均加入 curio 标签，供阿卡西记录配方使用。

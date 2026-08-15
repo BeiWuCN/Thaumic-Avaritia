@@ -1,10 +1,12 @@
 // 主类：无尽贪婪（Re:Avaritia）与神秘时代（Thaumaturge）联动内容。
 package com.blackmoss.thaumicavaritia;
 
+import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
 import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.blackmoss.thaumicavaritia.registry.TACreativeModeTabs;
 import com.blackmoss.thaumicavaritia.registry.TAEntities;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
+import com.blackmoss.thaumicavaritia.registry.TAMenus;
 import com.blackmoss.thaumicavaritia.registry.TAWandParts;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -22,6 +24,8 @@ public class ThaumicAvaritia {
         TACreativeModeTabs.register(modEventBus);
         TAItems.register(modEventBus);
         TABlocks.register(modEventBus);
+        TABlockEntities.register(modEventBus);
+        TAMenus.register(modEventBus);
         TAWandParts.register(modEventBus);
         TAEntities.register(modEventBus);
     }

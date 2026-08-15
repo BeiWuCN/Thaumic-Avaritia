@@ -2,7 +2,6 @@ package com.blackmoss.thaumicavaritia.data.recipe;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
-import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import com.blackmoss.thaumicavaritia.registry.TATags;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
@@ -246,10 +245,32 @@ public final class TARecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.AURAM, 640)
                 .aspect(TCAspects.PRAECANTATIO, 640)
                 .aspect(TCAspects.VACUOS, 640)
+                .aspect(TCAspects.MACHINA, 640)
                 .aspect(TAAspects.INFINITUS, 16)
                 .instability(5)
                 .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
                 .save(output, ThaumicAvaritia.MODID + ":infinity_charger");
+
+        // 宇宙中子态素源质冶炼厂：以虚空冶炼炉为基座，注入无限之力，0 燃料/0 污染/瞬间产出。
+        new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
+                new ItemStackTemplate(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get()),
+                Ingredient.of(TCItems.SMELTER_VOID.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(ModItems.infinity_catalyst.get()))
+                .aspect(TCAspects.AURAM, 640)
+                .aspect(TCAspects.PRAECANTATIO, 640)
+                .aspect(TCAspects.VACUOS, 640)
+                .aspect(TCAspects.MACHINA, 640)
+                .aspect(TAAspects.INFINITUS, 16)
+                .instability(5)
+                .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
+                .save(output, ThaumicAvaritia.MODID + ":cosmic_neutronium_essentia_smeltery");
     }
 
     public static final class Runner extends RecipeProvider.Runner {

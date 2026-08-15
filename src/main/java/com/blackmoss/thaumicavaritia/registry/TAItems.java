@@ -78,6 +78,10 @@ public final class TAItems {
     public static final DeferredItem<BlockItem> INFINITY_CHARGER =
             ITEMS.registerSimpleBlockItem(TABlocks.INFINITY_CHARGER);
 
+    // 宇宙中子态素源质冶炼厂
+    public static final DeferredItem<BlockItem> COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY =
+            ITEMS.registerSimpleBlockItem(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY);
+
     private TAItems() {
     }
 

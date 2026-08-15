@@ -1,6 +1,9 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "thaumicavaritia:block/infinity_charger"
+    "type": "avaritia:halo",
+    "model": "thaumicavaritia:block/infinity_charger",
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo"
   }
 }

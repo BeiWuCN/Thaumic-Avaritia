@@ -7,8 +7,12 @@ import committee.nova.mods.avaritia.client.model.loader.AvaritiaItemModelLoaders
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
@@ -59,13 +63,44 @@ public final class TAModelProvider extends ModelProvider {
         generateHaloItem(itemModels, TAItems.INFINITY_SCRIBING_TOOLS.get());
         generateHaloItem(itemModels, TAItems.CAUSALITY_COLLAPSER_PEARL.get());
 
-        // 无限充能器：blockstate 与物品模型由 DataGen 生成，均引用手写的 tcmesh block 模型
-        // （assets/thaumicavaritia/models/block/infinity_charger.json，复用 Thaumaturge 网格）。
+        // 无限充能器：blockstate 由 DataGen 生成（引用手写的 tcmesh block 模型），
+        // 物品模型用 Halo 光环包装（内层指向该 block 模型，非扁平贴图）。
+        Block infinityCharger = TABlocks.INFINITY_CHARGER.get();
+        Identifier infinityChargerModel = ModelLocationUtils.getModelLocation(infinityCharger);
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(
-                TABlocks.INFINITY_CHARGER.get(),
-                BlockModelGenerators.plainVariant(
-                        ModelLocationUtils.getModelLocation(TABlocks.INFINITY_CHARGER.get()))));
-        blockModels.registerSimpleItemModel(
-                TABlocks.INFINITY_CHARGER.get(), ModelLocationUtils.getModelLocation(TABlocks.INFINITY_CHARGER.get()));
+                infinityCharger,
+                BlockModelGenerators.plainVariant(infinityChargerModel)));
+        itemModels.itemModelOutput.accept(
+                infinityCharger.asItem(),
+                new AvaritiaItemModelLoaders.Halo(
+                        infinityChargerModel,
+                        Identifier.fromNamespaceAndPath("avaritia", "misc/halo"),
+                        -16777216,
+                        6,
+                        false,
+                        List.of()));
+
+        // 宇宙中子态素源质冶炼厂：block 模型手写 off/on 两版（复用原版冶炼炉网格，
+        // 正面/侧面/顶面各自绘纹理，lit 切换正面），blockstate 由 DataGen 按 facing 旋转 + lit 切换生成。
+        Block cosmicSmeltery = TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get();
+        Identifier smelteryOff = ModelLocationUtils.getModelLocation(cosmicSmeltery).withSuffix("_off");
+        Identifier smelteryOn = ModelLocationUtils.getModelLocation(cosmicSmeltery).withSuffix("_on");
+        blockModels.blockStateOutput.accept(
+                MultiVariantGenerator.dispatch(cosmicSmeltery)
+                        .with(BlockModelGenerators.createBooleanModelDispatch(
+                                BlockStateProperties.LIT,
+                                BlockModelGenerators.plainVariant(smelteryOn),
+                                BlockModelGenerators.plainVariant(smelteryOff)))
+                        .with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
+        // 物品模型用 Halo 光环包装（内层指向 off 版 block 模型）。
+        itemModels.itemModelOutput.accept(
+                cosmicSmeltery.asItem(),
+                new AvaritiaItemModelLoaders.Halo(
+                        smelteryOff,
+                        Identifier.fromNamespaceAndPath("avaritia", "misc/halo"),
+                        -16777216,
+                        6,
+                        false,
+                        List.of()));
     }
 }

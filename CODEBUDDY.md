@@ -24,26 +24,31 @@
 
 ### 代码组织
 
-12 个 Java 文件分三块，包结构即分层：
-- `registry/` — 注册入口：`TAItems`（物品）、`TAWandParts`（法杖部件）、`TATags`（标签常量）。
-- `content/item/` — 物品行为：目前仅 `AkashicRecordsItem`（其余物品无自定义行为，直接用注册工厂）。
-- `data/` — DataGen 体系：`TADataGenerators` 为唯一入口，下辖 `lang/`、`recipe/`、`model/`、`tag/`、`datamap/`。
+包结构即分层：
+- `registry/` — 注册入口：`TAItems`（物品）、`TABlocks`（方块+方块物品）、`TABlockEntities`（方块实体类型）、`TAMenus`（菜单类型）、`TAWandParts`（法杖部件）、`TATags`（标签常量）、`TAEntities`（实体）、`TACreativeModeTabs`。
+- `content/` — 行为实现：`block/`（方块）、`item/`（物品行为）、`entity/`（实体）、`essentia/smeltery/`（冶炼厂 BE/Menu，**放本 mod 包**）。
+- `mixin/`（+ `mixin/client/`）— mixin 注入；`api/`（`aspect/TAAspects` 要素 key、`interfaces/`）；`data/` — DataGen 体系：`TADataGenerators` 为唯一入口，下辖 `lang/`、`recipe/`、`model/`、`tag/`、`datamap/`、`aspect/`、`worldgen/research/`。
 
 ### 主入口与注册流程
 
 `ThaumicAvaritia`（`@Mod`）构造函数按顺序注册：
-1. `TAWandParts.register(modEventBus)` — 两个 `DeferredRegister`（`WandCap.REGISTRY_KEY` / `WandRod.REGISTRY_KEY`）把杖端/杖柄写进 **Thaumaturge 的动态注册表**，不是物品注册表。
-2. `TAItems.register(modEventBus)` — 标准 `DeferredRegister.Items` 注册 4 个物品。其中杖端/杖柄物品用 Thaumaturge 的 `ItemWandCap` / `ItemWandRod` 类，构造时绑定上面的 `WandCap` / `WandRod` 部件。
+1. `TACreativeModeTabs.register(modEventBus)`
+2. `TAItems.register(modEventBus)` — `DeferredRegister.Items` 注册全部物品（含方块物品 `registerSimpleBlockItem`）。
+3. `TABlocks.register(modEventBus)` — 方块注册。
+4. `TABlockEntities.register(modEventBus)` — 方块实体类型。
+5. `TAMenus.register(modEventBus)` — 菜单类型（`IMenuTypeExtension.create`）。
+6. `TAWandParts.register(modEventBus)` — 两个 `DeferredRegister`（`WandCap.REGISTRY_KEY` / `WandRod.REGISTRY_KEY`）把杖端/杖柄写进 **Thaumaturge 的动态注册表**，不是物品注册表。
+7. `TAEntities.register(modEventBus)` — 实体。
 
-理解这条双注册链是关键：**部件（能力）在 Thaumaturge 注册表，物品（载体）在本 mod 注册表**，二者通过构造函数参数绑定。
+理解双注册链：**部件（能力）在 Thaumaturge 注册表，物品（载体）在本 mod 注册表**，二者通过构造函数参数绑定。
 
 ### DataGen 体系
 
 `TADataGenerators.onGatherData`（`GatherDataEvent.Client`）做两件事：
-1. 构造 `RegistrySetBuilder` 并注入 `IAspect.REGISTRY_KEY`（用 `AspectBootstrap::bootstrap`），然后 `createDatapackRegistryObjects(registries)`。**这步不可省**——recipe/datamap provider 里都调用 `registries.lookupOrThrow(IAspect.REGISTRY_KEY)`，不注入会直接崩 `Registry thaumaturge:aspect not found`。
-2. 依次注册 provider：`TAEnUsProvider` / `TAZhCnProvider` / `TARecipeProvider.Runner` / `TAModelProvider` / `TATagsProvider`。
+1. 构造 `RegistrySetBuilder` 并注入 `IAspect.REGISTRY_KEY`（用 `TAAspectBootstrap::bootstrap`，先 `AspectBootstrap.bootstrap(ctx)` 再注册 infinitus），然后 `createDatapackRegistryObjects(registries)`。**这步不可省**——recipe/datamap provider 里都调用 `registries.lookupOrThrow(IAspect.REGISTRY_KEY)`，不注入会直接崩 `Registry thaumaturge:aspect not found`。
+2. 依次注册 provider：`TAEnUsProvider` / `TAZhCnProvider` / `TARecipeProvider.Runner` / `TAModelProvider` / `TATagsProvider`（`ItemAspectsProvider` 当前注释）。
 
-配方走 `InfusionRecipeBuilder`（Thaumaturge 的 builder），语言用 `LanguageProvider`，模型用 `ModelProvider` 的 `generateFlatItem`，标签用匿名内部 `IntrinsicHolderTagsProvider` 包装成独立 `DataProvider`。
+配方走 `InfusionRecipeBuilder`（Thaumaturge 的 builder），语言用 `LanguageProvider`，模型用 `ModelProvider`，标签用匿名内部 `IntrinsicHolderTagsProvider` 包装成独立 `DataProvider`。
 
 ### 跨模组联动方式
 
@@ -61,51 +66,95 @@
 
 `src/main/templates/META-INF/neoforge.mods.toml` 是元数据模板（唯一权威来源，别改生成物）。依赖声明：`neoforge`（required）、`minecraft`（required）、`thaumaturge`（required，ordering AFTER）、`avaritia`（required，ordering AFTER）。
 
-**API 边界**：依赖 Thaumaturge 时只读 `com.leclowndu93150.thaumaturge.api.*` facade；可例外使用注册类本身（`ItemWandCap` / `ItemWandRod` / `TCItems` / `TCDataComponents`）与 `data.recipe.builders` / `data.worldgen.aspect`，不要碰 `content`/`registry` 内部实现。
+**API 边界**：依赖 Thaumaturge 时只读 `com.leclowndu93150.thaumaturge.api.*` facade；可例外使用注册类本身（`ItemWandCap` / `ItemWandRod` / `TCItems` / `TCDataComponents`）、`data.recipe.builders` / `data.worldgen.aspect`，以及明确指定例外（`NodeGenerator`、`content.essentia.smeltery` 的 `BlockEntitySmelter` 等被继承的父类）。**不要碰** `content`/`registry` 内部实现。
 
-## 已实现内容（迁移自 ThaumaturgeTweaks）
+## 已实现内容
 
 ### 物品（`registry/TAItems.java`）
 | 注册名                               | 类                             | 说明                                  |
 |--------------------------------------|--------------------------------|---------------------------------------|
 | `extremely_primordial_pearl`         | `ExtremelyPrimordialPearlItem` | 极元始珍珠，注魔材料（EPIC）          |
 | `akashic_record`                     | `AkashicRecordsItem`           | 阿卡西记录，使用后授予全部要素研究点  |
-| `wand_cap_crystal`                   | `ItemWandCap`                  | 水晶矩阵杖端，90% Vis 减免            |
-| `wand_cap_crystal_inter`             | `Item`                         | 惰性水晶矩阵杖端（无 halo，普通扁平模型）|
+| `wand_cap_crystal_matrix`            | `ItemWandCap`                  | 水晶矩阵杖端，90% Vis 减免            |
+| `wand_cap_crystal_matrix_inter`      | `Item`                         | 惰性水晶矩阵杖端（无 halo，普通扁平模型）|
 | `wand_rod_studded_cosmic_neutronium` | `ItemWandRod`                  | 宇宙中子态素杖柄，超高容量 + 自动回满 |
 | `arcane_singularity_focus`           | `ArcaneSingularityFocusItem`   | 奥法奇点核心，复杂度上限 `Integer.MAX_VALUE`（无限）|
+| `infinity_scribing_tools`            | `InfinityScribingToolsItem`    | 无尽笔具，研究台内耐久回复 + 自动回满 |
+| `causality_collapser_pearl`          | `CausalityCollapserPearlItem`  | 悖论珍珠（可投掷实体）                |
+| `infinity_charger`（方块物品）        | `BlockItem`                    | 涌流充能器方块物品                    |
+| `cosmic_neutronium_essentia_smeltery`（方块物品）| `BlockItem`        | 宇宙中子态素源质冶炼厂方块物品        |
+
+### 方块（`registry/TABlocks.java` + `content/block/`）
+
+**涌流充能器（`InfinityChargerBlock`，注册名 `infinity_charger`）**
+- 显示名「涌流充能器」/ "Gushing Charger"（中文描述"滴水之恩"）。代码类名即"无限充能器"。
+- 放在**奥术工作台上方**（`canSurvive` 要求下方非空气），为其提供无限灵气。
+- **模型**：手写 tcmesh 模型（复用 `thaumaturge:models/mesh/arcane_workbench_charger.tcmesh`，仅纹理指向 `thaumicavaritia:block/infinity_charger`）；blockstate/items 由 DataGen 生成；物品模型用 **Halo 光环**（内层指向 block 模型，非扁平贴图）。
+- **配方**：注魔。催化剂 `TCItems.EVERFULL_URN`（永满之瓮）+ 4×`ModItems.infinity_ingot` + 4×`ModItems.neutron_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
+- 纹理：`textures/block/infinity_charger.png`（用户手绘）。
+
+**宇宙中子态素源质冶炼厂（`CosmicNeutroniumEssentiaSmelteryBlock`，注册名 `cosmic_neutronium_essentia_smeltery`）**
+- 显示名「宇宙中子态素源质冶炼厂」/ "Cosmic Neutronium Essentia Smeltery"（中文描述"效率最大化"）。
+- 方块**继承原版 `BlockSmelter`**（复用外观/放置/朝向），覆写 `codec()`/`newBlockEntity`/`getTicker`/`useWithoutItem`。**必须覆写 `codec()`**——父类 codec 用 `BlockSmelter::new`，不覆写会导致反序列化创建父类实例。
+- BE `BlockEntityCosmicNeutroniumEssentiaSmeltery extends BlockEntitySmelter`（`content/essentia/smeltery/`，本 mod 包）：`getEfficiency()` 恒 1.0F（0 污染/无丢率），`cosmicTick()` 实现 0 燃料 + 瞬间冶炼。
+- **mixin `BlockEntitySmelterMixin`**：原版 `tick()` 是 private 无法继承覆写 → `@Inject(method="tick", at=@At("HEAD"), cancellable=true)`，`instanceof` 自定义 BE 时改调 `cosmicTick()` 并取消原逻辑（原版冶炼炉不受影响）。
+- `cosmicTick()`：LIT 状态**跟随输入槽**（槽内有物品才亮，平时熄灭，与瞬间冶炼同步）；每 tick 把输入物品全部要素写入 `aspects`（无效率损失）并消耗 1 个输入 = 瞬间产出；输出路由复刻原版 `processAlembics`（直连上方蒸馏釜 + 四方辅助蒸馏器），只用 public API（`aspectKey`/`amount`/`doesContainerAccept`/`addToContainer`）。
+- **模型**：手写 `_off`/`_on` 双模型（parent 原版 `smelter_basic_off`，`north` 分别指 `front_off`/`front_on`，`side`/`up`/`particle` 自绘）；blockstate 用 `MultiVariantGenerator.dispatch` + `createBooleanModelDispatch(LIT, on, off)` + `ROTATION_HORIZONTAL_FACING`（facing 4 向 × lit 2 态）；物品模型用 **Halo 光环**（内层指向 `_off` 模型）。
+- **菜单/Screen**：`MenuCosmicNeutroniumEssentiaSmeltery`（单物品槽，无燃料槽，布局沿用原版 `MenuSmelter`）+ `CosmicNeutroniumEssentiaSmelteryScreen`（复用原版 `gui_smelter.png` 纹理，只画源质存量条，不画燃料/进度条）。注册见 `TAMenus`/`TAClientEvents`。
+- **配方**：注魔。催化剂 `TCItems.SMELTER_VOID`（虚空冶炼炉）+ 4×`ModItems.neutron_ingot` + 4×`ModItems.infinity_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
+- 纹理：`textures/block/cosmic_neutronium_essentia_smeltery_{front_off,front_on,side,top}.png`（用户手绘，前两张不同、侧/顶另两版）。
 
 ### 法术核心（`content/item/ArcaneSingularityFocusItem.java`）
 - 继承 Thaumaturge 的 `ItemFocus`，构造传 `Integer.MAX_VALUE` 实现无限复杂度（原版 FOCUS_1/2/3 为 15/25/50）。
 - 模型与原版核心一致：`FLAT_ITEM` + `FocusColorTint`（`thaumaturge:focus_color`，颜色随核心内法术元素）。当前 layer0 临时引用 `thaumaturge:item/focus_3`，若用户自绘 `textures/item/arcane_singularity_focus.png` 后改回 `TextureMapping.layer0(item)`。
 
+### 无尽笔具（`content/item/InfinityScribingToolsItem.java`）
+- 继承 Thaumaturge 的 `ScribingToolsItem`，研究台内（`ResearchTableMenu` 物品槽）自动补耐久 + `inventoryTick` 回满，实现"无限使用"。
+- 已加研究（`infinity_scribing_tools`，note_aspects 含物品要素种类 + 无尽）。
+
 ### Mixin 基础设施（`mixin/` + `thaumicavaritia.mixins.json`）
 - `neoforge.mods.toml` 模板已启用 `[[mixins]] config="${mod_id}.mixins.json"`；NeoForge 26.x 用官方映射，mixin **无需 refmap**。
-- **`BlockEntityFocalManipulatorMixin`**：`@Redirect` `startCraft` 中的 `ItemFocus.getMaxComplexity()` 调用，奥法奇点核心返回 0 → 组装 Vis 公式 `totalComplexity * 10 + maxComplexity / 5` 的上限基础成本归零（仅剩内容复杂度成本），普通核心不受影响。
-- 注意：`BlockEntityFocalManipulator` 是 `final class`，mixin 改字节码不受影响。`getMaxComplexity()` 同时被 UI 复用（`FocalManipulatorScreen` 显示 `totalComplexity/maxComplexity` + 校验 `totalComplexity <= maxComplexity`），所以不能靠覆写它归零——UI 校验会把任何组装判为非法；mixin 只作用于 `startCraft`，不影响 UI 的无限上限显示与永真校验。
+- **`BlockEntityFocalManipulatorMixin`**：
+  - `@Redirect` `startCraft` 中的 `ItemFocus.getMaxComplexity()` 调用，奥法奇点核心返回 0 → 组装 Vis 公式 `totalComplexity * 10 + maxComplexity / 5` 的上限基础成本归零（仅剩内容复杂度成本），普通核心不受影响。
+  - 新增：`@Inject(method="spendAura", at=@At("HEAD"), cancellable=true)`，上方为无限充能器时 `cir.setReturnValue(amount)`（灵气全额满足不消耗）。
+  - 注意：`BlockEntityFocalManipulator` 是 `final class`，mixin 改字节码不受影响。`getMaxComplexity()` 同时被 UI 复用（`FocalManipulatorScreen` 显示 `totalComplexity/maxComplexity` + 校验 `totalComplexity <= maxComplexity`），所以不能靠覆写它归零——UI 校验会把任何组装判为非法；mixin 只作用于 `startCraft`，不影响 UI 的无限上限显示与永真校验。
+- **`BlockEntityArcaneWorkbenchMixin`**（奥术工作台无限灵气）：`@Shadow public int auraVis`；`@Inject(refreshAura, HEAD, cancellable)` 上方为无限充能器时 `auraVis=Integer.MAX_VALUE` 并取消原逻辑；`@Inject(spendAura, HEAD, cancellable)` 上方为无限充能器时直接 cancel（不扣灵气）。
+- **`BlockEntitySmelterMixin`**（冶炼厂改判）：见上方方块章节。
+- **`client/ArcaneWorkbenchScreenMixin`**（显示 ∞）：`@ModifyArg(method="extractBackgroundOverlay", at=@At(value="INVOKE", ordinal=0, target="...Component;translatable(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;"), index=1)`，命中第一个 `translatable` 调用（vis_available），当 `menu.getCachedVis() >= Integer.MAX_VALUE` 时把 varargs 换成 `"\u221E"`。
+  - **坑**：`Component.translatable(String, Object...)` 返回类型是 **`MutableComponent`**，target descriptor 必须写 `Lnet/minecraft/network/chat/MutableComponent;`（写 `Component` 会匹配失败导致注入崩溃）。不用字符串 key 比较（`@Redirect` 会把 key 静态关联到某个调用点，IDE 报恒 false），改用 `@ModifyArg` + `ordinal=0`。
+- **`BlockEntityResearchTableMixin`**、**`EntityFluxRiftMixin`**（裂隙坍缩）、**`GapingVoidEntityMixin`**（黑洞结束生成节点）、**`GapingVoidRenderMixin`**（黑洞放大，位于 `mixin` 根包而非 `mixin.client`，见 `thaumicavaritia.mixins.json` 的 `client` 列表）——详见后续相关章节。
+
+### 悖论珍珠（`content/entity/CausalityCollapserPearlEntity.java` + 相关）
+- 参数：爆炸 8.0 / 裂隙坍缩 12.0 / 伤害半径 16.0 / 伤害 20。命中：爆炸 → 裂隙坍缩（`IFluxRiftCollapsible.thaumicavaritia$collapse(GapingVoidEntity.maxLifetime)`，经 `EntityFluxRiftMixin` 加速使裂隙 144 tick 内坍缩完与黑洞同步）→ 生成 `GapingVoidEntity`（落点）→ 无伤传送玩家（`player.teleport(new TeleportTransition(level, pos+0.5Y, Vec3.ZERO, yRot, xRot, PLAY_PORTAL_SOUND))` + `resetFallDistance()`）。
+- 拖尾：`Effects.fireMoteData` + `ShieldSparkParticleOptions`（复刻悖论物质）。渲染器 `client/render/entity/CausalityCollapserPearlRenderer`（`ThrownItemRenderer`）。
+- **`GapingVoidEntityMixin`**：黑洞（`GapingVoidEntity`）结束时生成灵气节点——扫描周围 6³ 方块聚合 `BASE_ASPECTS` 要素，**节点类型随机**（`NodeType.values()[level.random.nextInt(types.length)]`，含 NORMAL/UNSTABLE/DARK/TAINTED/HUNGRY/PURE，不按要素决定），调用 `NodeGenerator.createNodeAt`。不再有 debug 日志。
+- **`GapingVoidRenderMixin`**（位于 `mixin` 根包）：`@Redirect` `getVoidScale` 返回值 ×2（黑洞渲染放大，影响所有 GapingVoid）。
+- 研究文本：`research.thaumaturge.causality_collapser_pearl.*`（中英已补全，讲悖论物质与终望珍珠同源合一）。
 
 ### 法杖部件（`registry/TAWandParts.java`）
 - 注册到 Thaumaturge 的法杖注册表（`WandCap.REGISTRY_KEY` / `WandRod.REGISTRY_KEY`），不是物品注册表。
 - `CRYSTAL_MATRIX`：`baseCostModifier = 0.1F`（90% 减免）。
 - `STUDDED_COSMIC_NEUTRONIUM`：`capacity = 9_999_999`（vis，Thaumaturge 内部以 centivis 存储，写入时乘 100），`onUpdate = InfinityOnUpdate` 每 tick 把全部原初要素补满（写入 `TCDataComponents.WAND_VIS`）。
-- 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`wand_rod_studded_cosmic_neutronium.png`；物品形态另有 `textures/item/` 下同名 PNG（**纹理由用户手绘，AI 不要生成图片**）。注意迁移时已修正：旧代码曾引用 `wand_cap_crystal_matrix.png` / `wand_rod_infinity.png`，与用户实际文件不符，已对齐。
+- 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`wand_rod_studded_cosmic_neutronium.png`；物品形态另有 `textures/item/` 下同名 PNG（**纹理由用户手绘，AI 不要生成图片**）。
 
 ### 物品模型（`data/model/TAModelProvider.java`）
-- 全部 4 个物品使用 avaritia 的**无尽背景光圈（halo）**：内层模型（`createFlatItemModel`，自动引用 `item/<注册名>.png`）+ `AvaritiaItemModelLoaders.Halo` 物品模型（`pulse=false, size=6, texture=avaritia:misc/halo`）。
+- 普通物品使用 avaritia 的**无尽背景光圈（halo）**：内层模型（`createFlatItemModel`，自动引用 `item/<注册名>.png`）+ `AvaritiaItemModelLoaders.Halo` 物品模型（`pulse=false, size=6, texture=avaritia:misc/halo`），通过 `itemModels.itemModelOutput.accept(item, halo)` 写入 items json。
+- **方块物品的 halo**：不用 `createFlatItemModel`（方块无 item png），直接 `itemModels.itemModelOutput.accept(block.asItem(), new AvaritiaItemModelLoaders.Halo(blockModelPath, haloTex, -16777216, 6, false, List.of()))`，内层 `model` 指向 block 模型路径。
 - 生成 `items/<注册名>.json` 与 `models/item/<注册名>.json`；**不要**在 `src/main/resources/assets/.../items/` 下手写 items json——DataGen 已生成，手写会导致 `processResources` 重复文件报错。
 - 若物品模型由其它来源提供（绕过 DataGen 校验），用 `itemModels.declareCustomModelItem(item)`（仍会生成默认 items json，需注意与手动文件冲突）。
 
 ### 配方（`data/recipe/TARecipeProvider.java`）
 - 极元始珍珠：8 × `TCItems.PRIMORDIAL_PEARL` 注魔（Alienis×32 / Perditio×16，instability 4）。
 - 阿卡西记录：催化剂 `#thaumaturge:curios` + 4 × `ModItems.infinity_ingot` 注魔（Cognitio×64 / Praecantatio×64 / Alienis×32）。
+- 涌流充能器 / 宇宙冶炼厂：见上方方块章节。
 - 全部使用 `InfusionRecipeBuilder`，已带 `.unlockedBy(...)`。
 
 ### 研究类别（`data/worldgen/research/TACategoryBootstrap.java`）
 - "神秘无尽"（`thaumicavaritia:arcane_infinity`）类别：`IResearchCategory.REGISTRY_KEY` datapack registry，用 `BootstrapContext` 注册（与 aspect 同机制），DataGen 生成到 `data/<ns>/thaumaturge/research_category/`。
-- 门控 `required_research = thaumicavaritia:unlock_thaumicavaritia`（**该研究条目尚未创建**，创建后类别才在魔导手册可见）。
+- 门控 `required_research = thaumicavaritia:unlock_thaumicavaritia`。
 - `icon` = `thaumicavaritia:textures/item/akashic_record.png`（阿卡西记录图标），`background` = `avaritia:textures/block/diamond_lattice_block.png`，`overlay_background` = Thaumaturge 的 `gui_research_back_over.png`（跨命名空间直接引用纹理 Identifier，运行时 Thaumaturge/avaritia 必在）。`index=7` 排在 Thaumaturge 原版 6 类之后。
 - `formula` 决定扫描要素转知识点的权重（applyFormula 用平方根）。lang 键 `research_category.thaumicavaritia.arcane_infinity`。
-- 注意：研究条目本身是**手写 JSON**（`data/<ns>/thaumaturge/research_entry/`），不经过 DataGen；只有类别经 bootstrap+runData 生成。
+- 注意：研究条目本身是**手写 JSON**（`data/<ns>/thaumaturge/research_entry/`），不经过 DataGen；只有类别经 bootstrap+runData 生成。已创建条目：`base_thaumicavaritia`（隐藏根节点）、`unlock_thaumicavaritia`（√级）、`akashic_record`、`wand_cap_crystal_matrix`、`wand_rod_studded_cosmic_neutronium`、`arcane_singularity_focus`、`infinity_scribing_tools`。
 
 ### 无尽工作台配方（`data/recipe/TARecipeProvider.java`）
 - 水晶杖端：`avaritia:shaped_table`（9x9，`tier=4` 无尽工作台），当前为铁锭占位 pattern（9×9 边框），正式材料待替换。
@@ -134,6 +183,12 @@
 - `#thaumaturge:curios`（`TATags.THAUMATURGE_CURIOS`）：Thaumaturge 的 7 个珍宝加入，供阿卡西配方取用。
 - 标签不存在的就直接加，不要反复验证。
 
+### 要素（`api/aspect/TAAspects.java` + `data/aspect/TAAspectBootstrap.java`）
+- `INFINITUS`（无尽）要素，`thaumicavaritia:infinitus`，颜色 0x1E1E1E，纹理 `textures/aspects/infinitus.png`（用户手绘），blend 用 `Aspect.DEFAULT_BLEND`。
+- **无合成配方**：`components = List.of()`（不设父要素）——要素合成器无法用其它要素强行合成"无尽"，只能通过注魔/研究获得。`Aspect.validate` 允许 0 或 2 个 components，空列表合法。
+- 跨命名空间注册可行（`thaumicavaritia:infinitus` 注册进 `IAspect.REGISTRY_KEY`）。
+- DataGen 会生成 `aspect/infinitus.json`（无 components 字段）。
+
 ### 要素 datamap（`data/datamap/ItemAspectsProvider.java`）
 - 为 avaritia 的 `infinity_ingot`、`neutron_ingot`、`endest_pearl`、`infinity_catalyst`、`crystal_matrix_ingot`、`neutron_pile`、`infinity_nugget` 补充 `BASE_ASPECTS` 要素构成，供扫描/研究系统使用。
 - **当前在 `TADataGenerators` 中被注释**（见"当前状态"）。
@@ -144,40 +199,51 @@
 - **该文件是跨命名空间资源覆盖（`assets/avaritia/...`），必须保留，不要删。**
 
 ### DataGen（`data/TADataGenerators.java`）
-- 注册了：`TAEnUsProvider` / `TAZhCnProvider` / `TARecipeProvider.Runner` / `TAModelProvider` / `TATagsProvider`（`ItemAspectsProvider` 当前注释）。
-- 注入 `AspectBootstrap` 到 `RegistrySetBuilder`（解决 `Registry thaumaturge:aspect not found`）。
-- lang 已迁移为 DataGen（`item.thaumicavaritia.*`），`assets/.../lang/` 不再手写。
+- 注册了：`TAEnUsProvider` / `TAZhCnProvider` / `TARecipeProvider.Runner` / `TAModelProvider` / `TATagsProvider` / `ItemAspectsProvider`（均已启用）。
+- 注入 `TAAspectBootstrap` 到 `RegistrySetBuilder`（先 `AspectBootstrap.bootstrap` 再注册 infinitus）。
+- lang 已迁移为 DataGen：`item.thaumicavaritia.*`、`block.thaumicavaritia.*`、`item.thaumicavaritia.*.desc`（lore，灰色斜体，经 `TATooltipHandler` 附加）、`research.thaumaturge.*`、`research_category.thaumicavaritia.arcane_infinity`、`singularity.thaumicavaritia.*`。`assets/.../lang/` 不再手写。
+- **坑**：`LanguageProvider.add` 对重复键抛 `IllegalStateException`，同一个 key 只能 add 一次（曾因 `research_category.thaumicavaritia.thaumicavaritia` 重复导致 runData 失败）。
+
+### 方块描述（`content/item/TATooltipHandler.java`）
+- 用 `@SubscribeEvent`（`ItemTooltipEvent`）为指定物品附加描述行（灰色斜体），键 `item.thaumicavaritia.<注册名>.desc`。
+- 已支持：6 个物品 + 涌流充能器（滴水之恩）+ 宇宙冶炼厂（效率最大化）。用法：`appendHoverText` 5 参（`ItemStack, Item.TooltipContext, TooltipDisplay, Consumer<Component>, TooltipFlag`）+ `builtInRegistryHolder()` 查 item datamap，均加 `@SuppressWarnings("deprecation")`。
 
 ## 关键 API 备忘
 
 ### Thaumaturge
 - 研究点授予：`AspectPoolAccess.grantAll(player, AspectList)`；遍历注册表用 `IAspect.REGISTRY_KEY` lookup。
 - 法杖 Vis：`WandAccess.getAllVis(stack)` 返回 `WandVis`，`WandVis.with(aspect, amount)`；写入用 `stack.set(TCDataComponents.WAND_VIS.get(), vis)`（注意 `WandAccess` 的副本不能直接写回）。
-- 要素：`TCAspects.PRIMALS`、`TCAspects.ALIENIS` 等为 `ResourceKey<IAspect>`。
+- 要素：`TCAspects.PRIMALS`、`TCAspects.ALIENIS` 等为 `ResourceKey<IAspect>`；本 mod 用 `TAAspects.INFINITUS`。
 - 注魔配方：`InfusionRecipeBuilder`（见 `data/recipe` 用法）。
+- 蒸馏釜输出：`BlockEntityAlembic.processAlembics(level, pos, aspectHolder)` 是 **protected static**，外部类需用其 public API 复刻：`aspectKey()`/`amount()`/`doesContainerAccept(aspect)`/`addToContainer(aspect, n)`（返回 0 表示成功）。
+- **模块导出坑**：自定义类**不能放进 `com.leclowndu93150.thaumaturge.*` 包**（flatDir 依赖的 module-info 导出冲突，runData 崩 `ResolutionException`）。要复用 protected 成员（如 `processAlembics`），用其 public API 复刻或 mixin，而不是挪包。
 
 ### Avaritia
 - 物品：`ModItems.infinity_ingot.get()`、`ModItems.endest_pearl.get()` 等。
 - 标签：`ModTags.IMMORTAL_ITEM`（即 `#avaritia:endless`）。
+- halo 物品模型：`committee.nova.mods.avaritia.client.model.loader.AvaritiaItemModelLoaders.Halo`（implements `ItemModel.Unbaked`，`itemModelOutput.accept` 会按 `type()` 输出 `avaritia:halo`）。
 
 ## 约定与注意事项
 
 - **纹理由用户手绘**，AI 一律不生成图片文件。
-- 命名统一："Akashic Records"（`akashic_record`），不要出现其它变体。
-- JSON 一律 snake_case；模型通过 DataGen 的 `generateFlatItem` 生成，自动引用 `item/<注册名>.png`。
+- 命名统一："Akashic Records"（`akashic_record`），不要出现其它变体。方块显示名与注册名可不同（如 `infinity_charger` 显示「涌流充能器」）。
+- JSON 一律 snake_case。
 - 涉及图像渲染（blit 等）时所有放大必须**等比**，不能拉伸或裁剪（目标宽高比必须等于源宽高比，且使用完整源图）。
 - 所有公共 API 参数做空值校验（`ArgumentNullException.ThrowIfNull` 风格），返回集合用空集合而非 null；不确定非空的变量必须显式检查（最高优先级）。
 - 注释一律使用 `//` 双斜杠，不用 `/* */` 或 Javadoc。
-- 依赖 Thaumaturge 时只读 `com.leclowndu93150.thaumaturge.api.*` facade，不要碰 `content`/`registry` 内部（注册类本身除外）。
+- 依赖 Thaumaturge 时只读 `com.leclowndu93150.thaumaturge.api.*` facade，不要碰 `content`/`registry` 内部（已特例：`NodeGenerator`、被继承的 `BlockEntitySmelter`/`BlockSmelter`/`BlockEntityAlembic` 等）。
+- **mixin 对 flatDir 依赖的类**（Thaumaturge/avaritia jar）：IDE 静态分析可能报 `Could not resolve target`/恒 false，优先用 `@At("HEAD")` + `instanceof`/状态判断，少用 `@At(INVOKE)`（仅当 target 是 Minecraft 类如 `Component` 时可靠）。
+- **mixin target descriptor 必须与字节码精确一致**：如 `Component.translatable(String,Object...)` 返回 `MutableComponent`，写错返回类型会注入失败崩溃。
+- **runData 失败排查**：`LanguageProvider.add` 重复 key、模块导出冲突、`Missing blockstate definitions`（自定义方块必须由 DataGen 生成 blockstate）、`import java.util.List` 误删导致旧 class 静默使用——改完代码务必确认 `BUILD SUCCESSFUL`。
 
 ## 当前状态与已知问题
 
-1. **`ItemAspectsProvider` 当前未注册**：`TADataGenerators.java` 第 38 行 `// event.createProvider(ItemAspectsProvider::new);` 被注释掉。因此 runData 不会生成 avaritia 物品的 `BASE_ASPECTS` datamap。该类本身完整可用，需要时取消注释即可。
+1. **`ItemAspectsProvider` 已注册并启用**：`TADataGenerators` 中 `event.createProvider(ItemAspectsProvider::new)` 处于激活状态，runData 会生成 avaritia 物品与本 mod 产物的 `BASE_ASPECTS` datamap（详见 `data/datamap/ItemAspectsProvider.java` 中的要素量级规划）。
+2. **无尽工作台配方仍为占位**：水晶杖端（`wand_cap_crystal_matrix`）的 `avaritia:shaped_table` 配方当前用铁锭占位（9×9 边框），正式材料待替换。
 
 ## 待办 / 后续方向
 
-无尽内容可以扩展很多，目前暂停，后续继续开发。已明确的方向：
-- 法杖部件（杖端/杖柄）的无尽工作台或注魔配方（尚未添加）。
+- 法杖部件（杖端/杖柄）的无尽工作台或注魔配方的正式材料替换。
 - 水晶缠绕宇宙中子态素法杖的组装验证（cap + rod + 主杖）。
 - 更多 avaritia 物品的要素 datamap 扩展（依赖恢复 `ItemAspectsProvider` 注册）。
 - 新的无尽联动物品/配方/机制。

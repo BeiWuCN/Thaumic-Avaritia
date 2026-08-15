@@ -27,6 +27,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.infinity_scribing_tools", "Divinely Inspired Scribing Tools");
         add("item.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
         add("block.thaumicavaritia.infinity_charger", "Gushing Charger");
+        add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "Cosmic Neutronium Essentia Smeltery");
 
         // Item descriptions (lore)
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "The origin of the world.");
@@ -36,6 +37,8 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium.desc", "A handheld black hole.");
         add("item.thaumicavaritia.arcane_singularity_focus.desc", "Do not consume.");
         add("item.thaumicavaritia.causality_collapser_pearl.desc", "Remember to wear sunglasses");
+        add("item.thaumicavaritia.infinity_charger.desc", "A kindness repaid as a gushing spring.");
+        add("item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc", "Maximum efficiency.");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "Thaumic Avaritia");
 

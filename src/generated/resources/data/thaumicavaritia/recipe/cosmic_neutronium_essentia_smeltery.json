@@ -1,0 +1,36 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:auram"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:praecantatio"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:vacuos"
+    },
+    {
+      "amount": 16,
+      "aspect": "thaumicavaritia:infinitus"
+    }
+  ],
+  "catalyst": "thaumaturge:smelter_void",
+  "components": [
+    "avaritia:neutron_ingot",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "avaritia:infinity_ingot",
+    "avaritia:neutron_ingot",
+    "avaritia:infinity_ingot"
+  ],
+  "instability": 5,
+  "result": {
+    "id": "thaumicavaritia:cosmic_neutronium_essentia_smeltery"
+  }
+}

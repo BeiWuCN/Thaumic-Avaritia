@@ -1,7 +1,7 @@
-// 方块注册：无限充能器（涌流充能器，为奥术工作台提供无限灵气）。
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.content.block.CosmicNeutroniumEssentiaSmelteryBlock;
 import com.blackmoss.thaumicavaritia.content.block.InfinityChargerBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.SoundType;
@@ -16,10 +16,20 @@ public final class TABlocks {
 
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThaumicAvaritia.MODID);
 
-    // 无限充能器：置于奥术工作台上方，无限提供灵气（逻辑见 mixin）。
+    // 无限充能器
     public static final DeferredBlock<InfinityChargerBlock> INFINITY_CHARGER = BLOCKS.registerBlock(
             "infinity_charger",
             InfinityChargerBlock::new,
+            props -> props.mapColor(MapColor.METAL)
+                    .strength(1.5F, 10.0F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.BLOCK));
+
+    // 宇宙中子态素源质冶炼厂
+    public static final DeferredBlock<CosmicNeutroniumEssentiaSmelteryBlock> COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY = BLOCKS.registerBlock(
+            "cosmic_neutronium_essentia_smeltery",
+            CosmicNeutroniumEssentiaSmelteryBlock::new,
             props -> props.mapColor(MapColor.METAL)
                     .strength(1.5F, 10.0F)
                     .sound(SoundType.METAL)

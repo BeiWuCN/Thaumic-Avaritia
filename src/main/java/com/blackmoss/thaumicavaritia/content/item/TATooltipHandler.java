@@ -23,6 +23,10 @@ public final class TATooltipHandler {
             key = "item.thaumicavaritia.wand_cap_crystal_matrix.desc";
         } else if (stack.is(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get())) {
             key = "item.thaumicavaritia.wand_rod_studded_cosmic_neutronium.desc";
+        } else if (stack.is(TAItems.INFINITY_CHARGER.get())) {
+            key = "item.thaumicavaritia.infinity_charger.desc";
+        } else if (stack.is(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get())) {
+            key = "item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc";
         }
         if (key != null) {
             event.getToolTip().add(Component.translatable(key).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));

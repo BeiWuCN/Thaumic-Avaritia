@@ -35,6 +35,7 @@ public class TACreativeModeTabs {
                             output.accept(TAItems.ARCANE_SINGULARITY_FOCUS.get());
                             output.accept(TAItems.CAUSALITY_COLLAPSER_PEARL.get());
                             output.accept(TAItems.INFINITY_CHARGER.get());
+                            output.accept(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get());
                         }).build());
     }
 

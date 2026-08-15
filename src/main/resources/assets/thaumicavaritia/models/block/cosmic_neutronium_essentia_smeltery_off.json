@@ -1,0 +1,11 @@
+{
+  "parent": "thaumaturge:block/smelter_basic_off",
+  "textures": {
+    "north": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_front_off",
+    "south": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_side",
+    "east": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_side",
+    "west": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_side",
+    "particle": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_side",
+    "up": "thaumicavaritia:block/cosmic_neutronium_essentia_smeltery_top"
+  }
+}
