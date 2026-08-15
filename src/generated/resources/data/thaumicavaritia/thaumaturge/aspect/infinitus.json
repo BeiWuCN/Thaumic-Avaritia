@@ -1,9 +1,5 @@
 {
   "color": 1973790,
-  "components": [
-    "thaumaturge:desiderium",
-    "thaumaturge:vacuos"
-  ],
   "tag": "infinitus",
   "texture": "thaumicavaritia:textures/aspects/infinitus.png"
 }

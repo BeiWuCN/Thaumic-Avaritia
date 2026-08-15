@@ -1705,9 +1705,6 @@
       {
         "amount": 10,
         "aspect": "thaumaturge:perditio"
-      },
-      {
-        "aspect": "thaumicavaritia:infinitus"
       }
     ],
     "avaritia:refined_coal_block": [
