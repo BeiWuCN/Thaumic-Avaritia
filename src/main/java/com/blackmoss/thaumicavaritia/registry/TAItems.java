@@ -82,6 +82,10 @@ public final class TAItems {
     public static final DeferredItem<BlockItem> COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY =
             ITEMS.registerSimpleBlockItem(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY);
 
+    // 节点锚
+    public static final DeferredItem<BlockItem> NODE_ANCHOR =
+            ITEMS.registerSimpleBlockItem(TABlocks.NODE_ANCHOR);
+
     private TAItems() {
     }
 

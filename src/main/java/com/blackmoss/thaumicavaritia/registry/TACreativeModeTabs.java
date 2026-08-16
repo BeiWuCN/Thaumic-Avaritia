@@ -1,7 +1,6 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWand;
 import com.leclowndu93150.thaumaturge.registry.TCItems;
 import net.minecraft.core.registries.Registries;
@@ -36,6 +35,7 @@ public class TACreativeModeTabs {
                             output.accept(TAItems.CAUSALITY_COLLAPSER_PEARL.get());
                             output.accept(TAItems.INFINITY_CHARGER.get());
                             output.accept(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get());
+                            output.accept(TAItems.NODE_ANCHOR.get());
                         }).build());
     }
 

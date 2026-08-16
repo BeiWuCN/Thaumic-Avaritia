@@ -1,21 +1,27 @@
 package com.blackmoss.thaumicavaritia.data.model;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlock;
 import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import committee.nova.mods.avaritia.client.model.loader.AvaritiaItemModelLoaders;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.client.renderer.block.dispatch.Variant;
+import net.minecraft.client.renderer.block.dispatch.VariantMutator;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jspecify.annotations.NonNull;
 
 import java.util.List;
@@ -63,7 +69,7 @@ public final class TAModelProvider extends ModelProvider {
         generateHaloItem(itemModels, TAItems.INFINITY_SCRIBING_TOOLS.get());
         generateHaloItem(itemModels, TAItems.CAUSALITY_COLLAPSER_PEARL.get());
 
-        // 无限充能器：blockstate 由 DataGen 生成（引用手写的 tcmesh block 模型），
+        // 涌流充能器：blockstate 由 DataGen 生成（引用手写的 tcmesh block 模型），
         // 物品模型用 Halo 光环包装（内层指向该 block 模型，非扁平贴图）。
         Block infinityCharger = TABlocks.INFINITY_CHARGER.get();
         Identifier infinityChargerModel = ModelLocationUtils.getModelLocation(infinityCharger);
@@ -97,6 +103,36 @@ public final class TAModelProvider extends ModelProvider {
                 cosmicSmeltery.asItem(),
                 new AvaritiaItemModelLoaders.Halo(
                         smelteryOff,
+                        Identifier.fromNamespaceAndPath("avaritia", "misc/halo"),
+                        -16777216,
+                        6,
+                        false,
+                        List.of()));
+
+        // 节点锚：两个属性分派 4 种组合。
+        // - FACING(UP/DOWN)：爪朝向，放置时决定（默认 UP，Shift 放置 DOWN）。
+        //   模型本身按朝上(UP)姿态建模，故 UP→不旋转(NOP)，DOWN→绕X翻转180°(X_ROT_180)。
+        // - CHARGED：true=上方两格有涌流充能器（BE tick 维护），切换 node_anchor ↔ node_anchor_charged 造型。
+        // 原版稳定器/换能器是两块方块两套 BER，本 mod 用这两个属性 + 同一底座旋转/造型区分。
+        Block nodeAnchor = TABlocks.NODE_ANCHOR.get();
+        Identifier anchorModel = ModelLocationUtils.getModelLocation(nodeAnchor);
+        Identifier anchorChargedModel = ModelLocationUtils.getModelLocation(nodeAnchor).withSuffix("_charged");
+        blockModels.blockStateOutput.accept(
+                MultiVariantGenerator.dispatch(nodeAnchor)
+                        .with(PropertyDispatch.initial(NodeAnchorBlock.FACING, NodeAnchorBlock.CHARGED)
+                                .generate((facing, charged) -> {
+                                    Identifier model = charged ? anchorChargedModel : anchorModel;
+                                    VariantMutator rotation = switch (facing) {
+                                        case DOWN -> BlockModelGenerators.X_ROT_180;
+                                        default -> BlockModelGenerators.NOP;
+                                    };
+                                    return new MultiVariant(WeightedList.of(rotation.apply(new Variant(model))));
+                                })));
+        // 物品模型用 Halo 光环包装（内层指向未充能模型）。
+        itemModels.itemModelOutput.accept(
+                nodeAnchor.asItem(),
+                new AvaritiaItemModelLoaders.Halo(
+                        anchorModel,
                         Identifier.fromNamespaceAndPath("avaritia", "misc/halo"),
                         -16777216,
                         6,

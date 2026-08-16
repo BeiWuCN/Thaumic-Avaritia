@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
+import org.jspecify.annotations.NonNull;
 
 public class CosmicNeutroniumEssentiaSmelteryScreen extends AbstractTCContainerScreen<MenuCosmicNeutroniumEssentiaSmeltery> {
 
@@ -21,7 +22,7 @@ public class CosmicNeutroniumEssentiaSmelteryScreen extends AbstractTCContainerS
     }
 
     @Override
-    protected void extractLabels(GuiGraphicsExtractor graphics, int xm, int ym) {}
+    protected void extractLabels(@NonNull GuiGraphicsExtractor graphics, int xm, int ym) {}
 
     @Override
     protected void extractBackgroundOverlay(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {

@@ -7,6 +7,9 @@
   ],
   "column": -3,
   "row": -1,
+  "meta": [
+    "spiky"
+  ],
   "icons": [
     "thaumicavaritia:cosmic_neutronium_essentia_smeltery"
   ],

@@ -2,6 +2,7 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlockEntity;
 import com.blackmoss.thaumicavaritia.content.essentia.smeltery.BlockEntityCosmicNeutroniumEssentiaSmeltery;
 import java.util.Set;
 import net.minecraft.core.registries.Registries;
@@ -22,6 +23,14 @@ public final class TABlockEntities {
                     () -> new BlockEntityType<>(
                             BlockEntityCosmicNeutroniumEssentiaSmeltery::new,
                             Set.of(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get())));
+
+    // 节点锚
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NodeAnchorBlockEntity>>
+            NODE_ANCHOR = BLOCK_ENTITIES.register(
+                    "node_anchor",
+                    () -> new BlockEntityType<>(
+                            NodeAnchorBlockEntity::new,
+                            Set.of(TABlocks.NODE_ANCHOR.get())));
 
     private TABlockEntities() {
     }

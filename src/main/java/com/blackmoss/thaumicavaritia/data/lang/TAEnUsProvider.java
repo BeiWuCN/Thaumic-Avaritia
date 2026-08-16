@@ -28,6 +28,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
         add("block.thaumicavaritia.infinity_charger", "Gushing Charger");
         add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "Cosmic Neutronium Essentia Smeltery");
+        add("block.thaumicavaritia.node_anchor", "Node Anchor");
 
         // Item descriptions (lore)
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "The origin of the world.");

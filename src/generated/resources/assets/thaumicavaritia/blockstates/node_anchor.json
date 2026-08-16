@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "charged=false,facing=down": {
+      "model": "thaumicavaritia:block/node_anchor",
+      "x": 180
+    },
+    "charged=false,facing=up": {
+      "model": "thaumicavaritia:block/node_anchor"
+    },
+    "charged=true,facing=down": {
+      "model": "thaumicavaritia:block/node_anchor_charged",
+      "x": 180
+    },
+    "charged=true,facing=up": {
+      "model": "thaumicavaritia:block/node_anchor_charged"
+    }
+  }
+}

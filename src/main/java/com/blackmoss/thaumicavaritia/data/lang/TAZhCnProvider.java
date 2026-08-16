@@ -28,6 +28,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
         add("block.thaumicavaritia.infinity_charger", "涌流充能器");
         add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "宇宙中子态素源质冶炼厂");
+        add("block.thaumicavaritia.node_anchor", "节点锚");
 
         // 物品描述
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "世界的本源");

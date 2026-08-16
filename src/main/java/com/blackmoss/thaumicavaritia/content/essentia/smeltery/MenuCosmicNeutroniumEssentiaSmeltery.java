@@ -15,6 +15,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 public final class MenuCosmicNeutroniumEssentiaSmeltery extends AbstractContainerMenu {
     public static final int ITEM_X = 80;
@@ -42,11 +44,16 @@ public final class MenuCosmicNeutroniumEssentiaSmeltery extends AbstractContaine
     }
 
     public MenuCosmicNeutroniumEssentiaSmeltery(int containerId, Inventory playerInventory, BlockEntityCosmicNeutroniumEssentiaSmeltery blockEntity) {
+        // BlockEntity.getLevel() 可能为 null（实体尚未绑定维度时），回退到玩家所在维度确保非空。
+        Level level = blockEntity.getLevel();
+        if (level == null) {
+            level = playerInventory.player.level();
+        }
         this(
                 containerId,
                 playerInventory,
                 blockEntity.getInventory(),
-                ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()),
+                ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 blockEntity.getBlockPos());
     }
 
@@ -85,6 +92,8 @@ public final class MenuCosmicNeutroniumEssentiaSmeltery extends AbstractContaine
         return items;
     }
 
+    // 通过 ContainerLevelAccess 解析当前方块实体；若方块已卸载或类型不符则返回 null，调用方需判空。
+    @Nullable
     public BlockEntityCosmicNeutroniumEssentiaSmeltery blockEntity() {
         return (BlockEntityCosmicNeutroniumEssentiaSmeltery) access.evaluate(Level::getBlockEntity)
                 .filter(be -> be instanceof BlockEntityCosmicNeutroniumEssentiaSmeltery)
@@ -92,15 +101,15 @@ public final class MenuCosmicNeutroniumEssentiaSmeltery extends AbstractContaine
     }
 
     @Override
-    public boolean stillValid(Player player) {
+    public boolean stillValid(@NonNull Player player) {
         return AbstractContainerMenu.stillValid(access, player, TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get());
     }
 
     @Override
-    public ItemStack quickMoveStack(Player player, int slotIndex) {
+    public @NonNull ItemStack quickMoveStack(@NonNull Player player, int slotIndex) {
         ItemStack returnStack = ItemStack.EMPTY;
         Slot slot = slots.get(slotIndex);
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack stackInSlot = slot.getItem();
             returnStack = stackInSlot.copy();
             if (slotIndex < SLOT_COUNT) {

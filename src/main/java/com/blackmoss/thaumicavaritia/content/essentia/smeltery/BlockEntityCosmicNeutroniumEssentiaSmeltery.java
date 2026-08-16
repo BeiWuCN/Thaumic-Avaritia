@@ -22,7 +22,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -93,7 +92,10 @@ public class BlockEntityCosmicNeutroniumEssentiaSmeltery extends BlockEntitySmel
         for (Direction dir : Direction.Plane.HORIZONTAL) {
             if (getBlockState().getValue(BlockSmelter.FACING) != dir) {
                 BlockPos pos = getBlockPos().relative(dir);
-                BlockState state = level.getBlockState(pos);
+                BlockState state = null;
+                if (level != null) {
+                    state = level.getBlockState(pos);
+                }
                 if (state.getBlock() instanceof BlockSmelterAux
                         && state.getValue(BlockStateProperties.HORIZONTAL_FACING) == dir.getOpposite()) {
                     tryPush(pos);
@@ -116,7 +118,10 @@ public class BlockEntityCosmicNeutroniumEssentiaSmeltery extends BlockEntitySmel
     private boolean pushToAlembic(BlockPos outputPos, Holder<IAspect> aspect) {
         int deep = 1;
         while (true) {
-            BlockEntity be = level.getBlockEntity(outputPos.above(deep));
+            BlockEntity be = null;
+            if (level != null) {
+                be = level.getBlockEntity(outputPos.above(deep));
+            }
             if (!(be instanceof BlockEntityAlembic alembic)) {
                 break;
             }
