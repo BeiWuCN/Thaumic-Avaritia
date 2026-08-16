@@ -21,7 +21,7 @@ public abstract class NodeRendererMixin {
     @Unique
     private static final float ENERGIZED_SIZE_SCALE = 0.5F;
 
-    @Inject(method = "extractRenderState", at = @At("RETURN"))
+    @Inject(method = "extractRenderState*", at = @At("RETURN"))
     private void thaumicavaritia$shrinkEnergizedNode(
             BlockEntityNode node,
             NodeRenderState state,
