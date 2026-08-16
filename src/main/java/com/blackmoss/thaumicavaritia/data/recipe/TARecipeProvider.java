@@ -275,6 +275,27 @@ public final class TARecipeProvider extends RecipeProvider {
                 .instability(5)
                 .unlockedBy("has_infinity_ingot", has(ModItems.infinity_ingot.get()))
                 .save(output, ThaumicAvaritia.MODID + ":cosmic_neutronium_essentia_smeltery");
+
+        // 节点锚
+        new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
+                new ItemStackTemplate(TAItems.NODE_ANCHOR.get()),
+                Ingredient.of(ModItems.eternal_singularity.get()))
+                .component(Ingredient.of(TCItems.NODE_STABILIZER.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(TCItems.NODE_TRANSDUCER.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(TCItems.NODE_STABILIZER.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .component(Ingredient.of(TCItems.NODE_TRANSDUCER.get()))
+                .component(Ingredient.of(ModItems.neutron_ingot.get()))
+                .aspect(TCAspects.AURAM, 640)
+                .aspect(TCAspects.POTENTIA, 480)
+                .aspect(TCAspects.ORDO, 480)
+                .aspect(TCAspects.MACHINA, 480)
+                .aspect(TAAspects.INFINITUS, 16)
+                .instability(6)
+                .unlockedBy("has_node_transducer", has(TCItems.NODE_TRANSDUCER.get()))
+                .save(output, ThaumicAvaritia.MODID + ":node_anchor");
     }
 
     public static final class Runner extends RecipeProvider.Runner {

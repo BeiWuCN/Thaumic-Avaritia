@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_node_transducer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "thaumaturge:node_transducer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thaumicavaritia:node_anchor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_node_transducer"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thaumicavaritia:node_anchor"
+    ]
+  }
+}

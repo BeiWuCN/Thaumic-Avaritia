@@ -7,6 +7,7 @@ import com.blackmoss.thaumicavaritia.content.item.ArcaneSingularityFocusItem;
 import com.blackmoss.thaumicavaritia.content.item.CausalityCollapserPearlItem;
 import com.blackmoss.thaumicavaritia.content.item.ExtremelyPrimordialPearlItem;
 import com.blackmoss.thaumicavaritia.content.item.InfinityScribingToolsItem;
+import com.blackmoss.thaumicavaritia.content.item.NodeAnchorBlockItem;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandRod;
 import net.minecraft.world.item.BlockItem;
@@ -82,9 +83,11 @@ public final class TAItems {
     public static final DeferredItem<BlockItem> COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY =
             ITEMS.registerSimpleBlockItem(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY);
 
-    // 节点锚
-    public static final DeferredItem<BlockItem> NODE_ANCHOR =
-            ITEMS.registerSimpleBlockItem(TABlocks.NODE_ANCHOR);
+    // 节点锚（自定义 BlockItem 以显示 lore 描述）
+    public static final DeferredItem<NodeAnchorBlockItem> NODE_ANCHOR = ITEMS.registerItem(
+            "node_anchor",
+            props -> new NodeAnchorBlockItem(TABlocks.NODE_ANCHOR.get(), props),
+            props -> props.rarity(Rarity.EPIC));
 
     private TAItems() {
     }

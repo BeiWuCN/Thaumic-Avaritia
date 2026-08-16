@@ -40,6 +40,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.causality_collapser_pearl.desc", "记得带墨镜");
         add("item.thaumicavaritia.infinity_charger.desc", "滴水之恩");
         add("item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc", "效率最大化");
+        add("item.thaumicavaritia.node_anchor.desc", "你在此处不要走动");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
 
@@ -105,5 +106,12 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("singularity.thaumicavaritia.brass", "黄铜奇点");
         add("singularity.thaumicavaritia.thaumium", "神秘奇点");
         add("singularity.thaumicavaritia.void", "虚空奇点");
+
+        // 节点锚
+        add("research.thaumaturge.node_anchor.title", "节点锚");
+        add("research.thaumaturge.node_anchor.stage_0", "节点稳定器与节点换能器，各自都算得上精巧之作，可它们都犯着一个共同的毛病——实在太慢了。稳定器只能把节点牢牢按在原地，冻结成一潭死水；换能器要喂上好一阵魔力，节点才终于醒来。<BR>这份漫长的等待，是对我贪婪的侮辱。一定有个法子能把二者合一——一边稳稳锚住节点，一边将魔力一股脑灌入，再也不必煎熬地等。");
+        add("research.thaumaturge.node_anchor.stage_1", "拆开换能器与稳定器，我细细端详锁住节点状态的机关，与驱动其充能的回路。一架的骨架，一者的线路，都算不上深不可测。关键在于一颗既能钉住、又能充能的核心——中子态素就是最佳人选。<BR>若整件再添一缕永恒节点，当能让节点永驻于自给自足的永恒之中。");
+        add("research.thaumaturge.node_anchor.stage_2", "换能器的心，稳定器的钳，尽数将魔力缚于中子态素之中。<BR>置于节点之下，它便将其钉死如磐石，无需再等，也再无浪费。");
+        add("research.thaumaturge.node_anchor.addendum_0", "一个迷人的发现：涌流充能器中的灵气可以直接注入到节点中，最纯粹的灵气进入节点的一瞬间就化为了各种各样的要素。<BR>锚不仅固定住了船，还给船提供了物资。");
     }
 }

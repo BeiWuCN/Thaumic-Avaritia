@@ -40,6 +40,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.causality_collapser_pearl.desc", "Remember to wear sunglasses");
         add("item.thaumicavaritia.infinity_charger.desc", "A kindness repaid as a gushing spring.");
         add("item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc", "Maximum efficiency.");
+        add("item.thaumicavaritia.node_anchor.desc", "You stay right here.");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "Thaumic Avaritia");
 
@@ -106,5 +107,12 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("singularity.thaumicavaritia.brass", "Brass Singularity");
         add("singularity.thaumicavaritia.thaumium", "Thaumium Singularity");
         add("singularity.thaumicavaritia.void", "Void Singularity");
+
+        // Node Anchor
+        add("research.thaumaturge.node_anchor.title", "Node Anchor");
+        add("research.thaumaturge.node_anchor.stage_0", "The node stabilizer and the node transducer are elegant creations in their own right, yet both share a glaring flaw: they are so terribly slow. The stabilizer can only hold a node in place, frozen and inert; the transducer must be fed charge for a long while before a node finally awakens.<BR>All this waiting is an affront to my greed. There must be a way to combine them — to anchor a node firmly while pouring power into it all at once, no patience required.");
+        add("research.thaumaturge.node_anchor.stage_1", "Taking apart the transducer and the stabilizer, I study the mechanism that locks a node's state and the circuit that drives its charge. The frame of one, the circuitry of the other — neither is truly beyond me. The key is a core that can both pin and charge — and neutronium proves the very answer.<BR>Let but a sliver of eternal node be woven into the whole, and the node shall dwell forever in a self-sustaining eternity.");
+        add("research.thaumaturge.node_anchor.stage_2", "The transducer's heart, the stabiliser's grip — all the magic bound fast within neutronium.<BR>Set beneath a node, it pins it firm as bedrock. No more waiting, no more waste.");
+        add("research.thaumaturge.node_anchor.addendum_0", "A fascinating discovery: the aura within the gushing charger can be channelled straight into a node — the instant the purest aura enters, it bursts into all manner of aspects.<BR>The anchor does more than moor the vessel; it feeds it as well.");
     }
 }
