@@ -1,9 +1,10 @@
-// 客户端注册：实体渲染器、菜单 Screen。
 package com.blackmoss.thaumicavaritia.client;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.client.render.blockentity.NodeAnchorRenderer;
 import com.blackmoss.thaumicavaritia.client.render.entity.CausalityCollapserPearlRenderer;
 import com.blackmoss.thaumicavaritia.client.screen.CosmicNeutroniumEssentiaSmelteryScreen;
+import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
 import com.blackmoss.thaumicavaritia.registry.TAEntities;
 import com.blackmoss.thaumicavaritia.registry.TAMenus;
 import net.neoforged.api.distmarker.Dist;
@@ -22,6 +23,7 @@ public final class TAClientEvents {
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(
                 TAEntities.CAUSALITY_COLLAPSER_PEARL.get(), CausalityCollapserPearlRenderer::new);
+        event.registerBlockEntityRenderer(TABlockEntities.NODE_ANCHOR.get(), NodeAnchorRenderer::new);
     }
 
     @SubscribeEvent

@@ -3,10 +3,19 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
+		"singularity": "thaumicavaritia:block/eternal_singularity",
 		"particle": "thaumicavaritia:block/node_anchor",
 		"texture": "thaumicavaritia:block/node_anchor"
 	},
 	"elements": [
+		{
+			"from": [0, -0.001, 0],
+			"to": [16, -0.001, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -0.1, 0]},
+			"faces": {
+				"down": {"uv": [0, 0, 16, 16], "texture": "#singularity"}
+			}
+		},
 		{
 			"from": [0, 0, 0],
 			"to": [16, 4, 16],
@@ -111,23 +120,23 @@
 			}
 		}
 	],
-	"display": {},
 	"groups": [
 		0,
+		1,
 		{
 			"name": "group",
 			"origin": [8, 8, 8],
 			"scope": 0,
 			"color": 0,
-			"children": [1, 2, 3, 4]
+			"children": [2, 3, 4, 5]
 		},
 		{
 			"name": "group",
 			"origin": [8, 8, 8],
 			"scope": 0,
 			"color": 0,
-			"children": [5, 6, 7, 8]
+			"children": [6, 7, 8, 9]
 		},
-		9
+		10
 	]
 }

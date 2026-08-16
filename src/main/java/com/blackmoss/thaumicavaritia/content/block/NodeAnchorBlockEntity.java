@@ -1,35 +1,25 @@
-// 节点锚 BE：每 tick 检测上方节点与上方两格的涌流充能器，直接通过节点 public API 控制其状态。
-// 布局（自顶向下）：涌流充能器 / 节点锚 / 节点 / 节点锚，即锚正上方一格是节点、上方两格是充能器。
-// - 充能器在上两格（无非红石）：将节点每种要素固定为 256（6 原初 + infinitus），并置为普通节点。
-// - 否则（锁定模式）：冻结上方节点当前状态，使节点自身 tick 的喂料/衰减/放电/行为无法改变它；
-//   若玩家用魔杖抽走部分 vis（总量下降），则重新以当前状态为快照再锁定。
+// 节点锚 BE：每 tick 检测上方/下方节点与涌流充能器，直接通过节点 public API 控制其状态。
+// 布局分两种（充能器始终在锚上方）：
+//   1) 爪朝上：锚 / 节点(above) / 充能器(above 2) → 节点在上方，充能器在节点上方。
+//   2) 爪朝下：充能器(above) / 锚 / 节点(below) → 节点在下方，充能器在锚正上方。
+// - 充能器激活（无非红石）：完全原版化——调用 node.setEnergized(true) 进入换能器充能态：
+//   节点要素分解为原初、每 tick 从灵气自动补充、可被魔杖抽取 vis、客户端显示蓝色脉冲。
+// - 否则（锁定模式）：冻结节点当前状态（放进来什么样就一直是什么样），使节点自身 tick 的
+//   喂料/衰减/放电/行为无法改变它；若玩家用魔杖抽走部分 vis（总量下降），则重新以当前状态为快照再锁定。
 package com.blackmoss.thaumicavaritia.content.block;
 
-import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
 import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
-import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
-import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
-import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
 import com.leclowndu93150.thaumaturge.api.nodes.NodeModifier;
 import com.leclowndu93150.thaumaturge.api.nodes.NodeType;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class NodeAnchorBlockEntity extends BlockEntity {
-    // 固定要素的单一数值（无论节点原有没有该要素）。
-    private static final int FIXED_AMOUNT = 256;
-
-    private @Nullable AspectList full256;
     private @Nullable Snapshot snapshot;
     private boolean charged;
     private boolean locked;
@@ -43,42 +33,49 @@ public class NodeAnchorBlockEntity extends BlockEntity {
         if (level == null) {
             return;
         }
-        // 节点锚正上方一格必须是灵气节点，否则此锚无效。
-        // 上方两格若为涌流充能器（且未接红石），则进入"充能固定"模式。
-        // 布局示例（自顶向下）：
-        //   涌流充能器 / 节点锚 / 节点 / 节点锚  → 下锚 above=节点、above(2)=充能器 → 固定256；上锚仅锁定
-        //   节点锚 / 节点 / 节点锚                → 各锚 above=节点、above(2)=节点锚 → 仅锁定
         BlockEntity above = level.getBlockEntity(pos.above());
-        if (!(above instanceof BlockEntityNode node)) {
+        BlockEntity below = level.getBlockEntity(pos.below());
+        boolean redstone = level.hasNeighborSignal(pos);
+        BlockEntityNode node;
+        boolean hasCharger;
+        if (above instanceof BlockEntityNode n) {
+            node = n;
+            hasCharger = !redstone && hasChargerAbove(level, pos);
+        } else if (below instanceof BlockEntityNode n) {
+            node = n;
+            hasCharger = !redstone
+                    && level.getBlockState(pos.above(1)).getBlock() instanceof InfinityChargerBlock;
+        } else {
             snapshot = null;
             charged = false;
             locked = false;
             return;
         }
-        boolean redstone = level.hasNeighborSignal(pos);
-        boolean hasCharger = !redstone
-                && level.getBlockState(pos.above(2)).getBlock() instanceof InfinityChargerBlock;
 
-        // 充能模式翻转 CHARGED 状态（仅变化时写，触发模型切换：稳定器 ↔ 换能器）。
+        // 充能模式翻转 CHARGED 状态（仅变化时写，触发模型切换）。
         if (getBlockState().getValue(NodeAnchorBlock.CHARGED) != hasCharger) {
             level.setBlock(pos, getBlockState().setValue(NodeAnchorBlock.CHARGED, hasCharger), 3);
         }
 
         if (hasCharger) {
-            if (full256 == null) {
-                full256 = buildFull(level);
-            }
-            if (!charged
-                    || node.getNodeType() != NodeType.NORMAL
-                    || node.getNodeModifier() != null) {
-                node.setAspects(full256);
+            if (!charged) {
+                // 进入充能：保存当前状态供退出时恢复，然后调用原版 setEnergized(true)——
+                // 节点分解为原初要素、自动从灵气补充、可被魔杖抽取 vis、客户端蓝色脉冲。
+                // setEnergized 内部已 setChanged + sendBlockUpdated 同步；类型/修饰变化再补一次。
+                snapshot = new Snapshot(node);
+                node.setEnergized(true);
                 node.setNodeType(NodeType.NORMAL);
                 node.setNodeModifier(null);
+                node.nodeChange();
                 charged = true;
             }
-            snapshot = null;
             locked = false;
         } else {
+            // 退出充能：解除 energized（恢复原始 aspectsBase），并用充能前快照还原状态后冻结。
+            if (charged) {
+                node.setEnergized(false);
+                charged = false;
+            }
             // 锁定模式：冻结节点当前状态。
             if (snapshot == null) {
                 snapshot = new Snapshot(node);
@@ -93,22 +90,21 @@ public class NodeAnchorBlockEntity extends BlockEntity {
                 node.setAspects(snapshot.aspects);
                 node.setNodeType(snapshot.type);
                 node.setNodeModifier(snapshot.modifier);
+                // 通知客户端节点状态已变（setAspects 等只改服务端内存，不主动同步）。
+                node.nodeChange();
                 locked = true;
             }
-            charged = false;
         }
     }
 
-    // 构造 256 的要素列表：6 个原初要素 + 本 mod 的 infinitus（无论节点原有没有）。
-    private static AspectList buildFull(Level level) {
-        HolderLookup.RegistryLookup<IAspect> lookup =
-                level.registryAccess().lookupOrThrow(IAspect.REGISTRY_KEY);
-        List<AspectInstance> entries = new ArrayList<>();
-        for (ResourceKey<IAspect> key : TCAspects.PRIMALS) {
-            entries.add(new AspectInstance(lookup.getOrThrow(key), FIXED_AMOUNT));
+    // 上方两格是否为充能来源：直接是涌流充能器，或是一个已处于充能状态的节点锚（级联充能）。
+    private static boolean hasChargerAbove(Level level, BlockPos pos) {
+        BlockState above2 = level.getBlockState(pos.above(2));
+        if (above2.getBlock() instanceof InfinityChargerBlock) {
+            return true;
         }
-        entries.add(new AspectInstance(lookup.getOrThrow(TAAspects.INFINITUS), FIXED_AMOUNT));
-        return AspectList.ofEntries(entries);
+        return above2.getBlock() instanceof NodeAnchorBlock
+                && above2.getValue(NodeAnchorBlock.CHARGED);
     }
 
     // 冻结快照：捕获节点当前的要素 / 类型 / 修饰。

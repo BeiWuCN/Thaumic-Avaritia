@@ -96,7 +96,7 @@ public class BlockEntityCosmicNeutroniumEssentiaSmeltery extends BlockEntitySmel
                 if (level != null) {
                     state = level.getBlockState(pos);
                 }
-                if (state.getBlock() instanceof BlockSmelterAux
+                if (state != null && state.getBlock() instanceof BlockSmelterAux
                         && state.getValue(BlockStateProperties.HORIZONTAL_FACING) == dir.getOpposite()) {
                     tryPush(pos);
                 }
@@ -135,7 +135,10 @@ public class BlockEntityCosmicNeutroniumEssentiaSmeltery extends BlockEntitySmel
         // 兜底：找一列蒸馏釜中第一个可接受（过滤匹配/空）的。
         deep = 1;
         while (true) {
-            BlockEntity be = level.getBlockEntity(outputPos.above(deep));
+            BlockEntity be = null;
+            if (level != null) {
+                be = level.getBlockEntity(outputPos.above(deep));
+            }
             if (!(be instanceof BlockEntityAlembic alembic)) {
                 return false;
             }

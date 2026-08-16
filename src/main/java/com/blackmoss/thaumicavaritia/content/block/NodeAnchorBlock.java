@@ -60,7 +60,7 @@ public class NodeAnchorBlock extends BaseEntityBlock {
     // 注意不能照抄原版稳定器的 RenderShape.INVISIBLE——原版靠 NodeStabilizerRenderer(BER) 代码绘制，
     // 本方块没有 BER，INVISIBLE 会导致世界中完全不渲染。
     @Override
-    protected @NonNull RenderShape getRenderShape(BlockState state) {
+    protected @NonNull RenderShape getRenderShape(@NonNull BlockState state) {
         return RenderShape.MODEL;
     }
 
