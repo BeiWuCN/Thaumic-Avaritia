@@ -19,8 +19,9 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public final class MenuCosmicNeutroniumEssentiaSmeltery extends AbstractContainerMenu {
+    // 物品槽位置：与重绘 GUI 纹理对齐（紫色槽 x=79-96, y=31-48）。
     public static final int ITEM_X = 80;
-    public static final int ITEM_Y = 7;
+    public static final int ITEM_Y = 32;
     public static final int PLAYER_GRID_X = 8;
     public static final int PLAYER_GRID_Y = 84;
     public static final int SLOT_COUNT = 1;

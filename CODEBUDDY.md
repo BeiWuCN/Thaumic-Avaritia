@@ -27,6 +27,11 @@
 包结构即分层：
 - `registry/` — 注册入口：`TAItems`（物品）、`TABlocks`（方块+方块物品）、`TABlockEntities`（方块实体类型）、`TAMenus`（菜单类型）、`TAWandParts`（法杖部件）、`TATags`（标签常量）、`TAEntities`（实体）、`TACreativeModeTabs`。
 - `content/` — 行为实现：`block/`（方块）、`item/`（物品行为）、`entity/`（实体）、`essentia/smeltery/`（冶炼厂 BE/Menu，**放本 mod 包**）。
+
+### 物理布局约束
+
+- **模块导出硬约束**：自定义类**绝不可**放进 `com.leclowndu93150.thaumaturge.*` 包。flatDir 依赖的 Thaumaturge jar 带有 module-info，跨模块导出冲突会让 runData 崩 `ResolutionException`。因此继承 Thaumaturge 的 protected 父类（如 `BlockEntitySmelter`、`BlockSmelter`）时，子类必须放在本 mod 包（`com.blackmoss.thaumicavaritia.content.essentia.smeltery` 等）而非 `thaumaturge.content.*`。
+- **冶炼厂跨包拆分**：宇宙中子态素源质冶炼厂由 4 部分组成：`CosmicNeutroniumEssentiaSmelteryBlock`（`content/block/`）+ `BlockEntityCosmicNeutroniumEssentiaSmeltery`/`MenuCosmicNeutroniumEssentiaSmeltery`（`content/essentia/smeltery/`）+ `CosmicNeutroniumEssentiaSmelteryScreen`（`client/screen/`）。改 UI 或改 BE 逻辑时要同时核对这 4 个文件。
 - `mixin/`（+ `mixin/client/`）— mixin 注入；`api/`（`aspect/TAAspects` 要素 key、`interfaces/`）；`data/` — DataGen 体系：`TADataGenerators` 为唯一入口，下辖 `lang/`、`recipe/`、`model/`、`tag/`、`datamap/`、`aspect/`、`worldgen/research/`。
 
 ### 主入口与注册流程
@@ -100,7 +105,12 @@
 - **mixin `BlockEntitySmelterMixin`**：原版 `tick()` 是 private 无法继承覆写 → `@Inject(method="tick", at=@At("HEAD"), cancellable=true)`，`instanceof` 自定义 BE 时改调 `cosmicTick()` 并取消原逻辑（原版冶炼炉不受影响）。
 - `cosmicTick()`：LIT 状态**跟随输入槽**（槽内有物品才亮，平时熄灭，与瞬间冶炼同步）；每 tick 把输入物品全部要素写入 `aspects`（无效率损失）并消耗 1 个输入 = 瞬间产出；输出路由复刻原版 `processAlembics`（直连上方蒸馏釜 + 四方辅助蒸馏器），只用 public API（`aspectKey`/`amount`/`doesContainerAccept`/`addToContainer`）。
 - **模型**：手写 `_off`/`_on` 双模型（parent 原版 `smelter_basic_off`，`north` 分别指 `front_off`/`front_on`，`side`/`up`/`particle` 自绘）；blockstate 用 `MultiVariantGenerator.dispatch` + `createBooleanModelDispatch(LIT, on, off)` + `ROTATION_HORIZONTAL_FACING`（facing 4 向 × lit 2 态）；物品模型用 **Halo 光环**（内层指向 `_off` 模型）。
-- **菜单/Screen**：`MenuCosmicNeutroniumEssentiaSmeltery`（单物品槽，无燃料槽，布局沿用原版 `MenuSmelter`）+ `CosmicNeutroniumEssentiaSmelteryScreen`（复用原版 `gui_smelter.png` 纹理，只画源质存量条，不画燃料/进度条）。注册见 `TAMenus`/`TAClientEvents`。
+- **菜单/Screen**：`MenuCosmicNeutroniumEssentiaSmeltery`（单物品槽，无燃料槽）+ `CosmicNeutroniumEssentiaSmelteryScreen`（使用自绘纹理 `textures/gui/cosmic_neutronium_essentia_smeltery.png`，只画源质存量条，不画燃料/进度条）。注册见 `TAMenus`/`TAClientEvents`。
+- **UI 坐标契约（改 GUI 纹理时必须同步）**：
+  - 主界面 `176×166`，图集尺寸 `256×256`。
+  - 物品槽逻辑坐标 `Menu.ITEM_X = 80`、`ITEM_Y = 32`，须与纹理中左侧输入槽中心对齐。
+  - 源质条容器位于界面内 `(59,21)-(70,67)`，高 46 像素；素材区在图集 `(177,1)-(184,47)`，宽 7 高 46。
+  - Screen 进度条：`visScaled = blockEntity.getVisScaled(46)`（`BE.MAX_VIS = 256` 映射到 0-46 像素）；blit 从 `(177, 47 - visScaled)` 取 7×visScaled 的紫色素材，覆盖到 `(x+61, y+67-visScaled)`——**从底部向上填充、垂直裁剪取底部，非缩放**。改纹理或改条尺寸时要同步修改 `Screen`、`Menu` 和 `BE.MAX_VIS`。
 - **配方**：注魔。催化剂 `TCItems.SMELTER_VOID`（虚空冶炼炉）+ 4×`ModItems.neutron_ingot` + 4×`ModItems.infinity_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
 - 纹理：`textures/block/cosmic_neutronium_essentia_smeltery_{front_off,front_on,side,top}.png`（用户手绘，前两张不同、侧/顶另两版）。
 

@@ -22,6 +22,10 @@ public class CosmicNeutroniumEssentiaSmelteryScreen extends AbstractTCContainerS
 
     @Override
     protected void extractLabels(@NonNull GuiGraphicsExtractor graphics, int xm, int ym) {
+        // 标题居中（界面宽 176，中线 88）、物品栏名，参照 avaritia NeutronCollectorScreen 的 renderLabels。
+        String title = this.getTitle().getString();
+        graphics.text(this.font, title, 88 - this.font.width(title) / 2, 6, -12566464, false);
+        graphics.text(this.font, this.playerInventoryTitle, 8, 72, -12566464, false);
     }
 
     @Override
@@ -30,32 +34,25 @@ public class CosmicNeutroniumEssentiaSmelteryScreen extends AbstractTCContainerS
         int y = (this.height - this.imageHeight) / 2;
         if (menu.blockEntity() != null) {
             BlockEntityCosmicNeutroniumEssentiaSmeltery smeltery = menu.blockEntity();
+            // 源质进度条：容器 (61,21)-(70,67) 高 46；纹理素材区 (177,1)-(184,47) 宽 7 高 46。
+            // 从下往上填充——源顶 = (47 - visScaled)，目标顶 = (67 - visScaled)，取 7 宽、visScaled 高的底部素材。
             int visScaled = 0;
             if (smeltery != null) {
                 visScaled = smeltery.getVisScaled(46);
             }
-            graphics.blit(
-                    RenderPipelines.GUI_TEXTURED,
-                    TEXTURE,
-                    x + 61,
-                    y + 12 + 38 - visScaled,
-                    200,
-                    38 - visScaled,
-                    8,
-                    visScaled,
-                    256,
-                    256);
-            graphics.blit(
-                    RenderPipelines.GUI_TEXTURED,
-                    TEXTURE,
-                    x + 60,
-                    y + 8,
-                    232,
-                    0,
-                    10,
-                    55,
-                    256,
-                    256);
+            if (visScaled > 0) {
+                graphics.blit(
+                        RenderPipelines.GUI_TEXTURED,
+                        TEXTURE,
+                        x + 62,
+                        y + 67 - visScaled,
+                        177,
+                        47 - visScaled,
+                        7,
+                        visScaled,
+                        256,
+                        256);
+            }
         }
     }
 }

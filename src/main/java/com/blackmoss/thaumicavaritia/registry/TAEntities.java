@@ -2,7 +2,7 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.entity.CausalityCollapserPearlEntity;
+import com.blackmoss.thaumicavaritia.content.entity.EntityCausalityCollapserPearl;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -19,11 +19,11 @@ public final class TAEntities {
             DeferredRegister.create(Registries.ENTITY_TYPE, ThaumicAvaritia.MODID);
 
     // 悖论珍珠抛掷物
-    public static final DeferredHolder<EntityType<?>, EntityType<CausalityCollapserPearlEntity>> CAUSALITY_COLLAPSER_PEARL =
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityCausalityCollapserPearl>> CAUSALITY_COLLAPSER_PEARL =
             register(
                     "causality_collapser_pearl",
-                    () -> EntityType.Builder.<CausalityCollapserPearlEntity>of(
-                                    CausalityCollapserPearlEntity::new, MobCategory.MISC)
+                    () -> EntityType.Builder.<EntityCausalityCollapserPearl>of(
+                                    EntityCausalityCollapserPearl::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
                             .updateInterval(10));

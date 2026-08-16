@@ -321,15 +321,13 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PERMUTATIO, 40,
                         TCAspects.PRAECANTATIO, 40,
                         TCAspects.VACUOS, 30,
-                        TCAspects.PERDITIO, 20,
-                        TAAspects.INFINITUS, 4));
+                        TCAspects.PERDITIO, 20));
         add(b, items, "avaritia", "full_matter_cluster",
                 aspects(
                         TCAspects.PERMUTATIO, 80,
                         TCAspects.PRAECANTATIO, 80,
                         TCAspects.VACUOS, 60,
-                        TCAspects.PERDITIO, 40,
-                        TAAspects.INFINITUS, 8));
+                        TCAspects.PERDITIO, 40));
 
         // ==================== 烈焰系（tier 2）====================
         add(b, items, "avaritia", "blaze_cube",
@@ -345,8 +343,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.METALLUM, 40,
                         TCAspects.MORTUUS, 30,
                         TCAspects.VITREUS, 20,
-                        TCAspects.SPIRITUS, 15,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.SPIRITUS, 15));
         add(b, items, "avaritia", "blaze_axe",
                 aspects(
                         TCAspects.IGNIS, 60,
@@ -354,8 +351,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.INSTRUMENTUM, 40,
                         TCAspects.MORTUUS, 30,
                         TCAspects.VITREUS, 20,
-                        TCAspects.SPIRITUS, 15,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.SPIRITUS, 15));
         add(b, items, "avaritia", "blaze_pickaxe",
                 aspects(
                         TCAspects.IGNIS, 60,
@@ -363,8 +359,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.INSTRUMENTUM, 40,
                         TCAspects.MORTUUS, 30,
                         TCAspects.VITREUS, 20,
-                        TCAspects.SPIRITUS, 15,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.SPIRITUS, 15));
         add(b, items, "avaritia", "blaze_shovel",
                 aspects(
                         TCAspects.IGNIS, 60,
@@ -372,8 +367,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.INSTRUMENTUM, 40,
                         TCAspects.MORTUUS, 30,
                         TCAspects.VITREUS, 20,
-                        TCAspects.SPIRITUS, 15,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.SPIRITUS, 15));
         add(b, items, "avaritia", "blaze_hoe",
                 aspects(
                         TCAspects.IGNIS, 60,
@@ -381,8 +375,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.INSTRUMENTUM, 40,
                         TCAspects.MORTUUS, 30,
                         TCAspects.VITREUS, 20,
-                        TCAspects.SPIRITUS, 15,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.SPIRITUS, 15));
         add(b, items, "avaritia", "blaze_bow",
                 aspects(
                         TCAspects.IGNIS, 60,
@@ -390,8 +383,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.POTENTIA, 40,
                         TCAspects.MORTUUS, 30,
                         TCAspects.VITREUS, 20,
-                        TCAspects.SPIRITUS, 15,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.SPIRITUS, 15));
 
         // ==================== 水晶系（tier 3）====================
         add(b, items, "avaritia", "crystal_sword",
@@ -400,43 +392,37 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.METALLUM, 60,
                         TCAspects.POTENTIA, 50,
                         TCAspects.INSTRUMENTUM, 40,
-                        TCAspects.PERDITIO, 30,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.PERDITIO, 30));
         add(b, items, "avaritia", "crystal_axe",
                 aspects(
                         TCAspects.VITREUS, 80,
                         TCAspects.METALLUM, 60,
                         TCAspects.INSTRUMENTUM, 50,
-                        TCAspects.PERDITIO, 30,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.PERDITIO, 30));
         add(b, items, "avaritia", "crystal_pickaxe",
                 aspects(
                         TCAspects.VITREUS, 80,
                         TCAspects.METALLUM, 60,
                         TCAspects.INSTRUMENTUM, 50,
-                        TCAspects.PERDITIO, 30,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.PERDITIO, 30));
         add(b, items, "avaritia", "crystal_shovel",
                 aspects(
                         TCAspects.VITREUS, 80,
                         TCAspects.METALLUM, 60,
                         TCAspects.INSTRUMENTUM, 50,
-                        TCAspects.PERDITIO, 30,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.PERDITIO, 30));
         add(b, items, "avaritia", "crystal_hoe",
                 aspects(
                         TCAspects.VITREUS, 80,
                         TCAspects.METALLUM, 60,
                         TCAspects.INSTRUMENTUM, 50,
-                        TCAspects.PERDITIO, 30,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.PERDITIO, 30));
         add(b, items, "avaritia", "crystal_bow",
                 aspects(
                         TCAspects.VITREUS, 80,
                         TCAspects.AER, 60,
                         TCAspects.INSTRUMENTUM, 40,
-                        TCAspects.PERDITIO, 30,
-                        TAAspects.INFINITUS, 16));
+                        TCAspects.PERDITIO, 30));
 
         // ==================== 杂项 ====================
         add(b, items, "avaritia", "neutron_horse_armor",
@@ -611,7 +597,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PERDITIO, 60,
                         TCAspects.VITREUS, 60,
                         TCAspects.PRAECANTATIO, 40,
-                        TAAspects.INFINITUS, 12));
+                        TAAspects.INFINITUS, 16));
         add(b, items, "avaritia", "infinity_chestplate",
                 aspects(
                         TCAspects.PRAEMUNIO, 150,
@@ -619,7 +605,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PERDITIO, 80,
                         TCAspects.VITREUS, 80,
                         TCAspects.PRAECANTATIO, 50,
-                        TAAspects.INFINITUS, 12));
+                        TAAspects.INFINITUS, 16));
         add(b, items, "avaritia", "infinity_pants",
                 aspects(
                         TCAspects.PRAEMUNIO, 120,
@@ -627,7 +613,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PERDITIO, 60,
                         TCAspects.VITREUS, 60,
                         TCAspects.PRAECANTATIO, 40,
-                        TAAspects.INFINITUS, 12));
+                        TAAspects.INFINITUS, 16));
         add(b, items, "avaritia", "infinity_boots",
                 aspects(
                         TCAspects.PRAEMUNIO, 120,
@@ -635,7 +621,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PERDITIO, 60,
                         TCAspects.VITREUS, 60,
                         TCAspects.PRAECANTATIO, 40,
-                        TAAspects.INFINITUS, 12));
+                        TAAspects.INFINITUS, 16));
         add(b, items, "avaritia", "infinity_elytra",
                 aspects(
                         TCAspects.AER, 100,
@@ -643,7 +629,7 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.VITREUS, 60,
                         TCAspects.PERDITIO, 40,
                         TCAspects.PRAECANTATIO, 40,
-                        TAAspects.INFINITUS, 12));
+                        TAAspects.INFINITUS, 16));
 
         // ==================== 本 mod 联动物品 ====================
         add(b, items, ThaumicAvaritia.MODID, "extremely_primordial_pearl",

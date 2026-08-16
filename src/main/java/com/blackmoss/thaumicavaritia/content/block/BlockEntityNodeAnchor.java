@@ -19,12 +19,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
-public class NodeAnchorBlockEntity extends BlockEntity {
+public class BlockEntityNodeAnchor extends BlockEntity {
     private @Nullable Snapshot snapshot;
     private boolean charged;
     private boolean locked;
 
-    public NodeAnchorBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntityNodeAnchor(BlockPos pos, BlockState state) {
         super(TABlockEntities.NODE_ANCHOR.get(), pos, state);
     }
 

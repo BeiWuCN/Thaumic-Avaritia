@@ -19,7 +19,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.NonNull;
 
-public final class CausalityCollapserPearlEntity extends ThrowableItemProjectile {
+public final class EntityCausalityCollapserPearl extends ThrowableItemProjectile {
     private static final float EXPLOSION_STRENGTH = 16.0F;
     private static final double RIFT_COLLAPSE_RANGE = 24.0;
     private static final double DAMAGE_RANGE = 32.0;
@@ -34,11 +34,11 @@ public final class CausalityCollapserPearlEntity extends ThrowableItemProjectile
     private static final float SPARK_SCALE = 0.3F;
     private static final double SPARK_SPREAD = 0.2;
 
-    public CausalityCollapserPearlEntity(EntityType<? extends CausalityCollapserPearlEntity> type, Level level) {
+    public EntityCausalityCollapserPearl(EntityType<? extends EntityCausalityCollapserPearl> type, Level level) {
         super(type, level);
     }
 
-    public CausalityCollapserPearlEntity(Level level, LivingEntity shooter, ItemStack stack) {
+    public EntityCausalityCollapserPearl(Level level, LivingEntity shooter, ItemStack stack) {
         super(TAEntities.CAUSALITY_COLLAPSER_PEARL.get(), shooter, level, stack);
     }
 

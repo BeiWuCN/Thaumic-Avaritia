@@ -8,6 +8,10 @@
     {
       "amount": 640,
       "aspect": "thaumaturge:perditio"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:praecantatio"
     }
   ],
   "catalyst": "thaumaturge:primordial_pearl",
