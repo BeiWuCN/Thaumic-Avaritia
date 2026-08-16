@@ -109,7 +109,7 @@
 - **UI 坐标契约（改 GUI 纹理时必须同步）**：
   - 主界面 `176×166`，图集尺寸 `256×256`。
   - 物品槽逻辑坐标 `Menu.ITEM_X = 80`、`ITEM_Y = 32`，须与纹理中左侧输入槽中心对齐。
-  - 源质条容器位于界面内 `(59,21)-(70,67)`，高 46 像素；素材区在图集 `(177,1)-(184,47)`，宽 7 高 46。
+  - 源质条容器位于界面内 `(62,21)-(69,67)`，高 46 宽 8 像素；素材区在图集 `(177,1)-(184,47)`，宽 8 高 46。
   - Screen 进度条：`visScaled = blockEntity.getVisScaled(46)`（`BE.MAX_VIS = 256` 映射到 0-46 像素）；blit 从 `(177, 47 - visScaled)` 取 7×visScaled 的紫色素材，覆盖到 `(x+61, y+67-visScaled)`——**从底部向上填充、垂直裁剪取底部，非缩放**。改纹理或改条尺寸时要同步修改 `Screen`、`Menu` 和 `BE.MAX_VIS`。
 - **配方**：注魔。催化剂 `TCItems.SMELTER_VOID`（虚空冶炼炉）+ 4×`ModItems.neutron_ingot` + 4×`ModItems.infinity_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
 - 纹理：`textures/block/cosmic_neutronium_essentia_smeltery_{front_off,front_on,side,top}.png`（用户手绘，前两张不同、侧/顶另两版）。
@@ -146,6 +146,7 @@
 - `CRYSTAL_MATRIX`：`baseCostModifier = 0.1F`（90% 减免）。
 - `STUDDED_COSMIC_NEUTRONIUM`：`capacity = 9_999_999`（vis，Thaumaturge 内部以 centivis 存储，写入时乘 100），`onUpdate = InfinityOnUpdate` 每 tick 把全部原初要素补满（写入 `TCDataComponents.WAND_VIS`）。
 - 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`wand_rod_studded_cosmic_neutronium.png`；物品形态另有 `textures/item/` 下同名 PNG（**纹理由用户手绘，AI 不要生成图片**）。
+- **中子态素杖柄的合成门禁**：杖柄走 avaritia 无尽工作台（`ShapedTableCraftingRecipe`），研究系统无法在配方层限制；故由 `content/event/TAServerEvents`（`@EventBusSubscriber(Dist.DEDICATED_SERVER)` 监听 `ItemCraftedEvent`）在合成完成后拦截：若产物是 `ItemWandRod` 且 `rod() == STUDDED_COSMIC_NEUTRONIUM`，且玩家未解锁研究 `thaumicavaritia:wand_rod_studded_cosmic_neutronium`（`KnowledgeAccess.of(player).hasResearchFlag(id, ResearchFlag.RESEARCH)`），则从背包移除该杖柄、掉落到玩家位置、发送系统消息「你还不够格掂量它」。门控研究条目 id 与 `data/.../research_entry/wand_rod_studded_cosmic_neutronium.json` 对应。
 
 ### 物品模型（`data/model/TAModelProvider.java`）
 - 普通物品使用 avaritia 的**无尽背景光圈（halo）**：内层模型（`createFlatItemModel`，自动引用 `item/<注册名>.png`）+ `AvaritiaItemModelLoaders.Halo` 物品模型（`pulse=false, size=6, texture=avaritia:misc/halo`），通过 `itemModels.itemModelOutput.accept(item, halo)` 写入 items json。

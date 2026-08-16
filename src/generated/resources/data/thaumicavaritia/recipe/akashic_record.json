@@ -30,16 +30,21 @@
       "aspect": "thaumicavaritia:infinitus"
     }
   ],
-  "catalyst": "#thaumaturge:curios",
+  "catalyst": "thaumaturge:thaumonomicon_linking",
   "components": [
+    "thaumaturge:curio_arcane",
     "avaritia:infinity_ingot",
-    "avaritia:neutron_ingot",
+    "thaumaturge:curio_preserved",
     "avaritia:infinity_ingot",
-    "avaritia:neutron_ingot",
+    "thaumaturge:curio_ancient",
     "avaritia:infinity_ingot",
-    "avaritia:neutron_ingot",
+    "thaumaturge:curio_knowledge",
     "avaritia:infinity_ingot",
-    "avaritia:neutron_ingot"
+    "thaumaturge:curio_twisted",
+    "avaritia:infinity_ingot",
+    "thaumaturge:curio_rites",
+    "avaritia:infinity_ingot",
+    "thaumaturge:pech_wand"
   ],
   "instability": 4,
   "result": {

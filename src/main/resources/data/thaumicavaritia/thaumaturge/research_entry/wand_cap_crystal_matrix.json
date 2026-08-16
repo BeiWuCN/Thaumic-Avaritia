@@ -2,7 +2,7 @@
   "category": "thaumicavaritia:thaumicavaritia",
   "name": "research.thaumaturge.wand_cap_crystal_matrix.title",
   "parents": [
-    "thaumicavaritia:base_thaumicavaritia"
+    "thaumicavaritia:wand_cap_crystal_matrix_inter"
   ],
   "column": 1,
   "row": 3,
@@ -17,7 +17,11 @@
       "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_0",
       "obtain": [
         {
-          "items": "avaritia:crystal_matrix_ingot",
+          "items": "thaumaturge:salis_mundus",
+          "amount": 2
+        },
+        {
+          "items": "thaumaturge:primordial_pearl",
           "amount": 1
         }
       ],
@@ -29,26 +33,18 @@
         },
         {
           "type": "theory",
-          "category": "thaumaturge:auromancy",
-          "amount": 1
+          "category": "thaumaturge:infusion",
+          "amount": 2
         }
       ],
       "warp": 5
     },
     {
       "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_1",
-      "craft": [
+      "obtain": [
         {
-          "items": "thaumaturge:wand_cap_void",
+          "items": "thaumaturge:primal_charm",
           "amount": 1
-        },
-        {
-          "items": "thaumaturge:salis_mundus",
-          "amount": 2
-        },
-        {
-          "items": "thaumaturge:nugget_quicksilver",
-          "amount": 2
         }
       ],
       "required_knowledge": [
@@ -62,28 +58,8 @@
     },
     {
       "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_2",
-      "craft": [
-        {
-          "items": "thaumicavaritia:wand_cap_crystal_matrix_inter",
-          "amount": 1
-        }
-      ],
-      "required_knowledge": [
-        {
-          "type": "theory",
-          "category": "thaumaturge:infusion",
-          "amount": 2
-        }
-      ],
       "recipes": [
-        "thaumicavaritia:wand_cap_crystal_matrix_inter"
-      ],
-      "warp": 5
-    },
-    {
-      "text": "research.thaumaturge.wand_cap_crystal_matrix.stage_3",
-      "recipes": [
-        "thaumicavaritia:wand_cap_crystal_matrix"
+        "thaumicavaritia:wand_cap_crystal"
       ]
     }
   ],

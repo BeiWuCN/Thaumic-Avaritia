@@ -70,12 +70,14 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("research.thaumaturge.akashic_record.stage_0", "Guided by the ultimate construct of greed, I have at last awakened this book of all knowledge. It holds every secret of thaumaturgy past and present — the nature of all things, the truth of magic, all within.<BR>From this day forth, this book of all knowledge serves me. No wall of knowledge shall bar my way again.");
         add("research.thaumaturge.akashic_record.stage_1", "My greedy creations activated the Akashic Records, and countless aspects flooded into my mind like a tide. I can almost feel the weight of knowledge, almost driven mad by it.<BR>Thaumaturgy is now mine to command. But this is not enough... my greed has only just awakened.");
 
+        // Wand branch: Inert Crystal Matrix Cap (mid-tier)
+        add("research.thaumaturge.wand_cap_crystal_matrix_inter.title", "Inert Crystal Matrix Cap");
+        add("research.thaumaturge.wand_cap_crystal_matrix_inter.stage_0", "With crystal matrix ingot and quicksilver for the frame, a void cap as the mould, and a primordial pearl with salis mundus to set it off — upon the infinity crafting table, an inert crystal matrix cap finally takes shape. Yet it is but an uncharged crystal — Vis pools within it, neither held nor channelled out. To wake it, I must first set its veins in order.");
         // Wand branch: Charged Crystal Matrix Cap
         add("research.thaumaturge.wand_cap_crystal_matrix.title", "Charged Crystal Matrix Cap");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_0", "Diamond, netherite, nether star — crystal fused from all three may well bear immense arcane power. But before that, I need to plan things out carefully...");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_1", "As it turns out, crystal excels at suppressing Vis cost, yet it is poor at channelling Vis out. That brings the void cap to mind — void metal is the finest conductor of all.<BR>Perhaps some salis mundus as a flux would help? Or maybe the crystal matrix's potential simply hasn't been unleashed yet...");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_2", "The test succeeded! Just as I suspected, the crystal matrix must be charged to unleash its full power. I only need to add a few materials — a handful of primal aura to keep it stable, and perhaps... a few primordial pearls?");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_3", "The infusion passed without a hitch, and the latent power of the crystal matrix is finally unleashed! As a cap material it is uniquely mighty — it drains only 10% of my Vis!");
+        add("research.thaumaturge.wand_cap_crystal_matrix.stage_0", "Salis mundus cleanses the lattice, the primordial pearl pours in the essence, the primal charm anchors the form, and the master focus props up the conduit. Infusion after infusion, the crystal's latent might is coaxed out inch by inch.");
+        add("research.thaumaturge.wand_cap_crystal_matrix.stage_1", "A frame alone is not enough — I press another layer of primordial pearl to steady the foundation, letting primal charms and master foci alternate in their laying, until the Vis truly flows along the crystal.");
+        add("research.thaumaturge.wand_cap_crystal_matrix.stage_2", "The infusion passed without a hitch, and the inert crystal matrix is at last fully awakened! As a cap material it is uniquely mighty — it drains only 10% of my Vis!");
 
         // Wand branch: Studded Cosmic Neutronium Rod
         add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.title", "Studded Cosmic Neutronium Rod");
@@ -86,7 +88,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         // Arcane Singularity Focus (apex)
         add("research.thaumaturge.arcane_singularity_focus.title", "Arcane Singularity Focus");
         add("research.thaumaturge.arcane_singularity_focus.stage_0", "Now that I command infinite Vis, why should I still be bound by a focus's limits? It's time to forge a core as mighty as a singularity!<BR>Let's start by carving up this ordinary master focus.");
-        add("research.thaumaturge.arcane_singularity_focus.stage_1", "It seems this step hardly requires any study at all. Sheathe it in neutronium as a shell, and forge the core of infinity within — when I say simple, I mean simple in theory, not in materials.");
+        add("research.thaumaturge.arcane_singularity_focus.stage_1", "It seems this step hardly requires any study at all. With an extremely primordial pearl at its core, supplemented by an enhancement core or a causality collapser — when I say simple, I mean simple in theory, not in materials.");
         add("research.thaumaturge.arcane_singularity_focus.stage_2", "This core — infinite, paradoxical, born of the void and returning to nothing — is the end of all spellcraft.");
 
         add("wand.thaumaturge.cap.crystal_matrix", "Crystal Matrix");
@@ -94,9 +96,9 @@ public final class TAEnUsProvider extends LanguageProvider {
 
         // Cosmic Neutronium Essentia Smeltery
         add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.title", "Cosmic Neutronium Essentia Smeltery");
-        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0", "The void-metal essentia smeltery is surely stronger than the basic one, yet it still drags along at a maddening pace — the slurry breaks down ever so slowly, and the essentia pollution it bleeds off fouls the whole surroundings besides.<BR>I've had my fill of that inefficiency and filth. Since the void smeltery can be taken apart, its frame, piping and Vis circuitry are surely the very place to begin my redesign.");
-        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1", "Tearing it down alone won't suffice. I need a material that can rewrite the smelting logic entirely — and the pure neutronium sealed within the full matter cluster is precisely my answer.<BR>Let it be the core, and scrub away both pollution and loss in one stroke. I mean to build a smeltery that wastes not a wisp of essentia, nor exhales a speck of filth.");
-        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2", "As the last full matter cluster vanishes, a brand-new essentia smeltery takes shape in my hands. It no longer grinds the slurry down at a crawl, nor reeks of essentia pollution — only efficiency, and perfection.<BR>From this day forth, smelting essentia shall be the simplest thing in the world.");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0", "The void smeltery can indeed refine essentia, yet it still drags along at a maddening pace — the slurry breaks down ever so slowly, and the essentia pollution it bleeds off fouls the whole surroundings besides.<BR>I've had my fill of that inefficiency and filth — to take it apart and recast it is surely the very place to begin my redesign.");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1", "Tearing it down alone won't suffice. I need a material that can rewrite the smelting logic entirely — the pure neutronium sealed within the full matter cluster, aided by the neutron collector and neutron compressor, is precisely my answer.<BR>Let neutronium be the core, and scrub away both pollution and loss in one stroke. I mean to build a smeltery that wastes not a wisp of essentia, nor exhales a speck of filth.");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2", "As the last neutron compressor falls into place, a brand-new essentia smeltery takes shape in my hands. It no longer grinds the slurry down at a crawl, nor reeks of essentia pollution — only efficiency, and perfection.<BR>From this day forth, smelting essentia shall be the simplest thing in the world.");
 
         // Gushing Charger
         add("research.thaumaturge.infinity_charger.title", "Gushing Charger");
@@ -114,5 +116,8 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("research.thaumaturge.node_anchor.stage_1", "Taking apart the transducer and the stabilizer, I study the mechanism that locks a node's state and the circuit that drives its charge. The frame of one, the circuitry of the other — neither is truly beyond me. The key is a core that can both pin and charge — and neutronium proves the very answer.<BR>Let but a sliver of eternal node be woven into the whole, and the node shall dwell forever in a self-sustaining eternity.");
         add("research.thaumaturge.node_anchor.stage_2", "The transducer's heart, the stabiliser's grip — all the magic bound fast within neutronium.<BR>Set beneath a node, it pins it firm as bedrock. No more waiting, no more waste.");
         add("research.thaumaturge.node_anchor.addendum_0", "A fascinating discovery: the aura within the gushing charger can be channelled straight into a node — the instant the purest aura enters, it bursts into all manner of aspects.<BR>The anchor does more than moor the vessel; it feeds it as well.");
+
+        // 中子态素杖柄合成门禁提示
+        add("message.thaumicavaritia.wand_rod_locked", "You are not yet worthy to wield it");
     }
 }

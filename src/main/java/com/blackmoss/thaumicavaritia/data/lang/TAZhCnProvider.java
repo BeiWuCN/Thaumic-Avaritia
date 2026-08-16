@@ -65,11 +65,12 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("research.thaumaturge.infinity_scribing_tools.stage_1", "我以无限锭为骨、中子态素为引，让注魔祭坛赐予这支笔用之不竭的墨水。<BR>从今往后，落笔如有神助，墨痕永续。研究台上，再也不用为墨水发愁了。");
 
         // 法杖
-        add("research.thaumaturge.wand_cap_crystal_matrix.title", "水晶矩阵杖端");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_0", "钻石、下界合金、下界之星——将三者融炼而成的晶体，或许能承载足够强大的魔力。不过在此之前，我需要仔细规划一下……");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_1", "事实证明，水晶在压制魔力消耗上表现优异，却并不擅长导出魔力。这倒是让我想起虚空杖端——虚空金属最擅长的就是传导。<BR>也许该加些世界盐之类的助剂试试？又或许，只是水晶矩阵的潜力还没被激发出来……");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_2", "测试成功了！真如我所料，水晶矩阵需要经过充能才能发挥全部威力。那我只要找些材料加上去就行——先加几枚元始魔力保持稳定，要不……再添几颗元始珍珠？");
-        add("research.thaumaturge.wand_cap_crystal_matrix.stage_3", "注魔有惊无险，水晶矩阵潜藏的威力终于被激发出来了！作为杖端，它强得独一无二——只会消耗 10% 的魔力！");
+        add("research.thaumaturge.wand_cap_crystal_matrix_inter.title", "惰性水晶矩阵杖端");
+        add("research.thaumaturge.wand_cap_crystal_matrix_inter.stage_0", "水晶矩阵锭与水银锭为骨，虚空杖端为模，元始珍珠与世盐点睛——在无尽工作台上，一枚惰性水晶矩阵杖端终于成形。可它只是一块未经激发的晶体，魔力在内部淤积，既存不住，也导不出。要唤醒它，得替它理顺脉络。");
+        add("research.thaumaturge.wand_cap_crystal_matrix.title", "充能水晶矩阵杖端");
+        add("research.thaumaturge.wand_cap_crystal_matrix.stage_0", "世界盐涤荡晶格，元始珍珠注入本源，原初护符锚定形态，大师核心则撑起传导的通路。一遍遍注魔下去，水晶潜藏的威能被一寸寸逼了出来。");
+        add("research.thaumaturge.wand_cap_crystal_matrix.stage_1", "光有骨架还不够——我再压一层元始珍珠稳住根基，让原初护符与大师核心交替铺设，魔力这才真正顺着晶体流动起来。");
+        add("research.thaumaturge.wand_cap_crystal_matrix.stage_2", "注魔有惊无险，惰性水晶矩阵终于被彻底激发！化作杖端，它强得独一无二——只会消耗 10% 的魔力！");
 
         add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.title", "宇宙中子态素杖柄");
         add("research.thaumaturge.wand_rod_studded_cosmic_neutronium.stage_0", "中子态素可是好东西，它能包容万象……那魔力呢？我似乎可以把魔力储存进中子态素的容器里。或许，该从改造元始杖芯开始。");
@@ -79,7 +80,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         // 奥法奇点核心
         add("research.thaumaturge.arcane_singularity_focus.title", "奥法奇点核心");
         add("research.thaumaturge.arcane_singularity_focus.stage_0", "现在我拥有了无限的魔力，为何还要受核心的限制？是时候锻造一颗奇点般强大的核心了！<BR>先从这个普通的大师核心开刀吧。");
-        add("research.thaumaturge.arcane_singularity_focus.stage_1", "看起来这一步甚至不需要费劲研究。给它覆上中子态素作护壳，内部以无限为内核——我说的简单，不是材料上的简单，而是理论上的简单。");
+        add("research.thaumaturge.arcane_singularity_focus.stage_1", "这一步甚至不需要费劲研究。以极元始珍珠为核，辅以强化核心、悖论珍珠，——我说的简单，不是材料上的简单，而是理论上的简单。");
         add("research.thaumaturge.arcane_singularity_focus.stage_2", "这颗核心，无限而悖论，生于虚空，归于虚无——它便是所有法术的终点。");
 
         // 悖论珍珠
@@ -93,9 +94,9 @@ public final class TAZhCnProvider extends LanguageProvider {
 
         // 宇宙中子态素源质冶炼厂
         add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.title", "宇宙中子态素源质冶炼厂");
-        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0", "虚空金属源质冶炼厂确实比基础款强了不少，可它依旧慢得让人心烦——黏浆分解得磨磨蹭蹭，更别提冶炼时逸散的源质污染，把周遭环境糟蹋得一塌糊涂。<BR>我受够了这份低效与肮脏。既然虚空冶炼厂能拆，那它身上的结构、管道与魔力回路，想必正是我改良的起点。");
-        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1", "光拆解可不够。我需要一种能彻底重写冶炼逻辑的材料——满载物质团里封存的纯粹中子态素，正是我要的答案。<BR>以它为本，将污染与损耗一并抹去。我想造一座不浪费一丝源质、也不吐出一点污物的冶炼厂。");
-        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2", "当最后一个满载物质团消失时，一座全新的源质冶炼厂在我手中成型。它运转时再无缓慢的黏浆分解，也无刺鼻的源质污染——只有效率，与极致。<BR>从今往后，冶炼源质，将是再简单不过的事。");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0", "虚空冶炼厂虽能熔炼源质，终究慢得磨人——黏浆分解拖沓，冶炼还逸散污染，把周遭糟蹋得不成样子。<BR>我受够了这份低效与肮脏，拆解它、重铸它，正是我改良的起点。");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1", "光拆解不够。我需要能彻底重写冶炼逻辑的材料——满载物质团里封存的纯粹中子态素，佐以中子收集器与中子压缩机，正是答案。<BR>以中子态素为本，将污染与损耗一并抹去。我想造一座不浪费一丝源质、也不吐出一点污物的冶炼厂。");
+        add("research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2", "当最后一座中子压缩机归位，一座全新的源质冶炼厂在我手中成型。它运转时再无缓慢的黏浆分解，也无刺鼻的源质污染——只有效率，与极致。<BR>从今往后，冶炼源质，将是再简单不过的事。");
 
         // 涌流充能器
         add("research.thaumaturge.infinity_charger.title", "涌流充能器");
@@ -113,5 +114,8 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("research.thaumaturge.node_anchor.stage_1", "拆开换能器与稳定器，我细细端详锁住节点状态的机关，与驱动其充能的回路。一架的骨架，一者的线路，都算不上深不可测。关键在于一颗既能钉住、又能充能的核心——中子态素就是最佳人选。<BR>若整件再添一缕永恒节点，当能让节点永驻于自给自足的永恒之中。");
         add("research.thaumaturge.node_anchor.stage_2", "换能器的心，稳定器的钳，尽数将魔力缚于中子态素之中。<BR>置于节点之下，它便将其钉死如磐石，无需再等，也再无浪费。");
         add("research.thaumaturge.node_anchor.addendum_0", "一个迷人的发现：涌流充能器中的灵气可以直接注入到节点中，最纯粹的灵气进入节点的一瞬间就化为了各种各样的要素。<BR>锚不仅固定住了船，还给船提供了物资。");
+
+        // 中子态素杖柄合成门禁提示
+        add("message.thaumicavaritia.wand_rod_locked", "你还不够格掂量它");
     }
 }
