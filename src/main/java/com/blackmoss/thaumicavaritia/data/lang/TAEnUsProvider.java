@@ -119,5 +119,7 @@ public final class TAEnUsProvider extends LanguageProvider {
 
         // 中子态素杖柄合成门禁提示
         add("message.thaumicavaritia.wand_rod_locked", "You are not yet worthy to wield it");
+
+        add("entity.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
     }
 }

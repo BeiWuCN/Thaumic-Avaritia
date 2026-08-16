@@ -117,5 +117,7 @@ public final class TAZhCnProvider extends LanguageProvider {
 
         // 中子态素杖柄合成门禁提示
         add("message.thaumicavaritia.wand_rod_locked", "你还不够格掂量它");
+
+        add("entity.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
     }
 }
