@@ -9,7 +9,8 @@
     "BlockEntityResearchTableMixin",
     "BlockEntitySmelterMixin",
     "EntityFluxRiftMixin",
-    "GapingVoidEntityMixin"
+    "GapingVoidEntityMixin",
+    "TierCraftMenuMixin"
   ],
   "client": [
     "client.ArcaneWorkbenchScreenMixin",

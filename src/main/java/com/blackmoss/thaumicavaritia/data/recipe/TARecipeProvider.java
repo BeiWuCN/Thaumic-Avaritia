@@ -3,7 +3,6 @@ package com.blackmoss.thaumicavaritia.data.recipe;
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
-import com.blackmoss.thaumicavaritia.registry.TATags;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionRecipeBuilder;
@@ -21,7 +20,6 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
@@ -40,7 +38,6 @@ public final class TARecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes() {
         HolderGetter<IAspect> aspects = registries.lookupOrThrow(IAspect.REGISTRY_KEY);
-        HolderGetter<Item> items = registries.lookupOrThrow(Registries.ITEM);
 
         // 极元始珍珠
         new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
