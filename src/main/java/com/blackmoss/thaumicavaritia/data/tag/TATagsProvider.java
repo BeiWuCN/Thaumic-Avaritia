@@ -50,7 +50,8 @@ public final class TATagsProvider implements DataProvider {
 
                 // 资格门禁：未解锁同名研究前无法获得/合成的物品。
                 tag(TATags.NOT_QUALIFIED).add(
-                        TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
+                        TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get(),
+                        TAItems.ARCANE_SINGULARITY_FOCUS.get());
             }
         };
     }
