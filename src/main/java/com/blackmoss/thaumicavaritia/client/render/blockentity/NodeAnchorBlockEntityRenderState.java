@@ -2,7 +2,7 @@ package com.blackmoss.thaumicavaritia.client.render.blockentity;
 
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
 
-public class NodeAnchorRenderState extends BlockEntityRenderState {
+public class NodeAnchorBlockEntityRenderState extends BlockEntityRenderState {
     // 客户端累计 tick（用于光圈脉冲动画）。
     public float ticks;
     // 光照参数。

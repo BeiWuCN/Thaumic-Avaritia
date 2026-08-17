@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.base_thaumicavaritia.title",
+  "name": "research.thaumicavaritia.base_thaumicavaritia.title",
   "parents": [
     "thaumicavaritia:unlock_thaumicavaritia"
   ],
@@ -15,7 +15,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.base_thaumicavaritia.stage_0"
+      "text": "research.thaumicavaritia.base_thaumicavaritia.stage_0"
     }
   ],
   "note_aspects": [

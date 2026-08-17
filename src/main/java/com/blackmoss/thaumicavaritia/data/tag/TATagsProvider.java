@@ -1,7 +1,8 @@
-// 物品标签 DataGen：联动物品标签声明。
+// 物品/方块标签 DataGen：联动物品标签 + 可挖掘方块标签声明。
 package com.blackmoss.thaumicavaritia.data.tag;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.registry.TABlocks;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import com.blackmoss.thaumicavaritia.registry.TATags;
 import com.leclowndu93150.thaumaturge.registry.TCItems;
@@ -12,13 +13,16 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
 public final class TATagsProvider implements DataProvider {
     private final IntrinsicHolderTagsProvider<Item> itemTags;
+    private final IntrinsicHolderTagsProvider<Block> blockTags;
 
     @SuppressWarnings("deprecation") // 构建 classpath 中 builtInRegistryHolder 为获取物品 key 的唯一途径。
     public TATagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
@@ -54,11 +58,23 @@ public final class TATagsProvider implements DataProvider {
                         TAItems.ARCANE_SINGULARITY_FOCUS.get());
             }
         };
+
+        // 方块标签：镐类可挖掘（万物起源之罐为玻璃罐体，不加入）。
+        this.blockTags = new IntrinsicHolderTagsProvider<>(output, Registries.BLOCK, lookup,
+                block -> block.builtInRegistryHolder().key(), ThaumicAvaritia.MODID) {
+            @Override
+            protected void addTags(HolderLookup.@NonNull Provider provider) {
+                tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                        TABlocks.INFINITY_CHARGER.get(),
+                        TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get(),
+                        TABlocks.NODE_ANCHOR.get());
+            }
+        };
     }
 
     @Override
     public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
-        return itemTags.run(cache);
+        return CompletableFuture.allOf(itemTags.run(cache), blockTags.run(cache));
     }
 
     @Override

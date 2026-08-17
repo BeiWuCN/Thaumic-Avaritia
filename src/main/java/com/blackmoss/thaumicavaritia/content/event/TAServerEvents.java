@@ -45,7 +45,7 @@ public final class TAServerEvents {
         }
         Level level = event.getLevel();
         ImmortalItemEntity immortal = ImmortalItemEntity.create(
-                (EntityType<ImmortalItemEntity>) ModEntityTypes.IMMORTAL.get(),
+                ModEntityTypes.IMMORTAL.get(),
                 level,
                 itemEntity.getX(),
                 itemEntity.getY(),

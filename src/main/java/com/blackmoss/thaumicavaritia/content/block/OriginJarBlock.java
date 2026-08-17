@@ -1,14 +1,12 @@
-// 万物起源之罐：除「无限」外所有源质各 32767 点，只出不进。
-// 继承 BlockJar 复用罐子形状/流端口/要素罐接口，但使用自定义多要素 BE 与只出不进逻辑。
 package com.blackmoss.thaumicavaritia.content.block;
 
 import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
 import com.leclowndu93150.thaumaturge.content.essentia.jar.BlockJar;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -19,14 +17,6 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public final class OriginJarBlock extends BlockJar {
-
-    private static final Identifier SIDE_TEXTURE =
-            Identifier.fromNamespaceAndPath("thaumicavaritia", "block/origin_jar_side");
-    private static final Identifier TOP_TEXTURE =
-            Identifier.fromNamespaceAndPath("thaumicavaritia", "block/origin_jar_top");
-    private static final Identifier BOTTOM_TEXTURE =
-            Identifier.fromNamespaceAndPath("thaumicavaritia", "block/origin_jar_bottom");
-
     public static final MapCodec<OriginJarBlock> CODEC = simpleCodec(OriginJarBlock::new);
 
     public OriginJarBlock(Properties properties) {
@@ -36,21 +26,6 @@ public final class OriginJarBlock extends BlockJar {
     @Override
     protected @NonNull MapCodec<? extends BlockJar> codec() {
         return CODEC;
-    }
-
-    @Override
-    public Identifier jarSideTexture() {
-        return SIDE_TEXTURE;
-    }
-
-    @Override
-    public Identifier jarTopTexture() {
-        return TOP_TEXTURE;
-    }
-
-    @Override
-    public Identifier jarBottomTexture() {
-        return BOTTOM_TEXTURE;
     }
 
     @Override

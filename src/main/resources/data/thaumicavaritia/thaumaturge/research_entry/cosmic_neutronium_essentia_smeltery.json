@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.title",
+  "name": "research.thaumicavaritia.cosmic_neutronium_essentia_smeltery.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia",
     "thaumaturge:essentia_smelter_void"
@@ -15,7 +15,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_0",
+      "text": "research.thaumicavaritia.cosmic_neutronium_essentia_smeltery.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:smelter_void",
@@ -32,7 +32,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_1",
+      "text": "research.thaumicavaritia.cosmic_neutronium_essentia_smeltery.stage_1",
       "obtain": [
         {
           "items": "avaritia:full_matter_cluster",
@@ -49,7 +49,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.cosmic_neutronium_essentia_smeltery.stage_2",
+      "text": "research.thaumicavaritia.cosmic_neutronium_essentia_smeltery.stage_2",
       "recipes": [
         "thaumicavaritia:cosmic_neutronium_essentia_smeltery"
       ]

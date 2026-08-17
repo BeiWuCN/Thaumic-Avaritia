@@ -9,13 +9,16 @@
     "BlockEntityResearchTableMixin",
     "BlockEntitySmelterMixin",
     "EntityFluxRiftMixin",
+    "ExtremeSmithingMenuMixin",
     "GapingVoidEntityMixin",
+    "ItemCombinerMenuAccessorMixin",
     "TierCraftMenuMixin"
   ],
   "client": [
     "client.ArcaneWorkbenchScreenMixin",
     "client.AspectContainerTooltipHandlerMixin",
     "client.AspectTagRendererMixin",
+    "client.EssentiaComponentProviderMixin",
     "GapingVoidRenderMixin",
     "NodeRendererMixin"
   ],

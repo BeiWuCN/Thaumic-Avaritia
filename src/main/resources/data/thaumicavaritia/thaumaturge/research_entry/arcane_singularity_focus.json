@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.arcane_singularity_focus.title",
+  "name": "research.thaumicavaritia.arcane_singularity_focus.title",
   "parents": [
     "thaumicavaritia:wand_cap_crystal_matrix",
     "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
@@ -16,7 +16,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.arcane_singularity_focus.stage_0",
+      "text": "research.thaumicavaritia.arcane_singularity_focus.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:focus_3",
@@ -38,7 +38,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.arcane_singularity_focus.stage_1",
+      "text": "research.thaumicavaritia.arcane_singularity_focus.stage_1",
       "obtain": [
         {
           "items": "avaritia:enhancement_core",
@@ -55,7 +55,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.arcane_singularity_focus.stage_2"
+      "text": "research.thaumicavaritia.arcane_singularity_focus.stage_2"
     }
   ],
   "note_aspects": [

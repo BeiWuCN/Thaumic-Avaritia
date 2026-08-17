@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.akashic_record.title",
+  "name": "research.thaumicavaritia.akashic_record.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia"
   ],
@@ -14,7 +14,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.akashic_record.stage_0",
+      "text": "research.thaumicavaritia.akashic_record.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:curio_arcane",
@@ -67,7 +67,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.akashic_record.stage_1",
+      "text": "research.thaumicavaritia.akashic_record.stage_1",
       "recipes": [
         "thaumicavaritia:akashic_record"
       ]

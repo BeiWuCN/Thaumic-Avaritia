@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.infinity_charger.title",
+  "name": "research.thaumicavaritia.infinity_charger.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia",
     "thaumaturge:workbench_charger"
@@ -15,7 +15,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.infinity_charger.stage_0",
+      "text": "research.thaumicavaritia.infinity_charger.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:arcane_workbench_charger",
@@ -32,7 +32,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.infinity_charger.stage_1",
+      "text": "research.thaumicavaritia.infinity_charger.stage_1",
       "obtain": [
         {
           "items": "thaumaturge:jar_node",
@@ -49,7 +49,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.infinity_charger.stage_2",
+      "text": "research.thaumicavaritia.infinity_charger.stage_2",
       "recipes": [
         "thaumicavaritia:infinity_charger"
       ]

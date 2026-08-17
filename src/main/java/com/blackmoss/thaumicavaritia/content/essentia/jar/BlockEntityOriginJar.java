@@ -1,5 +1,3 @@
-// 万物起源之罐 BE：除「无限」外的所有源质各 32767 点，只出不进。
-// 不继承 BlockEntityJar（其单要素 int 结构无法存多要素），直接实现 IEssentiaTransport / IAspectSource。
 package com.blackmoss.thaumicavaritia.content.essentia.jar;
 
 import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
@@ -11,8 +9,6 @@ import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspectSource;
 import com.leclowndu93150.thaumaturge.api.essentia.IEssentiaTransport;
 import com.mojang.serialization.Codec;
-import java.util.Objects;
-import java.util.Optional;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -27,7 +23,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
+
+import java.util.Objects;
 
 public final class BlockEntityOriginJar extends BlockEntity implements IEssentiaTransport, IAspectSource {
 
@@ -203,13 +202,13 @@ public final class BlockEntityOriginJar extends BlockEntity implements IEssentia
     }
 
     @Override
-    protected void loadAdditional(ValueInput input) {
+    protected void loadAdditional(@NonNull ValueInput input) {
         super.loadAdditional(input);
         contents = input.read("Contents", CONTENTS_CODEC).orElse(null);
     }
 
     @Override
-    protected void saveAdditional(ValueOutput output) {
+    protected void saveAdditional(@NonNull ValueOutput output) {
         super.saveAdditional(output);
         if (contents != null && !contents.isEmpty()) {
             output.store("Contents", CONTENTS_CODEC, contents);
@@ -217,10 +216,10 @@ public final class BlockEntityOriginJar extends BlockEntity implements IEssentia
     }
 
     @Override
-    public CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.Provider registries) {
+    public @NonNull CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.@NonNull Provider registries) {
         CompoundTag nbt = super.getUpdateTag(registries);
         try (ProblemReporter.ScopedCollector reporter =
-                new ProblemReporter.ScopedCollector(this.problemPath(), Thaumaturge.LOGGER)) {
+                     new ProblemReporter.ScopedCollector(this.problemPath(), Thaumaturge.LOGGER)) {
             TagValueOutput output = TagValueOutput.createWithContext(reporter, registries);
             saveAdditional(output);
             nbt.merge(output.buildResult());

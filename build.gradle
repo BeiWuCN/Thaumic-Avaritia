@@ -49,6 +49,13 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+
+    // Flat directory pointing at the dev environment's run/mods jars.
+    // Used for optional runtime mods compiled against at build time, e.g. Jade (WAILA).
+    flatDir {
+        name = "runMods"
+        dirs "run/mods"
+    }
 }
 
 base {
@@ -145,6 +152,11 @@ dependencies {
     // API needed at compile time only; the mod itself is downloaded from the Modrinth Maven.
     compileOnly "maven.modrinth:QeB3NRC5:oyZN02nW"
     localRuntime "maven.modrinth:QeB3NRC5:oyZN02nW"
+
+    // Jade (WAILA) — optional runtime mod present in run/mods; compiled against for the Jade addon
+    // that renders the Origin Jar's aspect quantities as ∞. Not required for the mod to run.
+    compileOnly name: "Jade-mc26.1-NeoForge-26.1.8"
+    localRuntime name: "Jade-mc26.1-NeoForge-26.1.8"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

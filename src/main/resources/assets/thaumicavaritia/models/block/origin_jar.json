@@ -3,6 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
+		"particle": "thaumicavaritia:block/origin_jar_side",
 		"bottom": "thaumicavaritia:block/origin_jar_bottom",
 		"side": "thaumicavaritia:block/origin_jar_side",
 		"top": "thaumicavaritia:block/origin_jar_top"

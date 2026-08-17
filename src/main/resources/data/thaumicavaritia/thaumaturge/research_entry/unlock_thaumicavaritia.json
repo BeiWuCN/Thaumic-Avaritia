@@ -1,6 +1,6 @@
 {
   "category": "thaumaturge:basics",
-  "name": "research.thaumaturge.unlock_thaumicavaritia.title",
+  "name": "research.thaumicavaritia.unlock_thaumicavaritia.title",
   "parents": [
     "thaumaturge:primordial_pearl"
   ],
@@ -16,7 +16,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_0",
+      "text": "research.thaumicavaritia.unlock_thaumicavaritia.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:primordial_pearl",
@@ -38,7 +38,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_1",
+      "text": "research.thaumicavaritia.unlock_thaumicavaritia.stage_1",
       "recipes": [
         "thaumicavaritia:extremely_primordial_pearl"
       ],
@@ -63,7 +63,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.unlock_thaumicavaritia.stage_2",
+      "text": "research.thaumicavaritia.unlock_thaumicavaritia.stage_2",
       "recipes": [
         "thaumicavaritia:extremely_primordial_pearl"
       ]

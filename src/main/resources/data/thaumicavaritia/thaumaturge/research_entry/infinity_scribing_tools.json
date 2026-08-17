@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.infinity_scribing_tools.title",
+  "name": "research.thaumicavaritia.infinity_scribing_tools.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia"
   ],
@@ -14,7 +14,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.infinity_scribing_tools.stage_0",
+      "text": "research.thaumicavaritia.infinity_scribing_tools.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:scribing_tools",
@@ -39,7 +39,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.infinity_scribing_tools.stage_1",
+      "text": "research.thaumicavaritia.infinity_scribing_tools.stage_1",
       "recipes": [
         "thaumicavaritia:infinity_scribing_tools"
       ]

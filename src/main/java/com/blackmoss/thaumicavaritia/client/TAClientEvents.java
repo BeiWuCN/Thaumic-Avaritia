@@ -1,7 +1,8 @@
 package com.blackmoss.thaumicavaritia.client;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.client.render.blockentity.NodeAnchorRenderer;
+import com.blackmoss.thaumicavaritia.client.render.blockentity.OriginJarBlockEntityRenderer;
+import com.blackmoss.thaumicavaritia.client.render.blockentity.NodeAnchorBlockEntityRenderer;
 import com.blackmoss.thaumicavaritia.client.render.entity.CausalityCollapserPearlRenderer;
 import com.blackmoss.thaumicavaritia.client.screen.CosmicNeutroniumEssentiaSmelteryScreen;
 import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
@@ -23,7 +24,8 @@ public final class TAClientEvents {
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(
                 TAEntities.CAUSALITY_COLLAPSER_PEARL.get(), CausalityCollapserPearlRenderer::new);
-        event.registerBlockEntityRenderer(TABlockEntities.NODE_ANCHOR.get(), NodeAnchorRenderer::new);
+        event.registerBlockEntityRenderer(TABlockEntities.NODE_ANCHOR.get(), NodeAnchorBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(TABlockEntities.ORIGIN_JAR.get(), OriginJarBlockEntityRenderer::new);
     }
 
     @SubscribeEvent

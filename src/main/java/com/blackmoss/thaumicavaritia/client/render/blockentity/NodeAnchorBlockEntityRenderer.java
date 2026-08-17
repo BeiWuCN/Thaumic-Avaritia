@@ -25,8 +25,8 @@ import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
-public final class NodeAnchorRenderer
-        implements BlockEntityRenderer<NodeAnchorBlockEntity, NodeAnchorRenderState> {
+public final class NodeAnchorBlockEntityRenderer
+        implements BlockEntityRenderer<NodeAnchorBlockEntity, NodeAnchorBlockEntityRenderState> {
     private static final Identifier BUBBLE_TEXTURE =
             Identifier.fromNamespaceAndPath("thaumaturge", "textures/misc/node_bubble.png");
     // 半透明发光渲染（对齐原版稳定器 OVERLAY 的 entityTranslucentEmissive 层级，气泡应发光且正确排序）。
@@ -37,18 +37,18 @@ public final class NodeAnchorRenderer
     private static final float BUBBLE_PULSE_PERIOD = 8.0F;
     private static final int BUBBLE_LIGHT = 0x00F000F0;
 
-    public NodeAnchorRenderer(BlockEntityRendererProvider.Context context) {
+    public NodeAnchorBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
     }
 
     @Override
-    public @NonNull NodeAnchorRenderState createRenderState() {
-        return new NodeAnchorRenderState();
+    public @NonNull NodeAnchorBlockEntityRenderState createRenderState() {
+        return new NodeAnchorBlockEntityRenderState();
     }
 
     @Override
     public void extractRenderState(
             @NonNull NodeAnchorBlockEntity anchor,
-            @NonNull NodeAnchorRenderState state,
+            @NonNull NodeAnchorBlockEntityRenderState state,
             float partialTicks,
             @NonNull Vec3 cameraPosition,
             ModelFeatureRenderer.@Nullable CrumblingOverlay breakProgress) {
@@ -67,7 +67,7 @@ public final class NodeAnchorRenderer
 
     @Override
     public void submit(
-            NodeAnchorRenderState state,
+            NodeAnchorBlockEntityRenderState state,
             @NonNull PoseStack poseStack,
             @NonNull SubmitNodeCollector collector,
             @NonNull CameraRenderState camera) {

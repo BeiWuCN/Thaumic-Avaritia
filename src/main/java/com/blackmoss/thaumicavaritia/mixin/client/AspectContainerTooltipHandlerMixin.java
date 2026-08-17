@@ -25,7 +25,7 @@ public abstract class AspectContainerTooltipHandlerMixin {
             String num = text.substring(2);
             try {
                 if (Integer.parseInt(num) == BlockEntityOriginJar.PER_ASPECT_AMOUNT) {
-                    return " x\u221E";
+                    return " x∞";
                 }
             } catch (NumberFormatException ignored) {
                 // 非数字，保持原样。

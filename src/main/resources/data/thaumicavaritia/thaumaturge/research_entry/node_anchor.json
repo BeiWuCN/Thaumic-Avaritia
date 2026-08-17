@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.node_anchor.title",
+  "name": "research.thaumicavaritia.node_anchor.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia",
     "thaumaturge:node_stabilizer",
@@ -16,7 +16,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.node_anchor.stage_0",
+      "text": "research.thaumicavaritia.node_anchor.stage_0",
       "required_knowledge": [
         {
           "type": "theory",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "text": "research.thaumaturge.node_anchor.stage_1",
+      "text": "research.thaumicavaritia.node_anchor.stage_1",
       "obtain": [
         {
           "items": "thaumaturge:node_stabilizer",
@@ -57,7 +57,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.node_anchor.stage_2",
+      "text": "research.thaumicavaritia.node_anchor.stage_2",
       "recipes": [
         "thaumicavaritia:node_anchor"
       ]
@@ -65,7 +65,7 @@
   ],
   "addenda": [
     {
-      "text": "research.thaumaturge.node_anchor.addendum_0",
+      "text": "research.thaumicavaritia.node_anchor.addendum_0",
       "required_research": [
         "thaumaturge:node_transducer"
       ]

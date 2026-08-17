@@ -7,9 +7,14 @@ import com.blackmoss.thaumicavaritia.data.lang.TAEnUsProvider;
 import com.blackmoss.thaumicavaritia.data.lang.TAZhCnProvider;
 import com.blackmoss.thaumicavaritia.data.model.TAModelProvider;
 import com.blackmoss.thaumicavaritia.data.recipe.TARecipeProvider;
+import com.blackmoss.thaumicavaritia.data.loot.TABlockLootSubProvider;
 import com.blackmoss.thaumicavaritia.data.tag.TATagsProvider;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import java.util.List;
+import java.util.Set;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -32,5 +37,12 @@ public final class TADataGenerators {
         event.createProvider(TAModelProvider::new);
         event.createProvider(TATagsProvider::new);
         event.createProvider(ItemAspectsProvider::new);
+
+        event.createProvider((output, lookupProvider) -> new LootTableProvider(
+                output,
+                Set.of(),
+                List.of(new LootTableProvider.SubProviderEntry(
+                        TABlockLootSubProvider::new, LootContextParamSets.BLOCK)),
+                lookupProvider));
     }
 }

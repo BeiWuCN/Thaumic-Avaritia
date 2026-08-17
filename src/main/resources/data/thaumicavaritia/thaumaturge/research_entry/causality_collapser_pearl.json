@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumaturge.causality_collapser_pearl.title",
+  "name": "research.thaumicavaritia.causality_collapser_pearl.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia",
     "thaumaturge:rift_closer"
@@ -16,7 +16,7 @@
   ],
   "stages": [
     {
-      "text": "research.thaumaturge.causality_collapser_pearl.stage_0",
+      "text": "research.thaumicavaritia.causality_collapser_pearl.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:causality_collapser",
@@ -42,7 +42,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.causality_collapser_pearl.stage_1",
+      "text": "research.thaumicavaritia.causality_collapser_pearl.stage_1",
       "obtain": [
         {
           "items": "thaumaturge:causality_collapser",
@@ -63,7 +63,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumaturge.causality_collapser_pearl.stage_2",
+      "text": "research.thaumicavaritia.causality_collapser_pearl.stage_2",
       "recipes": [
         "thaumicavaritia:causality_collapser_pearl"
       ]
