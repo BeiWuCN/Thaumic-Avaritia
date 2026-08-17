@@ -34,7 +34,7 @@ public final class TAItems {
 
     public static final DeferredItem<Item> WAND_CAP_CRYSTAL_MATRIX_INTER = ITEMS.registerSimpleItem("wand_cap_crystal_matrix_inter");
 
-    // 水晶矩阵杖端：水晶缠绕宇宙中子态素法杖的杖端，提供 90% Vis 减免。
+    // 水晶矩阵杖端：水晶缠绕宇宙中子态素法杖的杖端，提供 99% Vis 减免。
     public static final DeferredItem<ItemWandCap> WAND_CAP_CRYSTAL_MATRIX = ITEMS.registerItem(
             "wand_cap_crystal_matrix",
             props -> new ItemWandCap(props, TAWandParts.CRYSTAL_MATRIX),

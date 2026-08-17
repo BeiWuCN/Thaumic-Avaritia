@@ -72,14 +72,12 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("research.thaumicavaritia.akashic_record.stage_0", "Guided by the ultimate construct of greed, I have at last awakened this book of all knowledge. It holds every secret of thaumaturgy past and present — the nature of all things, the truth of magic, all within.<BR>From this day forth, this book of all knowledge serves me. No wall of knowledge shall bar my way again.");
         add("research.thaumicavaritia.akashic_record.stage_1", "My greedy creations activated the Akashic Records, and countless aspects flooded into my mind like a tide. I can almost feel the weight of knowledge, almost driven mad by it.<BR>Thaumaturgy is now mine to command. But this is not enough... my greed has only just awakened.");
 
-        // Wand branch: Inert Crystal Matrix Cap (mid-tier)
-        add("research.thaumicavaritia.wand_cap_crystal_matrix_inter.title", "Inert Crystal Matrix Cap");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix_inter.stage_0", "With crystal matrix ingot and quicksilver for the frame, a void cap as the mould, and a primordial pearl with salis mundus to set it off — upon the infinity crafting table, an inert crystal matrix cap finally takes shape. Yet it is but an uncharged crystal — Vis pools within it, neither held nor channelled out. To wake it, I must first set its veins in order.");
-        // Wand branch: Charged Crystal Matrix Cap
+        // Wand branch: the inert cap comes first, then infused into the charged cap.
         add("research.thaumicavaritia.wand_cap_crystal_matrix.title", "Charged Crystal Matrix Cap");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_0", "Salis mundus cleanses the lattice, the primordial pearl pours in the essence, the primal charm anchors the form, and the master focus props up the conduit. Infusion after infusion, the crystal's latent might is coaxed out inch by inch.");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_1", "A frame alone is not enough — I press another layer of primordial pearl to steady the foundation, letting primal charms and master foci alternate in their laying, until the Vis truly flows along the crystal.");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_2", "The infusion passed without a hitch, and the inert crystal matrix is at last fully awakened! As a cap material it is uniquely mighty — it drains only 10% of my Vis!");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_0", "Salis mundus cleanses the lattice, the primordial pearl pours in the essence, the primal charm anchors the form, and the master focus props up the conduit. Infusion after infusion, the crystal's latent might is coaxed out inch by inch — yet it remains but an inert crystal matrix, taking Vis in but never giving it out. To truly wake it, I must first set its veins in order.");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_1", "A frame alone is not enough — I press another layer of primordial pearl to steady the foundation, laying primal charms and master foci in turn, until the Vis truly flows along the crystal.");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_2", "Everything is in place; only a single primal charm is missing. Once I pour it into the inert crystal matrix, the power held within will be fully awakened.");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_3", "The infusion passed without a hitch, and the inert crystal matrix is at last fully awakened into a charged crystal matrix cap! It is uniquely mighty — it drains only 1% of my Vis!");
 
         // Wand branch: Studded Cosmic Neutronium Rod
         add("research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.title", "Studded Cosmic Neutronium Rod");

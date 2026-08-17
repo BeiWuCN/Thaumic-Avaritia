@@ -66,13 +66,12 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("research.thaumicavaritia.infinity_scribing_tools.stage_0", "无论是吟游诗人还是穷苦百姓，想必都用过“笔”这种事物。相比千百年以来的结绳记事与石板雕刻，笔无疑是一件伟大的发明。只是……墨水消耗得太快了，这几乎是笔唯一的缺点。<BR>而在这研究台上，这个缺点被放大到了极致——每一次落笔研习，都要耗去笔具一分耐久。若是墨水也能取之不尽，该有多好……");
         add("research.thaumicavaritia.infinity_scribing_tools.stage_1", "我以无限锭为骨、中子态素为引，让注魔祭坛赐予这支笔用之不竭的墨水。<BR>从今往后，落笔如有神助，墨痕永续。研究台上，再也不用为墨水发愁了。");
 
-        // 法杖
-        add("research.thaumicavaritia.wand_cap_crystal_matrix_inter.title", "惰性水晶矩阵杖端");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix_inter.stage_0", "水晶矩阵锭与水银锭为骨，虚空杖端为模，元始珍珠与世盐点睛——在无尽工作台上，一枚惰性水晶矩阵杖端终于成形。可它只是一块未经激发的晶体，魔力在内部淤积，既存不住，也导不出。要唤醒它，得替它理顺脉络。");
+        // 法杖：先得惰性水晶矩阵杖端，再注魔激发为充能水晶矩阵杖端。
         add("research.thaumicavaritia.wand_cap_crystal_matrix.title", "充能水晶矩阵杖端");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_0", "世界盐涤荡晶格，元始珍珠注入本源，原初护符锚定形态，大师核心则撑起传导的通路。一遍遍注魔下去，水晶潜藏的威能被一寸寸逼了出来。");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_1", "光有骨架还不够——我再压一层元始珍珠稳住根基，让原初护符与大师核心交替铺设，魔力这才真正顺着晶体流动起来。");
-        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_2", "注魔有惊无险，惰性水晶矩阵终于被彻底激发！化作杖端，它强得独一无二——只会消耗 10% 的魔力！");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_0", "世界盐涤荡晶格，元始珍珠注入本源，元始魔力锚定形态，大师核心则撑起传导的通路。一遍遍注魔下去，水晶潜藏的威能被一寸寸逼了出来——可它终究只是一块惰性水晶矩阵，魔力只进不出。要想真正唤醒它，我还得理清它的脉络。");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_1", "光有骨架还不够——我再压一层元始珍珠稳住根基，让元始魔力与大师核心交替铺设，魔力这才真正顺着晶体流动起来。");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_2", "万事俱备，只欠一份元始魔力。只要将它注入惰性水晶矩阵，便能彻底激发潜藏其中的力量。");
+        add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_3", "注魔有惊无险，惰性水晶矩阵终于被彻底激发，化作充能水晶矩阵杖端！它强得独一无二——只会消耗 1% 的魔力！");
 
         add("research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.title", "宇宙中子态素杖柄");
         add("research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.stage_0", "中子态素可是好东西，它能包容万象……那魔力呢？我似乎可以把魔力储存进中子态素的容器里。或许，该从改造元始杖芯开始。");
