@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_origin_jar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "thaumaturge:jar_void"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thaumicavaritia:origin_jar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_origin_jar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thaumicavaritia:origin_jar"
+    ]
+  }
+}

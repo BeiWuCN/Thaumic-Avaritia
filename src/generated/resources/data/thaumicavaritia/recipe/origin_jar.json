@@ -1,0 +1,40 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:auram"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:praecantatio"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:vacuos"
+    },
+    {
+      "amount": 640,
+      "aspect": "thaumaturge:alienis"
+    },
+    {
+      "amount": 16,
+      "aspect": "thaumicavaritia:infinitus"
+    }
+  ],
+  "catalyst": "thaumaturge:jar_void",
+  "components": [
+    "avaritia:infinity_ingot",
+    "thaumaturge:primordial_pearl",
+    "avaritia:infinity_ingot",
+    "thaumaturge:salis_mundus",
+    "avaritia:infinity_ingot",
+    "thaumaturge:primordial_pearl",
+    "avaritia:infinity_ingot",
+    "thaumaturge:salis_mundus"
+  ],
+  "instability": 6,
+  "result": {
+    "id": "thaumicavaritia:origin_jar"
+  }
+}

@@ -137,5 +137,21 @@ public final class TAModelProvider extends ModelProvider {
                         6,
                         false,
                         List.of()));
+
+        // 万物起源之罐：block 模型手写（复用 jar 几何，纹理自绘 origin_jar_*），
+        // blockstate 由 DataGen 生成；物品模型用 Halo 光环包装（内层指向 block 模型）。
+        Block originJar = TABlocks.ORIGIN_JAR.get();
+        Identifier originJarModel = ModelLocationUtils.getModelLocation(originJar);
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(
+                originJar, BlockModelGenerators.plainVariant(originJarModel)));
+        itemModels.itemModelOutput.accept(
+                originJar.asItem(),
+                new AvaritiaItemModelLoaders.Halo(
+                        originJarModel,
+                        Identifier.fromNamespaceAndPath("avaritia", "misc/halo"),
+                        -16777216,
+                        6,
+                        false,
+                        List.of()));
     }
 }

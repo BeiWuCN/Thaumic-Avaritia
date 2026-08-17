@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.content.block.OriginJarBlock;
 import com.blackmoss.thaumicavaritia.content.block.CosmicNeutroniumEssentiaSmelteryBlock;
 import com.blackmoss.thaumicavaritia.content.block.InfinityChargerBlock;
 import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlock;
@@ -42,6 +43,16 @@ public final class TABlocks {
             props -> props.mapColor(MapColor.METAL)
                     .strength(1.5F, 10.0F)
                     .sound(SoundType.METAL)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.BLOCK));
+
+    // 万物起源之罐：除「无限」外所有源质各 32767 点，只出不进。
+    public static final DeferredBlock<OriginJarBlock> ORIGIN_JAR = BLOCKS.registerBlock(
+            "origin_jar",
+            OriginJarBlock::new,
+            props -> props.mapColor(MapColor.COLOR_CYAN)
+                    .strength(1.5F, 10.0F)
+                    .sound(SoundType.GLASS)
                     .noOcclusion()
                     .pushReaction(PushReaction.BLOCK));
 

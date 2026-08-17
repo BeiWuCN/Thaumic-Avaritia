@@ -66,7 +66,7 @@ public class NodeAnchorBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(@NonNull BlockPos blockPos, @NonNull BlockState blockState) {
-        return new BlockEntityNodeAnchor(blockPos, blockState);
+        return new NodeAnchorBlockEntity(blockPos, blockState);
     }
 
     @Override
@@ -76,6 +76,6 @@ public class NodeAnchorBlock extends BaseEntityBlock {
             return null;
         }
         return (tickLevel, pos, tickState, blockEntity) ->
-                ((BlockEntityNodeAnchor) blockEntity).serverTick(tickLevel, pos);
+                ((NodeAnchorBlockEntity) blockEntity).serverTick(tickLevel, pos);
     }
 }

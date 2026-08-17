@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "avaritia:halo",
+    "model": "thaumicavaritia:block/origin_jar",
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo"
+  }
+}

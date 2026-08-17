@@ -29,6 +29,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("block.thaumicavaritia.infinity_charger", "涌流充能器");
         add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "宇宙中子态素源质冶炼厂");
         add("block.thaumicavaritia.node_anchor", "节点锚");
+        add("block.thaumicavaritia.origin_jar", "万物起源之罐");
 
         // 物品描述
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "世界的本源");
@@ -41,6 +42,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.infinity_charger.desc", "滴水之恩");
         add("item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc", "效率最大化");
         add("item.thaumicavaritia.node_anchor.desc", "你在此处不要走动");
+        add("item.thaumicavaritia.origin_jar.desc", "诸法之本，万源之始");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
 

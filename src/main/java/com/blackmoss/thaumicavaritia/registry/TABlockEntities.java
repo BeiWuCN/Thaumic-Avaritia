@@ -2,7 +2,8 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.block.BlockEntityNodeAnchor;
+import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlockEntity;
+import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
 import com.blackmoss.thaumicavaritia.content.essentia.smeltery.BlockEntityCosmicNeutroniumEssentiaSmeltery;
 import java.util.Set;
 import net.minecraft.core.registries.Registries;
@@ -25,12 +26,20 @@ public final class TABlockEntities {
                             Set.of(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get())));
 
     // 节点锚
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlockEntityNodeAnchor>>
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NodeAnchorBlockEntity>>
             NODE_ANCHOR = BLOCK_ENTITIES.register(
                     "node_anchor",
                     () -> new BlockEntityType<>(
-                            BlockEntityNodeAnchor::new,
+                            NodeAnchorBlockEntity::new,
                             Set.of(TABlocks.NODE_ANCHOR.get())));
+
+    // 万物起源之罐
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlockEntityOriginJar>>
+            ORIGIN_JAR = BLOCK_ENTITIES.register(
+                    "origin_jar",
+                    () -> new BlockEntityType<>(
+                            BlockEntityOriginJar::new,
+                            Set.of(TABlocks.ORIGIN_JAR.get())));
 
     private TABlockEntities() {
     }

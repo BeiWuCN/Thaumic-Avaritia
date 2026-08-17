@@ -95,6 +95,7 @@ public final class TARecipeProvider extends RecipeProvider {
                 .component(Ingredient.of(TCItems.CURIO_RITES.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
                 .component(Ingredient.of(TCItems.PECH_WAND.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
                 .aspect(TCAspects.COGNITIO, 640)
                 .aspect(TCAspects.PRAECANTATIO, 640)
                 .aspect(TCAspects.AURAM, 640)
@@ -299,6 +300,27 @@ public final class TARecipeProvider extends RecipeProvider {
                 .instability(6)
                 .unlockedBy("has_node_transducer", has(TCItems.NODE_TRANSDUCER.get()))
                 .save(output, ThaumicAvaritia.MODID + ":node_anchor");
+
+        // 万物起源之罐
+        new InfusionRecipeBuilder(aspects, RecipeCategory.MISC,
+                new ItemStackTemplate(TAItems.ORIGIN_JAR.get()),
+                Ingredient.of(TCItems.JAR_VOID.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(TCItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(TCItems.SALIS_MUNDUS.get()))
+                .aspect(TCAspects.AURAM, 640)
+                .aspect(TCAspects.PRAECANTATIO, 640)
+                .aspect(TCAspects.VACUOS, 640)
+                .aspect(TCAspects.ALIENIS, 640)
+                .aspect(TAAspects.INFINITUS, 16)
+                .instability(6)
+                .unlockedBy("has_origin_jar", has(TCItems.JAR_VOID.get()))
+                .save(output, ThaumicAvaritia.MODID + ":origin_jar");
     }
 
     public static final class Runner extends RecipeProvider.Runner {

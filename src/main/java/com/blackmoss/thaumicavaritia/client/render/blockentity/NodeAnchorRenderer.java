@@ -2,7 +2,7 @@
 // 复用 Thaumaturge 的 node_bubble.png 纹理，仅用标准 MC 渲染 API（不依赖 Thaumaturge 内部渲染类）。
 package com.blackmoss.thaumicavaritia.client.render.blockentity;
 
-import com.blackmoss.thaumicavaritia.content.block.BlockEntityNodeAnchor;
+import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlockEntity;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -26,7 +26,7 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public final class NodeAnchorRenderer
-        implements BlockEntityRenderer<BlockEntityNodeAnchor, NodeAnchorRenderState> {
+        implements BlockEntityRenderer<NodeAnchorBlockEntity, NodeAnchorRenderState> {
     private static final Identifier BUBBLE_TEXTURE =
             Identifier.fromNamespaceAndPath("thaumaturge", "textures/misc/node_bubble.png");
     // 半透明发光渲染（对齐原版稳定器 OVERLAY 的 entityTranslucentEmissive 层级，气泡应发光且正确排序）。
@@ -47,7 +47,7 @@ public final class NodeAnchorRenderer
 
     @Override
     public void extractRenderState(
-            @NonNull BlockEntityNodeAnchor anchor,
+            @NonNull NodeAnchorBlockEntity anchor,
             @NonNull NodeAnchorRenderState state,
             float partialTicks,
             @NonNull Vec3 cameraPosition,

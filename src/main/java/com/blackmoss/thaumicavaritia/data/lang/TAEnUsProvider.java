@@ -29,6 +29,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("block.thaumicavaritia.infinity_charger", "Gushing Charger");
         add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "Cosmic Neutronium Essentia Smeltery");
         add("block.thaumicavaritia.node_anchor", "Node Anchor");
+        add("block.thaumicavaritia.origin_jar", "Origin Jar");
 
         // Item descriptions (lore)
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "The origin of the world.");
@@ -41,6 +42,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.infinity_charger.desc", "A kindness repaid as a gushing spring.");
         add("item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc", "Maximum efficiency.");
         add("item.thaumicavaritia.node_anchor.desc", "You stay right here.");
+        add("item.thaumicavaritia.origin_jar.desc", "The origin of all aspects.");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "Thaumic Avaritia");
 

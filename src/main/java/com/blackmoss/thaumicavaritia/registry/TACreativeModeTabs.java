@@ -36,6 +36,7 @@ public class TACreativeModeTabs {
                             output.accept(TAItems.INFINITY_CHARGER.get());
                             output.accept(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get());
                             output.accept(TAItems.NODE_ANCHOR.get());
+                            output.accept(TAItems.ORIGIN_JAR.get());
                         }).build());
     }
 

@@ -86,6 +86,10 @@ public final class TAItems {
     public static final DeferredItem<BlockItem> NODE_ANCHOR =
             ITEMS.registerSimpleBlockItem(TABlocks.NODE_ANCHOR);
 
+    // 万物起源之罐（lore 由 TATooltipHandler 统一添加）
+    public static final DeferredItem<BlockItem> ORIGIN_JAR =
+            ITEMS.registerSimpleBlockItem(TABlocks.ORIGIN_JAR);
+
     private TAItems() {
     }
 

@@ -32,6 +32,8 @@ public final class TATooltipHandler {
             key = "item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc";
         } else if (stack.is(TAItems.NODE_ANCHOR.get())) {
             key = "item.thaumicavaritia.node_anchor.desc";
+        } else if (stack.is(TAItems.ORIGIN_JAR.get())) {
+            key = "item.thaumicavaritia.origin_jar.desc";
         }
         if (key != null) {
             event.getToolTip().add(Component.translatable(key).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
