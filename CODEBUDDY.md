@@ -31,7 +31,7 @@
 ### 物理布局约束
 
 - **模块导出硬约束**：自定义类**绝不可**放进 `com.leclowndu93150.thaumaturge.*` 包。flatDir 依赖的 Thaumaturge jar 带有 module-info，跨模块导出冲突会让 runData 崩 `ResolutionException`。因此继承 Thaumaturge 的 protected 父类（如 `BlockEntitySmelter`、`BlockSmelter`）时，子类必须放在本 mod 包（`com.blackmoss.thaumicavaritia.content.essentia.smeltery` 等）而非 `thaumaturge.content.*`。
-- **冶炼厂跨包拆分**：宇宙中子态素源质冶炼厂由 4 部分组成：`CosmicNeutroniumEssentiaSmelteryBlock`（`content/block/`）+ `BlockEntityCosmicNeutroniumEssentiaSmeltery`/`MenuCosmicNeutroniumEssentiaSmeltery`（`content/essentia/smeltery/`）+ `CosmicNeutroniumEssentiaSmelteryScreen`（`client/screen/`）。改 UI 或改 BE 逻辑时要同时核对这 4 个文件。
+- **冶炼厂跨包拆分**：宇宙中子态素源质冶炼厂由 4 部分组成：`CosmicNeutroniumEssentiaSmelteryBlock`（`content/block/`）+ `CosmicNeutroniumEssentiaSmelteryBlockEntity`/`CosmicNeutroniumEssentiaSmelteryMenu`（`content/essentia/smeltery/`）+ `CosmicNeutroniumEssentiaSmelteryScreen`（`client/screen/`）。改 UI 或改 BE 逻辑时要同时核对这 4 个文件。
 - `mixin/`（+ `mixin/client/`）— mixin 注入；`api/`（`aspect/TAAspects` 要素 key、`interfaces/`）；`data/` — DataGen 体系：`TADataGenerators` 为唯一入口，下辖 `lang/`、`recipe/`、`model/`、`tag/`、`datamap/`、`aspect/`、`worldgen/research/`。
 
 ### 主入口与注册流程
@@ -108,7 +108,7 @@
 - **mixin `BlockEntitySmelterMixin`**：原版 `tick()` 是 private 无法继承覆写 → `@Inject(method="tick", at=@At("HEAD"), cancellable=true)`，`instanceof` 自定义 BE 时改调 `cosmicTick()` 并取消原逻辑（原版冶炼炉不受影响）。
 - `cosmicTick()`：LIT 状态**跟随输入槽**（槽内有物品才亮，平时熄灭，与瞬间冶炼同步）；每 tick 把输入物品全部要素写入 `aspects`（无效率损失）并消耗 1 个输入 = 瞬间产出；输出路由复刻原版 `processAlembics`（直连上方蒸馏釜 + 四方辅助蒸馏器），只用 public API（`aspectKey`/`amount`/`doesContainerAccept`/`addToContainer`）。
 - **模型**：手写 `_off`/`_on` 双模型（parent 原版 `smelter_basic_off`，`north` 分别指 `front_off`/`front_on`，`side`/`up`/`particle` 自绘）；blockstate 用 `MultiVariantGenerator.dispatch` + `createBooleanModelDispatch(LIT, on, off)` + `ROTATION_HORIZONTAL_FACING`（facing 4 向 × lit 2 态）；物品模型用 **Halo 光环**（内层指向 `_off` 模型）。
-- **菜单/Screen**：`MenuCosmicNeutroniumEssentiaSmeltery`（单物品槽，无燃料槽）+ `CosmicNeutroniumEssentiaSmelteryScreen`（使用自绘纹理 `textures/gui/cosmic_neutronium_essentia_smeltery.png`，只画源质存量条，不画燃料/进度条）。注册见 `TAMenus`/`TAClientEvents`。
+- **菜单/Screen**：`CosmicNeutroniumEssentiaSmelteryMenu`（单物品槽，无燃料槽）+ `CosmicNeutroniumEssentiaSmelteryScreen`（使用自绘纹理 `textures/gui/cosmic_neutronium_essentia_smeltery.png`，只画源质存量条，不画燃料/进度条）。注册见 `TAMenus`/`TAClientEvents`。
 - **UI 坐标契约（改 GUI 纹理时必须同步）**：
   - 主界面 `176×166`，图集尺寸 `256×256`。
   - 物品槽逻辑坐标 `Menu.ITEM_X = 80`、`ITEM_Y = 32`，须与纹理中左侧输入槽中心对齐。
@@ -130,7 +130,7 @@
 **万物起源之罐（`OriginJarBlock`，注册名 `origin_jar`）**
 - 显示名「万物起源之罐」/ "Origin Jar"（中文描述"诸法之本，万源之始"）。内含**除「无限」外所有已注册源质各 32767 点**，**只出不进**（可抽取，不可注入）。
 - 方块继承原版 `BlockJar`（复用罐子形状/`IEssentiaJar` 纹理接口/流端口），覆写 `codec()`（返回 **`MapCodec<? extends BlockJar>`**）/`newBlockEntity`/`getTicker`(null)/`useItemOn`/`useWithoutItem`（PASS，避免父类对 `BlockEntityJar` 强转）。
-- **BE `BlockEntityOriginJar`（`content/essentia/jar/`，本 mod 包）**：**不继承 `BlockEntityJar`**（其单要素 int 结构无法存多要素），直接 `extends BlockEntity implements IEssentiaTransport, IAspectSource`。懒加载 `AspectList`：遍历 `IAspect.REGISTRY_KEY` 排除 `TAAspects.INFINITUS`，每要素 `PER_ASPECT_AMOUNT = 32767`。只出不进：`canInputFrom`/`addEssentia`/`addToContainer`/`doesContainerAccept` 全部拒绝；`takeEssentia`/`takeFromContainer` 扣减。序列化 `AspectList.CODEC` 存 "Contents"。
+- **BE `OriginJarBlockEntity`（`content/essentia/jar/`，本 mod 包）**：**不继承 `BlockEntityJar`**（其单要素 int 结构无法存多要素），直接 `extends BlockEntity implements IEssentiaTransport, IAspectSource`。懒加载 `AspectList`：遍历 `IAspect.REGISTRY_KEY` 排除 `TAAspects.INFINITUS`，每要素 `PER_ASPECT_AMOUNT = 32767`。只出不进：`canInputFrom`/`addEssentia`/`addToContainer`/`doesContainerAccept` 全部拒绝；`takeEssentia`/`takeFromContainer` 扣减。序列化 `AspectList.CODEC` 存 "Contents"。
 - 能力：`content/essentia/jar/OriginJarCapabilities` 注册 `EssentiaCapabilities.TRANSPORT` + `AspectCapabilities.CONTAINER`。
 - **∞ 显示**：`mixin/client/AspectTagRendererMixin`（`drawAmount`，amount==32767 渲染 ∞）+ `mixin/client/AspectContainerTooltipHandlerMixin`（`@ModifyArg` 命中 `Component.literal`，`" x32767"`→`" x∞"`）。
 - **黑洞渲染**：`client/render/blockentity/OriginJarBlockEntityRenderer` 复刻 avaritia `GapingVoidRender.submit` 的管线——`AvaritiaRenderTypes.BLACK_HOLE` + `AvaritiaShaderUniforms.set(renderType, Effect.BLACK_HOLE, ...)` + `SimpleMesh`（4 顶点 quad）。**静态黑洞**：shader `time`=0（无旋转/噪声动画），scale 固定 `BLACK_HOLE_SCALE=0.20F`，中心 `CENTER_Y=5/16`（罐体中心），不再使用 `GapingVoidEntity.getVoidScale`/`maxLifetime`。注册见 `TAClientEvents`。

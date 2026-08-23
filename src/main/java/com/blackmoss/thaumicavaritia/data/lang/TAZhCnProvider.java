@@ -14,6 +14,10 @@ public final class TAZhCnProvider extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup.thaumicavaritia", "神秘无尽");
 
+        // 配置界面翻译
+        add("thaumicavaritia.config.useThaumicAvaritiaRecipes", "神秘无尽改写配方");
+        add("thaumicavaritia.config.useThaumicAvaritiaRecipes.tooltip", "使用神秘无尽对无尽贪婪配方的改写版（true，默认）；关闭则回退到无尽贪婪原版配方。");
+
         add("aspect.thaumicavaritia.infinitus", "无限");
         add("aspect.thaumicavaritia.infinitus.desc", "无限，无穷，无边无际");
         add("aspect.thaumicavaritia.infinitus.help", "永无止境");
@@ -22,14 +26,20 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.akashic_record", "阿卡西记录");
         add("item.thaumicavaritia.wand_cap_crystal_matrix", "充能水晶矩阵杖端");
         add("item.thaumicavaritia.wand_cap_crystal_matrix_inter", "惰性水晶矩阵杖端");
-        add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "宇宙中子态素杖柄");
+        add("item.thaumicavaritia.wand_rod_studded_cosmic_neutronium", "宇宙中子素杖柄");
         add("item.thaumicavaritia.arcane_singularity_focus", "奥法奇点核心");
         add("item.thaumicavaritia.infinity_scribing_tools", "下笔如有神之笔与墨");
         add("item.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
+        add("item.thaumicavaritia.crystal_matrix_plate", "水晶矩阵板");
+        add("item.thaumicavaritia.neutron_plate", "中子板");
+        add("item.thaumicavaritia.infinity_plate", "无尽板");
+        add("block.thaumicavaritia.limit_alchemical_construct", "极限炼金构材");
+        add("block.thaumicavaritia.limit_frame", "极限框架");
         add("block.thaumicavaritia.infinity_charger", "涌流充能器");
-        add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "宇宙中子态素源质冶炼厂");
+        add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "宇宙中子素源质冶炼厂");
         add("block.thaumicavaritia.node_anchor", "节点锚");
         add("block.thaumicavaritia.origin_jar", "万物起源之罐");
+        add("block.thaumicavaritia.infinitus_collector", "无限收集器");
 
         // 物品描述
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "世界的本源");
@@ -43,6 +53,13 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc", "效率最大化");
         add("item.thaumicavaritia.node_anchor.desc", "你在此处不要走动");
         add("item.thaumicavaritia.origin_jar.desc", "诸法之本，万源之始");
+        add("item.thaumicavaritia.neutron_plate.desc", "一板一眼");
+        add("item.thaumicavaritia.infinity_plate.desc", "不是无敌版");
+        add("item.thaumicavaritia.limit_alchemical_construct.desc", "贤者之材");
+        add("item.thaumicavaritia.limit_frame.desc", "条条框框");
+        add("item.thaumicavaritia.infinitus_crystal", "无限结晶");
+        add("item.thaumicavaritia.infinitus_crystal.desc", "证上印着无限二字");
+        add("item.thaumicavaritia.infinitus_collector.desc", "筛出世界的底色");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
 
@@ -66,13 +83,14 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("research.thaumicavaritia.infinity_scribing_tools.stage_0", "无论是吟游诗人还是穷苦百姓，想必都用过“笔”这种事物。相比千百年以来的结绳记事与石板雕刻，笔无疑是一件伟大的发明。只是……墨水消耗得太快了，这几乎是笔唯一的缺点。<BR>而在这研究台上，这个缺点被放大到了极致——每一次落笔研习，都要耗去笔具一分耐久。若是墨水也能取之不尽，该有多好……");
         add("research.thaumicavaritia.infinity_scribing_tools.stage_1", "我以无限锭为骨、中子态素为引，让注魔祭坛赐予这支笔用之不竭的墨水。<BR>从今往后，落笔如有神助，墨痕永续。研究台上，再也不用为墨水发愁了。");
 
-        // 法杖：先得惰性水晶矩阵杖端，再注魔激发为充能水晶矩阵杖端。
+        // 水晶矩阵杖端
         add("research.thaumicavaritia.wand_cap_crystal_matrix.title", "充能水晶矩阵杖端");
         add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_0", "世界盐涤荡晶格，元始珍珠注入本源，元始魔力锚定形态，大师核心则撑起传导的通路。一遍遍注魔下去，水晶潜藏的威能被一寸寸逼了出来——可它终究只是一块惰性水晶矩阵，魔力只进不出。要想真正唤醒它，我还得理清它的脉络。");
         add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_1", "光有骨架还不够——我再压一层元始珍珠稳住根基，让元始魔力与大师核心交替铺设，魔力这才真正顺着晶体流动起来。");
         add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_2", "万事俱备，只欠一份元始魔力。只要将它注入惰性水晶矩阵，便能彻底激发潜藏其中的力量。");
         add("research.thaumicavaritia.wand_cap_crystal_matrix.stage_3", "注魔有惊无险，惰性水晶矩阵终于被彻底激发，化作充能水晶矩阵杖端！它强得独一无二——只会消耗 1% 的魔力！");
 
+        // 宇宙中子态素杖柄
         add("research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.title", "宇宙中子态素杖柄");
         add("research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.stage_0", "中子态素可是好东西，它能包容万象……那魔力呢？我似乎可以把魔力储存进中子态素的容器里。或许，该从改造元始杖芯开始。");
         add("research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.stage_1", "效果很好，可魔力没过一会就全跑了。储存并非长久之计……那，我加点无限进去试试？也许它真能自己产生魔力呢……");

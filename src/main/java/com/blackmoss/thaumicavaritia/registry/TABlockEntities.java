@@ -2,9 +2,10 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlockEntity;
-import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
-import com.blackmoss.thaumicavaritia.content.essentia.smeltery.BlockEntityCosmicNeutroniumEssentiaSmeltery;
+import com.blackmoss.thaumicavaritia.content.blockentity.InfinitusCollectorBlockEntity;
+import com.blackmoss.thaumicavaritia.content.blockentity.NodeAnchorBlockEntity;
+import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
+import com.blackmoss.thaumicavaritia.content.blockentity.CosmicNeutroniumEssentiaSmelteryBlockEntity;
 import java.util.Set;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -18,11 +19,11 @@ public final class TABlockEntities {
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThaumicAvaritia.MODID);
 
     // 宇宙中子态素源质冶炼厂
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlockEntityCosmicNeutroniumEssentiaSmeltery>>
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CosmicNeutroniumEssentiaSmelteryBlockEntity>>
             COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY = BLOCK_ENTITIES.register(
                     "cosmic_neutronium_essentia_smeltery",
                     () -> new BlockEntityType<>(
-                            BlockEntityCosmicNeutroniumEssentiaSmeltery::new,
+                            CosmicNeutroniumEssentiaSmelteryBlockEntity::new,
                             Set.of(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get())));
 
     // 节点锚
@@ -34,12 +35,24 @@ public final class TABlockEntities {
                             Set.of(TABlocks.NODE_ANCHOR.get())));
 
     // 万物起源之罐
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlockEntityOriginJar>>
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<OriginJarBlockEntity>>
             ORIGIN_JAR = BLOCK_ENTITIES.register(
                     "origin_jar",
                     () -> new BlockEntityType<>(
-                            BlockEntityOriginJar::new,
+                            OriginJarBlockEntity::new,
                             Set.of(TABlocks.ORIGIN_JAR.get())));
+
+    // 无限收集器
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InfinitusCollectorBlockEntity>>
+            INFINITUS_COLLECTOR = BLOCK_ENTITIES.register(
+                    "infinitus_collector",
+                    () -> new BlockEntityType<>(
+                            InfinitusCollectorBlockEntity::new,
+                            Set.of(
+                    TABlocks.INFINITUS_COLLECTOR.get(),
+                    TABlocks.INFINITUS_COLLECTOR_COMPACT.get(),
+                    TABlocks.INFINITUS_COLLECTOR_DENSE.get(),
+                    TABlocks.INFINITUS_COLLECTOR_ENDLESS.get())));
 
     private TABlockEntities() {
     }

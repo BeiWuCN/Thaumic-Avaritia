@@ -1,12 +1,11 @@
 package com.blackmoss.thaumicavaritia.content.block;
 
-import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
+import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.content.essentia.jar.BlockJar;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -30,7 +29,7 @@ public final class OriginJarBlock extends BlockJar {
 
     @Override
     public @NonNull BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BlockEntityOriginJar(pos, state);
+        return new OriginJarBlockEntity(pos, state);
     }
 
     @Override

@@ -1,0 +1,52 @@
+{
+  "keys": {
+    "L": {
+      "source": {
+        "type": "block",
+        "block": "thaumicavaritia:limit_alchemical_construct"
+      },
+      "target": {
+        "type": "air"
+      }
+    },
+    "F": {
+      "source": {
+        "type": "block",
+        "block": "thaumicavaritia:limit_frame"
+      },
+      "target": {
+        "type": "air"
+      }
+    },
+    "O": {
+      "source": {
+        "type": "block",
+        "block": "thaumaturge:node"
+      },
+      "target": {
+        "type": "block",
+        "block": "thaumicavaritia:infinitus_collector"
+      }
+    }
+  },
+  "pattern": [
+    [
+      "FFF",
+      "FLF",
+      "FFF"
+    ],
+    [
+      "FLF",
+      "LOL",
+      "FLF"
+    ],
+    [
+      "FFF",
+      "FLF",
+      "FFF"
+    ]
+  ],
+  "x_size": 3,
+  "y_size": 3,
+  "z_size": 3
+}

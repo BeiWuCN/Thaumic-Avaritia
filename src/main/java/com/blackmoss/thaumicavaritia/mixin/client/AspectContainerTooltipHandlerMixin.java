@@ -2,7 +2,7 @@
 // 作用于 Thaumaturge AspectContainerTooltipHandler.renderAspectList 的 " x<数量>" 行。
 package com.blackmoss.thaumicavaritia.mixin.client;
 
-import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
+import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.client.tooltip.AspectContainerTooltipHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,7 +24,7 @@ public abstract class AspectContainerTooltipHandlerMixin {
         if (text.startsWith(" x")) {
             String num = text.substring(2);
             try {
-                if (Integer.parseInt(num) == BlockEntityOriginJar.PER_ASPECT_AMOUNT) {
+                if (Integer.parseInt(num) == OriginJarBlockEntity.PER_ASPECT_AMOUNT) {
                     return " x∞";
                 }
             } catch (NumberFormatException ignored) {

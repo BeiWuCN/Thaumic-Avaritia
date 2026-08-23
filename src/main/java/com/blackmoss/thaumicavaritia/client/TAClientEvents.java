@@ -5,6 +5,7 @@ import com.blackmoss.thaumicavaritia.client.render.blockentity.OriginJarBlockEnt
 import com.blackmoss.thaumicavaritia.client.render.blockentity.NodeAnchorBlockEntityRenderer;
 import com.blackmoss.thaumicavaritia.client.render.entity.CausalityCollapserPearlRenderer;
 import com.blackmoss.thaumicavaritia.client.screen.CosmicNeutroniumEssentiaSmelteryScreen;
+import com.blackmoss.thaumicavaritia.client.screen.InfinitusCollectorScreen;
 import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
 import com.blackmoss.thaumicavaritia.registry.TAEntities;
 import com.blackmoss.thaumicavaritia.registry.TAMenus;
@@ -32,5 +33,7 @@ public final class TAClientEvents {
     public static void onRegisterMenuScreens(RegisterMenuScreensEvent event) {
         event.register(
                 TAMenus.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get(), CosmicNeutroniumEssentiaSmelteryScreen::new);
+        event.register(
+                TAMenus.INFINITUS_COLLECTOR.get(), InfinitusCollectorScreen::new);
     }
 }

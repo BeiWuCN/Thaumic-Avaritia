@@ -2,6 +2,12 @@
   "values": [
     "thaumicavaritia:infinity_charger",
     "thaumicavaritia:cosmic_neutronium_essentia_smeltery",
-    "thaumicavaritia:node_anchor"
+    "thaumicavaritia:infinitus_collector",
+    "thaumicavaritia:infinitus_collector_compact",
+    "thaumicavaritia:infinitus_collector_dense",
+    "thaumicavaritia:infinitus_collector_endless",
+    "thaumicavaritia:node_anchor",
+    "thaumicavaritia:limit_frame",
+    "thaumicavaritia:limit_alchemical_construct"
   ]
 }

@@ -14,8 +14,12 @@ public final class TAEnUsProvider extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup.thaumicavaritia", "Thaumic Avaritia");
 
+        // Config screen translations
+        add("thaumicavaritia.config.useThaumicAvaritiaRecipes", "Reworked Infinity Recipes");
+        add("thaumicavaritia.config.useThaumicAvaritiaRecipes.tooltip", "Use Thaumic Avaritia's reworked avaritia recipes (true, default), or fall back to the original Avaritia recipes (false).");
+
         add("aspect.thaumicavaritia.infinitus", "Infinitus");
-        add("aspect.thaumicavaritia.infinitus.desc", "Infinite, boundless, without end");
+        add("aspect.thaumicavaritia.infinitus.desc", "Infinite, Boundless, Without end");
         add("aspect.thaumicavaritia.infinitus.help", "Never-ending.");
 
         add("item.thaumicavaritia.extremely_primordial_pearl", "Extremely Primordial Pearl");
@@ -26,10 +30,16 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.arcane_singularity_focus", "Arcane Singularity Focus");
         add("item.thaumicavaritia.infinity_scribing_tools", "Divinely Inspired Scribing Tools");
         add("item.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
+        add("item.thaumicavaritia.crystal_matrix_plate", "Crystal Matrix Plate");
+        add("item.thaumicavaritia.neutron_plate", "Neutron Plate");
+        add("item.thaumicavaritia.infinity_plate", "Infinity Plate");
         add("block.thaumicavaritia.infinity_charger", "Gushing Charger");
         add("block.thaumicavaritia.cosmic_neutronium_essentia_smeltery", "Cosmic Neutronium Essentia Smeltery");
         add("block.thaumicavaritia.node_anchor", "Node Anchor");
         add("block.thaumicavaritia.origin_jar", "Origin Jar");
+        add("block.thaumicavaritia.infinitus_collector", "Infinitus Collector");
+        add("block.thaumicavaritia.limit_alchemical_construct", "Limit Alchemical Construct");
+        add("block.thaumicavaritia.limit_frame", "Limit Frame");
 
         // Item descriptions (lore)
         add("item.thaumicavaritia.extremely_primordial_pearl.desc", "The origin of the world.");
@@ -43,6 +53,13 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("item.thaumicavaritia.cosmic_neutronium_essentia_smeltery.desc", "Maximum efficiency.");
         add("item.thaumicavaritia.node_anchor.desc", "You stay right here.");
         add("item.thaumicavaritia.origin_jar.desc", "The origin of all aspects.");
+        add("item.thaumicavaritia.infinitus_crystal", "Infinitus Crystal");
+        add("item.thaumicavaritia.infinitus_crystal.desc", "The two words 'infinity' engraved upon it.");
+        add("item.thaumicavaritia.neutron_plate.desc", "All in order.");
+        add("item.thaumicavaritia.infinity_plate.desc", "Not an invincible board.");
+        add("item.thaumicavaritia.limit_alchemical_construct.desc", "Sage's material.");
+        add("item.thaumicavaritia.limit_frame.desc", "Frame and rule.");
+        add("item.thaumicavaritia.infinitus_collector.desc", "Sieving out the world's undertone.");
 
         add("research_category.thaumicavaritia.thaumicavaritia", "Thaumic Avaritia");
 

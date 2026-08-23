@@ -1,0 +1,7 @@
+{
+  "type": "thaumaturge:dust_trigger_multiblock",
+  "blueprint": "thaumicavaritia:infinitus_collector",
+  "result": {
+    "id": "thaumicavaritia:infinitus_collector"
+  }
+}

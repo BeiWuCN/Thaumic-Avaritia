@@ -2,7 +2,7 @@
 // 继承原版 BlockSmelter 复用外观/放置/粒子逻辑，但改用自定义 BE 类型与菜单。
 package com.blackmoss.thaumicavaritia.content.block;
 
-import com.blackmoss.thaumicavaritia.content.essentia.smeltery.BlockEntityCosmicNeutroniumEssentiaSmeltery;
+import com.blackmoss.thaumicavaritia.content.blockentity.CosmicNeutroniumEssentiaSmelteryBlockEntity;
 import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockSmelter;
 import com.mojang.serialization.MapCodec;
@@ -35,7 +35,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlock extends BlockSmelter {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new BlockEntityCosmicNeutroniumEssentiaSmeltery(blockPos, blockState);
+        return new CosmicNeutroniumEssentiaSmelteryBlockEntity(blockPos, blockState);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlock extends BlockSmelter {
             Level level, BlockState blockState, BlockEntityType<T> type) {
         return level.isClientSide() ? null : createTickerHelper(
                 type, TABlockEntities.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get(),
-                BlockEntityCosmicNeutroniumEssentiaSmeltery::staticTick);
+                CosmicNeutroniumEssentiaSmelteryBlockEntity::staticTick);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlock extends BlockSmelter {
         if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         }
-        if (level.getBlockEntity(pos) instanceof BlockEntityCosmicNeutroniumEssentiaSmeltery be) {
+        if (level.getBlockEntity(pos) instanceof CosmicNeutroniumEssentiaSmelteryBlockEntity be) {
             player.openMenu(be, buf -> buf.writeBlockPos(pos));
         }
         return InteractionResult.CONSUME;

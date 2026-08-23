@@ -1909,6 +1909,24 @@
         "aspect": "thaumicavaritia:infinitus"
       }
     ],
+    "thaumicavaritia:crystal_matrix_plate": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:vitreus"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 15,
+        "aspect": "thaumaturge:ordo"
+      },
+      {
+        "amount": 10,
+        "aspect": "thaumaturge:praecantatio"
+      }
+    ],
     "thaumicavaritia:extremely_primordial_pearl": [
       {
         "amount": 80,
@@ -1924,6 +1942,188 @@
       },
       {
         "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:infinitus_collector": [
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 8,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:infinitus_collector_compact": [
+      {
+        "amount": 70,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 50,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 50,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 12,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:infinitus_collector_dense": [
+      {
+        "amount": 80,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 50,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:infinitus_collector_endless": [
+      {
+        "amount": 90,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 70,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 70,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:infinitus_crystal": [
+      {
+        "amount": 80,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:alienis"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:vacuos"
+      },
+      {
+        "amount": 8,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:infinity_plate": [
+      {
+        "amount": 80,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 50,
+        "aspect": "thaumaturge:auram"
+      },
+      {
+        "amount": 9,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:limit_alchemical_construct": [
+      {
+        "amount": 60,
+        "aspect": "thaumaturge:fabrico"
+      },
+      {
+        "amount": 50,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:praecantatio"
+      },
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 16,
+        "aspect": "thaumicavaritia:infinitus"
+      }
+    ],
+    "thaumicavaritia:limit_frame": [
+      {
+        "amount": 30,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:machina"
+      },
+      {
+        "amount": 20,
+        "aspect": "thaumaturge:fabrico"
+      }
+    ],
+    "thaumicavaritia:neutron_plate": [
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:metallum"
+      },
+      {
+        "amount": 40,
+        "aspect": "thaumaturge:perditio"
+      },
+      {
+        "amount": 25,
+        "aspect": "thaumaturge:praecantatio"
       }
     ],
     "thaumicavaritia:wand_cap_crystal_matrix": [

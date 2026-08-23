@@ -683,6 +683,73 @@ public final class ItemAspectsProvider extends DataMapProvider {
                         TCAspects.PERDITIO, 40,
                         TCAspects.TENEBRAE, 30,
                         TAAspects.INFINITUS, 16));
+        add(b, items, ThaumicAvaritia.MODID, "infinitus_crystal",
+                aspects(
+                        TCAspects.PRAECANTATIO, 80,
+                        TCAspects.AURAM, 60,
+                        TCAspects.ALIENIS, 40,
+                        TCAspects.VACUOS, 30,
+                        TAAspects.INFINITUS, 8));
+        add(b, items, ThaumicAvaritia.MODID, "infinitus_collector",
+                aspects(
+                        TCAspects.MACHINA, 60,
+                        TCAspects.AURAM, 40,
+                        TCAspects.PRAECANTATIO, 40,
+                        TCAspects.METALLUM, 30,
+                        TAAspects.INFINITUS, 8));
+        add(b, items, ThaumicAvaritia.MODID, "infinitus_collector_compact",
+                aspects(
+                        TCAspects.MACHINA, 70,
+                        TCAspects.AURAM, 50,
+                        TCAspects.PRAECANTATIO, 50,
+                        TCAspects.METALLUM, 40,
+                        TAAspects.INFINITUS, 12));
+        add(b, items, ThaumicAvaritia.MODID, "infinitus_collector_dense",
+                aspects(
+                        TCAspects.MACHINA, 80,
+                        TCAspects.AURAM, 60,
+                        TCAspects.PRAECANTATIO, 60,
+                        TCAspects.METALLUM, 50,
+                        TAAspects.INFINITUS, 16));
+        add(b, items, ThaumicAvaritia.MODID, "infinitus_collector_endless",
+                aspects(
+                        TCAspects.MACHINA, 90,
+                        TCAspects.AURAM, 70,
+                        TCAspects.PRAECANTATIO, 70,
+                        TCAspects.METALLUM, 60,
+                        TAAspects.INFINITUS, 20));
+        add(b, items, ThaumicAvaritia.MODID, "limit_frame",
+                aspects(
+                        TCAspects.METALLUM, 30,
+                        TCAspects.MACHINA, 20,
+                        TCAspects.FABRICO, 20));
+        // 板材料
+        add(b, items, ThaumicAvaritia.MODID, "crystal_matrix_plate",
+                aspects(
+                        TCAspects.VITREUS, 40,
+                        TCAspects.METALLUM, 30,
+                        TCAspects.ORDO, 15,
+                        TCAspects.PRAECANTATIO, 10));
+        add(b, items, ThaumicAvaritia.MODID, "neutron_plate",
+                aspects(
+                        TCAspects.METALLUM, 40,
+                        TCAspects.PERDITIO, 40,
+                        TCAspects.PRAECANTATIO, 25));
+        add(b, items, ThaumicAvaritia.MODID, "infinity_plate",
+                aspects(
+                        TCAspects.PRAECANTATIO, 80,
+                        TCAspects.METALLUM, 60,
+                        TCAspects.AURAM, 50,
+                        TAAspects.INFINITUS, 9));
+        // 极限炼金构材
+        add(b, items, ThaumicAvaritia.MODID, "limit_alchemical_construct",
+                aspects(
+                        TCAspects.FABRICO, 60,
+                        TCAspects.INSTRUMENTUM, 50,
+                        TCAspects.METALLUM, 40,
+                        TCAspects.PRAECANTATIO, 40,
+                        TCAspects.MACHINA, 30,
+                        TAAspects.INFINITUS, 16));
     }
 
     // 统一构造器：键/量交替的变参，替代 list() 多重重载与零散 .add() 链式。

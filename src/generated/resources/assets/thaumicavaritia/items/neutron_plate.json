@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "avaritia:halo",
+    "color": 872415231,
+    "model": "thaumicavaritia:item/neutron_plate",
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo_noise"
+  }
+}

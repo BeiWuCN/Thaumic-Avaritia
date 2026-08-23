@@ -1,0 +1,33 @@
+// 要素注册：先注册 Thaumaturge 本体全部要素，再补充本 mod 的"无尽"要素（供 DataGen lookup 解析）。
+// 运行时由 datapack JSON（data/thaumicavaritia/thaumaturge/aspect/infinitus.json）提供同一要素。
+package com.blackmoss.thaumicavaritia.data;
+
+import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.api.aspect.TAAspects;
+import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import com.leclowndu93150.thaumaturge.content.aspect.Aspect;
+import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
+
+import java.util.List;
+import java.util.Optional;
+
+public final class TAAspectBootstrap {
+    private TAAspectBootstrap() {
+    }
+
+    public static void bootstrap(BootstrapContext<IAspect> ctx) {
+        AspectBootstrap.bootstrap(ctx);
+        // 无尽：不设父要素（components 为空），要素合成器无法用其他要素强行合成
+        ctx.register(
+                TAAspects.INFINITUS,
+                new Aspect(
+                        "infinitus",
+                        0x1E1E1E,
+                        List.of(),
+                        Optional.empty(),
+                        Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "textures/aspects/infinitus.png"),
+                        Aspect.DEFAULT_BLEND));
+    }
+}

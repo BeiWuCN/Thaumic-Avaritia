@@ -7,6 +7,7 @@
 // 不修改 Thaumaturge 任何内部实现（BlockNodeStabilizer 为 final 且锁定逻辑在节点私有方法，无法复用，故自实现）。
 package com.blackmoss.thaumicavaritia.content.block;
 
+import com.blackmoss.thaumicavaritia.content.blockentity.NodeAnchorBlockEntity;
 import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

@@ -2,7 +2,7 @@
 // 复刻 GapingVoidRender.submit：BLACK_HOLE 渲染类型 + SimpleMesh quad + AvaritiaShaderUniforms（time=0 静态）。
 package com.blackmoss.thaumicavaritia.client.render.blockentity;
 
-import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
+import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import committee.nova.mods.avaritia.client.render.mesh.SimpleMesh;
@@ -24,7 +24,7 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public final class OriginJarBlockEntityRenderer
-        implements BlockEntityRenderer<BlockEntityOriginJar, BlockEntityRenderState> {
+        implements BlockEntityRenderer<OriginJarBlockEntity, BlockEntityRenderState> {
 
     private static final int FULL_BRIGHT = 0x00F000F0;
     private static final int WHITE_RGBA = ARGB.white(1.0F);
@@ -50,7 +50,7 @@ public final class OriginJarBlockEntityRenderer
 
     @Override
     public void extractRenderState(
-            @NonNull BlockEntityOriginJar blockEntity,
+            @NonNull OriginJarBlockEntity blockEntity,
             @NonNull BlockEntityRenderState state,
             float partialTicks,
             @NonNull Vec3 cameraPosition,

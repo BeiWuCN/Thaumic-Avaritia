@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "avaritia:halo",
+    "model": "thaumicavaritia:block/infinitus_collector_compact_off",
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo"
+  }
+}

@@ -1,6 +1,6 @@
 package com.blackmoss.thaumicavaritia.content.item;
 
-import com.blackmoss.thaumicavaritia.content.entity.EntityCausalityCollapserPearl;
+import com.blackmoss.thaumicavaritia.content.entity.CausalityCollapserPearlEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -41,7 +41,7 @@ public final class CausalityCollapserPearlItem extends Item {
                 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         if (level instanceof ServerLevel serverLevel) {
             Projectile.spawnProjectileFromRotation(
-                    EntityCausalityCollapserPearl::new, serverLevel, stack, player, 0.0F, SHOOT_POWER, 2.0F);
+                    CausalityCollapserPearlEntity::new, serverLevel, stack, player, 0.0F, SHOOT_POWER, 2.0F);
         }
         stack.consume(1, player);
         return InteractionResult.SUCCESS;

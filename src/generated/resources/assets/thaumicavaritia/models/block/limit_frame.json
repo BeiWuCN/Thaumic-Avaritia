@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "thaumicavaritia:block/limit_frame"
+  }
+}

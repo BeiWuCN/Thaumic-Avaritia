@@ -1,14 +1,9 @@
 package com.blackmoss.thaumicavaritia.data;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.data.aspect.TAAspectBootstrap;
 import com.blackmoss.thaumicavaritia.data.datamap.ItemAspectsProvider;
 import com.blackmoss.thaumicavaritia.data.lang.TAEnUsProvider;
 import com.blackmoss.thaumicavaritia.data.lang.TAZhCnProvider;
-import com.blackmoss.thaumicavaritia.data.model.TAModelProvider;
-import com.blackmoss.thaumicavaritia.data.recipe.TARecipeProvider;
-import com.blackmoss.thaumicavaritia.data.loot.TABlockLootSubProvider;
-import com.blackmoss.thaumicavaritia.data.tag.TATagsProvider;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import java.util.List;
 import java.util.Set;

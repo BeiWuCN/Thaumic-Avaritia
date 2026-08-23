@@ -1,0 +1,37 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 480,
+      "aspect": "thaumaturge:ordo"
+    },
+    {
+      "amount": 480,
+      "aspect": "thaumaturge:fabrico"
+    },
+    {
+      "amount": 320,
+      "aspect": "thaumaturge:machina"
+    },
+    {
+      "amount": 4,
+      "aspect": "thaumicavaritia:infinitus"
+    }
+  ],
+  "catalyst": "avaritia:crystal_matrix",
+  "components": [
+    "avaritia:neutron_ingot",
+    "thaumaturge:salis_mundus",
+    "avaritia:neutron_ingot",
+    "thaumaturge:salis_mundus",
+    "avaritia:neutron_ingot",
+    "thaumaturge:salis_mundus",
+    "avaritia:neutron_ingot",
+    "thaumaturge:salis_mundus"
+  ],
+  "instability": 4,
+  "result": {
+    "count": 8,
+    "id": "thaumicavaritia:limit_frame"
+  }
+}

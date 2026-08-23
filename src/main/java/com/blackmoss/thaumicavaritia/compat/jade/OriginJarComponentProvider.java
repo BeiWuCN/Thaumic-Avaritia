@@ -3,7 +3,7 @@
 package com.blackmoss.thaumicavaritia.compat.jade;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
+import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -26,7 +26,7 @@ public enum OriginJarComponentProvider implements IBlockComponentProvider {
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
-        if (!(accessor.getBlockEntity() instanceof BlockEntityOriginJar jar)) {
+        if (!(accessor.getBlockEntity() instanceof OriginJarBlockEntity jar)) {
             return;
         }
         AspectList contents = jar.getAspects();

@@ -2,7 +2,7 @@
 // 由 OriginJarComponentProvider 按玩家配置显示 ∞ 或数字，避免重复。
 package com.blackmoss.thaumicavaritia.mixin.client;
 
-import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
+import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.compat.jade.EssentiaComponentProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +20,7 @@ public abstract class EssentiaComponentProviderMixin {
     private void thaumicavaritia$skipOriginJar(
             ITooltip tooltip, BlockAccessor accessor, IPluginConfig config, CallbackInfo ci) {
         BlockEntity be = accessor.getBlockEntity();
-        if (be instanceof BlockEntityOriginJar) {
+        if (be instanceof OriginJarBlockEntity) {
             // 万物起源之罐由 OriginJarComponentProvider 负责显示（∞ 或数字按玩家配置）。
             ci.cancel();
         }

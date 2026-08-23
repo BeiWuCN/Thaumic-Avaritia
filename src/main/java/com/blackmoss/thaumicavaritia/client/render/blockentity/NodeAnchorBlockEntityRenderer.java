@@ -2,7 +2,7 @@
 // 复用 Thaumaturge 的 node_bubble.png 纹理，仅用标准 MC 渲染 API（不依赖 Thaumaturge 内部渲染类）。
 package com.blackmoss.thaumicavaritia.client.render.blockentity;
 
-import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlockEntity;
+import com.blackmoss.thaumicavaritia.content.blockentity.NodeAnchorBlockEntity;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

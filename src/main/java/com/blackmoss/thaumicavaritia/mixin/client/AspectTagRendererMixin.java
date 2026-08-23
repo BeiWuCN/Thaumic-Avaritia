@@ -2,7 +2,7 @@
 // 作用于 Thaumaturge AspectTagRenderer.drawAmount（GUI 中要素标签的角标数字）。
 package com.blackmoss.thaumicavaritia.mixin.client;
 
-import com.blackmoss.thaumicavaritia.content.essentia.jar.BlockEntityOriginJar;
+import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.client.render.aspect.AspectTagRenderer;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -27,7 +27,7 @@ public abstract class AspectTagRendererMixin {
             double y,
             float amount,
             CallbackInfo ci) {
-        if (amount != BlockEntityOriginJar.PER_ASPECT_AMOUNT) {
+        if (amount != OriginJarBlockEntity.PER_ASPECT_AMOUNT) {
             return;
         }
         // 复刻原版 drawAmount 的定位，仅文本替换为 ∞。

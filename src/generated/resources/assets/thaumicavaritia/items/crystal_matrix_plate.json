@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "avaritia:halo",
+    "model": "thaumicavaritia:item/crystal_matrix_plate",
+    "pulse": false,
+    "size": 6,
+    "texture": "avaritia:misc/halo"
+  }
+}

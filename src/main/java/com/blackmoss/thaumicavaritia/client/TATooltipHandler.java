@@ -34,6 +34,23 @@ public final class TATooltipHandler {
             key = "item.thaumicavaritia.node_anchor.desc";
         } else if (stack.is(TAItems.ORIGIN_JAR.get())) {
             key = "item.thaumicavaritia.origin_jar.desc";
+        } else if (stack.is(TAItems.INFINITUS_COLLECTOR.get())
+                || stack.is(TAItems.INFINITUS_COLLECTOR_COMPACT.get())
+                || stack.is(TAItems.INFINITUS_COLLECTOR_DENSE.get())
+                || stack.is(TAItems.INFINITUS_COLLECTOR_ENDLESS.get())) {
+            key = "item.thaumicavaritia.infinitus_collector.desc";
+        } else if (stack.is(TAItems.LIMIT_FRAME.get())) {
+            key = "item.thaumicavaritia.limit_frame.desc";
+        } else if (stack.is(TAItems.CRYSTAL_MATRIX_PLATE.get())) {
+            key = "item.thaumicavaritia.crystal_matrix_plate.desc";
+        } else if (stack.is(TAItems.NEUTRON_PLATE.get())) {
+            key = "item.thaumicavaritia.neutron_plate.desc";
+        } else if (stack.is(TAItems.INFINITY_PLATE.get())) {
+            key = "item.thaumicavaritia.infinity_plate.desc";
+        } else if (stack.is(TAItems.LIMIT_ALCHEMICAL_CONSTRUCT.get())) {
+            key = "item.thaumicavaritia.limit_alchemical_construct.desc";
+        } else if (stack.is(TAItems.LIMIT_FRAME.get())) {
+            key = "item.thaumicavaritia.limit_frame.desc";
         }
         if (key != null) {
             event.getToolTip().add(Component.translatable(key).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
