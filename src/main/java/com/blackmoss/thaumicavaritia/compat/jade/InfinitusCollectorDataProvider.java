@@ -8,7 +8,6 @@ import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.NonNull;
 import snownee.jade.api.BlockAccessor;
@@ -31,8 +30,6 @@ public enum InfinitusCollectorDataProvider implements IServerDataProvider<BlockA
         if (!(accessor.getBlockEntity() instanceof InfinitusCollectorBlockEntity be)) {
             return;
         }
-        ThaumicAvaritia.LOGGER.info("[InfinitusCollectorDataProvider] formed={}, nodeData={}, progress={}",
-                be.isFormed(), be.getNodeData(), be.getProgress());
         tag.putBoolean("formed", be.isFormed());
         tag.putInt("progress", be.getProgress());
         tag.putInt("production_ticks", be.getProductionTicks());
@@ -57,6 +54,22 @@ public enum InfinitusCollectorDataProvider implements IServerDataProvider<BlockA
                 }
                 tag.put("node_aspects", aspectsList);
             }
+        }
+        // 同步剩余要素
+        AspectList remainingAspects = be.getRemainingAspects();
+        if (remainingAspects != null && !remainingAspects.isEmpty()) {
+            ListTag aspectsList = new ListTag();
+            for (AspectInstance entry : remainingAspects.entries()) {
+                CompoundTag entryTag = new CompoundTag();
+                Holder<IAspect> holder = entry.aspect();
+                String aspectId = holder.unwrapKey()
+                        .map(key -> key.identifier().toString())
+                        .orElse("");
+                entryTag.putString("id", aspectId);
+                entryTag.putInt("amount", entry.amount());
+                aspectsList.add(entryTag);
+            }
+            tag.put("remaining_aspects", aspectsList);
         }
     }
 }

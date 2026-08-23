@@ -68,8 +68,7 @@ public enum InfinitusCollectorComponentProvider implements IBlockComponentProvid
 
         // 要素列表（手动反序列化）
         if (data.contains("node_aspects")) {
-            data.getList("node_aspects").ifPresent(aspectsTag -> {
-                ListTag aspectsList = (ListTag) aspectsTag;
+            data.getList("node_aspects").ifPresent(aspectsList -> {
                 if (!aspectsList.isEmpty()) {
                     Player player = accessor.getPlayer();
                     HolderLookup.Provider registries = player.level().registryAccess();
@@ -107,6 +106,40 @@ public enum InfinitusCollectorComponentProvider implements IBlockComponentProvid
         if (progress > 0 && productionTicks > 0) {
             int percent = progress * 100 / productionTicks;
             tooltip.add(Component.translatable("jade.thaumicavaritia.infinitus_collector.progress", percent));
+        }
+
+        // 显示剩余要素
+        if (data.contains("remaining_aspects")) {
+            data.getList("remaining_aspects").ifPresent(aspectsList -> {
+                if (!aspectsList.isEmpty()) {
+                    Player player = accessor.getPlayer();
+                    HolderLookup.Provider registries = player.level().registryAccess();
+                    
+                    MutableComponent list = Component.literal("");
+                    boolean[] first = {true};
+                    for (int i = 0; i < aspectsList.size(); i++) {
+                        aspectsList.getCompound(i).ifPresent(entryTag -> {
+                            String aspectId = entryTag.getStringOr("id", "");
+                            int amount = entryTag.getIntOr("amount", 0);
+                            
+                            ResourceKey<com.leclowndu93150.thaumaturge.api.aspect.IAspect> key =
+                                    ResourceKey.create(com.leclowndu93150.thaumaturge.api.aspect.IAspect.REGISTRY_KEY, Identifier.parse(aspectId));
+                            Holder<com.leclowndu93150.thaumaturge.api.aspect.IAspect> holder = Aspects.resolve(registries, key);
+                            if (holder != null) {
+                                if (!first[0]) {
+                                    list.append(Component.translatable("jade.thaumaturge.aspect_separator"));
+                                }
+                                list.append(Component.translatable("jade.thaumaturge.aspect_amount",
+                                        AspectComponents.name(holder), amount));
+                                first[0] = false;
+                            }
+                        });
+                    }
+                    if (!first[0]) {
+                        tooltip.add(Component.translatable("jade.thaumicavaritia.infinitus_collector.remaining_aspects", list));
+                    }
+                }
+            });
         }
     }
 }

@@ -1,13 +1,15 @@
 package com.blackmoss.thaumicavaritia.content.blockentity;
 
-import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.content.block.InfinitusNodeDataCache;
 import com.blackmoss.thaumicavaritia.content.block.infinituscollector.InfinitusCollectorBlock;
 import com.blackmoss.thaumicavaritia.content.block.infinituscollector.InfinitusCollectorTier;
 import com.blackmoss.thaumicavaritia.content.menu.InfinitusCollectorMenu;
 import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
 import com.blackmoss.thaumicavaritia.registry.TABlocks;
-import com.leclowndu93150.thaumaturge.api.nodes.NodeModifier;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
+import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import com.leclowndu93150.thaumaturge.api.aura.AuraHelper;
 import com.leclowndu93150.thaumaturge.content.aura.node.NodeData;
 import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
 import committee.nova.mods.avaritia.api.common.inventory.OnContentsChangedFunction;
@@ -20,6 +22,7 @@ import committee.nova.mods.avaritia.core.io.TileIOHandler;
 import committee.nova.mods.avaritia.init.handler.NetworkHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
@@ -44,7 +47,6 @@ import org.jspecify.annotations.NonNull;
 public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity implements ITileIO, WorldlyContainer {
     private SideConfiguration sideConfig = new SideConfiguration();
     private int activeOutputTick = 0;
-    private static final int ACTIVE_OUTPUT_INTERVAL = 20;
     private final TileIOHandler ioHandler;
     public final ItemStackWrapper inventory;
     public SimpleContainerData data;
@@ -54,6 +56,9 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
     // 内置"数据节点"：从原节点拷来的数据（类型/修饰/要素），用于收集器工作。
     @Nullable
     private NodeData nodeData;
+    // 当前节点剩余要素（随消耗递减，用于追踪哪些要素还能用）。
+    @Nullable
+    private AspectList remainingAspects;
     // 成形标记：有节点数据后才可工作。
     private boolean formed;
 
@@ -85,6 +90,7 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
                             java.util.Optional.ofNullable(snapshot.modifier()),
                             snapshot.aspects(),
                             snapshot.aspects());
+                    tile.remainingAspects = snapshot.aspects();
                     tile.formed = true;
                     tile.setChangedAndDispatch();
                 }
@@ -101,22 +107,68 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
         }
 
         if (tile.canWork()) {
-            ItemStack result = tile.inventory.getStackInSlot(0);
-            ItemStack stack = tile.tier.createProductionStack();
-            ++tile.progress;
-            tile.data.set(0, tile.progress);
-            if (tile.progress >= tile.tier.production_ticks) {
-                if (result.isEmpty()) {
-                    tile.inventory.setStackInSlot(0, stack.copyWithCount(1));
-                } else if (ItemStack.isSameItemSameComponents(result, stack) && result.getCount() < 64) {
-                    tile.inventory.setStackInSlot(0, ItemUtils.grow(result, 1));
-                }
+            // 尝试消耗：10灵气 + 1要素 → 1进度
+            if (tile.tryConsumeResources()) {
+                ++tile.progress;
+                tile.data.set(0, tile.progress);
+                tile.setChanged(); // 标记数据变更，确保剩余要素同步到Jade客户端
+                if (tile.progress >= tile.tier.production_ticks) {
+                    ItemStack result = tile.inventory.getStackInSlot(0);
+                    ItemStack stack = tile.tier.createProductionStack();
+                    if (result.isEmpty()) {
+                        tile.inventory.setStackInSlot(0, stack.copyWithCount(1));
+                    } else if (ItemStack.isSameItemSameComponents(result, stack) && result.getCount() < 64) {
+                        tile.inventory.setStackInSlot(0, ItemUtils.grow(result, 1));
+                    }
 
-                tile.progress = 0;
-                tile.setChangedAndDispatch();
+                    tile.progress = 0;
+                    tile.setChangedAndDispatch();
+                }
             }
         }
 
+    }
+
+    // 尝试消耗 10 灵气 + 1 要素（优先数量最多的要素），成功返回 true。
+    private boolean tryConsumeResources() {
+        if (this.level == null || this.nodeData == null) {
+            return false;
+        }
+
+        // 初始化剩余要素列表
+        if (this.remainingAspects == null) {
+            this.remainingAspects = this.nodeData.aspects();
+            if (this.remainingAspects == null || this.remainingAspects.isEmpty()) {
+                return false;
+            }
+        }
+
+        // 找到数量最多的要素
+        Holder<IAspect> bestAspect = null;
+        int bestAmount = 0;
+        for (AspectInstance entry : this.remainingAspects.entries()) {
+            if (entry.amount() > bestAmount) {
+                bestAmount = entry.amount();
+                bestAspect = entry.aspect();
+            }
+        }
+        if (bestAspect == null) {
+            return false; // 所有要素已耗尽
+        }
+
+        // 尝试消耗 10 灵气（污秽节点消耗 flux，普通节点消耗 vis）
+        boolean isTainted = this.nodeData.type().getSerializedName().equals("tainted");
+        float drained = isTainted
+                ? AuraHelper.drainFlux(this.level, this.worldPosition, 10.0F, false)
+                : AuraHelper.drainVis(this.level, this.worldPosition, 10.0F, false);
+
+        if (drained < 10.0F - 0.01F) {
+            return false; // 灵气不足
+        }
+
+        // 消耗 1 点要素
+        this.remainingAspects = this.remainingAspects.remove(bestAspect, 1);
+        return true;
     }
 
     public static ItemStackWrapper createInventoryHandler(OnContentsChangedFunction onContentsChanged) {
@@ -130,6 +182,10 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
         this.formed = input.getBooleanOr("formed", false);
         input.read("SideConfig", CompoundTag.CODEC).ifPresent((tag) -> this.sideConfig = SideConfiguration.fromNBT(tag));
         this.nodeData = input.read("NodeData", NodeData.CODEC).orElse(null);
+        // 反序列化剩余要素
+        this.remainingAspects = input.read("RemainingAspects", AspectList.CODEC)
+                .filter(aspects -> !aspects.isEmpty())
+                .orElse(null);
     }
 
     protected void saveAdditional(@NotNull ValueOutput output) {
@@ -140,6 +196,10 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
         if (this.nodeData != null) {
             output.store("NodeData", NodeData.CODEC, this.nodeData);
         }
+        // 序列化剩余要素
+        if (this.remainingAspects != null && !this.remainingAspects.isEmpty()) {
+            output.store("RemainingAspects", AspectList.CODEC, this.remainingAspects);
+        }
     }
 
     // 放置时从物品 NODE_DATA 组件读取节点数据（手持右键节点路径）。
@@ -149,6 +209,7 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
         NodeData data = components.get(TCDataComponents.NODE_DATA.get());
         if (data != null) {
             this.nodeData = data;
+            this.remainingAspects = data.aspects();
             this.formed = true;
             this.setChangedAndDispatch();
         }
@@ -184,16 +245,16 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
         return this.nodeData;
     }
 
+    @Nullable
+    public AspectList getRemainingAspects() {
+        return this.remainingAspects;
+    }
+
     // 供 Item 右键节点后手动设置节点数据（绕过 applyImplicitComponents）。
     public void setNodeDataFromItem(NodeData data) {
         this.nodeData = data;
+        this.remainingAspects = data.aspects();
         this.formed = true;
-        ThaumicAvaritia.LOGGER.info("[InfinitusCollectorBE] setNodeDataFromItem: type={}, modifier={}, aspects={}",
-                data.type().getSerializedName(),
-                data.modifier().map(NodeModifier::getSerializedName).orElse("none"),
-                data.aspects() != null
-                        ? data.aspects().entries().size()
-                        : "null");
         this.setChangedAndDispatch();
     }
 

@@ -147,6 +147,7 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("jade.thaumicavaritia.infinitus_collector.unformed", "未成形");
         add("jade.thaumicavaritia.infinitus_collector.node", "节点：%s");
         add("jade.thaumicavaritia.infinitus_collector.progress", "凝晶进度：%d%%");
+        add("jade.thaumicavaritia.infinitus_collector.remaining_aspects", "剩余要素：%s");
 
         add("entity.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
     }

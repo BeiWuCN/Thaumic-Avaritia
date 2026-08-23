@@ -45,6 +45,7 @@
   "jade.thaumicavaritia.infinitus_collector.formed": "Formed",
   "jade.thaumicavaritia.infinitus_collector.node": "Node: %s",
   "jade.thaumicavaritia.infinitus_collector.progress": "Crystallization: %d%%",
+  "jade.thaumicavaritia.infinitus_collector.remaining_aspects": "Remaining Aspects: %s",
   "jade.thaumicavaritia.infinitus_collector.unformed": "Unformed",
   "jade.thaumicavaritia.origin_jar.contents": "Aspects x ∞",
   "message.thaumicavaritia.wand_rod_locked": "You are not yet worthy to wield it",
@@ -96,6 +97,6 @@
   "singularity.thaumicavaritia.void": "Void Singularity",
   "thaumicavaritia.config.useThaumicAvaritiaRecipes": "Reworked Infinity Recipes",
   "thaumicavaritia.config.useThaumicAvaritiaRecipes.tooltip": "Use Thaumic Avaritia's reworked avaritia recipes (true, default), or fall back to the original Avaritia recipes (false).",
-  "wand.thaumaturge.cap.crystal_matrix": "Crystal Matrix",
-  "wand.thaumaturge.rod.studded_cosmic_neutronium": "Studded Cosmic Neutronium"
+  "wand.thaumicavaritia.cap.crystal_matrix": "Crystal Matrix",
+  "wand.thaumicavaritia.rod.studded_cosmic_neutronium": "Studded Cosmic Neutronium"
 }

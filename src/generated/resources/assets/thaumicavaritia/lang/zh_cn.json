@@ -45,6 +45,7 @@
   "jade.thaumicavaritia.infinitus_collector.formed": "已成形",
   "jade.thaumicavaritia.infinitus_collector.node": "节点：%s",
   "jade.thaumicavaritia.infinitus_collector.progress": "凝晶进度：%d%%",
+  "jade.thaumicavaritia.infinitus_collector.remaining_aspects": "剩余要素：%s",
   "jade.thaumicavaritia.infinitus_collector.unformed": "未成形",
   "jade.thaumicavaritia.origin_jar.contents": "要素 x ∞",
   "message.thaumicavaritia.wand_rod_locked": "你还不够格掂量它",

@@ -108,8 +108,8 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("research.thaumicavaritia.arcane_singularity_focus.stage_1", "It seems this step hardly requires any study at all. With an extremely primordial pearl at its core, supplemented by an enhancement core or a causality collapser — when I say simple, I mean simple in theory, not in materials.");
         add("research.thaumicavaritia.arcane_singularity_focus.stage_2", "This core — infinite, paradoxical, born of the void and returning to nothing — is the end of all spellcraft.");
 
-        add("wand.thaumaturge.cap.crystal_matrix", "Crystal Matrix");
-        add("wand.thaumaturge.rod.studded_cosmic_neutronium", "Studded Cosmic Neutronium");
+        add("wand.thaumicavaritia.cap.crystal_matrix", "Crystal Matrix");
+        add("wand.thaumicavaritia.rod.studded_cosmic_neutronium", "Studded Cosmic Neutronium");
 
         // Cosmic Neutronium Essentia Smeltery
         add("research.thaumicavaritia.cosmic_neutronium_essentia_smeltery.title", "Cosmic Neutronium Essentia Smeltery");
@@ -147,6 +147,7 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("jade.thaumicavaritia.infinitus_collector.unformed", "Unformed");
         add("jade.thaumicavaritia.infinitus_collector.node", "Node: %s");
         add("jade.thaumicavaritia.infinitus_collector.progress", "Crystallization: %d%%");
+        add("jade.thaumicavaritia.infinitus_collector.remaining_aspects", "Remaining Aspects: %s");
 
         add("entity.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
     }
