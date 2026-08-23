@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import org.jspecify.annotations.NonNull;
 
 // 方块战利品表：本 mod 的全部方块破坏后均掉落自身。
 public final class TABlockLootSubProvider extends BlockLootSubProvider {
@@ -18,7 +19,7 @@ public final class TABlockLootSubProvider extends BlockLootSubProvider {
     }
 
     @Override
-    protected Iterable<Block> getKnownBlocks() {
+    protected @NonNull Iterable<Block> getKnownBlocks() {
         return TABlocks.BLOCKS.getEntries().stream().map(holder -> (Block) holder.value()).toList();
     }
 
@@ -34,5 +35,9 @@ public final class TABlockLootSubProvider extends BlockLootSubProvider {
         dropSelf(TABlocks.INFINITUS_COLLECTOR_COMPACT.get());
         dropSelf(TABlocks.INFINITUS_COLLECTOR_DENSE.get());
         dropSelf(TABlocks.INFINITUS_COLLECTOR_ENDLESS.get());
+    }
+
+    public HolderLookup.Provider getLookupProvider() {
+        return lookupProvider;
     }
 }

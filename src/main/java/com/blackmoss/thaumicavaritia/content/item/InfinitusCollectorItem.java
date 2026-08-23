@@ -3,7 +3,7 @@
 // 收集器数据存于 NODE_DATA 组件，放置时由 BE 读取，挖下时由 BE 写回，可随物品携带。
 package com.blackmoss.thaumicavaritia.content.item;
 
-import com.blackmoss.thaumicavaritia.content.block.infinituscollector.InfinitusCollectorBlock;
+import com.blackmoss.thaumicavaritia.content.blockentity.InfinitusCollectorBlockEntity;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import com.leclowndu93150.thaumaturge.content.aura.node.NodeData;
 import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
@@ -42,9 +42,14 @@ public class InfinitusCollectorItem extends BlockItem {
             ItemStack stack = context.getItemInHand();
             stack.set(TCDataComponents.NODE_DATA.get(), data);
             // 节点方块消失，收集器出现在节点位置（使用本物品对应的收集器方块）。
-            BlockState collectorState = ((InfinitusCollectorBlock) getBlock()).defaultBlockState();
+            BlockState collectorState = getBlock().defaultBlockState();
             if (!level.isClientSide()) {
                 level.setBlock(pos, collectorState, 3);
+                // 手动设置 BE 的节点数据（因为 setBlock 绕过了正常放置流程）。
+                BlockEntity newBe = level.getBlockEntity(pos);
+                if (newBe instanceof InfinitusCollectorBlockEntity collectorBe) {
+                    collectorBe.setNodeDataFromItem(data);
+                }
             }
             return InteractionResult.SUCCESS;
         }

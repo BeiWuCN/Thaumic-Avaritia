@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InfinitusCollectorScreen extends BaseContainerScreen<InfinitusCollectorMenu> {
-    private Button configButton;
 
     public InfinitusCollectorScreen(InfinitusCollectorMenu container, Inventory inventory, Component title) {
         super(container, inventory, title, Res.NEUTRON_COLLECTOR_TEX);
@@ -28,8 +27,8 @@ public class InfinitusCollectorScreen extends BaseContainerScreen<InfinitusColle
         super.init();
         int x = this.leftPos;
         int y = this.topPos;
-        this.configButton = new SideConfigButton(this, x - 20, y);
-        this.addRenderableWidget(this.configButton);
+        Button configButton = new SideConfigButton(this, x - 20, y);
+        this.addRenderableWidget(configButton);
     }
 
     protected void renderFg(GuiGraphicsExtractor pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {

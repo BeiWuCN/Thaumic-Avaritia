@@ -3,11 +3,9 @@
 package com.blackmoss.thaumicavaritia.config;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
 

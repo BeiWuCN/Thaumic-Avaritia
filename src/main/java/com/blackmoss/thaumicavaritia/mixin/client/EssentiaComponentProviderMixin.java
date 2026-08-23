@@ -16,7 +16,7 @@ import snownee.jade.api.config.IPluginConfig;
 @Mixin(EssentiaComponentProvider.class)
 public abstract class EssentiaComponentProviderMixin {
 
-    @Inject(method = "appendTooltip", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "appendTooltip*", at = @At("HEAD"), cancellable = true)
     private void thaumicavaritia$skipOriginJar(
             ITooltip tooltip, BlockAccessor accessor, IPluginConfig config, CallbackInfo ci) {
         BlockEntity be = accessor.getBlockEntity();

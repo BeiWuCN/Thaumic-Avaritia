@@ -34,9 +34,8 @@ public abstract class AspectTagRendererMixin {
         String text = "∞";
         int width = font.width(text);
         int fontHeight = font.lineHeight;
-        boolean large = true;
-        float textScale = large ? 1.0F : 0.5F;
-        float q = large ? 0.5F : 1.0F;
+        float textScale = 1.0F;
+        float q = 0.5F;
         float textX = (32.0F - (float) width + (float) ((int) x) * 2.0F) * q;
         float textY = (32.0F - (float) fontHeight + (float) ((int) y) * 2.0F) * q;
         graphics.pose().pushMatrix();

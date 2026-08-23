@@ -24,8 +24,13 @@
         "block": "thaumaturge:node"
       },
       "target": {
-        "type": "block",
-        "block": "thaumicavaritia:infinitus_collector"
+        "type": "state",
+        "state": {
+          "Name": "thaumicavaritia:infinitus_collector",
+          "Properties": {
+            "lit": "true"
+          }
+        }
       }
     }
   },

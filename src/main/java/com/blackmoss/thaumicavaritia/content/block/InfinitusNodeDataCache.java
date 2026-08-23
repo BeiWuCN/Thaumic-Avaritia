@@ -23,7 +23,7 @@ public final class InfinitusNodeDataCache {
 
     // mixin 调用：暂存从节点读到的数据。
     public static void store(ResourceKey<Level> dimension, BlockPos pos, AspectList aspects, NodeType type, @Nullable NodeModifier modifier) {
-        CACHE.computeIfAbsent(dimension, k -> new ConcurrentHashMap<>())
+        CACHE.computeIfAbsent(dimension, _ -> new ConcurrentHashMap<>())
                 .put(pos.immutable(), new NodeSnapshot(aspects, type, modifier));
     }
 

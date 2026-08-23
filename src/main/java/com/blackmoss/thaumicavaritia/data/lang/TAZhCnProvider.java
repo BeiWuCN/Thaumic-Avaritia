@@ -141,6 +141,13 @@ public final class TAZhCnProvider extends LanguageProvider {
         add("config.jade.plugin_thaumicavaritia.origin_jar", "万物起源之罐");
         add("jade.thaumicavaritia.origin_jar.contents", "要素 x ∞");
 
+        // Jade：无限收集器
+        add("config.jade.plugin_thaumicavaritia.infinitus_collector", "无限收集器");
+        add("jade.thaumicavaritia.infinitus_collector.formed", "已成形");
+        add("jade.thaumicavaritia.infinitus_collector.unformed", "未成形");
+        add("jade.thaumicavaritia.infinitus_collector.node", "节点：%s");
+        add("jade.thaumicavaritia.infinitus_collector.progress", "凝晶进度：%d%%");
+
         add("entity.thaumicavaritia.causality_collapser_pearl", "悖论珍珠");
     }
 }

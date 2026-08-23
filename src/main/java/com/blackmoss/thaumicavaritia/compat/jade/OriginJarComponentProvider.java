@@ -1,5 +1,3 @@
-// 万物起源之罐 Jade provider：只显示一行「要素 x∞」（不枚举各要素，避免超屏）。
-// 复用本 mod lang 键 jade.thaumicavaritia.origin_jar.contents。
 package com.blackmoss.thaumicavaritia.compat.jade;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
@@ -13,6 +11,8 @@ import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
 
+// 万物起源之罐 Jade provider：只显示一行「要素 x∞」（不枚举各要素，避免超屏）。
+// 复用本 mod lang 键 jade.thaumicavaritia.origin_jar.contents。
 public enum OriginJarComponentProvider implements IBlockComponentProvider {
     INSTANCE;
 
@@ -25,7 +25,9 @@ public enum OriginJarComponentProvider implements IBlockComponentProvider {
     }
 
     @Override
-    public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
+    public void appendTooltip(@NonNull ITooltip tooltip,
+                              @NonNull BlockAccessor accessor,
+                              @NonNull IPluginConfig config) {
         if (!(accessor.getBlockEntity() instanceof OriginJarBlockEntity jar)) {
             return;
         }

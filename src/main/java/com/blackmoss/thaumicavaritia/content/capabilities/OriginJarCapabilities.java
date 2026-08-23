@@ -17,7 +17,7 @@ public final class OriginJarCapabilities {
 
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(EssentiaCapabilities.TRANSPORT, TABlockEntities.ORIGIN_JAR.get(), (be, side) -> be);
-        event.registerBlockEntity(AspectCapabilities.CONTAINER, TABlockEntities.ORIGIN_JAR.get(), (be, side) -> be);
+        event.registerBlockEntity(EssentiaCapabilities.TRANSPORT, TABlockEntities.ORIGIN_JAR.get(), (be, _) -> be);
+        event.registerBlockEntity(AspectCapabilities.CONTAINER, TABlockEntities.ORIGIN_JAR.get(), (be, _) -> be);
     }
 }

@@ -34,4 +34,8 @@ public final class InfinitusCollectorContainerData implements ContainerData {
     public int getCount() {
         return 1;
     }
+
+    public SimpleContainer getOutput() {
+        return output;
+    }
 }

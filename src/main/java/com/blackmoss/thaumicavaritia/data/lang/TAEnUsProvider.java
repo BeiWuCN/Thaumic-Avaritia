@@ -141,6 +141,13 @@ public final class TAEnUsProvider extends LanguageProvider {
         add("config.jade.plugin_thaumicavaritia.origin_jar", "Origin Jar");
         add("jade.thaumicavaritia.origin_jar.contents", "Aspects x ∞");
 
+        // Jade: Infinitus Collector
+        add("config.jade.plugin_thaumicavaritia.infinitus_collector", "Infinitus Collector");
+        add("jade.thaumicavaritia.infinitus_collector.formed", "Formed");
+        add("jade.thaumicavaritia.infinitus_collector.unformed", "Unformed");
+        add("jade.thaumicavaritia.infinitus_collector.node", "Node: %s");
+        add("jade.thaumicavaritia.infinitus_collector.progress", "Crystallization: %d%%");
+
         add("entity.thaumicavaritia.causality_collapser_pearl", "Causality Collapser Pearl");
     }
 }
