@@ -2,7 +2,7 @@ package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWand;
-import com.leclowndu93150.thaumaturge.registry.TCItems;
+import com.leclowndu93150.thaumaturge.registry.TTItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -27,7 +27,7 @@ public class TACreativeModeTabs {
                             output.accept(TAItems.CRYSTAL_MATRIX_WAND_CAP.get());
                             output.accept(TAItems.NEUTRONIUM_WAND_ROD.get());
                             output.accept(ItemWand.create(
-                                    TCItems.WAND.get(),
+                                    TTItems.WAND.get(),
                                     TAWandParts.CRYSTAL_MATRIX.get(),
                                     TAWandParts.NEUTRONIUM.get(),
                                     false));

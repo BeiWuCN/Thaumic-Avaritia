@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_infinity_ingot": {
+    "has": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thaumicavaritia:cosmic_neutronium_essentia_smeltery"
+        "recipe": "thaumicavaritia:infusion/infinity_scribing_tools"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_infinity_ingot"
+      "has"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thaumicavaritia:cosmic_neutronium_essentia_smeltery"
+      "thaumicavaritia:infusion/infinity_scribing_tools"
     ]
   }
 }

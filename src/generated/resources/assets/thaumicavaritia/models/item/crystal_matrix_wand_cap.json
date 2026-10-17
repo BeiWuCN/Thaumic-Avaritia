@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumicavaritia:item/crystal_matrix_wand_cap"
+  }
+}

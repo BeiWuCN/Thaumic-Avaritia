@@ -112,7 +112,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends BlockEntitySmel
             }
             if (alembic.amount() > 0
                     && Objects.equals(alembic.aspectKey(), aspect.getKey())
-                    && alembic.addToContainer(aspect, 1) == 0) {
+                    && alembic.fill(aspect, 1) > 0) {
                 return true;
             }
             deep++;
@@ -126,7 +126,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends BlockEntitySmel
             if (!(be instanceof BlockEntityAlembic alembic)) {
                 return false;
             }
-            if (alembic.doesContainerAccept(aspect) && alembic.addToContainer(aspect, 1) == 0) {
+            if (alembic.accepts(aspect) && alembic.fill(aspect, 1) > 0) {
                 return true;
             }
             deep++;

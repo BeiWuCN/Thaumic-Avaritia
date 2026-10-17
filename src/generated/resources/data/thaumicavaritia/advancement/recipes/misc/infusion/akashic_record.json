@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_neutron_ingot": {
+    "has": {
       "conditions": {
         "items": [
           {
-            "items": "avaritia:neutron_ingot"
+            "items": "avaritia:infinity_ingot"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thaumicavaritia:infinitus_collector_frame"
+        "recipe": "thaumicavaritia:infusion/akashic_record"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_neutron_ingot"
+      "has"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thaumicavaritia:infinitus_collector_frame"
+      "thaumicavaritia:infusion/akashic_record"
     ]
   }
 }

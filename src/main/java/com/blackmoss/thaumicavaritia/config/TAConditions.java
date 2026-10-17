@@ -1,5 +1,3 @@
-// 注册自定义配方条件到 NeoForge 条件注册表（neoforge:condition_serializers）。
-// TACondition：Config 开启时加载神秘无尽改写版无尽配方。
 package com.blackmoss.thaumicavaritia.config;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
@@ -11,8 +9,7 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 
 @EventBusSubscriber(modid = ThaumicAvaritia.MODID)
 public final class TAConditions {
-    public static final Identifier USE_THAUMIC_AVARITIA_RECIPES =
-            Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "use_thaumicavaritia_recipes");
+    public static final Identifier USE_THAUMIC_AVARITIA_RECIPES = ThaumicAvaritia.identifier("use_thaumicavaritia_recipes");
 
     private TAConditions() {
     }

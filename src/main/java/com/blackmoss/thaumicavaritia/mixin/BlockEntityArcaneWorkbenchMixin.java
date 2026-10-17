@@ -9,10 +9,10 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockEntityArcaneWorkbench.class)
 public abstract class BlockEntityArcaneWorkbenchMixin {
-
     @Shadow
     public int auraVis;
 
@@ -25,13 +25,12 @@ public abstract class BlockEntityArcaneWorkbenchMixin {
     }
 
     @Inject(method = "spendAura", at = @At("HEAD"), cancellable = true)
-    private void thaumicavaritia$noAuraCost(CallbackInfo ci) {
+    private void thaumicavaritia$noAuraCost(CallbackInfoReturnable<Boolean> cir) {
         if (thaumicavaritia$isInfinityPowered()) {
-            ci.cancel();
+            cir.setReturnValue(true);
         }
     }
 
-    // 上方是否为无限充能器。
     @Unique
     private boolean thaumicavaritia$isInfinityPowered() {
         BlockEntityArcaneWorkbench self = (BlockEntityArcaneWorkbench) (Object) this;

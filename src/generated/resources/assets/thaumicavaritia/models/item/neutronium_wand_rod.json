@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "thaumicavaritia:item/wand_cap_crystal_matrix"
+    "layer0": "thaumicavaritia:item/neutronium_wand_rod"
   }
 }

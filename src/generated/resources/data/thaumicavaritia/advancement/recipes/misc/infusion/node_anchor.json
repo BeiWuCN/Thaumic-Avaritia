@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_infinity_ingot": {
+    "has": {
       "conditions": {
         "items": [
           {
-            "items": "avaritia:infinity_ingot"
+            "items": "thaumaturge:node_transducer"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thaumicavaritia:infinity_charger"
+        "recipe": "thaumicavaritia:infusion/node_anchor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_infinity_ingot"
+      "has"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thaumicavaritia:infinity_charger"
+      "thaumicavaritia:infusion/node_anchor"
     ]
   }
 }

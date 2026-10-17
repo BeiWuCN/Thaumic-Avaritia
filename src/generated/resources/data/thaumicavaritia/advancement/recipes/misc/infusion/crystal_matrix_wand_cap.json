@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_node_transducer": {
+    "has": {
       "conditions": {
         "items": [
           {
-            "items": "thaumaturge:node_transducer"
+            "items": "avaritia:infinity_ingot"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thaumicavaritia:node_anchor"
+        "recipe": "thaumicavaritia:infusion/crystal_matrix_wand_cap"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_node_transducer"
+      "has"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thaumicavaritia:node_anchor"
+      "thaumicavaritia:infusion/crystal_matrix_wand_cap"
     ]
   }
 }

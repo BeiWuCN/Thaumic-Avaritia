@@ -22,7 +22,7 @@ public final class ZhCnProvider extends LanguageProvider {
                 "使用神秘无尽对无尽贪婪配方的改写版；关闭则回退到无尽贪婪原版配方。");
 
         add("aspect.thaumicavaritia.infinitus", "无限");
-        add("aspect.thaumicavaritia.infinitus", "无限，无穷，无边无际");
+        add("aspect.thaumicavaritia.infinitus.desc", "无限，无穷，无边无际");
         add("aspect.thaumicavaritia.infinitus.help", "永无止境");
 
         addItem(TAItems.EXTREMELY_PRIMORDIAL_PEARL, "极元始珍珠");
@@ -62,7 +62,6 @@ public final class ZhCnProvider extends LanguageProvider {
         addTooltip("infinity_plate", "不是无敌版");
         addTooltip("limit_alchemical_construct", "贤者之材");
         addTooltip("limit_frame", "条条框框");
-        addTooltip("infinitus_crystal", "无限结晶");
         addTooltip("infinitus_crystal", "证上印着无限二字");
         addTooltip("infinitus_collector", "筛出世界的底色");
 

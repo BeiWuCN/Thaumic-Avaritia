@@ -1,7 +1,7 @@
 {
   "model": {
     "type": "avaritia:halo",
-    "model": "thaumicavaritia:item/wand_cap_crystal_matrix",
+    "model": "thaumicavaritia:item/crystal_matrix_wand_cap",
     "pulse": false,
     "size": 6,
     "texture": "avaritia:misc/halo"
