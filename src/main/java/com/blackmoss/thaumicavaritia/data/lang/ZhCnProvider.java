@@ -1,0 +1,199 @@
+package com.blackmoss.thaumicavaritia.data.lang;
+
+import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.registry.TABlocks;
+import com.blackmoss.thaumicavaritia.registry.TAEntities;
+import com.blackmoss.thaumicavaritia.registry.TAItems;
+import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.data.LanguageProvider;
+
+public final class ZhCnProvider extends LanguageProvider {
+
+    public ZhCnProvider(PackOutput output) {
+        super(output, ThaumicAvaritia.MODID, "zh_cn");
+    }
+
+    @Override
+    protected void addTranslations() {
+        add("itemGroup.thaumicavaritia", "神秘无尽");
+        jade();
+
+        addConfiguration("use_thaumicavaritia_recipes", "神秘无尽改写配方",
+                "使用神秘无尽对无尽贪婪配方的改写版；关闭则回退到无尽贪婪原版配方。");
+
+        add("aspect.thaumicavaritia.infinitus", "无限");
+        add("aspect.thaumicavaritia.infinitus", "无限，无穷，无边无际");
+        add("aspect.thaumicavaritia.infinitus.help", "永无止境");
+
+        addItem(TAItems.EXTREMELY_PRIMORDIAL_PEARL, "极元始珍珠");
+        addItem(TAItems.AKASHIC_RECORDS, "阿卡西记录");
+        addItem(TAItems.CRYSTAL_MATRIX_WAND_CAP, "充能水晶矩阵杖端");
+        addItem(TAItems.INTER_CRYSTAL_MATRIX_WAND_CAP, "惰性水晶矩阵杖端");
+        addItem(TAItems.NEUTRONIUM_WAND_ROD, "宇宙中子素杖柄");
+        addItem(TAItems.ARCANE_SINGULARITY_FOCUS, "奥法奇点核心");
+        addItem(TAItems.INFINITY_SCRIBING_TOOLS, "下笔如有神之笔与墨");
+        addItem(TAItems.CAUSALITY_COLLAPSER_PEARL, "悖论珍珠");
+        addItem(TAItems.CRYSTAL_MATRIX_PLATE, "水晶矩阵板");
+        addItem(TAItems.NEUTRON_PLATE, "中子板");
+        addItem(TAItems.INFINITY_PLATE, "无尽板");
+
+        addBlock(TABlocks.LIMIT_ALCHEMICAL_CONSTRUCT, "极限炼金构材");
+        addBlock(TABlocks.LIMIT_FRAME, "极限框架");
+        addBlock(TABlocks.INFINITY_CHARGER, "涌流充能器");
+        addBlock(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY, "宇宙中子素源质冶炼厂");
+        addBlock(TABlocks.NODE_ANCHOR, "节点锚");
+        addBlock(TABlocks.ORIGIN_JAR, "万物起源之罐");
+        addBlock(TABlocks.INFINITUS_COLLECTOR, "无限收集器");
+
+        addEntityType(TAEntities.CAUSALITY_COLLAPSER_PEARL, "悖论珍珠");
+
+        addTooltip("item.thaumicavaritia.extremely_primordial_pearl", "世界的本源");
+        addTooltip("akashic_record", "知识的重量");
+        addTooltip("infinity_scribing_tools", "先行万里路");
+        addTooltip("wand_cap_crystal_matrix", "晶莹剔透");
+        addTooltip("wand_rod_studded_cosmic_neutronium", "手持式黑洞");
+        addTooltip("arcane_singularity_focus", "不宜口服");
+        addTooltip("causality_collapser_pearl", "记得带墨镜");
+        addTooltip("infinity_charger", "滴水之恩");
+        addTooltip("cosmic_neutronium_essentia_smeltery", "效率最大化");
+        addTooltip("node_anchor", "你在此处不要走动");
+        addTooltip("origin_jar", "诸法之本，万源之始");
+        addTooltip("neutron_plate", "一板一眼");
+        addTooltip("infinity_plate", "不是无敌版");
+        addTooltip("limit_alchemical_construct", "贤者之材");
+        addTooltip("limit_frame", "条条框框");
+        addTooltip("infinitus_crystal", "无限结晶");
+        addTooltip("infinitus_crystal", "证上印着无限二字");
+        addTooltip("infinitus_collector", "筛出世界的底色");
+
+        add("research_category.thaumicavaritia.thaumicavaritia", "神秘无尽");
+
+        addResearch("unlock_thaumicavaritia", "迈向无限",
+                "元始珍珠，创世之初的残余，蕴藏着纯粹的原始要素。可它们如此珍贵，却大多已退化成结核，甚至尘埃——放任不管，终将归于虚无。" +
+                        "<BR>我以一颗残存的珍珠为样本，反复比对神秘学与注魔学的典籍，剖析它衰败的本质。这并非寻常的腐朽，而是一种缓慢的、彻底的自我消解。若放任不管，连最后的微尘也会归于虚无。我必须找到逆转这场退化的方法。",
+                "在神秘学与注魔学的一次次研究中，我终于读懂了它——所谓退化，不过是原始之力在漫长时光中渐渐熄灭。既然如此，就让注魔祭坛的烈焰重新点燃它们！" +
+                        "<BR>九颗将死之物已足够作为献祭，我珍贵的样本也将化作祭坛上的引子。让它们在我手中重生，凝出那从未存在过的、最纯粹的原始要素。",
+                "太美了……这实在是太美妙了。纯粹的原始要素在我手中重生，仿佛一颗崭新的恒星。它比世上任何宝石都要璀璨，也比任何造物都更接近世界的本源。" +
+                        "<BR>可为何我仍不满足？或许，是我对更强大力量那无法餍足的贪婪，正一点点将我推向疯狂的边缘……");
+
+        addResearch("base_thaumicavaritia", "神秘无尽",
+                "我觉得……我的时间被浪费了。它们明明可以用在更有意义的事情上——比起一次次地重复劳动，我更想……获得一些……更强的力量……" +
+                        "<BR>贪婪永远得不到满足。也许总有一天，我会渴望一样事物，它没有尽头，没有边界，无穷无尽……");
+
+        addResearch("akashic_record", "阿卡西记录",
+                "以极致的贪婪之物为引，我终于唤醒了这本全知之书。它封存着古往今来一切神秘知识——万物的本质、魔法的真理，尽在其中。" +
+                        "<BR>从今往后，这本全知之书为我所用。知识的围墙，再也挡不住我。",
+                "贪欲的造物激活了阿卡西记录，万千要素如潮水般涌入我的心智。我几乎能感受到知识的重量，几乎要为此发狂。" +
+                        "<BR>神秘学，自此成为我掌中之物。可这还不够……我的贪婪，才刚刚苏醒。");
+
+        addResearch("infinity_scribing_tools", "下笔如有神之笔与墨",
+                "无论是吟游诗人还是穷苦百姓，想必都用过“笔”这种事物。相比千百年以来的结绳记事与石板雕刻，笔无疑是一件伟大的发明。只是……墨水消耗得太快了，这几乎是笔唯一的缺点。" +
+                        "<BR>而在这研究台上，这个缺点被放大到了极致——每一次落笔研习，都要耗去笔具一分耐久。若是墨水也能取之不尽，该有多好……",
+                "我以无限锭为骨、中子态素为引，让注魔祭坛赐予这支笔用之不竭的墨水。<BR>从今往后，落笔如有神助，墨痕永续。研究台上，再也不用为墨水发愁了。");
+
+        addResearch("crystal_matrix_wand_cap", "充能水晶矩阵杖端",
+                "世界盐涤荡晶格，元始珍珠注入本源，元始魔力锚定形态，大师核心则撑起传导的通路。一遍遍注魔下去，水晶潜藏的威能被一寸寸逼了出来——可它终究只是一块惰性水晶矩阵，魔力只进不出。要想真正唤醒它，我还得理清它的脉络。",
+                "光有骨架还不够——我再压一层元始珍珠稳住根基，让元始魔力与大师核心交替铺设，魔力这才真正顺着晶体流动起来。",
+                "万事俱备，只欠一份元始魔力。只要将它注入惰性水晶矩阵，便能彻底激发潜藏其中的力量。",
+                "注魔有惊无险，惰性水晶矩阵终于被彻底激发，化作充能水晶矩阵杖端！它强得独一无二——只会消耗 1% 的魔力！");
+
+        addResearch("neutronium_wand_rod", "宇宙中子态素杖柄",
+                "中子态素可是好东西，它能包容万象……那魔力呢？我似乎可以把魔力储存进中子态素的容器里。或许，该从改造元始杖芯开始。",
+                "效果很好，可魔力没过一会就全跑了。储存并非长久之计……那，我加点无限进去试试？也许它真能自己产生魔力呢……",
+                "我搞错了——存不下魔力不是坏事，而是天大的好事！中子态素裹住无限，看起来不过是一根棍子，可这根杖柄实际上连通着全宇宙的魔力！" +
+                        "<BR>这下子，我永远也不会缺魔力了！");
+
+        addResearch("arcane_singularity_focus", "奥法奇点核心",
+                "现在我拥有了无限的魔力，为何还要受核心的限制？是时候锻造一颗奇点般强大的核心了！" +
+                        "<BR>先从这个普通的大师核心开刀吧。",
+                "这一步甚至不需要费劲研究。以极元始珍珠为核，辅以强化核心、悖论珍珠，——我说的简单，不是材料上的简单，而是理论上的简单。",
+                "这颗核心，无限而悖论，生于虚空，归于虚无——它便是所有法术的终点。");
+
+        addResearch("ausality_collapser_pearl", "悖论珍珠",
+                "终望珍珠无疑是个好东西，不过那股黑色的吸力让我浮想联翩……似乎可以利用这股吸力来聚合要素？",
+                "我越是把玩终望珍珠，就越是觉得它与悖论物质神似——悖论物质将破坏性的能量送入裂隙，迫其自我坍缩；终望珍珠则以黑洞般的吸力吞噬万物，将一切拖入虚无。一个崩碎空间，一个吞没世界，分明是同一种力量的两副面孔。" +
+                        "<BR>那么……若是将二者合一，会怎样？一颗既能崩碎裂隙、又能张开黑洞、甚至能将吞噬之物化作要素吐出的珍珠？这个念头，让我夜不能寐。",
+                "注魔远比想象中凶险。以悖论物质为核，八颗终望珍珠环绕四周，虚空与魔法的洪流几乎将祭坛撕碎。我咬牙撑过最危险的时刻，在最后一缕混沌中，将一丝“无限”点入其中。" +
+                        "<BR>成功了。悖论珍珠静静躺在我掌心，通体漆黑，深处却流转着赤红的光。它会爆炸、会崩碎裂隙、会张开黑洞吞噬一切——而当黑洞消散，它还会把吞噬过的一切化作灵气节点，归还这个世界。这分明不是毁灭，而是另一种意义上的创世。");
+
+        addResearch("cosmic_neutronium_essentia_smeltery", "宇宙中子态素源质冶炼厂",
+                "虚空冶炼厂虽能熔炼源质，终究慢得磨人——黏浆分解拖沓，冶炼还逸散污染，把周遭糟蹋得不成样子。" +
+                        "<BR>我受够了这份低效与肮脏，拆解它、重铸它，正是我改良的起点。",
+                "光拆解不够。我需要能彻底重写冶炼逻辑的材料——满载物质团里封存的纯粹中子态素，佐以中子收集器与中子压缩机，正是答案。" +
+                        "<BR>以中子态素为本，将污染与损耗一并抹去。我想造一座不浪费一丝源质、也不吐出一点污物的冶炼厂。",
+                "当最后一座中子压缩机归位，一座全新的源质冶炼厂在我手中成型。它运转时再无缓慢的黏浆分解，也无刺鼻的源质污染——只有效率，与极致。" +
+                        "<BR>从今往后，冶炼源质，将是再简单不过的事。");
+
+        addResearch("infinity_charger", "涌流充能器",
+                "奥术工作台充能器确实方便，可它有个要命的毛病——它会把周遭区域的灵气吸得一干二净。" +
+                        "<BR>灵气被抽空后，我的法杖根本使不出来；更糟的是，被强行搅动的灵气里咒波比灵气还多，那东西聚起来可是会要命的。得想个法子，既要留住充能的本事，又别把环境榨干、别招来咒波。",
+                "我琢磨起那些缸中节点——它们被封在罐子里，却依旧能自顾自地凝聚、产生魔力，从不需要外界喂一口灵气。" +
+                        "<BR>若是将这份“自给自足”的本事搬过来，让充能器自己生魔力，不就既不吸光灵气、也不搅出咒波了吗？宇宙中子态素杖柄能连通全宇宙的魔力，这充能器，也该有相似的能耐。",
+                "注魔既毕，眼前的涌流充能器已然苏醒——它不再贪婪地榨取周遭灵气，也不会留下危险的咒波，只是由内而外涌动着取之不尽的魔力。" +
+                        "<BR>把它架在奥术工作台之上，从此充能，再无后顾之忧。");
+
+        addResearch("node_anchor", "节点锚",
+                "节点稳定器与节点换能器，各自都算得上精巧之作，可它们都犯着一个共同的毛病——实在太慢了。稳定器只能把节点牢牢按在原地，冻结成一潭死水；换能器要喂上好一阵魔力，节点才终于醒来。" +
+                        "<BR>这份漫长的等待，是对我贪婪的侮辱。一定有个法子能把二者合一——一边稳稳锚住节点，一边将魔力一股脑灌入，再也不必煎熬地等。",
+                "拆开换能器与稳定器，我细细端详锁住节点状态的机关，与驱动其充能的回路。一架的骨架，一者的线路，都算不上深不可测。关键在于一颗既能钉住、又能充能的核心——中子态素就是最佳人选。" +
+                        "<BR>若整件再添一缕永恒节点，当能让节点永驻于自给自足的永恒之中。",
+                "换能器的心，稳定器的钳，尽数将魔力缚于中子态素之中。" +
+                        "<BR>置于节点之下，它便将其钉死如磐石，无需再等，也再无浪费。");
+        addResearchAddenda("node_anchor",
+                "一个迷人的发现：涌流充能器中的灵气可以直接注入到节点中，最纯粹的灵气进入节点的一瞬间就化为了各种各样的要素。" +
+                        "<BR>锚不仅固定住了船，还给船提供了物资。");
+
+        add("wand.thaumicavaritia.cap.crystal_matrix", "水晶矩阵杖端");
+        add("wand.thaumicavaritia.rod.studded_cosmic_neutronium", "缠绕宇宙中子态素");
+
+        add("singularity.thaumicavaritia.brass", "黄铜奇点");
+        add("singularity.thaumicavaritia.thaumium", "神秘奇点");
+        add("singularity.thaumicavaritia.void", "虚空奇点");
+
+        addMessage("locked", "你还不够格掂量它");
+    }
+
+    private void jade() {
+        add("config.jade.plugin_thaumicavaritia.origin_jar", "万物起源之罐");
+        add("config.jade.plugin_thaumicavaritia.infinitus_collector", "无限收集器");
+
+        add("jade.thaumicavaritia.origin_jar.contents", "要素 x ∞");
+        add("jade.thaumicavaritia.infinitus_collector.formed", "已成形");
+        add("jade.thaumicavaritia.infinitus_collector.unformed", "未成形");
+        add("jade.thaumicavaritia.infinitus_collector.node", "节点：%s");
+        add("jade.thaumicavaritia.infinitus_collector.progress", "凝晶进度：%d%%");
+        add("jade.thaumicavaritia.infinitus_collector.remaining_aspects", "剩余要素：%s");
+    }
+
+    private void addResearch(String researchId, String title, String... stage) {
+        add("research.%s.%s.title".formatted(ThaumicAvaritia.MODID, researchId), title);
+        for (int i = 0; i < stage.length; i++) {
+            add("research.%s.%s.stage_%d".formatted(ThaumicAvaritia.MODID, researchId, i), stage[i]);
+        }
+    }
+
+    private void addResearchAddenda(String researchId, String... stage) {
+        for (int i = 0; i < stage.length; i++) {
+            add("research.%s.%s.addendum_%d".formatted(ThaumicAvaritia.MODID, researchId, i), stage[i]);
+        }
+    }
+
+    private void addMessage(String id, String translations) {
+        add("message.%s.%s".formatted(ThaumicAvaritia.MODID, id), translations);
+    }
+
+    private void addTooltip(String id, String translations) {
+        add("tooltip.%s.%s".formatted(ThaumicAvaritia.MODID, id), translations);
+    }
+
+    private void addConfiguration(String configID, String translations) {
+        addConfiguration(configID, translations, null);
+    }
+
+    private void addConfiguration(String configID, String translations, String tooltip) {
+        add("%s.configuration.%s".formatted(ThaumicAvaritia.MODID, configID), translations);
+        if (tooltip != null) {
+            add("%s.configuration.%s.tooltip".formatted(ThaumicAvaritia.MODID, configID), translations);
+        }
+    }
+}
