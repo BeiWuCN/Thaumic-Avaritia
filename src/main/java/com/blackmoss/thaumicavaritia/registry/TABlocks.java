@@ -1,12 +1,12 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.block.CosmicNeutroniumEssentiaSmelteryBlock;
-import com.blackmoss.thaumicavaritia.content.block.InfinityChargerBlock;
-import com.blackmoss.thaumicavaritia.content.block.NodeAnchorBlock;
-import com.blackmoss.thaumicavaritia.content.block.OriginJarBlock;
-import com.blackmoss.thaumicavaritia.content.block.infinituscollector.InfinitusCollectorBlock;
-import com.blackmoss.thaumicavaritia.content.block.infinituscollector.InfinitusCollectorSettings;
+import com.blackmoss.thaumicavaritia.block.CosmicNeutroniumEssentiaSmelteryBlock;
+import com.blackmoss.thaumicavaritia.block.InfinityChargerBlock;
+import com.blackmoss.thaumicavaritia.block.NodeAnchorBlock;
+import com.blackmoss.thaumicavaritia.block.OriginJarBlock;
+import com.blackmoss.thaumicavaritia.block.infinituscollector.InfinitusCollectorBlock;
+import com.blackmoss.thaumicavaritia.block.infinituscollector.InfinitusCollectorSettings;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;

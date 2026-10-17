@@ -29,7 +29,7 @@ public abstract class TierCraftMenuMixin {
     @Inject(method = "slotsChanged", at = @At("TAIL"))
     private void thaumicavaritia$clearGatedResult(Container container, CallbackInfo ci) {
         ItemStack out = result.getItem(0);
-        if (!NotQualifiedGate.isGated(out)) {
+        if (NotQualifiedGate.isGated(out)) {
             return;
         }
         if (!NotQualifiedGate.isResearchUnlocked(player, out)) {

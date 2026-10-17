@@ -1,14 +1,13 @@
 package com.blackmoss.thaumicavaritia.compat.jade;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.blockentity.InfinitusCollectorBlockEntity;
+import com.blackmoss.thaumicavaritia.block.InfinitusCollectorBlockEntity;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectComponents;
 import com.leclowndu93150.thaumaturge.api.aspect.Aspects;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.Identifier;
@@ -20,12 +19,10 @@ import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
 
-// 无限收集器 Jade 客户端组件提供器：套用神秘原版节点显示逻辑，加上成形状态和凝晶进度。
 public enum InfinitusCollectorComponentProvider implements IBlockComponentProvider {
     INSTANCE;
 
-    public static final Identifier UID =
-            Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "infinitus_collector");
+    public static final Identifier UID = ThaumicAvaritia.identifier("infinitus_collector");
 
     @Override
     public @NonNull Identifier getUid() {
@@ -33,9 +30,10 @@ public enum InfinitusCollectorComponentProvider implements IBlockComponentProvid
     }
 
     @Override
-    public void appendTooltip(@NonNull ITooltip tooltip,
-                              @NonNull BlockAccessor accessor,
-                              @NonNull IPluginConfig config) {
+    public void appendTooltip(
+            @NonNull ITooltip tooltip,
+            @NonNull BlockAccessor accessor,
+            @NonNull IPluginConfig config) {
         if (!(accessor.getBlockEntity() instanceof InfinitusCollectorBlockEntity be)) {
             return;
         }
@@ -51,7 +49,6 @@ public enum InfinitusCollectorComponentProvider implements IBlockComponentProvid
         tooltip.add(Component.translatable("jade.thaumicavaritia.infinitus_collector.formed")
                 .withStyle(ChatFormatting.GREEN));
 
-        // 节点类型（非普通节点或有修饰时才显示）
         if (data.contains("node_type")) {
             String nodeType = data.getStringOr("node_type", "");
             if (!"normal".equals(nodeType)) {
@@ -66,20 +63,19 @@ public enum InfinitusCollectorComponentProvider implements IBlockComponentProvid
             }
         }
 
-        // 要素列表（手动反序列化）
         if (data.contains("node_aspects")) {
             data.getList("node_aspects").ifPresent(aspectsList -> {
                 if (!aspectsList.isEmpty()) {
                     Player player = accessor.getPlayer();
                     HolderLookup.Provider registries = player.level().registryAccess();
-                    
+
                     MutableComponent list = Component.literal("");
                     boolean[] first = {true};
                     for (int i = 0; i < aspectsList.size(); i++) {
                         aspectsList.getCompound(i).ifPresent(entryTag -> {
                             String aspectId = entryTag.getStringOr("id", "");
                             int amount = entryTag.getIntOr("amount", 0);
-                            
+
                             ResourceKey<com.leclowndu93150.thaumaturge.api.aspect.IAspect> key =
                                     ResourceKey.create(com.leclowndu93150.thaumaturge.api.aspect.IAspect.REGISTRY_KEY, Identifier.parse(aspectId));
                             Holder<com.leclowndu93150.thaumaturge.api.aspect.IAspect> holder = Aspects.resolve(registries, key);
@@ -100,7 +96,6 @@ public enum InfinitusCollectorComponentProvider implements IBlockComponentProvid
             });
         }
 
-        // 凝晶进度
         int progress = data.getIntOr("progress", 0);
         int productionTicks = data.getIntOr("production_ticks", 0);
         if (progress > 0 && productionTicks > 0) {
@@ -108,20 +103,19 @@ public enum InfinitusCollectorComponentProvider implements IBlockComponentProvid
             tooltip.add(Component.translatable("jade.thaumicavaritia.infinitus_collector.progress", percent));
         }
 
-        // 显示剩余要素
         if (data.contains("remaining_aspects")) {
             data.getList("remaining_aspects").ifPresent(aspectsList -> {
                 if (!aspectsList.isEmpty()) {
                     Player player = accessor.getPlayer();
                     HolderLookup.Provider registries = player.level().registryAccess();
-                    
+
                     MutableComponent list = Component.literal("");
                     boolean[] first = {true};
                     for (int i = 0; i < aspectsList.size(); i++) {
                         aspectsList.getCompound(i).ifPresent(entryTag -> {
                             String aspectId = entryTag.getStringOr("id", "");
                             int amount = entryTag.getIntOr("amount", 0);
-                            
+
                             ResourceKey<com.leclowndu93150.thaumaturge.api.aspect.IAspect> key =
                                     ResourceKey.create(com.leclowndu93150.thaumaturge.api.aspect.IAspect.REGISTRY_KEY, Identifier.parse(aspectId));
                             Holder<com.leclowndu93150.thaumaturge.api.aspect.IAspect> holder = Aspects.resolve(registries, key);

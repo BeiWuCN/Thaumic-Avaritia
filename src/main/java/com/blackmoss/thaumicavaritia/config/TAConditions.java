@@ -11,8 +11,6 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 
 @EventBusSubscriber(modid = ThaumicAvaritia.MODID)
 public final class TAConditions {
-
-    // 配方 JSON 里用的条件类型 id：thaumicavaritia:use_thaumic_avaritia_recipes
     public static final Identifier USE_THAUMIC_AVARITIA_RECIPES =
             Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "use_thaumicavaritia_recipes");
 

@@ -2,7 +2,7 @@
 // 保持满耐久观感（其 inventoryTick 亦每 tick 回满，双保险）。
 package com.blackmoss.thaumicavaritia.mixin;
 
-import com.blackmoss.thaumicavaritia.content.item.InfinityScribingToolsItem;
+import com.blackmoss.thaumicavaritia.item.InfinityScribingToolsItem;
 import com.leclowndu93150.thaumaturge.content.research.table.BlockEntityResearchTable;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;

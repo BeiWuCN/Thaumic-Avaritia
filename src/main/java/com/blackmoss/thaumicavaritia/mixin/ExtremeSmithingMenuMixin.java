@@ -18,7 +18,7 @@ public abstract class ExtremeSmithingMenuMixin {
     private void thaumicavaritia$clearGatedSmithingResult(CallbackInfo ci) {
         ItemCombinerMenuAccessorMixin accessor = (ItemCombinerMenuAccessorMixin) this;
         ItemStack out = accessor.thaumicavaritia$getResultSlots().getItem(0);
-        if (!NotQualifiedGate.isGated(out)) {
+        if (NotQualifiedGate.isGated(out)) {
             return;
         }
         if (!NotQualifiedGate.isResearchUnlocked(accessor.thaumicavaritia$getPlayer(), out)) {

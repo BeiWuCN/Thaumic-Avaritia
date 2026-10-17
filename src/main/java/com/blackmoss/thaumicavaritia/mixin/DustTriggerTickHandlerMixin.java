@@ -3,8 +3,8 @@
 // 这样节点被蓝图替换后，其数据不丢失，且能随收集器方块"带走"（破坏收集器时数据仍在 BE 内）。
 package com.blackmoss.thaumicavaritia.mixin;
 
-import com.blackmoss.thaumicavaritia.content.block.infinituscollector.InfinitusCollectorBlock;
-import com.blackmoss.thaumicavaritia.content.block.InfinitusNodeDataCache;
+import com.blackmoss.thaumicavaritia.block.infinituscollector.InfinitusCollectorBlock;
+import com.blackmoss.thaumicavaritia.block.InfinitusNodeDataCache;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import com.leclowndu93150.thaumaturge.content.recipe.dust.DustTriggerTickHandler;
 import com.leclowndu93150.thaumaturge.content.recipe.dust.PendingSwap;

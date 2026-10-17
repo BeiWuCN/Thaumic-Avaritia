@@ -2,7 +2,7 @@
 // 由 OriginJarComponentProvider 按玩家配置显示 ∞ 或数字，避免重复。
 package com.blackmoss.thaumicavaritia.mixin.client;
 
-import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
+import com.blackmoss.thaumicavaritia.block.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.compat.jade.EssentiaComponentProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Mixin;

@@ -23,13 +23,13 @@ public class TACreativeModeTabs {
                         .displayItems((_, output) -> {
                             output.accept(TAItems.AKASHIC_RECORDS.get());
                             output.accept(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get());
-                            output.accept(TAItems.WAND_CAP_CRYSTAL_MATRIX_INTER.get());
-                            output.accept(TAItems.WAND_CAP_CRYSTAL_MATRIX.get());
-                            output.accept(TAItems.WAND_ROD_STUDDED_COSMIC_NEUTRONIUM.get());
+                            output.accept(TAItems.INTER_CRYSTAL_MATRIX_WAND_CAP.get());
+                            output.accept(TAItems.CRYSTAL_MATRIX_WAND_CAP.get());
+                            output.accept(TAItems.NEUTRONIUM_WAND_ROD.get());
                             output.accept(ItemWand.create(
                                     TCItems.WAND.get(),
                                     TAWandParts.CRYSTAL_MATRIX.get(),
-                                    TAWandParts.STUDDED_COSMIC_NEUTRONIUM.get(),
+                                    TAWandParts.NEUTRONIUM.get(),
                                     false));
                             output.accept(TAItems.CRYSTAL_MATRIX_PLATE.get());
                             output.accept(TAItems.NEUTRON_PLATE.get());

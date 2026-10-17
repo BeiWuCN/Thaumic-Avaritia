@@ -2,7 +2,7 @@
 // 作用于 Thaumaturge AspectContainerTooltipHandler.renderAspectList 的 " x<数量>" 行。
 package com.blackmoss.thaumicavaritia.mixin.client;
 
-import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
+import com.blackmoss.thaumicavaritia.block.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.client.tooltip.AspectContainerTooltipHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

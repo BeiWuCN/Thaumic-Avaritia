@@ -2,7 +2,7 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.entity.CausalityCollapserPearlEntity;
+import com.blackmoss.thaumicavaritia.entity.CausalityCollapserPearlEntity;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;

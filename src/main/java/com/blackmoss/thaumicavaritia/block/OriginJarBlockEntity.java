@@ -1,0 +1,206 @@
+package com.blackmoss.thaumicavaritia.block;
+
+import com.blackmoss.thaumicavaritia.registry.TAAspects;
+import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
+import com.leclowndu93150.thaumaturge.Thaumaturge;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
+import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import com.leclowndu93150.thaumaturge.api.aspect.IAspectSource;
+import com.leclowndu93150.thaumaturge.api.essentia.IEssentiaTransport;
+import com.mojang.serialization.Codec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.util.ProblemReporter;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
+import java.util.Objects;
+
+public class OriginJarBlockEntity extends BlockEntity implements IEssentiaTransport, IAspectSource {
+    public static final int PER_ASPECT_AMOUNT = 32767;
+
+    private static final Codec<AspectList> CONTENTS_CODEC = AspectList.CODEC;
+
+    private @Nullable AspectList contents;
+
+    public OriginJarBlockEntity(BlockPos pos, BlockState state) {
+        super(TABlockEntities.ORIGIN_JAR.get(), pos, state);
+    }
+
+    private AspectList ensureContents() {
+        if (contents != null) {
+            return contents;
+        }
+        if (level == null) {
+            return AspectList.EMPTY;
+        }
+        Registry<IAspect> registry = level.registryAccess().lookup(IAspect.REGISTRY_KEY).orElse(null);
+        AspectList filled = AspectList.EMPTY;
+        if (registry != null) {
+            for (Holder.Reference<IAspect> holder : registry.listElements().toList()) {
+                if (Objects.equals(holder.unwrapKey().orElse(null), TAAspects.INFINITUS)) {
+                    continue;
+                }
+                filled = filled.add(new AspectInstance(holder, PER_ASPECT_AMOUNT));
+            }
+        }
+        contents = filled;
+        setChanged();
+        return contents;
+    }
+
+    public AspectList originContents() {
+        return ensureContents();
+    }
+
+    @Override
+    public boolean isConnectable(Direction face) {
+        return face == Direction.UP;
+    }
+
+    @Override
+    public boolean canInputFrom(Direction face) {
+        return false;
+    }
+
+    @Override
+    public boolean canOutputTo(Direction face) {
+        return face == Direction.UP;
+    }
+
+    @Override
+    public void setSuction(@Nullable Holder<IAspect> aspect, int amount) {
+    }
+
+    @Override
+    public @Nullable Holder<IAspect> getSuctionType(Direction face) {
+        return null;
+    }
+
+    @Override
+    public int getSuctionAmount(Direction face) {
+        return 0;
+    }
+
+    @Override
+    public int getMinimumSuction() {
+        return 0;
+    }
+
+    @Override
+    public int takeEssentia(Holder<IAspect> aspect, int amount, Direction face) {
+        if (!canOutputTo(face) || aspect == null) {
+            return 0;
+        }
+        AspectList list = ensureContents();
+        int have = list.amountOf(aspect);
+        int taken = Math.min(amount, have);
+        if (taken <= 0) {
+            return 0;
+        }
+        contents = list.remove(aspect, taken);
+        setChanged();
+        syncToClient();
+        return taken;
+    }
+
+    @Override
+    public int addEssentia(Holder<IAspect> aspect, int amount, Direction face) {
+        return amount;
+    }
+
+    @Override
+    public @Nullable Holder<IAspect> getEssentiaType(Direction face) {
+        return null;
+    }
+
+    @Override
+    public int getEssentiaAmount(Direction face) {
+        return 0;
+    }
+
+    @Override
+    public int spaceFor(Holder<IAspect> aspect, Direction face) {
+        return 0;
+    }
+
+    @Override
+    public AspectList getAspects() {
+        return ensureContents();
+    }
+
+    @Override
+    public void setAspects(AspectList aspects) {
+    }
+
+    @Override
+    public boolean accepts(Holder<IAspect> holder) {
+        return true;
+    }
+
+    @Override
+    public int fill(Holder<IAspect> holder, int i) {
+        return 0;
+    }
+
+    @Override
+    public boolean drain(Holder<IAspect> holder, int i) {
+        return false;
+    }
+
+    @Override
+    public boolean isBlocked() {
+        return false;
+    }
+
+    private void syncToClient() {
+        if (level == null || level.isClientSide()) {
+            return;
+        }
+        BlockState current = getBlockState();
+        level.sendBlockUpdated(getBlockPos(), current, current, 3);
+    }
+
+    @Override
+    protected void loadAdditional(@NonNull ValueInput input) {
+        super.loadAdditional(input);
+        contents = input.read("Contents", CONTENTS_CODEC).orElse(null);
+    }
+
+    @Override
+    protected void saveAdditional(@NonNull ValueOutput output) {
+        super.saveAdditional(output);
+        if (contents != null && !contents.isEmpty()) {
+            output.store("Contents", CONTENTS_CODEC, contents);
+        }
+    }
+
+    @Override
+    public @NonNull CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.@NonNull Provider registries) {
+        CompoundTag nbt = super.getUpdateTag(registries);
+        try (ProblemReporter.ScopedCollector reporter =
+                     new ProblemReporter.ScopedCollector(this.problemPath(), Thaumaturge.LOGGER)) {
+            TagValueOutput output = TagValueOutput.createWithContext(reporter, registries);
+            saveAdditional(output);
+            nbt.merge(output.buildResult());
+        }
+        return nbt;
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+}

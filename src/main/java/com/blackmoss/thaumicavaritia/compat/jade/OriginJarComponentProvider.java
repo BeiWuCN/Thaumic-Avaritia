@@ -1,7 +1,7 @@
 package com.blackmoss.thaumicavaritia.compat.jade;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
+import com.blackmoss.thaumicavaritia.block.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -11,13 +11,10 @@ import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
 
-// 万物起源之罐 Jade provider：只显示一行「要素 x∞」（不枚举各要素，避免超屏）。
-// 复用本 mod lang 键 jade.thaumicavaritia.origin_jar.contents。
 public enum OriginJarComponentProvider implements IBlockComponentProvider {
     INSTANCE;
 
-    public static final Identifier UID =
-            Identifier.fromNamespaceAndPath(ThaumicAvaritia.MODID, "origin_jar");
+    public static final Identifier UID = ThaumicAvaritia.identifier("origin_jar");
 
     @Override
     public @NonNull Identifier getUid() {
@@ -25,9 +22,10 @@ public enum OriginJarComponentProvider implements IBlockComponentProvider {
     }
 
     @Override
-    public void appendTooltip(@NonNull ITooltip tooltip,
-                              @NonNull BlockAccessor accessor,
-                              @NonNull IPluginConfig config) {
+    public void appendTooltip(
+            @NonNull ITooltip tooltip,
+            @NonNull BlockAccessor accessor,
+            @NonNull IPluginConfig config) {
         if (!(accessor.getBlockEntity() instanceof OriginJarBlockEntity jar)) {
             return;
         }
@@ -35,7 +33,6 @@ public enum OriginJarComponentProvider implements IBlockComponentProvider {
         if (contents.isEmpty()) {
             return;
         }
-        // 只显示一行「要素 x∞」。
         tooltip.add(Component.translatable("jade.thaumicavaritia.origin_jar.contents"));
     }
 }

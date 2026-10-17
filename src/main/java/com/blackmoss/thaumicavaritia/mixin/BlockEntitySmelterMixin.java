@@ -2,7 +2,7 @@
 // 在 tick HEAD 判断当前 BE 是否为自定义冶炼厂，是则改走 cosmicTick()（0 燃料/0 污染/瞬间）并取消原逻辑。
 package com.blackmoss.thaumicavaritia.mixin;
 
-import com.blackmoss.thaumicavaritia.content.blockentity.CosmicNeutroniumEssentiaSmelteryBlockEntity;
+import com.blackmoss.thaumicavaritia.block.CosmicNeutroniumEssentiaSmelteryBlockEntity;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockEntitySmelter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

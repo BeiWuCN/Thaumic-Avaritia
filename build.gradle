@@ -123,9 +123,6 @@ dependencies {
 
     // Jade
     implementation "maven.modrinth:jade:${jade_version}"
-
-    compileOnly "maven.modrinth:QeB3NRC5:oyZN02nW"
-    localRuntime "maven.modrinth:QeB3NRC5:oyZN02nW"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

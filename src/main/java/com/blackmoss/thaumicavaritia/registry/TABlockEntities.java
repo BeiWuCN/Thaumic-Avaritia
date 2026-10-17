@@ -2,10 +2,10 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.blockentity.InfinitusCollectorBlockEntity;
-import com.blackmoss.thaumicavaritia.content.blockentity.NodeAnchorBlockEntity;
-import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
-import com.blackmoss.thaumicavaritia.content.blockentity.CosmicNeutroniumEssentiaSmelteryBlockEntity;
+import com.blackmoss.thaumicavaritia.block.InfinitusCollectorBlockEntity;
+import com.blackmoss.thaumicavaritia.block.NodeAnchorBlockEntity;
+import com.blackmoss.thaumicavaritia.block.OriginJarBlockEntity;
+import com.blackmoss.thaumicavaritia.block.CosmicNeutroniumEssentiaSmelteryBlockEntity;
 import java.util.Set;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;

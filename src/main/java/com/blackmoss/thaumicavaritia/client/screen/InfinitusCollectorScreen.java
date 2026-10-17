@@ -1,6 +1,6 @@
 package com.blackmoss.thaumicavaritia.client.screen;
 
-import com.blackmoss.thaumicavaritia.content.menu.InfinitusCollectorMenu;
+import com.blackmoss.thaumicavaritia.menu.InfinitusCollectorMenu;
 import committee.nova.mods.avaritia.Res;
 import committee.nova.mods.avaritia.api.client.screen.BaseContainerScreen;
 import committee.nova.mods.avaritia.client.screen.side.SideConfigButton;

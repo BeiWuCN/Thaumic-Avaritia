@@ -2,8 +2,8 @@
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.menu.InfinitusCollectorMenu;
-import com.blackmoss.thaumicavaritia.content.menu.CosmicNeutroniumEssentiaSmelteryMenu;
+import com.blackmoss.thaumicavaritia.menu.InfinitusCollectorMenu;
+import com.blackmoss.thaumicavaritia.menu.CosmicNeutroniumEssentiaSmelteryMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
 import net.neoforged.bus.api.IEventBus;

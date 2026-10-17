@@ -28,7 +28,7 @@ public final class TAWandParts {
             () -> new WandCap(0.01F, List.of(), 0.0F, 9, capTexture("crystal_matrix")));
 
     // 无尽杖柄：超高容量，携带时自动回满。
-    public static final DeferredHolder<WandRod, WandRod> STUDDED_COSMIC_NEUTRONIUM = RODS.register(
+    public static final DeferredHolder<WandRod, WandRod> NEUTRONIUM = RODS.register(
             "studded_cosmic_neutronium",
             () -> new WandRod(
                     INFINITY_CAPACITY_VIS,

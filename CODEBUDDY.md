@@ -51,7 +51,7 @@
 
 `TADataGenerators.onGatherData`（`GatherDataEvent.Client`）做两件事：
 1. 构造 `RegistrySetBuilder` 并注入 `IAspect.REGISTRY_KEY`（用 `TAAspectBootstrap::bootstrap`，先 `AspectBootstrap.bootstrap(ctx)` 再注册 infinitus），然后 `createDatapackRegistryObjects(registries)`。**这步不可省**——recipe/datamap provider 里都调用 `registries.lookupOrThrow(IAspect.REGISTRY_KEY)`，不注入会直接崩 `Registry thaumaturge:aspect not found`。
-2. 依次注册 provider：`TAEnUsProvider` / `TAZhCnProvider` / `TARecipeProvider.Runner` / `TAModelProvider` / `TATagsProvider` / `ItemAspectsProvider`（全部启用）。另外注册 `LootTableProvider`（`SubProviderEntry(TABlockLootSubProvider::new, LootContextParamSets.BLOCK)`），为本 mod 全部方块生成掉落表（**`registerBlock` 不会自动生成 loot table**，缺则方块破坏无掉落物）。新增方块务必在 `data/loot/TABlockLootSubProvider.generate()` 补 `dropSelf(...)`。
+2. 依次注册 provider：`EnUsProvider` / `ZhCnProvider` / `TARecipeProvider.Runner` / `ModModelProvider` / `ModBlockTagsProvider` / `ItemAspectsProvider`（全部启用）。另外注册 `LootTableProvider`（`SubProviderEntry(TABlockLootSubProvider::new, LootContextParamSets.BLOCK)`），为本 mod 全部方块生成掉落表（ **`registerBlock` 不会自动生成 loot table**，缺则方块破坏无掉落物）。新增方块务必在 `data/loot/TABlockLootSubProvider.generate()` 补 `dropSelf(...)`。
 
 配方走 `InfusionRecipeBuilder`（Thaumaturge 的 builder），语言用 `LanguageProvider`，模型用 `ModelProvider`，标签用匿名内部 `IntrinsicHolderTagsProvider` 包装成独立 `DataProvider`。
 
@@ -137,7 +137,7 @@
 - **Jade 扩展**（`compat/jade/`，仅一行「要素 x∞」不枚举各要素）：`OriginJarJadePlugin`（`@WailaPlugin`，`registerBlockComponent(OriginJarComponentProvider.INSTANCE, OriginJarBlock.class)`——传 **Block Class 而非实例**）+ `OriginJarComponentProvider`（enum 单例，`tooltip.add(translatable("jade.thaumicavaritia.origin_jar.contents"))`）+ `mixin/client/EssentiaComponentProviderMixin`（HEAD 判断 BE 是 origin_jar 时 cancel，抑制 Thaumaturge 默认数字行）。**build.gradle 需保留 Jade 依赖**（`flatDir run/mods` + `compileOnly/localRuntime name: "Jade-mc26.1-NeoForge-26.1.8"`）。
 - **坑（资源重载失败）**：Jade 打开 GUI 配置界面时会对每个注册的 provider 校验 `config.jade.plugin_<modid>.<uid>` 翻译键（uid 即 `getUid()` 去掉命名空间后的名字），缺失会抛 `AssertionError: Missing config translation` → **整个资源包加载被回滚**（`Caught error loading resourcepacks`），游戏内按 F3+T 重载同样失败。每个 Jade provider 必须同时在 lang 里提供 `config.jade.plugin_<modid>.<uid>`（参照 Thaumaturge 本体的 `config.jade.plugin_thaumaturge.node/essentia/...`）。
 - **模型**：手写 block 模型 `origin_jar.json`（复用 jar 几何，纹理 `origin_jar_{side,top,bottom}` 待用户自绘）；blockstate 由 DataGen；物品模型用 **Halo 光环**。
-- **bug 修复（挖掘不掉落 + 粒子异常）**：(1) 模型 `origin_jar.json` 缺 `particle` 纹理变量 → 破坏粒子异常，已加 `"particle": "thaumicavaritia:block/origin_jar_side"`。(2) 不掉落：根因是**所有方块都缺 loot_table**（NeoForge `registerBlock` 不自动生成）。已在 `TABlockLootSubProvider` 给 4 个方块 `dropSelf`，`runData` 生成 `loot_table/blocks/origin_jar.json` 等。**注意**：新增方块务必在 `TABlockLootSubProvider.generate()` 补 `dropSelf`，掉落统一走 loot table DataGen，不要靠 `getCloneItemStack` 覆写。
+- **bug 修复（挖掘不掉落 + 粒子异常）**： (1) 模型 `origin_jar.json` 缺 `particle` 纹理变量 → 破坏粒子异常，已加 `"particle": "thaumicavaritia:block/origin_jar_side"`。 (2) 不掉落：根因是 **所有方块都缺 loot_table**（NeoForge `registerBlock` 不自动生成）。已在 `ModBlockLootSubProvider` 给 4 个方块 `dropSelf`，`runData` 生成 `loot_table/blocks/origin_jar.json` 等。 **注意**：新增方块务必在 `TABlockLootSubProvider.generate()` 补 `dropSelf`，掉落统一走 loot table DataGen，不要靠 `getCloneItemStack` 覆写。
 - **配方**：注魔。催化剂 `TCItems.JAR_VOID`（虚空罐子）+ 无限锭×4/元始珍珠×2/世界盐×2，Auram/Praecantatio/Vacuos/Alienis×640 + 无尽×16，instability 6。
 - **Jade 显示**：见上方「黑洞渲染」后的 Jade 扩展。
 
@@ -173,7 +173,7 @@
 ### 法杖部件（`registry/TAWandParts.java`）
 - 注册到 Thaumaturge 的法杖注册表（`WandCap.REGISTRY_KEY` / `WandRod.REGISTRY_KEY`），不是物品注册表。
 - `CRYSTAL_MATRIX`：`baseCostModifier = 0.1F`（90% 减免）。
-- `STUDDED_COSMIC_NEUTRONIUM`：`capacity = 9_999_999`（vis，Thaumaturge 内部以 centivis 存储，写入时乘 100），`onUpdate = InfinityOnUpdate` 每 tick 把全部原初要素补满（写入 `TCDataComponents.WAND_VIS`）。
+- `NEUTRONIUM`：`capacity = 9_999_999`（vis，Thaumaturge 内部以 centivis 存储，写入时乘 100），`onUpdate = InfinityOnUpdate` 每 tick 把全部原初要素补满（写入 `TCDataComponents.WAND_VIS`）。
 - 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`wand_rod_studded_cosmic_neutronium.png`；物品形态另有 `textures/item/` 下同名 PNG（**纹理由用户手绘，AI 不要生成图片**）。
 - **资格门禁（`#thaumicavaritia:not_qualified` 标签）**：带此标签的物品必须解锁**同名研究**（研究条目 id = 物品注册 id，含命名空间）才能获得/合成，否则提示「你还不够格掂量它」且不能入包。核心是 **`mixin/TierCraftMenuMixin`**（无尽工作台，`slotsChanged` TAIL 清空结果槽）+ **`mixin/ExtremeSmithingMenuMixin`**（无尽锻造，`createResult` TAIL 清空结果槽）——未解锁时结果槽不产出、材料不消耗。兜底：`content/event/TAServerEvents`（`@EventBusSubscriber` 默认 Dist.BOTH + `instanceof ServerPlayer`，监听 `ItemCraftedEvent`）把其它途径获得的门禁物品移出背包并提示。共享逻辑在 `content/NotQualifiedGate`（`isGated`/`researchId`/`isResearchUnlocked`）。研究解锁判断：`KnowledgeAccess.of(player).hasResearchFlag(researchId, ResearchFlag.RESEARCH)`；`KnowledgeAccess` 未绑定时保守放行。**注意**：事件注册必须用默认 Dist.BOTH（`runClient` 是集成服务器，`Dist.DEDICATED_SERVER` 不注册导致不生效）。已加标签：杖柄（`wand_rod_studded_cosmic_neutronium`）+ 奥法奇点核心（`arcane_singularity_focus`，无尽锻造产物）。
 
@@ -221,7 +221,7 @@
 ### 标签（`registry/TATags.java` + `data/tag/TATagsProvider.java`）
 - `#avaritia:endless`（`ModTags.IMMORTAL_ITEM`）：珍珠、阿卡西、杖端、杖柄全部加入。
 - `#thaumaturge:curios`（`TATags.THAUMATURGE_CURIOS`）：Thaumaturge 的 7 个珍宝加入，供阿卡西配方取用。
-- **方块标签**：`TATagsProvider` 同时持有一个 `IntrinsicHolderTagsProvider<Block>`（`Registries.BLOCK` + `builtInRegistryHolder().key()`），`run()` 用 `CompletableFuture.allOf` 并行执行。`#minecraft:mineable/pickaxe`（`BlockTags.MINEABLE_WITH_PICKAXE`）加入涌流充能器/宇宙冶炼厂/节点锚，**排除 origin_jar（玻璃罐体）**。生成到 `data/minecraft/tags/block/mineable/pickaxe.json`。
+- **方块标签**：`ModBlockTagsProvider` 同时持有一个 `IntrinsicHolderTagsProvider<Block>`（`Registries.BLOCK` + `builtInRegistryHolder().key()`），`run()` 用 `CompletableFuture.allOf` 并行执行。`#minecraft:mineable/pickaxe`（`BlockTags.MINEABLE_WITH_PICKAXE`）加入涌流充能器/宇宙冶炼厂/节点锚， **排除 origin_jar（玻璃罐体）**。生成到 `data/minecraft/tags/block/mineable/pickaxe.json`。
 - 标签不存在的就直接加，不要反复验证。
 
 ### 要素（`api/aspect/TAAspects.java` + `data/aspect/TAAspectBootstrap.java`）
@@ -240,7 +240,7 @@
 - **该文件是跨命名空间资源覆盖（`assets/avaritia/...`），必须保留，不要删。**
 
 ### DataGen（`data/TADataGenerators.java`）
-- 注册了：`TAEnUsProvider` / `TAZhCnProvider` / `TARecipeProvider.Runner` / `TAModelProvider` / `TATagsProvider` / `ItemAspectsProvider`（均已启用）。
+- 注册了：`EnUsProvider` / `ZhCnProvider` / `TARecipeProvider.Runner` / `ModModelProvider` / `ModBlockTagsProvider` / `ItemAspectsProvider`（均已启用）。
 - 注入 `TAAspectBootstrap` 到 `RegistrySetBuilder`（先 `AspectBootstrap.bootstrap` 再注册 infinitus）。
 - lang 已迁移为 DataGen：`item.thaumicavaritia.*`、`block.thaumicavaritia.*`、`item.thaumicavaritia.*.desc`（lore，灰色斜体，经 `TATooltipHandler` 附加）、`research.thaumaturge.*`、`research_category.thaumicavaritia.arcane_infinity`、`singularity.thaumicavaritia.*`。`assets/.../lang/` 不再手写。
 - **坑**：`LanguageProvider.add` 对重复键抛 `IllegalStateException`，同一个 key 只能 add 一次（曾因 `research_category.thaumicavaritia.thaumicavaritia` 重复导致 runData 失败）。

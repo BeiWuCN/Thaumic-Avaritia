@@ -1,6 +1,6 @@
 package com.blackmoss.thaumicavaritia.mixin;
 
-import com.blackmoss.thaumicavaritia.content.block.InfinityChargerBlock;
+import com.blackmoss.thaumicavaritia.block.InfinityChargerBlock;
 import com.leclowndu93150.thaumaturge.content.workbench.BlockEntityArcaneWorkbench;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;

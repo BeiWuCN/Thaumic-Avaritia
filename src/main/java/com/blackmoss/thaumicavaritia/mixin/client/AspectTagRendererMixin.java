@@ -2,7 +2,7 @@
 // 作用于 Thaumaturge AspectTagRenderer.drawAmount（GUI 中要素标签的角标数字）。
 package com.blackmoss.thaumicavaritia.mixin.client;
 
-import com.blackmoss.thaumicavaritia.content.blockentity.OriginJarBlockEntity;
+import com.blackmoss.thaumicavaritia.block.OriginJarBlockEntity;
 import com.leclowndu93150.thaumaturge.client.render.aspect.AspectTagRenderer;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;

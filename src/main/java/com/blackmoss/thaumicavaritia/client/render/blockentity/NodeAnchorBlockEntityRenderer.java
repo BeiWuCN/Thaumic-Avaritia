@@ -1,8 +1,6 @@
-// 节点锚 BER：在锚上方一格的灵气节点位置绘制 billboard 气泡光圈（呼应原版稳定器/换能器对节点的光环效果）。
-// 复用 Thaumaturge 的 node_bubble.png 纹理，仅用标准 MC 渲染 API（不依赖 Thaumaturge 内部渲染类）。
 package com.blackmoss.thaumicavaritia.client.render.blockentity;
 
-import com.blackmoss.thaumicavaritia.content.blockentity.NodeAnchorBlockEntity;
+import com.blackmoss.thaumicavaritia.block.NodeAnchorBlockEntity;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -29,7 +27,6 @@ public final class NodeAnchorBlockEntityRenderer
         implements BlockEntityRenderer<NodeAnchorBlockEntity, NodeAnchorBlockEntityRenderState> {
     private static final Identifier BUBBLE_TEXTURE =
             Identifier.fromNamespaceAndPath("thaumaturge", "textures/misc/node_bubble.png");
-    // 半透明发光渲染（对齐原版稳定器 OVERLAY 的 entityTranslucentEmissive 层级，气泡应发光且正确排序）。
     private static final RenderType BUBBLE = RenderTypes.entityTranslucentEmissive(BUBBLE_TEXTURE);
     private static final float BUBBLE_HALF = 0.9F;
     private static final float BUBBLE_ALPHA_BASE = 0.5F;
@@ -56,7 +53,6 @@ public final class NodeAnchorBlockEntityRenderer
         LocalPlayer player = Minecraft.getInstance().player;
         state.ticks = player == null ? 0.0F : player.tickCount + partialTicks;
         state.light = state.lightCoords;
-        // 节点可能在锚上方一格（爪朝上）或下方一格（爪朝下），气泡画在节点所在格的中心。
         Level level = anchor.getLevel();
         BlockPos pos = anchor.getBlockPos();
         boolean up = level != null && level.getBlockEntity(pos.above()) instanceof BlockEntityNode;
@@ -77,9 +73,7 @@ public final class NodeAnchorBlockEntityRenderer
         float pulse = Mth.sin(state.ticks / BUBBLE_PULSE_PERIOD) * BUBBLE_ALPHA_PULSE + BUBBLE_ALPHA_BASE;
         int color = ARGB.color((int) (pulse * 255.0F), 0xFFFFFF);
         poseStack.pushPose();
-        // 锚坐标 → 节点所在格的中心（相对高度由 bubbleY 决定，节点在上=+1.5，在下=-0.5）。
         poseStack.translate(0.5F, state.bubbleY, 0.5F);
-        // billboard：朝向相机。
         poseStack.mulPose(camera.orientation);
         collector.submitCustomGeometry(
                 poseStack,

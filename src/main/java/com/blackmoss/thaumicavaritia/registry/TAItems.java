@@ -1,8 +1,7 @@
-// 物品注册：无尽贪婪（Re:Avaritia）与神秘时代（Thaumaturge）联动物品。
 package com.blackmoss.thaumicavaritia.registry;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.item.*;
+import com.blackmoss.thaumicavaritia.item.*;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWandRod;
 import net.minecraft.world.item.BlockItem;
@@ -16,32 +15,32 @@ public final class TAItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThaumicAvaritia.MODID);
 
-    // 极元始珍珠：由 9 颗元始珍珠注魔而成，用作高价值注魔材料。
+    // 极元始珍珠
     public static final DeferredItem<ExtremelyPrimordialPearlItem> EXTREMELY_PRIMORDIAL_PEARL = ITEMS.registerItem(
             "extremely_primordial_pearl",
             ExtremelyPrimordialPearlItem::new,
             props -> props.rarity(Rarity.EPIC));
 
-    // 阿卡西记录（Akashic Records）：使用后给予玩家全部要素的研究点。
+    // 阿卡西记录
     public static final DeferredItem<AkashicRecordsItem> AKASHIC_RECORDS = ITEMS.registerItem(
             "akashic_record",
             AkashicRecordsItem::new,
             props -> props.rarity(Rarity.EPIC));
 
     // 惰性水晶矩阵杖端
-    public static final DeferredItem<Item> WAND_CAP_CRYSTAL_MATRIX_INTER = ITEMS.registerSimpleItem("wand_cap_crystal_matrix_inter");
+    public static final DeferredItem<Item> INTER_CRYSTAL_MATRIX_WAND_CAP = ITEMS.registerSimpleItem("inter_crystal_matrix_wand_cap");
 
-    // 水晶矩阵杖端：水晶缠绕宇宙中子态素法杖的杖端，提供 99% Vis 减免。
-    public static final DeferredItem<ItemWandCap> WAND_CAP_CRYSTAL_MATRIX = ITEMS.registerItem(
-            "wand_cap_crystal_matrix",
+    // 水晶矩阵杖端
+    public static final DeferredItem<ItemWandCap> CRYSTAL_MATRIX_WAND_CAP = ITEMS.registerItem(
+            "crystal_matrix_wand_cap",
             props -> new ItemWandCap(props, TAWandParts.CRYSTAL_MATRIX),
             props -> props
                     .rarity(Rarity.EPIC));
 
     // 宇宙中子态素杖柄
-    public static final DeferredItem<ItemWandRod> WAND_ROD_STUDDED_COSMIC_NEUTRONIUM = ITEMS.registerItem(
-            "wand_rod_studded_cosmic_neutronium",
-            props -> new ItemWandRod(props, TAWandParts.STUDDED_COSMIC_NEUTRONIUM),
+    public static final DeferredItem<ItemWandRod> NEUTRONIUM_WAND_ROD = ITEMS.registerItem(
+            "neutronium_wand_rod",
+            props -> new ItemWandRod(props, TAWandParts.NEUTRONIUM),
             props -> props
                     .rarity(Rarity.EPIC));
 
@@ -53,8 +52,7 @@ public final class TAItems {
                     .stacksTo(1)
                     .rarity(Rarity.EPIC));
 
-    // 笔如有神之笔与墨：无尽研究台笔具。研究台判定要求 maxDamage > 0，故设大耐久，
-    // 实际由 inventoryTick 每 tick 回满，永不损坏。
+    // 下笔如有神之笔与墨
     public static final DeferredItem<InfinityScribingToolsItem> INFINITY_SCRIBING_TOOLS = ITEMS.registerItem(
             "infinity_scribing_tools",
             InfinityScribingToolsItem::new,
@@ -63,14 +61,14 @@ public final class TAItems {
                     .rarity(Rarity.EPIC)
                     .durability(InfinityScribingToolsItem.MAX_DAMAGE));
 
-    // 悖论珍珠：结合悖论物质与终望珍珠功能并加强的投掷物。
+    // 悖论珍珠
     public static final DeferredItem<CausalityCollapserPearlItem> CAUSALITY_COLLAPSER_PEARL = ITEMS.registerItem(
             "causality_collapser_pearl",
             CausalityCollapserPearlItem::new,
             props -> props
                     .stacksTo(16)
                     .rarity(Rarity.EPIC));
-    // 无限结晶：无限要素的物理形态，只可由无限收集器产出，不可合成。
+    // 无限结晶
     public static final DeferredItem<InfinitusCrystalItem> INFINITUS_CRYSTAL = ITEMS.registerItem(
             "infinitus_crystal",
             InfinitusCrystalItem::new,
