@@ -174,7 +174,7 @@
 - 注册到 Thaumaturge 的法杖注册表（`WandCap.REGISTRY_KEY` / `WandRod.REGISTRY_KEY`），不是物品注册表。
 - `CRYSTAL_MATRIX`：`baseCostModifier = 0.1F`（90% 减免）。
 - `NEUTRONIUM`：`capacity = 9_999_999`（vis，Thaumaturge 内部以 centivis 存储，写入时乘 100），`onUpdate = InfinityOnUpdate` 每 tick 把全部原初要素补满（写入 `TCDataComponents.WAND_VIS`）。
-- 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`wand_rod_studded_cosmic_neutronium.png`；物品形态另有 `textures/item/` 下同名 PNG（**纹理由用户手绘，AI 不要生成图片**）。
+- 纹理路径：部件渲染用 `assets/thaumicavaritia/textures/models/wand_cap_crystal.png`、`nutronium_wand_rod.png`；物品形态另有 `textures/item/` 下同名 PNG（ **纹理由用户手绘，AI 不要生成图片**）。
 - **资格门禁（`#thaumicavaritia:not_qualified` 标签）**：带此标签的物品必须解锁**同名研究**（研究条目 id = 物品注册 id，含命名空间）才能获得/合成，否则提示「你还不够格掂量它」且不能入包。核心是 **`mixin/TierCraftMenuMixin`**（无尽工作台，`slotsChanged` TAIL 清空结果槽）+ **`mixin/ExtremeSmithingMenuMixin`**（无尽锻造，`createResult` TAIL 清空结果槽）——未解锁时结果槽不产出、材料不消耗。兜底：`content/event/TAServerEvents`（`@EventBusSubscriber` 默认 Dist.BOTH + `instanceof ServerPlayer`，监听 `ItemCraftedEvent`）把其它途径获得的门禁物品移出背包并提示。共享逻辑在 `content/NotQualifiedGate`（`isGated`/`researchId`/`isResearchUnlocked`）。研究解锁判断：`KnowledgeAccess.of(player).hasResearchFlag(researchId, ResearchFlag.RESEARCH)`；`KnowledgeAccess` 未绑定时保守放行。**注意**：事件注册必须用默认 Dist.BOTH（`runClient` 是集成服务器，`Dist.DEDICATED_SERVER` 不注册导致不生效）。已加标签：杖柄（`wand_rod_studded_cosmic_neutronium`）+ 奥法奇点核心（`arcane_singularity_focus`，无尽锻造产物）。
 
 ### 物品模型（`data/model/TAModelProvider.java`）
