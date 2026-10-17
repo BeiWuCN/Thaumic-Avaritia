@@ -57,7 +57,7 @@
 
 ### 跨模组联动方式
 
-- **注魔配方**：同时引用 `TCItems`（Thaumaturge 物品）与 `ModItems`（avaritia 物品）作为材料/催化剂。
+- **注魔配方**：同时引用 `TTItems`（Thaumaturge 物品）与 `ModItems`（avaritia 物品）作为材料/催化剂。
 - **标签**：把本 mod 物品加进 avaritia 的 `ModTags.IMMORTAL_ITEM`（`#avaritia:endless`）；把 Thaumaturge 的 7 个珍宝加进本 mod 声明的 `TATags.THAUMATURGE_CURIOS`（`#thaumaturge:curios`）。
 - **要素 datamap**：`ItemAspectsProvider` 用 `AspectDataMaps.BASE_ASPECTS` 为 avaritia 物品与本 mod 产物补要素构成（已启用，见"当前状态"）。
 - **研究点**：`AkashicRecordsItem` 遍历 `IAspect.REGISTRY_KEY` 全部要素，`AspectPoolAccess.grantAll` 一次性授予。
@@ -72,7 +72,7 @@
 
 `src/main/templates/META-INF/neoforge.mods.toml` 是元数据模板（唯一权威来源，别改生成物）。依赖声明：`neoforge`（required）、`minecraft`（required）、`thaumaturge`（required，ordering AFTER）、`avaritia`（required，ordering AFTER）。
 
-**API 边界**：依赖 Thaumaturge 时只读 `com.leclowndu93150.thaumaturge.api.*` facade；可例外使用注册类本身（`ItemWandCap` / `ItemWandRod` / `TCItems` / `TCDataComponents`）、`data.recipe.builders` / `data.worldgen.aspect`，以及明确指定例外（`NodeGenerator`、`content.essentia.smeltery` 的 `BlockEntitySmelter` 等被继承的父类）。**不要碰** `content`/`registry` 内部实现。
+**API 边界**：依赖 Thaumaturge 时只读 `com.leclowndu93150.thaumaturge.api.*` facade；可例外使用注册类本身（`ItemWandCap` / `ItemWandRod` / `TTItems` / `TCDataComponents`）、`data.recipe.builders` / `data.worldgen.aspect`，以及明确指定例外（`NodeGenerator`、`content.essentia.smeltery` 的 `BlockEntitySmelter` 等被继承的父类）。**不要碰** `content`/`registry` 内部实现。
 
 ## 已实现内容
 
@@ -98,7 +98,7 @@
 - 显示名「涌流充能器」/ "Gushing Charger"（中文描述"滴水之恩"）。代码类名即"无限充能器"。
 - 放在**奥术工作台上方**（`canSurvive` 要求下方非空气），为其提供无限灵气。
 - **模型**：手写 tcmesh 模型（复用 `thaumaturge:models/mesh/arcane_workbench_charger.tcmesh`，仅纹理指向 `thaumicavaritia:block/infinity_charger`）；blockstate/items 由 DataGen 生成；物品模型用 **Halo 光环**（内层指向 block 模型，非扁平贴图）。
-- **配方**：注魔。催化剂 `TCItems.EVERFULL_URN`（永满之瓮）+ 4×`ModItems.infinity_ingot` + 4×`ModItems.neutron_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
+- **配方**：注魔。催化剂 `TTItems.EVERFULL_URN`（永满之瓮）+ 4×`ModItems.infinity_ingot` + 4×`ModItems.neutron_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
 - 纹理：`textures/block/infinity_charger.png`（用户手绘）。
 
 **宇宙中子态素源质冶炼厂（`CosmicNeutroniumEssentiaSmelteryBlock`，注册名 `cosmic_neutronium_essentia_smeltery`）**
@@ -114,7 +114,7 @@
   - 物品槽逻辑坐标 `Menu.ITEM_X = 80`、`ITEM_Y = 32`，须与纹理中左侧输入槽中心对齐。
   - 源质条容器位于界面内 `(62,21)-(69,67)`，高 46 宽 8 像素；素材区在图集 `(177,1)-(184,47)`，宽 8 高 46。
   - Screen 进度条：`visScaled = blockEntity.getVisScaled(46)`（`BE.MAX_VIS = 256` 映射到 0-46 像素）；blit 从 `(177, 47 - visScaled)` 取 7×visScaled 的紫色素材，覆盖到 `(x+61, y+67-visScaled)`——**从底部向上填充、垂直裁剪取底部，非缩放**。改纹理或改条尺寸时要同步修改 `Screen`、`Menu` 和 `BE.MAX_VIS`。
-- **配方**：注魔。催化剂 `TCItems.SMELTER_VOID`（虚空冶炼炉）+ 4×`ModItems.neutron_ingot` + 4×`ModItems.infinity_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
+- **配方**：注魔。催化剂 `TTItems.SMELTER_VOID`（虚空冶炼炉）+ 4×`ModItems.neutron_ingot` + 4×`ModItems.infinity_ingot`，Auram/Praecantatio/Vacuos×640 + 无尽×16，instability 5。
 - 纹理：`textures/block/cosmic_neutronium_essentia_smeltery_{front_off,front_on,side,top}.png`（用户手绘，前两张不同、侧/顶另两版）。
 
 **节点锚（`NodeAnchorBlock`，注册名 `node_anchor`）**
@@ -124,7 +124,7 @@
 - **模型**：手写 `node_anchor.json` + `node_anchor_charged.json` 双模型（稳定器/换能器几何，共用纹理）；blockstate 由 DataGen `PropertyDispatch.initial(FACING, CHARGED)` 生成 4 组合（DOWN 时 `X_ROT_180`，CHARGED 切换造型）；物品模型用 **Halo 光环**。**`RenderShape.MODEL`**（不能照抄原版稳定器 `INVISIBLE`——那依赖 BER 代码绘制，本方块无 BER 会完全不渲染）。
 - **气泡渲染**：`NodeAnchorBlockEntityRenderer` 在节点所在格中心画 billboard 气泡（复用 `thaumaturge:textures/misc/node_bubble.png`，`entityTranslucentEmissive` 发光、脉冲透明度），`NodeAnchorBlockEntityRenderState` 携带 `ticks/light/hasNode/bubbleY`（节点在上=+1.5 / 在下=-0.5）。
 - **`NodeRendererMixin`**（mixin 根包，client 列表）：`extractRenderState*` RETURN 时若 `state.energized` 则 `state.size *= 0.5`——充能节点渲染缩小一半（仅视觉，不影响逻辑）。
-- **配方**：注魔。催化剂 `ModItems.eternal_singularity` + 2×`TCItems.NODE_STABILIZER` + 2×`TCItems.NODE_TRANSDUCER` + 4×`ModItems.neutron_ingot`，Auram×640 / Potentia×480 / Ordo×480 / Machina×480 + 无尽×16，instability 6。
+- **配方**：注魔。催化剂 `ModItems.eternal_singularity` + 2×`TTItems.NODE_STABILIZER` + 2×`TTItems.NODE_TRANSDUCER` + 4×`ModItems.neutron_ingot`，Auram×640 / Potentia×480 / Ordo×480 / Machina×480 + 无尽×16，instability 6。
 - 研究：手写 `data/thaumicavaritia/thaumaturge/research_entry/node_anchor.json`（zh「节点锚」）。
 
 **万物起源之罐（`OriginJarBlock`，注册名 `origin_jar`）**
@@ -138,7 +138,7 @@
 - **坑（资源重载失败）**：Jade 打开 GUI 配置界面时会对每个注册的 provider 校验 `config.jade.plugin_<modid>.<uid>` 翻译键（uid 即 `getUid()` 去掉命名空间后的名字），缺失会抛 `AssertionError: Missing config translation` → **整个资源包加载被回滚**（`Caught error loading resourcepacks`），游戏内按 F3+T 重载同样失败。每个 Jade provider 必须同时在 lang 里提供 `config.jade.plugin_<modid>.<uid>`（参照 Thaumaturge 本体的 `config.jade.plugin_thaumaturge.node/essentia/...`）。
 - **模型**：手写 block 模型 `origin_jar.json`（复用 jar 几何，纹理 `origin_jar_{side,top,bottom}` 待用户自绘）；blockstate 由 DataGen；物品模型用 **Halo 光环**。
 - **bug 修复（挖掘不掉落 + 粒子异常）**： (1) 模型 `origin_jar.json` 缺 `particle` 纹理变量 → 破坏粒子异常，已加 `"particle": "thaumicavaritia:block/origin_jar_side"`。 (2) 不掉落：根因是 **所有方块都缺 loot_table**（NeoForge `registerBlock` 不自动生成）。已在 `ModBlockLootSubProvider` 给 4 个方块 `dropSelf`，`runData` 生成 `loot_table/blocks/origin_jar.json` 等。 **注意**：新增方块务必在 `TABlockLootSubProvider.generate()` 补 `dropSelf`，掉落统一走 loot table DataGen，不要靠 `getCloneItemStack` 覆写。
-- **配方**：注魔。催化剂 `TCItems.JAR_VOID`（虚空罐子）+ 无限锭×4/元始珍珠×2/世界盐×2，Auram/Praecantatio/Vacuos/Alienis×640 + 无尽×16，instability 6。
+- **配方**：注魔。催化剂 `TTItems.JAR_VOID`（虚空罐子）+ 无限锭×4/元始珍珠×2/世界盐×2，Auram/Praecantatio/Vacuos/Alienis×640 + 无尽×16，instability 6。
 - **Jade 显示**：见上方「黑洞渲染」后的 Jade 扩展。
 
 ### 法术核心（`content/item/ArcaneSingularityFocusItem.java`）
@@ -184,7 +184,7 @@
 - 若物品模型由其它来源提供（绕过 DataGen 校验），用 `itemModels.declareCustomModelItem(item)`（仍会生成默认 items json，需注意与手动文件冲突）。
 
 ### 配方（`data/recipe/TARecipeProvider.java`）
-- 极元始珍珠：8 × `TCItems.PRIMORDIAL_PEARL` 注魔（Alienis×32 / Perditio×16，instability 4）。
+- 极元始珍珠：8 × `TTItems.PRIMORDIAL_PEARL` 注魔（Alienis×32 / Perditio×16，instability 4）。
 - 阿卡西记录：催化剂 `#thaumaturge:curios` + 4 × `ModItems.infinity_ingot` 注魔（Cognitio×64 / Praecantatio×64 / Alienis×32）。
 - 涌流充能器 / 宇宙冶炼厂：见上方方块章节。
 - 全部使用 `InfusionRecipeBuilder`，已带 `.unlockedBy(...)`。
