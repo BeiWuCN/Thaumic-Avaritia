@@ -3,6 +3,7 @@ package com.blackmoss.thaumicavaritia.data.tag;
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import com.blackmoss.thaumicavaritia.registry.TATags;
+import com.leclowndu93150.thaumaturge.registry.TTItemTags;
 import com.leclowndu93150.thaumaturge.registry.TTItems;
 import committee.nova.mods.avaritia.init.registry.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -21,7 +22,6 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider provider) {
-        // 无尽联动：联动物品标记为无尽物品（#avaritia:endless / immortal）。
         tag(ModTags.IMMORTAL_ITEM).add(
                 TAItems.EXTREMELY_PRIMORDIAL_PEARL.get(),
                 TAItems.AKASHIC_RECORDS.get(),
@@ -32,7 +32,6 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
                 TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get()
         );
 
-        // Thaumaturge 珍宝（curio）均加入 curio 标签，供阿卡西记录配方使用。
         tag(TATags.THAUMATURGE_CURIOS).add(
                 TTItems.CURIO_ARCANE.get(),
                 TTItems.CURIO_PRESERVED.get(),
@@ -42,6 +41,9 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
                 TTItems.CURIO_TWISTED.get(),
                 TTItems.CURIO_RITES.get(),
                 TTItems.PECH_WAND.get());
+
+        tag(TTItemTags.SCRIBING_TOOLS)
+                .add(TAItems.INFINITY_SCRIBING_TOOLS.get());
 
         // 资格门禁：未解锁同名研究前无法获得/合成的物品。
 //        tag(TATags.NOT_QUALIFIED).add(

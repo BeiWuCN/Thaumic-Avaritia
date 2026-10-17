@@ -15,7 +15,7 @@ public final class ZhCnProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("itemGroup.thaumicavaritia", "神秘无尽");
+        add("itemGroup." + ThaumicAvaritia.MODID, "神秘无尽");
         jade();
 
         addConfiguration("use_thaumicavaritia_recipes", "神秘无尽改写配方",
@@ -36,6 +36,7 @@ public final class ZhCnProvider extends LanguageProvider {
         addItem(TAItems.CRYSTAL_MATRIX_PLATE, "水晶矩阵板");
         addItem(TAItems.NEUTRON_PLATE, "中子板");
         addItem(TAItems.INFINITY_PLATE, "无尽板");
+        addItem(TAItems.INFINITUS_CRYSTAL, "无限水晶");
 
         addBlock(TABlocks.LIMIT_ALCHEMICAL_CONSTRUCT, "极限炼金构材");
         addBlock(TABlocks.LIMIT_FRAME, "极限框架");
@@ -47,11 +48,11 @@ public final class ZhCnProvider extends LanguageProvider {
 
         addEntityType(TAEntities.CAUSALITY_COLLAPSER_PEARL, "悖论珍珠");
 
-        addTooltip("item.thaumicavaritia.extremely_primordial_pearl", "世界的本源");
+        addTooltip("extremely_primordial_pearl", "世界的本源");
         addTooltip("akashic_record", "知识的重量");
         addTooltip("infinity_scribing_tools", "先行万里路");
-        addTooltip("wand_cap_crystal_matrix", "晶莹剔透");
-        addTooltip("wand_rod_studded_cosmic_neutronium", "手持式黑洞");
+        addTooltip("crystal_matrix_wand_cap", "晶莹剔透");
+        addTooltip("neutronium_wand_rod", "手持式黑洞");
         addTooltip("arcane_singularity_focus", "不宜口服");
         addTooltip("causality_collapser_pearl", "记得带墨镜");
         addTooltip("infinity_charger", "滴水之恩");
@@ -142,8 +143,8 @@ public final class ZhCnProvider extends LanguageProvider {
                 "一个迷人的发现：涌流充能器中的灵气可以直接注入到节点中，最纯粹的灵气进入节点的一瞬间就化为了各种各样的要素。" +
                         "<BR>锚不仅固定住了船，还给船提供了物资。");
 
-        add("wand.thaumicavaritia.cap.crystal_matrix", "水晶矩阵杖端");
-        add("wand.thaumicavaritia.rod.studded_cosmic_neutronium", "缠绕宇宙中子态素");
+        add("wand.thaumaturge.cap.crystal_matrix", "水晶矩阵杖端");
+        add("wand.thaumaturge.rod.neutronium", "缠绕宇宙中子态素");
 
         add("singularity.thaumicavaritia.brass", "黄铜奇点");
         add("singularity.thaumicavaritia.thaumium", "神秘奇点");

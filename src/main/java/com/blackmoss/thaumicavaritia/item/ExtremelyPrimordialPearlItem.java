@@ -11,7 +11,6 @@ import org.jspecify.annotations.NonNull;
 import java.util.function.Consumer;
 
 public final class ExtremelyPrimordialPearlItem extends Item {
-
     public ExtremelyPrimordialPearlItem(Properties properties) {
         super(properties);
     }

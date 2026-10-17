@@ -1,5 +1,3 @@
-// 无尽工作台（TierCraftMenu）资格门禁：结果槽产出带 #thaumicavaritia:not_qualified 标签的物品时，
-// 若玩家未解锁同名研究，则清空结果槽——物品无法被取走，材料留在网格不被消耗。
 package com.blackmoss.thaumicavaritia.mixin;
 
 import com.blackmoss.thaumicavaritia.content.NotQualifiedGate;
@@ -17,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TierCraftMenu.class)
 public abstract class TierCraftMenuMixin {
-
     @Shadow
     @Final
     private ResultContainer result;
@@ -27,13 +24,12 @@ public abstract class TierCraftMenuMixin {
     private Player player;
 
     @Inject(method = "slotsChanged", at = @At("TAIL"))
-    private void thaumicavaritia$clearGatedResult(Container container, CallbackInfo ci) {
+    private void thaumicavaritia$clearGatedResult(Container matrix, CallbackInfo ci) {
         ItemStack out = result.getItem(0);
         if (NotQualifiedGate.isGated(out)) {
             return;
         }
         if (!NotQualifiedGate.isResearchUnlocked(player, out)) {
-            // 未解锁研究：清空结果槽，物品无法被取走，材料留在网格。
             result.setItem(0, ItemStack.EMPTY);
         }
     }

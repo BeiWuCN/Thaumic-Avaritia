@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia;
 
-import com.blackmoss.thaumicavaritia.config.TAConfigs;
+import com.blackmoss.thaumicavaritia.config.TAClientConfigs;
+import com.blackmoss.thaumicavaritia.config.TACommonConfigs;
 import com.blackmoss.thaumicavaritia.data.*;
 import com.blackmoss.thaumicavaritia.data.lang.EnUsProvider;
 import com.blackmoss.thaumicavaritia.data.lang.ZhCnProvider;
@@ -33,7 +34,8 @@ public class ThaumicAvaritia {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ThaumicAvaritia(IEventBus modEventBus, ModContainer modContainer) {
-        modContainer.registerConfig(ModConfig.Type.COMMON, TAConfigs.COMMON.build());
+        modContainer.registerConfig(ModConfig.Type.COMMON, TACommonConfigs.COMMON.build());
+        modContainer.registerConfig(ModConfig.Type.CLIENT, TAClientConfigs.CLIENT.build());
 
         TACreativeModeTabs.register(modEventBus);
         TAItems.register(modEventBus);

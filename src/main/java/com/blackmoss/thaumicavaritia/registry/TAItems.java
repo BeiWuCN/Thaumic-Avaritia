@@ -12,7 +12,6 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class TAItems {
-
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThaumicAvaritia.MODID);
 
     // 极元始珍珠

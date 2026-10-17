@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumicavaritia.wand_cap_crystal_matrix.title",
+  "name": "research.thaumicavaritia.crystal_matrix_wand_cap.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia"
   ],
@@ -10,17 +10,17 @@
     "spiky"
   ],
   "icons": [
-    "thaumicavaritia:wand_cap_crystal_matrix"
+    "thaumicavaritia:crystal_matrix_wand_cap"
   ],
   "stages": [
     {
-      "text": "research.thaumicavaritia.wand_cap_crystal_matrix.stage_0",
+      "text": "research.thaumicavaritia.crystal_matrix_wand_cap.stage_0",
       "recipes": [
-        "thaumicavaritia:wand_cap_crystal_inter"
+        "thaumicavaritia:inter_crystal_matrix_wand_cap"
       ],
       "craft": [
         {
-          "items": "thaumicavaritia:wand_cap_crystal_matrix_inter",
+          "items": "thaumicavaritia:inter_crystal_matrix_wand_cap",
           "amount": 1
         }
       ],
@@ -39,7 +39,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumicavaritia.wand_cap_crystal_matrix.stage_1",
+      "text": "research.thaumicavaritia.crystal_matrix_wand_cap.stage_1",
       "obtain": [
         {
           "items": "thaumaturge:salis_mundus",
@@ -65,7 +65,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumicavaritia.wand_cap_crystal_matrix.stage_2",
+      "text": "research.thaumicavaritia.crystal_matrix_wand_cap.stage_2",
       "obtain": [
         {
           "items": "thaumaturge:primal_charm",
@@ -82,9 +82,9 @@
       "warp": 5
     },
     {
-      "text": "research.thaumicavaritia.wand_cap_crystal_matrix.stage_3",
+      "text": "research.thaumicavaritia.crystal_matrix_wand_cap.stage_3",
       "recipes": [
-        "thaumicavaritia:wand_cap_crystal"
+        "thaumicavaritia:crystal_matrix_wand_cap"
       ]
     }
   ],

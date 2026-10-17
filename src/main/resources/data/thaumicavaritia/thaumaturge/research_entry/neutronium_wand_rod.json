@@ -1,6 +1,6 @@
 {
   "category": "thaumicavaritia:thaumicavaritia",
-  "name": "research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.title",
+  "name": "research.thaumicavaritia.neutronium_wand_rod.title",
   "parents": [
     "thaumicavaritia:base_thaumicavaritia"
   ],
@@ -10,11 +10,11 @@
     "spiky"
   ],
   "icons": [
-    "thaumicavaritia:wand_rod_studded_cosmic_neutronium"
+    "thaumicavaritia:neutronium_wand_rod"
   ],
   "stages": [
     {
-      "text": "research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.stage_0",
+      "text": "research.thaumicavaritia.neutronium_wand_rod.stage_0",
       "obtain": [
         {
           "items": "thaumaturge:staff_rod_primal",
@@ -36,7 +36,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.stage_1",
+      "text": "research.thaumicavaritia.neutronium_wand_rod.stage_1",
       "obtain": [
         {
           "items": "avaritia:infinity_ingot",
@@ -53,7 +53,7 @@
       "warp": 5
     },
     {
-      "text": "research.thaumicavaritia.wand_rod_studded_cosmic_neutronium.stage_2"
+      "text": "research.thaumicavaritia.neutronium_wand_rod.stage_2"
     }
   ],
   "note_aspects": [

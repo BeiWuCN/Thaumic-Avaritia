@@ -84,6 +84,7 @@
   "tooltip.thaumicavaritia.arcane_singularity_focus": "Do not consume.",
   "tooltip.thaumicavaritia.causality_collapser_pearl": "Remember to wear sunglasses",
   "tooltip.thaumicavaritia.cosmic_neutronium_essentia_smeltery": "Maximum efficiency.",
+  "tooltip.thaumicavaritia.crystal_matrix_wand_cap": "Crystal clear.",
   "tooltip.thaumicavaritia.extremely_primordial_pearl": "The origin of the world.",
   "tooltip.thaumicavaritia.infinitus_collector": "Sieving out the world's undertone.",
   "tooltip.thaumicavaritia.infinitus_crystal": "The two words 'infinity' engraved upon it.",
@@ -93,10 +94,9 @@
   "tooltip.thaumicavaritia.limit_alchemical_construct": "Sage's material.",
   "tooltip.thaumicavaritia.limit_frame": "Frame and rule.",
   "tooltip.thaumicavaritia.neutron_plate": "All in order.",
+  "tooltip.thaumicavaritia.neutronium_wand_rod": "A handheld black hole.",
   "tooltip.thaumicavaritia.node_anchor": "You stay right here.",
   "tooltip.thaumicavaritia.origin_jar": "The origin of all aspects.",
-  "tooltip.thaumicavaritia.wand_cap_crystal_matrix": "Crystal clear.",
-  "tooltip.thaumicavaritia.wand_rod_studded_cosmic_neutronium": "A handheld black hole.",
-  "wand.thaumicavaritia.cap.crystal_matrix": "Crystal Matrix",
-  "wand.thaumicavaritia.rod.studded_cosmic_neutronium": "Studded Cosmic Neutronium"
+  "wand.thaumaturge.cap.crystal_matrix": "Crystal Matrix",
+  "wand.thaumaturge.rod.neutronium": "Studded Cosmic Neutronium"
 }

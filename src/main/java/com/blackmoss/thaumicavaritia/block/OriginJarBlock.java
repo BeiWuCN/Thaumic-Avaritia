@@ -3,7 +3,9 @@ package com.blackmoss.thaumicavaritia.block;
 import com.leclowndu93150.thaumaturge.content.essentia.jar.BlockJar;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -34,13 +36,16 @@ public final class OriginJarBlock extends BlockJar {
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             Level level, BlockState blockState, BlockEntityType<T> type) {
-        return null; // 纯展示/抽取罐，无 tick 逻辑。
+        return null;
     }
 
-    // 只出不进：右键不做交互（避免父类对 BlockEntityJar 的强转），由上方管道抽取源质。
     @Override
     protected @NonNull InteractionResult useWithoutItem(
-            BlockState state, Level level, BlockPos pos, net.minecraft.world.entity.player.Player player, BlockHitResult hitResult) {
+            BlockState state,
+            Level level,
+            BlockPos pos,
+            Player player,
+            BlockHitResult hitResult) {
         return InteractionResult.PASS;
     }
 
@@ -50,8 +55,8 @@ public final class OriginJarBlock extends BlockJar {
             BlockState state,
             Level level,
             BlockPos pos,
-            net.minecraft.world.entity.player.Player player,
-            net.minecraft.world.InteractionHand hand,
+            Player player,
+            InteractionHand hand,
             BlockHitResult hit) {
         return InteractionResult.PASS;
     }

@@ -19,7 +19,6 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public class CosmicNeutroniumEssentiaSmelteryBlock extends BlockSmelter {
-
     private static final MapCodec<CosmicNeutroniumEssentiaSmelteryBlock> CODEC =
             simpleCodec(CosmicNeutroniumEssentiaSmelteryBlock::new);
 

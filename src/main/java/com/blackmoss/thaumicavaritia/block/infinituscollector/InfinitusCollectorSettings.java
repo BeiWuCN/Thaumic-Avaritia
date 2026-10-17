@@ -1,17 +1,11 @@
 package com.blackmoss.thaumicavaritia.block.infinituscollector;
 
 public final class InfinitusCollectorSettings {
-    // 收集概率分母：每 tick 有 1/collectChance 概率累积 1 点原始无限（越大越慢）。
     private final int collectChance;
-    // 每次收集消耗的"节点灵气"量（>0 时耗尽节点本钱即停机）。
     private final int aspectCost;
-    // 每次收集的污染值。
     private final float pollution;
-    // 产出流失除数：值越大流失越慢。
     private final int lossDivisor;
-    // 是否从区块灵气抽能（用于稳定，不再消耗节点本钱）。
     private final boolean drainAura;
-    // 是否自给永动（不耗节点、不耗区块、无污染、不流失、不噎住）。
     private final boolean selfPowered;
 
     private InfinitusCollectorSettings(int collectChance, int aspectCost, float pollution,

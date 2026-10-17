@@ -36,9 +36,9 @@ public class ThaumicAvaritiaClient {
         ItemStack stack = event.getItemStack();
         String key = null;
         if (stack.is(TAItems.CRYSTAL_MATRIX_WAND_CAP.get())) {
-            key = "tooltip.thaumicavaritia.wand_cap_crystal_matrix";
+            key = "tooltip.thaumicavaritia.crystal_matrix_wand_cap";
         } else if (stack.is(TAItems.NEUTRONIUM_WAND_ROD.get())) {
-            key = "tooltip.thaumicavaritia.wand_rod_studded_cosmic_neutronium";
+            key = "tooltip.thaumicavaritia.neutronium_wand_rod";
         } else if (stack.is(TAItems.INFINITY_CHARGER.get())) {
             key = "tooltip.thaumicavaritia.infinity_charger";
         } else if (stack.is(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get())) {
@@ -54,8 +54,6 @@ public class ThaumicAvaritiaClient {
             key = "tooltip.thaumicavaritia.infinitus_collector";
         } else if (stack.is(TAItems.LIMIT_FRAME.get())) {
             key = "tooltip.thaumicavaritia.limit_frame";
-        } else if (stack.is(TAItems.CRYSTAL_MATRIX_PLATE.get())) {
-            key = "tooltip.thaumicavaritia.crystal_matrix_plate";
         } else if (stack.is(TAItems.NEUTRON_PLATE.get())) {
             key = "tooltip.thaumicavaritia.neutron_plate";
         } else if (stack.is(TAItems.INFINITY_PLATE.get())) {
