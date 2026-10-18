@@ -44,11 +44,11 @@ import org.jetbrains.annotations.Nullable;
 import org.jspecify.annotations.NonNull;
 
 public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity implements ITileIO, WorldlyContainer {
+    public final ItemStackWrapper inventory;
+    private final TileIOHandler ioHandler;
+    public SimpleContainerData data;
     private SideConfiguration sideConfig = new SideConfiguration();
     private int activeOutputTick = 0;
-    private final TileIOHandler ioHandler;
-    public final ItemStackWrapper inventory;
-    public SimpleContainerData data;
     private int progress;
     private InfinitusCollectorTier tier;
     @Nullable
@@ -122,6 +122,11 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
 
     }
 
+    public static ItemStackWrapper createInventoryHandler(OnContentsChangedFunction onContentsChanged) {
+        return ItemStackWrapper.create(9, onContentsChanged, (_) -> {
+        });
+    }
+
     private boolean tryConsumeResources() {
         if (this.level == null || this.nodeData == null) {
             return false;
@@ -158,11 +163,6 @@ public class InfinitusCollectorBlockEntity extends BaseInventoryTileEntity imple
         // 消耗 1 点要素
         this.remainingAspects = this.remainingAspects.remove(bestAspect, 1);
         return true;
-    }
-
-    public static ItemStackWrapper createInventoryHandler(OnContentsChangedFunction onContentsChanged) {
-        return ItemStackWrapper.create(9, onContentsChanged, (_) -> {
-        });
     }
 
     protected void loadAdditional(@NotNull ValueInput input) {

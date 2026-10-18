@@ -7,7 +7,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
 final class JadeComponents {
-    private JadeComponents() {}
+    private JadeComponents() {
+    }
 
     static Component aspectLine(String key, AspectList aspects) {
         MutableComponent list = Component.empty();

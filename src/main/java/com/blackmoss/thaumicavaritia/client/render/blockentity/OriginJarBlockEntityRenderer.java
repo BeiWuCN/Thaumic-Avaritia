@@ -7,7 +7,6 @@ import committee.nova.mods.avaritia.client.render.mesh.SimpleMesh;
 import committee.nova.mods.avaritia.client.render.mesh.SimpleMesh.Vertex;
 import committee.nova.mods.avaritia.client.shader.AvaritiaRenderTypes;
 import committee.nova.mods.avaritia.client.shader.AvaritiaShaderUniforms;
-import java.util.List;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -20,6 +19,8 @@ import net.minecraft.util.ARGB;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
+
+import java.util.List;
 
 public final class OriginJarBlockEntityRenderer
         implements BlockEntityRenderer<OriginJarBlockEntity, BlockEntityRenderState> {

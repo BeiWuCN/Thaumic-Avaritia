@@ -1,7 +1,7 @@
 package com.blackmoss.thaumicavaritia.mixin;
 
-import com.blackmoss.thaumicavaritia.block.infinituscollector.InfinitusCollectorBlock;
 import com.blackmoss.thaumicavaritia.block.InfinitusNodeDataCache;
+import com.blackmoss.thaumicavaritia.block.infinituscollector.InfinitusCollectorBlock;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import com.leclowndu93150.thaumaturge.content.recipe.dust.DustTriggerTickHandler;
 import com.leclowndu93150.thaumaturge.content.recipe.dust.PendingSwap;

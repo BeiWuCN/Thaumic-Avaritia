@@ -52,6 +52,14 @@ public final class ModRecipeProvider extends RecipeProvider {
         this.aspects = registries.lookupOrThrow(IAspect.REGISTRY_KEY);
     }
 
+    private static ResearchGate taGate(String path) {
+        return new ResearchGate(ThaumicAvaritia.identifier(path), Optional.empty(), false);
+    }
+
+    private static ResearchGate ttGate(String path) {
+        return new ResearchGate(TTIds.rl(path), Optional.empty(), false);
+    }
+
     @Override
     protected void buildRecipes() {
         // 极元始珍珠
@@ -256,7 +264,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
         // 宇宙中子态素源质冶炼厂
-        infusion(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY,TTItems.SMELTER_VOID)
+        infusion(TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY, TTItems.SMELTER_VOID)
                 .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(ModBlocks.neutron_collector.get()))
                 .component(Ingredient.of(ModItems.full_matter_cluster.get()))
@@ -279,7 +287,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
         // 节点锚
-        infusion(TAItems.NODE_ANCHOR,ModItems.eternal_singularity)
+        infusion(TAItems.NODE_ANCHOR, ModItems.eternal_singularity)
                 .component(Ingredient.of(TTItems.NODE_STABILIZER.get()))
                 .component(Ingredient.of(ModItems.neutron_ingot.get()))
                 .component(Ingredient.of(TTItems.NODE_TRANSDUCER.get()))
@@ -298,7 +306,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
         // 万物起源之罐
-        infusion(TAItems.ORIGIN_JAR,TTItems.JAR_VOID)
+        infusion(TAItems.ORIGIN_JAR, TTItems.JAR_VOID)
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
                 .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
@@ -431,14 +439,6 @@ public final class ModRecipeProvider extends RecipeProvider {
 
     private InfusionRecipeBuilder infusion(ItemLike result, ItemLike catalyst) {
         return infusion(result, RecipeCategory.MISC, catalyst);
-    }
-
-    private static ResearchGate taGate(String path) {
-        return new ResearchGate(ThaumicAvaritia.identifier(path), Optional.empty(), false);
-    }
-
-    private static ResearchGate ttGate(String path) {
-        return new ResearchGate(TTIds.rl(path), Optional.empty(), false);
     }
 
     private CrucibleRecipeBuilder crucible(ItemLike result, RecipeCategory category, ItemLike catalyst) {

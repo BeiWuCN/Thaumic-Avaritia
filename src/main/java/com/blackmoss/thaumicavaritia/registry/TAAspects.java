@@ -12,14 +12,14 @@ import java.util.Optional;
 public final class TAAspects {
     public static final ResourceKey<IAspect> INFINITUS = ResourceKey.create(IAspect.REGISTRY_KEY, ThaumicAvaritia.identifier("infinitus"));
 
+    private TAAspects() {
+    }
+
     public static void bootstrap(BootstrapContext<IAspect> ctx) {
         ctx.register(INFINITUS, new Aspect("infinitus", 0x1E1E1E,
                 List.of(),
                 Optional.empty(),
                 ThaumicAvaritia.identifier("textures/aspects/infinitus.png"),
                 Aspect.DEFAULT_BLEND));
-    }
-
-    private TAAspects() {
     }
 }

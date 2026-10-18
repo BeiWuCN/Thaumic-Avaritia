@@ -16,11 +16,11 @@
     "TierCraftMenuMixin"
   ],
   "client": [
+    "GapingVoidRenderMixin",
+    "NodeRendererMixin",
     "client.ArcaneWorkbenchScreenMixin",
     "client.AspectContainerTooltipHandlerMixin",
-    "client.AspectTagRendererMixin",
-    "GapingVoidRenderMixin",
-    "NodeRendererMixin"
+    "client.AspectTagRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

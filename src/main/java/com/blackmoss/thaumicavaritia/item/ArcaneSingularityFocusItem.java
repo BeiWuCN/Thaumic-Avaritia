@@ -11,7 +11,6 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import java.util.function.Consumer;
 
 public class ArcaneSingularityFocusItem extends FocusItem {
-
     public ArcaneSingularityFocusItem(Item.Properties properties) {
         super(properties);
     }

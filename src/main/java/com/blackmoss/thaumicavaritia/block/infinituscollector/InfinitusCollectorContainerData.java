@@ -3,6 +3,7 @@ package com.blackmoss.thaumicavaritia.block.infinituscollector;
 import com.blackmoss.thaumicavaritia.block.InfinitusCollectorBlockEntity;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.ContainerData;
+
 public final class InfinitusCollectorContainerData implements ContainerData {
     private final SimpleContainer output;
     private final InfinitusCollectorBlockEntity be;

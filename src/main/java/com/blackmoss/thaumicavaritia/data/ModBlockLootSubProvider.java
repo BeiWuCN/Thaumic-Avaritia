@@ -1,12 +1,14 @@
 package com.blackmoss.thaumicavaritia.data;
 
 import com.blackmoss.thaumicavaritia.registry.TABlocks;
-import java.util.Set;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.NonNull;
+
+import java.util.Set;
+
 public final class ModBlockLootSubProvider extends BlockLootSubProvider {
 
     private final HolderLookup.Provider lookupProvider;

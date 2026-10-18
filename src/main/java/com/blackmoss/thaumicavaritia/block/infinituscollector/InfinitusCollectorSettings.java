@@ -9,13 +9,17 @@ public final class InfinitusCollectorSettings {
     private final boolean selfPowered;
 
     private InfinitusCollectorSettings(int collectChance, int aspectCost, float pollution,
-            int lossDivisor, boolean drainAura, boolean selfPowered) {
+                                       int lossDivisor, boolean drainAura, boolean selfPowered) {
         this.collectChance = collectChance;
         this.aspectCost = aspectCost;
         this.pollution = pollution;
         this.lossDivisor = lossDivisor;
         this.drainAura = drainAura;
         this.selfPowered = selfPowered;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     public int collectChance() {
@@ -40,10 +44,6 @@ public final class InfinitusCollectorSettings {
 
     public boolean selfPowered() {
         return selfPowered;
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     public static final class Builder {

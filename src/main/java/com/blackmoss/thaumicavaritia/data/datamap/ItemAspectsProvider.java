@@ -1,7 +1,7 @@
-//// 物品要素 datamap：为无尽贪婪（Re:Avaritia）材料与本 mod 产物补充要素构成，供神秘时代扫描/研究系统使用。
-//// 要素依据 avaritia 合成配方材料酌情补充（对照 data/avaritia/recipe/*.json 核实）。
-//// 量级规划：基础材料 10-40 → 中阶材料 30-50 → 核心材料 60-100 → 终极材料/装备 100-150。
-//// "无尽"（infinitus）是终极注魔的门槛要素：只能从 avaritia 高级材料与本 mod 终极产物中提炼获得。
+/// / 物品要素 datamap：为无尽贪婪（Re:Avaritia）材料与本 mod 产物补充要素构成，供神秘时代扫描/研究系统使用。
+/// / 要素依据 avaritia 合成配方材料酌情补充（对照 data/avaritia/recipe/*.json 核实）。
+/// / 量级规划：基础材料 10-40 → 中阶材料 30-50 → 核心材料 60-100 → 终极材料/装备 100-150。
+/// / "无尽"（infinitus）是终极注魔的门槛要素：只能从 avaritia 高级材料与本 mod 终极产物中提炼获得。
 //package com.blackmoss.thaumicavaritia.data.datamap;
 //
 //import com.blackmoss.thaumicavaritia.ThaumicAvaritia;

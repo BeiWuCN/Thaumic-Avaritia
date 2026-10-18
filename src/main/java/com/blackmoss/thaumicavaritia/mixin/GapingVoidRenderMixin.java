@@ -1,4 +1,3 @@
-
 package com.blackmoss.thaumicavaritia.mixin;
 
 import committee.nova.mods.avaritia.client.render.entity.GapingVoidRender;

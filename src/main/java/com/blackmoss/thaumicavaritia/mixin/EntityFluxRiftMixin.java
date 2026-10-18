@@ -10,15 +10,14 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(EntityFluxRift.class)
 public abstract class EntityFluxRiftMixin implements IFluxRiftCollapsible {
+    @Unique
+    private int thaumicavaritia$collapseSpeed = 1;
 
     @Shadow
     public abstract void setCollapse(boolean collapse);
 
     @Shadow
     public abstract int getRiftSize();
-
-    @Unique
-    private int thaumicavaritia$collapseSpeed = 1;
 
     @Override
     public void thaumicavaritia$collapse(int durationTicks) {

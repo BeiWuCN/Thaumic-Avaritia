@@ -44,6 +44,30 @@ public final class NodeAnchorBlockEntityRenderer
     public NodeAnchorBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
     }
 
+    private static void drawBubble(PoseStack poseStack, MultiBufferSource buffers, int color) {
+        poseStack.pushPose();
+        poseStack.mulPose(Minecraft.getInstance().gameRenderer.getMainCamera().rotation());
+        PoseStack.Pose pose = poseStack.last();
+        VertexConsumer buffer = buffers.getBuffer(BUBBLE);
+        buffer.addVertex(pose, -BUBBLE_HALF, -BUBBLE_HALF, 0.0F)
+                .setUv(0.0F, 1.0F)
+                .setColor(color)
+                .setLight(BUBBLE_LIGHT);
+        buffer.addVertex(pose, BUBBLE_HALF, -BUBBLE_HALF, 0.0F)
+                .setUv(1.0F, 1.0F)
+                .setColor(color)
+                .setLight(BUBBLE_LIGHT);
+        buffer.addVertex(pose, BUBBLE_HALF, BUBBLE_HALF, 0.0F)
+                .setUv(1.0F, 0.0F)
+                .setColor(color)
+                .setLight(BUBBLE_LIGHT);
+        buffer.addVertex(pose, -BUBBLE_HALF, BUBBLE_HALF, 0.0F)
+                .setUv(0.0F, 0.0F)
+                .setColor(color)
+                .setLight(BUBBLE_LIGHT);
+        poseStack.popPose();
+    }
+
     @Override
     public @NonNull NodeAnchorBlockEntityRenderState createRenderState() {
         return new NodeAnchorBlockEntityRenderState();
@@ -94,30 +118,6 @@ public final class NodeAnchorBlockEntityRenderer
         int color = ARGB.color((int) (pulse * 255.0F), 0xFFFFFF);
         Vec3 origin = Vec3.atCenterOf(state.blockPos).add(0.0D, state.bubbleY - 0.5D, 0.0D);
         LateWorldRenderQueue.enqueue(origin, (latePose, buffers) -> drawBubble(latePose, buffers, color));
-    }
-
-    private static void drawBubble(PoseStack poseStack, MultiBufferSource buffers, int color) {
-        poseStack.pushPose();
-        poseStack.mulPose(Minecraft.getInstance().gameRenderer.getMainCamera().rotation());
-        PoseStack.Pose pose = poseStack.last();
-        VertexConsumer buffer = buffers.getBuffer(BUBBLE);
-        buffer.addVertex(pose, -BUBBLE_HALF, -BUBBLE_HALF, 0.0F)
-                .setUv(0.0F, 1.0F)
-                .setColor(color)
-                .setLight(BUBBLE_LIGHT);
-        buffer.addVertex(pose, BUBBLE_HALF, -BUBBLE_HALF, 0.0F)
-                .setUv(1.0F, 1.0F)
-                .setColor(color)
-                .setLight(BUBBLE_LIGHT);
-        buffer.addVertex(pose, BUBBLE_HALF, BUBBLE_HALF, 0.0F)
-                .setUv(1.0F, 0.0F)
-                .setColor(color)
-                .setLight(BUBBLE_LIGHT);
-        buffer.addVertex(pose, -BUBBLE_HALF, BUBBLE_HALF, 0.0F)
-                .setUv(0.0F, 0.0F)
-                .setColor(color)
-                .setLight(BUBBLE_LIGHT);
-        poseStack.popPose();
     }
 
     @Override

@@ -31,7 +31,6 @@ import java.util.List;
 import java.util.Optional;
 
 public final class ModModelProvider extends ModelProvider {
-
     public ModModelProvider(PackOutput output) {
         super(output, ThaumicAvaritia.MODID);
     }

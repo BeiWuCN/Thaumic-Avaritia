@@ -10,7 +10,6 @@ import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockEntityAlemb
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockEntitySmelter;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockSmelter;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockSmelterAux;
-import java.util.Objects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -24,6 +23,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jspecify.annotations.Nullable;
+
+import java.util.Objects;
 
 public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends BlockEntitySmelter {
     public static final int MAX_VIS = 256;

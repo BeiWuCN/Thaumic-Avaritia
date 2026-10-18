@@ -28,7 +28,6 @@ public class NodeAnchorBlock extends BaseEntityBlock {
     public static final EnumProperty<Direction> FACING =
             EnumProperty.create("facing", Direction.class, Direction.UP, Direction.DOWN);
     public static final BooleanProperty CHARGED = BooleanProperty.create("charged");
-    private static final MapCodec<NodeAnchorBlock> CODEC = simpleCodec(NodeAnchorBlock::new);
     public static final VoxelShape SHAPE = Shapes.or(
             box(0.0F, 0.0F, 0.0F, 16.0F, 2.0F, 16.0F),
             box(1.0F, 2.0F, 5.0F, 15.0F, 3.0F, 11.0F),
@@ -56,8 +55,12 @@ public class NodeAnchorBlock extends BaseEntityBlock {
             box(6.0F, 6.0F, 13.0F, 10.0F, 8.0F, 14.0F),
             box(6.0F, 7.0F, 1.0F, 10.0F, 8.0F, 2.0F),
             box(6.0F, 7.0F, 14.0F, 10.0F, 8.0F, 15.0F));
-
     public static final VoxelShape SHAPE_DOWN = rotateX180();
+    private static final MapCodec<NodeAnchorBlock> CODEC = simpleCodec(NodeAnchorBlock::new);
+
+    public NodeAnchorBlock(Properties properties) {
+        super(properties);
+    }
 
     private static VoxelShape rotateX180() {
         VoxelShape result = Shapes.empty();
@@ -67,10 +70,6 @@ public class NodeAnchorBlock extends BaseEntityBlock {
                     aabb.maxX, 1.0D - aabb.minY, 1.0D - aabb.minZ));
         }
         return result;
-    }
-
-    public NodeAnchorBlock(Properties properties) {
-        super(properties);
     }
 
     @Override

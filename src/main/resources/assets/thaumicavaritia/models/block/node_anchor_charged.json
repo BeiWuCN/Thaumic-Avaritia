@@ -1,9 +1,9 @@
 {
-	"loader": "thaumaturge:mesh",
-	"parent": "block/block",
-	"model": "thaumaturge:models/mesh/node_stabilizer.ttmesh",
-	"textures": {
-		"texture": "thaumicavaritia:block/node_anchor",
-		"particle": "#texture"
-	}
+  "loader": "thaumaturge:mesh",
+  "parent": "block/block",
+  "model": "thaumaturge:models/mesh/node_stabilizer.ttmesh",
+  "textures": {
+    "texture": "thaumicavaritia:block/node_anchor",
+    "particle": "#texture"
+  }
 }

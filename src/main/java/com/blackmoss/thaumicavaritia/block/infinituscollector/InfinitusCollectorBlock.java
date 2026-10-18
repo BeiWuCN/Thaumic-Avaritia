@@ -9,7 +9,10 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -64,6 +67,7 @@ public class InfinitusCollectorBlock extends BaseTileEntityBlock {
     }
 
     public @NonNull BlockState mirror(BlockState state, Mirror mirror) {
+        //noinspection deprecation
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 

@@ -23,6 +23,20 @@ public class NodeAnchorBlockEntity extends BlockEntity {
         super(TABlockEntities.NODE_ANCHOR.get(), pos, state);
     }
 
+    private static boolean isEngaged(Level level, BlockPos pos) {
+        return level.getBlockEntity(pos.above()) instanceof BlockEntityNode
+                || level.getBlockEntity(pos.below()) instanceof BlockEntityNode;
+    }
+
+    private static boolean hasChargerAbove(Level level, BlockPos pos) {
+        BlockState above2 = level.getBlockState(pos.above(2));
+        if (above2.getBlock() instanceof InfinityChargerBlock) {
+            return true;
+        }
+        return above2.getBlock() instanceof NodeAnchorBlock
+                && above2.getValue(NodeAnchorBlock.CHARGED);
+    }
+
     public void serverTick(Level tickLevel, BlockPos pos) {
         Level level = this.level;
         if (level == null) {
@@ -90,20 +104,6 @@ public class NodeAnchorBlockEntity extends BlockEntity {
         } else if (count > 0) {
             count--;
         }
-    }
-
-    private static boolean isEngaged(Level level, BlockPos pos) {
-        return level.getBlockEntity(pos.above()) instanceof BlockEntityNode
-                || level.getBlockEntity(pos.below()) instanceof BlockEntityNode;
-    }
-
-    private static boolean hasChargerAbove(Level level, BlockPos pos) {
-        BlockState above2 = level.getBlockState(pos.above(2));
-        if (above2.getBlock() instanceof InfinityChargerBlock) {
-            return true;
-        }
-        return above2.getBlock() instanceof NodeAnchorBlock
-                && above2.getValue(NodeAnchorBlock.CHARGED);
     }
 
     private static final class Snapshot {
