@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InfinitusCollectorScreen extends BaseContainerScreen<InfinitusCollectorMenu> {
-
     public InfinitusCollectorScreen(InfinitusCollectorMenu container, Inventory inventory, Component title) {
         super(container, inventory, title, Res.NEUTRON_COLLECTOR_TEX);
     }

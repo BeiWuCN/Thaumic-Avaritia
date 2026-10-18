@@ -12,7 +12,6 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jspecify.annotations.NonNull;
 
 public class CosmicNeutroniumEssentiaSmelteryScreen extends AbstractTTContainerScreen<CosmicNeutroniumEssentiaSmelteryMenu> {
-
     private static final Identifier TEXTURE = ThaumicAvaritia.identifier("textures/gui/cosmic_neutronium_essentia_smeltery.png");
 
     public CosmicNeutroniumEssentiaSmelteryScreen(CosmicNeutroniumEssentiaSmelteryMenu menu, Inventory inventory, Component title) {

@@ -2,7 +2,9 @@ package com.blackmoss.thaumicavaritia;
 
 import com.blackmoss.thaumicavaritia.config.TAClientConfigs;
 import com.blackmoss.thaumicavaritia.config.TACommonConfigs;
-import com.blackmoss.thaumicavaritia.data.*;
+import com.blackmoss.thaumicavaritia.data.ModBlockLootSubProvider;
+import com.blackmoss.thaumicavaritia.data.ModModelProvider;
+import com.blackmoss.thaumicavaritia.data.ModRecipeProvider;
 import com.blackmoss.thaumicavaritia.data.lang.EnUsProvider;
 import com.blackmoss.thaumicavaritia.data.lang.ZhCnProvider;
 import com.blackmoss.thaumicavaritia.data.tag.ModBlockTagsProvider;
@@ -11,6 +13,7 @@ import com.blackmoss.thaumicavaritia.registry.*;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
 import com.mojang.logging.LogUtils;
+import committee.nova.mods.avaritia.ModApi;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.Identifier;
@@ -21,6 +24,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
 
