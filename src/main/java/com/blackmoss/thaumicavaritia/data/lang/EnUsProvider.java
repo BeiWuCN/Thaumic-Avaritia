@@ -6,6 +6,7 @@ import com.blackmoss.thaumicavaritia.registry.TAEntities;
 import com.blackmoss.thaumicavaritia.registry.TAItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import org.jspecify.annotations.NonNull;
 
 public final class EnUsProvider extends LanguageProvider {
 
@@ -195,5 +196,11 @@ public final class EnUsProvider extends LanguageProvider {
         if (tooltip != null) {
             add("%s.configuration.%s.tooltip".formatted(ThaumicAvaritia.MODID, configID), tooltip);
         }
+    }
+
+
+    @Override
+    public @NonNull String getName() {
+        return "Thaumic Avaritia EnUs";
     }
 }

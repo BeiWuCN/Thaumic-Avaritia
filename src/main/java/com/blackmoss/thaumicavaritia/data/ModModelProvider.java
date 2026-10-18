@@ -163,4 +163,10 @@ public final class ModModelProvider extends ModelProvider {
         noiseItem(itemModels, TAItems.NEUTRON_PLATE.get());
         haloItem(itemModels, TAItems.INFINITY_PLATE.get());
     }
+
+
+    @Override
+    public @NonNull String getName() {
+        return "Thaumic Avaritia Models";
+    }
 }
