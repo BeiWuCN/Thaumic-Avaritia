@@ -1,6 +1,5 @@
 package com.blackmoss.thaumicavaritia.mixin;
 
-import com.blackmoss.thaumicavaritia.content.NotQualifiedGate;
 import committee.nova.mods.avaritia.common.menu.TierCraftMenu;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
@@ -23,14 +22,14 @@ public abstract class TierCraftMenuMixin {
     @Final
     private Player player;
 
-    @Inject(method = "slotsChanged", at = @At("TAIL"))
-    private void thaumicavaritia$clearGatedResult(Container matrix, CallbackInfo ci) {
-        ItemStack out = result.getItem(0);
-        if (NotQualifiedGate.isGated(out)) {
-            return;
-        }
-        if (!NotQualifiedGate.isResearchUnlocked(player, out)) {
-            result.setItem(0, ItemStack.EMPTY);
-        }
-    }
+//    @Inject(method = "slotsChanged", at = @At("TAIL"))
+//    private void thaumicavaritia$clearGatedResult(Container matrix, CallbackInfo ci) {
+//        ItemStack out = result.getItem(0);
+//        if (NotQualifiedGate.isGated(out)) {
+//            return;
+//        }
+//        if (!NotQualifiedGate.isResearchUnlocked(player, out)) {
+//            result.setItem(0, ItemStack.EMPTY);
+//        }
+//    }
 }

@@ -1,7 +1,6 @@
 package com.blackmoss.thaumicavaritia.event;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
-import com.blackmoss.thaumicavaritia.content.NotQualifiedGate;
 import com.blackmoss.thaumicavaritia.registry.TAWandParts;
 import com.leclowndu93150.thaumaturge.content.wands.ItemWand;
 import com.leclowndu93150.thaumaturge.content.wands.WandParts;
@@ -65,24 +64,24 @@ public final class TAServerEvents {
                 || parts.rod() == TAWandParts.NEUTRONIUM.get();
     }
 
-    @SubscribeEvent
-    public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer player)) {
-            return;
-        }
-        ItemStack crafted = event.getCrafting();
-        if (crafted.isEmpty()) {
-            return;
-        }
-        if (NotQualifiedGate.isGated(crafted)) {
-            return;
-        }
-        if (NotQualifiedGate.isResearchUnlocked(player, crafted)) {
-            return;
-        }
-        removeOneFromInventory(player, crafted);
-        player.sendSystemMessage(NotQualifiedGate.BLOCK_MESSAGE);
-    }
+//    @SubscribeEvent
+//    public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
+//        if (!(event.getEntity() instanceof ServerPlayer player)) {
+//            return;
+//        }
+//        ItemStack crafted = event.getCrafting();
+//        if (crafted.isEmpty()) {
+//            return;
+//        }
+//        if (NotQualifiedGate.isGated(crafted)) {
+//            return;
+//        }
+//        if (NotQualifiedGate.isResearchUnlocked(player, crafted)) {
+//            return;
+//        }
+//        removeOneFromInventory(player, crafted);
+//        player.sendSystemMessage(NotQualifiedGate.BLOCK_MESSAGE);
+//    }
 
     private static void removeOneFromInventory(ServerPlayer player, ItemStack target) {
         int remaining = target.getCount();
