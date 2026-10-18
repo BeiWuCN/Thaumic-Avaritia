@@ -61,6 +61,7 @@ public final class NodeAnchorBlockEntityRenderer
         state.ticks = player == null ? 0.0F : player.tickCount + partialTicks;
         state.light = state.lightCoords;
         state.facing = anchor.getBlockState().getValue(NodeAnchorBlock.FACING);
+        state.count = anchor.count;
         Level level = anchor.getLevel();
         BlockPos pos = anchor.getBlockPos();
         boolean up = level != null && level.getBlockEntity(pos.above()) instanceof BlockEntityNode;
@@ -83,7 +84,7 @@ public final class NodeAnchorBlockEntityRenderer
         }
         poseStack.translate(0.5F, 0.0F, 0.5F);
         poseStack.mulPose(Axis.XN.rotationDegrees(90.0F));
-        NodeAnchorMeshes.submitMesh(state.ticks, poseStack, collector, state.light);
+        NodeAnchorMeshes.submitMesh(state.ticks, state.count, poseStack, collector, state.light);
         poseStack.popPose();
 
         if (!state.hasNode) {

@@ -24,7 +24,7 @@ public final class NodeAnchorItemSpecialRenderer implements NoDataSpecialModelRe
         poseStack.pushPose();
         poseStack.translate(0.5F, 0.0F, 0.5F);
         poseStack.mulPose(Axis.XN.rotationDegrees(90.0F));
-        NodeAnchorMeshes.submitMesh(0.0F, poseStack, collector, lightCoords);
+        NodeAnchorMeshes.submitMesh(0.0F, 0, poseStack, collector, lightCoords);
         poseStack.popPose();
     }
 

@@ -110,11 +110,16 @@ public class NodeAnchorBlock extends BaseEntityBlock {
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             @NonNull Level level, @NonNull BlockState blockState, @NonNull BlockEntityType<T> type) {
-        if (level.isClientSide() || type != TABlockEntities.NODE_ANCHOR.get()) {
+        if (type != TABlockEntities.NODE_ANCHOR.get()) {
             return null;
         }
-        return (tickLevel, pos, tickState,
-                blockEntity) ->
-                ((NodeAnchorBlockEntity) blockEntity).serverTick(tickLevel, pos);
+        return (tickLevel, pos, tickState, blockEntity) -> {
+            NodeAnchorBlockEntity anchor = (NodeAnchorBlockEntity) blockEntity;
+            if (tickLevel.isClientSide()) {
+                anchor.clientTick(tickLevel, pos);
+            } else {
+                anchor.serverTick(tickLevel, pos);
+            }
+        };
     }
 }

@@ -9,4 +9,5 @@ public class NodeAnchorBlockEntityRenderState extends BlockEntityRenderState {
     public boolean hasNode;
     public float bubbleY;
     public Direction facing = Direction.UP;
+    public int count;
 }

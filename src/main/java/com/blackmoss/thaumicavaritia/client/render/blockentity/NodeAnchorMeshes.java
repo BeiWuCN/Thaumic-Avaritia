@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia.client.render.blockentity;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.block.NodeAnchorBlockEntity;
 import com.leclowndu93150.thaumaturge.TTIds;
 import com.leclowndu93150.thaumaturge.client.golem.GolemMeshes;
 import com.leclowndu93150.thaumaturge.client.model.mesh.TTMesh;
@@ -24,7 +25,7 @@ public final class NodeAnchorMeshes {
     private NodeAnchorMeshes() {
     }
 
-    public static void submitMesh(float ticks, PoseStack poseStack, SubmitNodeCollector collector, int light) {
+    public static void submitMesh(float ticks, int count, PoseStack poseStack, SubmitNodeCollector collector, int light) {
         TTMesh mesh = GolemMeshes.get(MODEL);
         TTMeshPart lock = findPart(mesh, "lock");
         TTMeshPart piston = findPart(mesh, "piston");
@@ -38,12 +39,12 @@ public final class NodeAnchorMeshes {
                 poseStack.pushPose();
                 poseStack.mulPose(Axis.ZP.rotationDegrees(90.0F * arm));
                 poseStack.mulPose(Axis.YP.rotationDegrees(45.0F));
-                poseStack.translate(0.0F, 0.0F, 0.0F);
+                poseStack.translate(0.0F, 0.0F, count / 100.0F);
                 PoseStack.Pose armPose = poseStack.last().copy();
                 collector.submitCustomGeometry(
                         poseStack, BASE, (pose, buffer) -> GolemMeshes.renderPart(piston, armPose, buffer, light, -1));
                 float pulse = Mth.sin((ticks + arm * 5.0F) / 3.0F) * 0.1F + 0.9F;
-                int glowLight = 50 + (int) (170.0F * pulse);
+                int glowLight = 50 + (int) (170.0F * (count / (float) NodeAnchorBlockEntity.MAX_COUNT) * pulse);
                 collector.submitCustomGeometry(
                         poseStack, OVERLAY, (pose, buffer) -> GolemMeshes.renderPart(piston, armPose, buffer, glowLight, -1));
                 poseStack.popPose();

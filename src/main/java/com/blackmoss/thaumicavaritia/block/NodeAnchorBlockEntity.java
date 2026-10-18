@@ -12,6 +12,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
 public class NodeAnchorBlockEntity extends BlockEntity {
+    public static final int MAX_COUNT = 37;
+    public int count;
+
     private @Nullable Snapshot snapshot;
     private boolean charged;
     private boolean locked;
@@ -79,6 +82,19 @@ public class NodeAnchorBlockEntity extends BlockEntity {
                 locked = true;
             }
         }
+    }
+
+    public void clientTick(Level level, BlockPos pos) {
+        if (isEngaged(level, pos)) {
+            count = Math.min(MAX_COUNT, count + 1);
+        } else if (count > 0) {
+            count--;
+        }
+    }
+
+    private static boolean isEngaged(Level level, BlockPos pos) {
+        return level.getBlockEntity(pos.above()) instanceof BlockEntityNode
+                || level.getBlockEntity(pos.below()) instanceof BlockEntityNode;
     }
 
     private static boolean hasChargerAbove(Level level, BlockPos pos) {
