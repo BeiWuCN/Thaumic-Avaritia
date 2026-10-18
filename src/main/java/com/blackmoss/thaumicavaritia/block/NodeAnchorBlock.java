@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -56,6 +57,18 @@ public class NodeAnchorBlock extends BaseEntityBlock {
             box(6.0F, 7.0F, 1.0F, 10.0F, 8.0F, 2.0F),
             box(6.0F, 7.0F, 14.0F, 10.0F, 8.0F, 15.0F));
 
+    public static final VoxelShape SHAPE_DOWN = rotateX180();
+
+    private static VoxelShape rotateX180() {
+        VoxelShape result = Shapes.empty();
+        for (AABB aabb : NodeAnchorBlock.SHAPE.toAabbs()) {
+            result = Shapes.or(result, Shapes.box(
+                    aabb.minX, 1.0D - aabb.maxY, 1.0D - aabb.maxZ,
+                    aabb.maxX, 1.0D - aabb.minY, 1.0D - aabb.minZ));
+        }
+        return result;
+    }
+
     public NodeAnchorBlock(Properties properties) {
         super(properties);
     }
@@ -81,7 +94,7 @@ public class NodeAnchorBlock extends BaseEntityBlock {
             @NonNull BlockGetter level,
             @NonNull BlockPos pos,
             @NonNull CollisionContext context) {
-        return SHAPE;
+        return state.getValue(FACING) == Direction.DOWN ? SHAPE_DOWN : SHAPE;
     }
 
     protected @NonNull RenderShape getRenderShape(@NonNull BlockState state) {

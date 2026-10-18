@@ -1,6 +1,7 @@
 package com.blackmoss.thaumicavaritia.client;
 
 import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
+import com.blackmoss.thaumicavaritia.client.model.NodeAnchorItemSpecialRenderer;
 import com.blackmoss.thaumicavaritia.client.render.blockentity.NodeAnchorBlockEntityRenderer;
 import com.blackmoss.thaumicavaritia.client.render.blockentity.OriginJarBlockEntityRenderer;
 import com.blackmoss.thaumicavaritia.client.render.entity.CausalityCollapserPearlRenderer;
@@ -20,6 +21,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterSpecialModelRendererEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
@@ -74,6 +76,13 @@ public class ThaumicAvaritiaClient {
                 TAEntities.CAUSALITY_COLLAPSER_PEARL.get(), CausalityCollapserPearlRenderer::new);
         event.registerBlockEntityRenderer(TABlockEntities.NODE_ANCHOR.get(), NodeAnchorBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(TABlockEntities.ORIGIN_JAR.get(), OriginJarBlockEntityRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterSpecialModels(RegisterSpecialModelRendererEvent event) {
+        event.register(
+                ThaumicAvaritia.identifier("node_anchor"),
+                NodeAnchorItemSpecialRenderer.Unbaked.MAP_CODEC);
     }
 
     @SubscribeEvent

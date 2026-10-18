@@ -1,5 +1,6 @@
 package com.blackmoss.thaumicavaritia.client.render.blockentity;
 
+import com.blackmoss.thaumicavaritia.block.NodeAnchorBlock;
 import com.blackmoss.thaumicavaritia.block.NodeAnchorBlockEntity;
 import com.leclowndu93150.thaumaturge.TTIds;
 import com.leclowndu93150.thaumaturge.client.effect.LateWorldRenderQueue;
@@ -7,6 +8,7 @@ import com.leclowndu93150.thaumaturge.client.effect.rendertype.TTFXRenderTypes;
 import com.leclowndu93150.thaumaturge.content.aura.node.BlockEntityNode;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -17,6 +19,7 @@ import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
@@ -57,6 +60,7 @@ public final class NodeAnchorBlockEntityRenderer
         LocalPlayer player = Minecraft.getInstance().player;
         state.ticks = player == null ? 0.0F : player.tickCount + partialTicks;
         state.light = state.lightCoords;
+        state.facing = anchor.getBlockState().getValue(NodeAnchorBlock.FACING);
         Level level = anchor.getLevel();
         BlockPos pos = anchor.getBlockPos();
         boolean up = level != null && level.getBlockEntity(pos.above()) instanceof BlockEntityNode;
@@ -71,6 +75,17 @@ public final class NodeAnchorBlockEntityRenderer
             @NonNull PoseStack poseStack,
             @NonNull SubmitNodeCollector collector,
             @NonNull CameraRenderState camera) {
+        poseStack.pushPose();
+        if (state.facing == Direction.DOWN) {
+            poseStack.translate(0.5F, 0.5F, 0.5F);
+            poseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
+            poseStack.translate(-0.5F, -0.5F, -0.5F);
+        }
+        poseStack.translate(0.5F, 0.0F, 0.5F);
+        poseStack.mulPose(Axis.XN.rotationDegrees(90.0F));
+        NodeAnchorMeshes.submitMesh(state.ticks, poseStack, collector, state.light);
+        poseStack.popPose();
+
         if (!state.hasNode) {
             return;
         }

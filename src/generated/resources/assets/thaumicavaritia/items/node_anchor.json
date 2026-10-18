@@ -1,9 +1,9 @@
 {
   "model": {
-    "type": "avaritia:halo",
-    "model": "thaumicavaritia:block/node_anchor",
-    "pulse": false,
-    "size": 6,
-    "texture": "avaritia:misc/halo"
+    "type": "minecraft:special",
+    "base": "thaumicavaritia:block/node_anchor",
+    "model": {
+      "type": "thaumicavaritia:node_anchor"
+    }
   }
 }
