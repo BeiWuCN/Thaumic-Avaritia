@@ -32,7 +32,7 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
                 TAItems.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get()
         );
 
-        tag(TATags.THAUMATURGE_CURIOS).add(
+        tag(TATags.CURIOSITIES).add(
                 TTItems.CURIO_ARCANE.get(),
                 TTItems.CURIO_PRESERVED.get(),
                 TTItems.CURIO_ANCIENT.get(),
