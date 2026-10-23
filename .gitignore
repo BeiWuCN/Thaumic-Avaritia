@@ -43,3 +43,17 @@ repo/
 ### CodeBuddy ###
 CODEBUDDY.md
 .codebuddy/
+
+# Local-only rendering work and diagnostics (not distributed)
+/src/main/resources/assets/thaumicavaritia/shaders/
+/src/main/resources/assets/thaumicavaritia/textures/effect/
+/src/main/java/com/blackmoss/thaumicavaritia/client/lensing/
+/src/main/java/com/blackmoss/thaumicavaritia/mixin/client/AvaritiaVoidDarknessMixin.java
+/src/main/java/com/blackmoss/thaumicavaritia/mixin/client/BlackHoleRenderTargetMixin.java
+/src/main/java/com/blackmoss/thaumicavaritia/mixin/client/BlackHoleWorldCaptureMixin.java
+/*.log
+/run-lens-*/
+/output/
+/Tools/
+/LOCAL_DEV_ZH.md
+/dev.ps1
