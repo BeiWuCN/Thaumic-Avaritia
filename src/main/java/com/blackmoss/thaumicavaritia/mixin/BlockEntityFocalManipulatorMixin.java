@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockEntityFocalManipulator.class)
 public abstract class BlockEntityFocalManipulatorMixin {
-    @Inject(method = "drain", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "drawAura", at = @At("HEAD"), cancellable = true)
     private void thaumicavaritia$infiniteAura(ServerLevel server, float amount, CallbackInfoReturnable<Float> cir) {
         BlockEntityFocalManipulator self = (BlockEntityFocalManipulator) (Object) this;
         if (server.getBlockState(self.getBlockPos().above()).getBlock() instanceof InfinityChargerBlock) {

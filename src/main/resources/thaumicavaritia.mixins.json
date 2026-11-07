@@ -7,7 +7,6 @@
     "BlockEntityArcaneWorkbenchMixin",
     "BlockEntityFocalManipulatorMixin",
     "BlockEntityResearchTableMixin",
-    "BlockEntitySmelterMixin",
     "DustTriggerTickHandlerMixin",
     "EntityFluxRiftMixin",
     "ExtremeSmithingMenuMixin",
