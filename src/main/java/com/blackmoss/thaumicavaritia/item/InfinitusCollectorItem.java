@@ -29,10 +29,10 @@ public class InfinitusCollectorItem extends BlockItem {
         BlockEntity be = level.getBlockEntity(pos);
         if (be instanceof BlockEntityNode node) {
             NodeData data = new NodeData(
-                    node.getNodeType(),
-                    Optional.ofNullable(node.getNodeModifier()),
+                    node.kind(),
+                    Optional.ofNullable(node.trait()),
                     node.getAspects(),
-                    node.getAspectsBase());
+                    node.capacity());
             ItemStack stack = context.getItemInHand();
             stack.set(TTDataComponents.NODE_DATA.get(), data);
             BlockState collectorState = getBlock().defaultBlockState();

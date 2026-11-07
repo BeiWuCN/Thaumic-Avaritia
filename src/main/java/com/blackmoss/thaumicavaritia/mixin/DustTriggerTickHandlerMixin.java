@@ -27,8 +27,8 @@ public abstract class DustTriggerTickHandlerMixin {
                     level.dimension(),
                     pos,
                     node.getAspects(),
-                    node.getNodeType(),
-                    node.getNodeModifier());
+                    node.kind(),
+                    node.trait());
         }
     }
 }

@@ -70,9 +70,8 @@ public class NodeAnchorBlockEntity extends AbstractSyncedBlockEntity {
             if (!charged) {
                 snapshot = new Snapshot(node);
                 node.setEnergized(true);
-                node.setNodeType(NodeType.NORMAL);
-                node.setNodeModifier(null);
-                node.nodeChange();
+                node.reclassify(NodeType.NORMAL);
+                node.assignTrait(null);
                 charged = true;
             }
             locked = false;
@@ -87,13 +86,12 @@ public class NodeAnchorBlockEntity extends AbstractSyncedBlockEntity {
                 snapshot = new Snapshot(node);
             }
             if (!locked
-                    || node.getNodeType() != snapshot.type
-                    || node.getNodeModifier() != snapshot.modifier
+                    || node.kind() != snapshot.type
+                    || node.trait() != snapshot.modifier
                     || node.getAspects().totalAmount() != snapshot.aspects.totalAmount()) {
                 node.setAspects(snapshot.aspects);
-                node.setNodeType(snapshot.type);
-                node.setNodeModifier(snapshot.modifier);
-                node.nodeChange();
+                node.reclassify(snapshot.type);
+                node.assignTrait(snapshot.modifier);
                 locked = true;
             }
         }
@@ -114,8 +112,8 @@ public class NodeAnchorBlockEntity extends AbstractSyncedBlockEntity {
 
         Snapshot(BlockEntityNode node) {
             this.aspects = node.getAspects();
-            this.type = node.getNodeType();
-            this.modifier = node.getNodeModifier();
+            this.type = node.kind();
+            this.modifier = node.trait();
         }
     }
 }
