@@ -9,7 +9,6 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import org.jspecify.annotations.NonNull;
 
 public final class ZhCnProvider extends LanguageProvider {
-
     public ZhCnProvider(PackOutput output) {
         super(output, ThaumicAvaritia.MODID, "zh_cn");
     }
@@ -188,14 +187,7 @@ public final class ZhCnProvider extends LanguageProvider {
     }
 
     private void addConfiguration(String configID, String translations) {
-        addConfiguration(configID, translations, null);
-    }
-
-    private void addConfiguration(String configID, String translations, String tooltip) {
         add("%s.configuration.%s".formatted(ThaumicAvaritia.MODID, configID), translations);
-        if (tooltip != null) {
-            add("%s.configuration.%s.tooltip".formatted(ThaumicAvaritia.MODID, configID), translations);
-        }
     }
 
 
