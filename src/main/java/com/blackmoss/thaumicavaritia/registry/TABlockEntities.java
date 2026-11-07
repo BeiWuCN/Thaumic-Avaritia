@@ -19,29 +19,25 @@ public final class TABlockEntities {
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThaumicAvaritia.MODID);
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CosmicNeutroniumEssentiaSmelteryBlockEntity>>
-            COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY = BLOCK_ENTITIES.register(
-            "cosmic_neutronium_essentia_smeltery",
+            COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY = BLOCK_ENTITIES.register("cosmic_neutronium_essentia_smeltery",
             () -> new BlockEntityType<>(
                     CosmicNeutroniumEssentiaSmelteryBlockEntity::new,
                     Set.of(TABlocks.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get())));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NodeAnchorBlockEntity>>
-            NODE_ANCHOR = BLOCK_ENTITIES.register(
-            "node_anchor",
+            NODE_ANCHOR = BLOCK_ENTITIES.register("node_anchor",
             () -> new BlockEntityType<>(
                     NodeAnchorBlockEntity::new,
                     Set.of(TABlocks.NODE_ANCHOR.get())));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<OriginJarBlockEntity>>
-            ORIGIN_JAR = BLOCK_ENTITIES.register(
-            "origin_jar",
+            ORIGIN_JAR = BLOCK_ENTITIES.register("origin_jar",
             () -> new BlockEntityType<>(
                     OriginJarBlockEntity::new,
                     Set.of(TABlocks.ORIGIN_JAR.get())));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InfinitusCollectorBlockEntity>>
-            INFINITUS_COLLECTOR = BLOCK_ENTITIES.register(
-            "infinitus_collector",
+            INFINITUS_COLLECTOR = BLOCK_ENTITIES.register("infinitus_collector",
             () -> new BlockEntityType<>(
                     InfinitusCollectorBlockEntity::new,
                     Set.of(
@@ -51,9 +47,5 @@ public final class TABlockEntities {
                             TABlocks.INFINITUS_COLLECTOR_ENDLESS.get())));
 
     private TABlockEntities() {
-    }
-
-    public static void register(IEventBus modBus) {
-        BLOCK_ENTITIES.register(modBus);
     }
 }

@@ -39,13 +39,14 @@ public class ThaumicAvaritia {
         modContainer.registerConfig(ModConfig.Type.COMMON, TACommonConfigs.COMMON.build());
         modContainer.registerConfig(ModConfig.Type.CLIENT, TAClientConfigs.CLIENT.build());
 
-        TACreativeModeTabs.register(modEventBus);
-        TAItems.register(modEventBus);
-        TABlocks.register(modEventBus);
-        TABlockEntities.register(modEventBus);
-        TAMenus.register(modEventBus);
-        TAWandParts.register(modEventBus);
-        TAEntities.register(modEventBus);
+        TACreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        TAItems.ITEMS.register(modEventBus);
+        TABlocks.BLOCKS.register(modEventBus);
+        TABlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        TAMenus.MENUS.register(modEventBus);
+        TAWandParts.CAPS.register(modEventBus);
+        TAWandParts.RODS.register(modEventBus);
+        TAEntities.ENTITIES.register(modEventBus);
     }
 
     public static Identifier identifier(String path) {

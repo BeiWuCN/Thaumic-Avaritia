@@ -27,7 +27,8 @@ public final class TAItems {
             props -> props.rarity(Rarity.EPIC));
 
     // 惰性水晶矩阵杖端
-    public static final DeferredItem<Item> INTER_CRYSTAL_MATRIX_WAND_CAP = ITEMS.registerSimpleItem("inter_crystal_matrix_wand_cap");
+    public static final DeferredItem<Item> INTER_CRYSTAL_MATRIX_WAND_CAP = ITEMS.registerSimpleItem(
+            "inter_crystal_matrix_wand_cap");
 
     // 水晶矩阵杖端
     public static final DeferredItem<ItemWandCap> CRYSTAL_MATRIX_WAND_CAP = ITEMS.registerItem(
@@ -104,33 +105,27 @@ public final class TAItems {
     public static final DeferredItem<BlockItem> ORIGIN_JAR =
             ITEMS.registerSimpleBlockItem(TABlocks.ORIGIN_JAR);
 
-    // 无限收集器核心（四级独立方块物品，共享 InfinitusCollectorItem：手持右键灵气节点可把节点数据吸进收集器，
-    // 节点被替换成收集器方块）。useBlockDescriptionPrefix 使显示名用 block. 键（方块本地化）。
-    // 基础：一次性——吸干节点本钱即停。
+    // 无限收集器
     public static final DeferredItem<InfinitusCollectorItem> INFINITUS_COLLECTOR = ITEMS.registerItem(
             "infinitus_collector",
             props -> new InfinitusCollectorItem(TABlocks.INFINITUS_COLLECTOR.get(), props),
             props -> props.useBlockDescriptionPrefix().rarity(Rarity.RARE));
-    // 紧凑：效率增强，耗灵气更慢。
+
     public static final DeferredItem<InfinitusCollectorItem> INFINITUS_COLLECTOR_COMPACT = ITEMS.registerItem(
             "infinitus_collector_compact",
             props -> new InfinitusCollectorItem(TABlocks.INFINITUS_COLLECTOR_COMPACT.get(), props),
             props -> props.useBlockDescriptionPrefix().rarity(Rarity.RARE));
-    // 更密：吸收要素稳定。
+
     public static final DeferredItem<InfinitusCollectorItem> INFINITUS_COLLECTOR_DENSE = ITEMS.registerItem(
             "infinitus_collector_dense",
             props -> new InfinitusCollectorItem(TABlocks.INFINITUS_COLLECTOR_DENSE.get(), props),
             props -> props.useBlockDescriptionPrefix().rarity(Rarity.RARE));
-    // 无垠：与无限结晶合体，自给永动。
+
     public static final DeferredItem<InfinitusCollectorItem> INFINITUS_COLLECTOR_ENDLESS = ITEMS.registerItem(
             "infinitus_collector_endless",
             props -> new InfinitusCollectorItem(TABlocks.INFINITUS_COLLECTOR_ENDLESS.get(), props),
             props -> props.useBlockDescriptionPrefix().rarity(Rarity.EPIC));
 
     private TAItems() {
-    }
-
-    public static void register(IEventBus modBus) {
-        ITEMS.register(modBus);
     }
 }

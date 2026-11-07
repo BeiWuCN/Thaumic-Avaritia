@@ -8,6 +8,7 @@ import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspectSource;
 import com.leclowndu93150.thaumaturge.api.essentia.IEssentiaTransport;
+import com.leclowndu93150.thaumaturge.content.essentia.jar.AbstractBlockEntityJar;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,7 +19,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.ProblemReporter;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
@@ -28,7 +28,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.Objects;
 
-public class OriginJarBlockEntity extends BlockEntity implements IEssentiaTransport, IAspectSource {
+public class OriginJarBlockEntity extends AbstractBlockEntityJar implements IEssentiaTransport, IAspectSource {
     public static final int PER_ASPECT_AMOUNT = 32767;
 
     private static final Codec<AspectList> CONTENTS_CODEC = AspectList.CODEC;
@@ -101,19 +101,11 @@ public class OriginJarBlockEntity extends BlockEntity implements IEssentiaTransp
 
     @Override
     public int takeEssentia(Holder<IAspect> aspect, int amount, Direction face) {
-        if (!canOutputTo(face) || aspect == null) {
+        if (!canOutputTo(face) || aspect == null || amount <= 0) {
             return 0;
         }
-        AspectList list = ensureContents();
-        int have = list.amountOf(aspect);
-        int taken = Math.min(amount, have);
-        if (taken <= 0) {
-            return 0;
-        }
-        contents = list.remove(aspect, taken);
-        setChanged();
-        syncToClient();
-        return taken;
+        // 万源之罐：取之不尽——库中要素（INFINITUS 除外）无限供给，但不扣减、不回填（恒为满库）。
+        return ensureContents().amountOf(aspect) > 0 ? Math.min(amount, PER_ASPECT_AMOUNT) : 0;
     }
 
     @Override
@@ -163,14 +155,6 @@ public class OriginJarBlockEntity extends BlockEntity implements IEssentiaTransp
     @Override
     public boolean isBlocked() {
         return false;
-    }
-
-    private void syncToClient() {
-        if (level == null || level.isClientSide()) {
-            return;
-        }
-        BlockState current = getBlockState();
-        level.sendBlockUpdated(getBlockPos(), current, current, 3);
     }
 
     @Override

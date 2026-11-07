@@ -36,8 +36,4 @@ public final class TAEntities {
                                 Registries.ENTITY_TYPE,
                                 ThaumicAvaritia.identifier("causality_collapser_pearl"))));
     }
-
-    public static void register(IEventBus modBus) {
-        ENTITIES.register(modBus);
-    }
 }

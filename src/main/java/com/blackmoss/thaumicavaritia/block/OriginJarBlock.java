@@ -1,5 +1,8 @@
 package com.blackmoss.thaumicavaritia.block;
 
+import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
+import com.leclowndu93150.thaumaturge.content.essentia.jar.AbstractBlockEntityJar;
+import com.leclowndu93150.thaumaturge.content.essentia.jar.AbstractBlockJar;
 import com.leclowndu93150.thaumaturge.content.essentia.jar.BlockJar;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -16,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
-public final class OriginJarBlock extends BlockJar {
+public final class OriginJarBlock extends AbstractBlockJar {
     public static final MapCodec<OriginJarBlock> CODEC = simpleCodec(OriginJarBlock::new);
 
     public OriginJarBlock(Properties properties) {
@@ -31,6 +34,11 @@ public final class OriginJarBlock extends BlockJar {
     @Override
     public @NonNull BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new OriginJarBlockEntity(pos, state);
+    }
+
+    @Override
+    protected BlockEntityType<? extends AbstractBlockEntityJar> jarType() {
+        return TABlockEntities.ORIGIN_JAR.get();
     }
 
     @Override

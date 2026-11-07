@@ -6,6 +6,7 @@ import com.leclowndu93150.thaumaturge.api.aspect.AspectIndexAccess;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import com.leclowndu93150.thaumaturge.content.blockentity.AbstractSyncedBlockEntity;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockEntityAlembic;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockEntitySmelter;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockSmelter;
@@ -26,7 +27,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.Objects;
 
-public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends BlockEntitySmelter {
+public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedBlockEntity {
     public static final int MAX_VIS = 256;
 
     public CosmicNeutroniumEssentiaSmelteryBlockEntity(BlockPos pos, BlockState state) {

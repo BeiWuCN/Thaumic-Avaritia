@@ -38,11 +38,6 @@ public final class TAWandParts {
     private TAWandParts() {
     }
 
-    public static void register(IEventBus modBus) {
-        CAPS.register(modBus);
-        RODS.register(modBus);
-    }
-
     private static final class InfinityOnUpdate implements IWandRodOnUpdate {
         @Override
         public void onUpdate(ItemStack wand, Player player) {

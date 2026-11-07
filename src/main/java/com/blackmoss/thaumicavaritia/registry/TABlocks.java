@@ -82,9 +82,6 @@ public final class TABlocks {
                     .selfPowered(true)
                     .build());
 
-    private TABlocks() {
-    }
-
     private static DeferredBlock<InfinitusCollectorBlock> registerCollector(String name, InfinitusCollectorSettings settings) {
         return BLOCKS.registerBlock(name,
                 InfinitusCollectorBlock::new,
@@ -94,9 +91,5 @@ public final class TABlocks {
                         .noOcclusion()
                         .pushReaction(PushReaction.BLOCK)
         );
-    }
-
-    public static void register(IEventBus modBus) {
-        BLOCKS.register(modBus);
     }
 }

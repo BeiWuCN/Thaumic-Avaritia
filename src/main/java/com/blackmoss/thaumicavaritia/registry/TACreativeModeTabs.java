@@ -50,8 +50,4 @@ public class TACreativeModeTabs {
                             output.accept(TAItems.INFINITUS_COLLECTOR_ENDLESS.get());
                         }).build());
     }
-
-    public static void register(IEventBus modBus) {
-        CREATIVE_MODE_TABS.register(modBus);
-    }
 }

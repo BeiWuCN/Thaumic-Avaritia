@@ -158,12 +158,10 @@ public final class ModModelProvider extends ModelProvider {
 
         haloItem(itemModels, TAItems.INFINITUS_CRYSTAL.get());
 
-        // 三种板
         haloItem(itemModels, TAItems.CRYSTAL_MATRIX_PLATE.get());
         noiseItem(itemModels, TAItems.NEUTRON_PLATE.get());
         haloItem(itemModels, TAItems.INFINITY_PLATE.get());
     }
-
 
     @Override
     public @NonNull String getName() {

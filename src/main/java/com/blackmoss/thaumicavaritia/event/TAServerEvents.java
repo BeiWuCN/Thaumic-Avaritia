@@ -54,7 +54,7 @@ public final class TAServerEvents {
         if (!(stack.getItem() instanceof ItemWand wand)) {
             return false;
         }
-        WandParts parts = wand.getParts(stack);
+        WandParts parts = wand.assembly(stack);
         if (parts == null) {
             return false;
         }
