@@ -306,7 +306,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
         // 万物起源之罐
-        infusion(TAItems.ORIGIN_JAR, TTItems.JAR_VOID)
+        infusion(TAItems.ORIGIN_JAR, TTItems.JAR_CREATIVE)
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
                 .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
