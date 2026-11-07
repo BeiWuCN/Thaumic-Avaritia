@@ -103,17 +103,17 @@ configurations {
 
 dependencies {
     // Lithostitched
-    implementation "maven.modrinth:lithostitched:${lithostitched_version}"
+    implementation "maven.modrinth:lithostitched:${lithostitched_version}-neoforge-26.1"
 
     // Thaumaturge
-    implementation "curse.maven:thaumaturge-1628024:${thaumaturge_version}"
+    implementation "curse.maven:thaumaturge-1628024:${thaumaturge_id}"
 
     // Re:Avaritia
-    implementation "maven.modrinth:re-avaritia:${re_avaritia_version}"
+    implementation "maven.modrinth:re-avaritia:${re_avaritia_version}-release"
 
 
     // Thaumaturge Additions
-    implementation "curse.maven:thaumaturge-additions-1748112:${thaumaturge_additions_version}"
+    implementation "curse.maven:thaumaturge-additions-1748112:${thaumaturge_additions_id}"
 
     // JEI
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
@@ -131,15 +131,17 @@ dependencies {
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
-            minecraft_version      : minecraft_version,
-            minecraft_version_range: minecraft_version_range,
-            neo_version            : neo_version,
-            mod_id                 : mod_id,
-            mod_name               : mod_name,
-            mod_license            : mod_license,
-            mod_version            : mod_version,
-            mod_authors            : mod_authors,
-            mod_description        : mod_description
+            minecraft_version            : minecraft_version,
+            minecraft_version_range      : minecraft_version_range,
+            neo_version                  : neo_version,
+            mod_id                       : mod_id,
+            mod_name                     : mod_name,
+            mod_license                  : mod_license,
+            mod_version                  : mod_version,
+            mod_authors                  : mod_authors,
+            mod_description              : mod_description,
+            thaumaturge_version          : thaumaturge_version,
+            thaumaturge_additions_version: thaumaturge_additions_version
     ]
     inputs.properties replaceProperties
     expand replaceProperties
