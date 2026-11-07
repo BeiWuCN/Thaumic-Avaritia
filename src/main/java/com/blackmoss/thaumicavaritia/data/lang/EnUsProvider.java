@@ -18,8 +18,8 @@ public final class EnUsProvider extends LanguageProvider {
         add("itemGroup." + ThaumicAvaritia.MODID, "Thaumic Avaritia");
         jade();
 
-        addConfiguration("use_thaumicavaritia_recipes", "Reworked Infinity Recipes",
-                "Use Thaumic Avaritia's reworked avaritia recipes (true, default), or fall back to the original Avaritia recipes (false).");
+        addConfiguration("use_thaumicavaritia_recipes", "Reworked Infinity Recipes");
+        addConfiguration("use_thaumicavaritia_recipes.tooltip", "Use Thaumic Avaritia's reworked avaritia recipes (true, default), or fall back to the original Avaritia recipes (false).");
 
         add("aspect.thaumicavaritia.infinitus", "Infinitus");
         add("aspect.thaumicavaritia.infinitus.desc", "Infinite, Boundless, Without end");

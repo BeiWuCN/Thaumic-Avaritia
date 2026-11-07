@@ -18,8 +18,8 @@ public final class ZhCnProvider extends LanguageProvider {
         add("itemGroup." + ThaumicAvaritia.MODID, "神秘无尽");
         jade();
 
-        addConfiguration("use_thaumicavaritia_recipes", "神秘无尽改写配方",
-                "使用神秘无尽对无尽贪婪配方的改写版；关闭则回退到无尽贪婪原版配方。");
+        addConfiguration("use_thaumicavaritia_recipes", "神秘无尽改写配方");
+        addConfiguration("use_thaumicavaritia_recipes.tooltip", "使用神秘无尽对无尽贪婪配方的改写版；关闭则回退到无尽贪婪原版配方。");
 
         add("aspect.thaumicavaritia.infinitus", "无限");
         add("aspect.thaumicavaritia.infinitus.desc", "无限，无穷，无边无际");
