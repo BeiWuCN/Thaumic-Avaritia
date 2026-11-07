@@ -27,7 +27,7 @@ public final class OriginJarBlock extends AbstractBlockJar {
     }
 
     @Override
-    protected @NonNull MapCodec<? extends BlockJar> codec() {
+    protected @NonNull MapCodec<? extends AbstractBlockJar> codec() {
         return CODEC;
     }
 
