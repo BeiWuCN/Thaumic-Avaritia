@@ -1,5 +1,3 @@
-// 宇宙中子态素源质冶炼厂方块：0 燃料 / 0 污染 / 瞬间产出。
-// 继承原版 BlockSmelter 复用外观/放置/粒子逻辑，但改用自定义 BE 类型与菜单。
 package com.blackmoss.thaumicavaritia.block;
 
 import com.blackmoss.thaumicavaritia.registry.TABlockEntities;
@@ -39,14 +37,23 @@ public class CosmicNeutroniumEssentiaSmelteryBlock extends BlockSmelter {
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             Level level, BlockState blockState, BlockEntityType<T> type) {
-        return level.isClientSide() ? null : createTickerHelper(
-                type, TABlockEntities.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get(),
-                CosmicNeutroniumEssentiaSmelteryBlockEntity::staticTick);
+        if (level.isClientSide() || type != TABlockEntities.COSMIC_NEUTRONIUM_ESSENTIA_SMELTERY.get()) {
+            return null;
+        }
+        return (tickLevel, pos, tickState, be) -> {
+            if (be instanceof CosmicNeutroniumEssentiaSmelteryBlockEntity smeltery) {
+                smeltery.cosmicTick();
+            }
+        };
     }
 
     @Override
     protected @NonNull InteractionResult useWithoutItem(
-            BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+            BlockState state,
+            Level level,
+            BlockPos pos,
+            Player player,
+            BlockHitResult hit) {
         if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         }

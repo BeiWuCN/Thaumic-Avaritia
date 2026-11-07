@@ -4,6 +4,7 @@ import com.blackmoss.thaumicavaritia.ThaumicAvaritia;
 import com.blackmoss.thaumicavaritia.block.CosmicNeutroniumEssentiaSmelteryBlockEntity;
 import com.blackmoss.thaumicavaritia.menu.CosmicNeutroniumEssentiaSmelteryMenu;
 import com.leclowndu93150.thaumaturge.client.screen.AbstractTTContainerScreen;
+import com.leclowndu93150.thaumaturge.content.essentia.smeltery.SmelterGauge;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
@@ -37,7 +38,7 @@ public class CosmicNeutroniumEssentiaSmelteryScreen extends AbstractTTContainerS
             CosmicNeutroniumEssentiaSmelteryBlockEntity smeltery = menu.blockEntity();
             int visScaled = 0;
             if (smeltery != null) {
-                visScaled = smeltery.getVisScaled(46);
+                visScaled = smeltery.scaled(SmelterGauge.ESSENTIA, 46);
             }
             if (visScaled > 0) {
                 graphics.blit(

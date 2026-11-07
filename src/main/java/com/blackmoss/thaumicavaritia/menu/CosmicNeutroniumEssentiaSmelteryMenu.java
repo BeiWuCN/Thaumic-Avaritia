@@ -50,7 +50,7 @@ public class CosmicNeutroniumEssentiaSmelteryMenu extends AbstractContainerMenu 
         this(
                 containerId,
                 playerInventory,
-                blockEntity.getInventory(),
+                blockEntity.itemSlots(),
                 ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 blockEntity.getBlockPos());
     }
@@ -92,6 +92,7 @@ public class CosmicNeutroniumEssentiaSmelteryMenu extends AbstractContainerMenu 
 
     @Nullable
     public CosmicNeutroniumEssentiaSmelteryBlockEntity blockEntity() {
+        //noinspection DataFlowIssue
         return (CosmicNeutroniumEssentiaSmelteryBlockEntity) access.evaluate(Level::getBlockEntity)
                 .filter(be -> be instanceof CosmicNeutroniumEssentiaSmelteryBlockEntity)
                 .orElse(null);

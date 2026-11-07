@@ -6,7 +6,6 @@ import com.leclowndu93150.thaumaturge.api.aspect.AspectIndexAccess;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
-import com.leclowndu93150.thaumaturge.content.blockentity.AbstractSyncedBlockEntity;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockEntityAlembic;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockEntitySmelter;
 import com.leclowndu93150.thaumaturge.content.essentia.smeltery.BlockSmelter;
@@ -27,7 +26,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.Objects;
 
-public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedBlockEntity {
+public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends BlockEntitySmelter {
     public static final int MAX_VIS = 256;
 
     public CosmicNeutroniumEssentiaSmelteryBlockEntity(BlockPos pos, BlockState state) {
@@ -35,7 +34,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
     }
 
     @Override
-    public float getEfficiency() {
+    public float essentiaYield() {
         return 1.0F;
     }
 
@@ -43,7 +42,8 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
         if (level == null || level.isClientSide()) {
             return;
         }
-        boolean hasInput = getInventory().getAmountAsInt(0) > 0;
+        ItemStacksResourceHandler inv = itemSlots();
+        boolean hasInput = inv.getAmountAsInt(0) > 0;
         if (getBlockState().getValue(BlockSmelter.LIT) != hasInput) {
             level.setBlock(getBlockPos(), getBlockState().setValue(BlockSmelter.LIT, hasInput), 3);
         }
@@ -54,7 +54,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
     }
 
     private void smeltInstantly() {
-        ItemStacksResourceHandler inv = getInventory();
+        ItemStacksResourceHandler inv = itemSlots();
         if (inv.getAmountAsInt(0) <= 0 || vis >= MAX_VIS) {
             return;
         }
@@ -64,9 +64,9 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
             return;
         }
         for (AspectInstance instance : itemAspects.entries()) {
-            aspects = aspects.add(instance);
+            essentiaStock = essentiaStock.add(instance);
         }
-        vis = aspects.totalAmount();
+        vis = essentiaStock.totalAmount();
         Transaction transaction = Transaction.openRoot();
         inv.extract(0, inv.getResource(0), 1, transaction);
         transaction.commit();
@@ -74,17 +74,14 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
     }
 
     private void pushToAlembics() {
-        if (aspects.isEmpty()) {
+        if (essentiaStock.isEmpty()) {
             return;
         }
         tryPush(getBlockPos());
         for (Direction dir : Direction.Plane.HORIZONTAL) {
             if (getBlockState().getValue(BlockSmelter.FACING) != dir) {
                 BlockPos pos = getBlockPos().relative(dir);
-                BlockState state = null;
-                if (level != null) {
-                    state = level.getBlockState(pos);
-                }
+                BlockState state = level == null ? null : level.getBlockState(pos);
                 if (state != null && state.getBlock() instanceof BlockSmelterAux
                         && state.getValue(BlockStateProperties.HORIZONTAL_FACING) == dir.getOpposite()) {
                     tryPush(pos);
@@ -94,7 +91,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
     }
 
     private void tryPush(BlockPos outputPos) {
-        for (AspectInstance instance : aspects.entries()) {
+        for (AspectInstance instance : essentiaStock.entries()) {
             if (instance.amount() > 0 && pushToAlembic(outputPos, instance.aspect())) {
                 takeAspect(instance.aspect(), 1);
                 break;
@@ -105,10 +102,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
     private boolean pushToAlembic(BlockPos outputPos, Holder<IAspect> aspect) {
         int deep = 1;
         while (true) {
-            BlockEntity be = null;
-            if (level != null) {
-                be = level.getBlockEntity(outputPos.above(deep));
-            }
+            BlockEntity be = level == null ? null : level.getBlockEntity(outputPos.above(deep));
             if (!(be instanceof BlockEntityAlembic alembic)) {
                 break;
             }
@@ -121,10 +115,7 @@ public class CosmicNeutroniumEssentiaSmelteryBlockEntity extends AbstractSyncedB
         }
         deep = 1;
         while (true) {
-            BlockEntity be = null;
-            if (level != null) {
-                be = level.getBlockEntity(outputPos.above(deep));
-            }
+            BlockEntity be = level == null ? null : level.getBlockEntity(outputPos.above(deep));
             if (!(be instanceof BlockEntityAlembic alembic)) {
                 return false;
             }
