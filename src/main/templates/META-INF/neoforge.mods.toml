@@ -28,6 +28,13 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${ mod_id }]]
+modId = "avaritia"
+type = "required"
+versionRange = "[${re_avaritia_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${ mod_id }]]
 modId = "thaumaturge"
 type = "required"
 versionRange = "[${thaumaturge_version},)"

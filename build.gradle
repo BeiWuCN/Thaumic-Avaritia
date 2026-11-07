@@ -109,7 +109,7 @@ dependencies {
     implementation "curse.maven:thaumaturge-1628024:${thaumaturge_id}"
 
     // Re:Avaritia
-    implementation "maven.modrinth:re-avaritia:${re_avaritia_version}-release"
+    implementation "maven.modrinth:re-avaritia:26.1.2-${re_avaritia_version}-release"
 
 
     // Thaumaturge Additions
@@ -140,6 +140,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_version                  : mod_version,
             mod_authors                  : mod_authors,
             mod_description              : mod_description,
+            re_avaritia_version          : re_avaritia_version,
             thaumaturge_version          : thaumaturge_version,
             thaumaturge_additions_version: thaumaturge_additions_version
     ]
