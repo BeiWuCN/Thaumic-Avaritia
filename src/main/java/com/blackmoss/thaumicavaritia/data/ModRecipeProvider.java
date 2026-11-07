@@ -308,12 +308,16 @@ public final class ModRecipeProvider extends RecipeProvider {
         // 万物起源之罐
         infusion(TAItems.ORIGIN_JAR, TTItems.JAR_CREATIVE)
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
-                .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
-                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()))
                 .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
-                .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
                 .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(ModItems.infinity_ingot.get()))
+                .component(Ingredient.of(TAItems.EXTREMELY_PRIMORDIAL_PEARL.get()))
                 .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
                 .aspect(TTAspects.AURAM, 640)
                 .aspect(TTAspects.PRAECANTATIO, 640)
@@ -321,11 +325,28 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TTAspects.ALIENIS, 640)
                 .aspect(TAAspects.INFINITUS, 16)
                 .instability(6)
+                .unlockedBy("has", has(TTItems.JAR_CREATIVE.get()))
+                .save(output);
+
+        // 创造之罐
+        infusion(TTItems.JAR_CREATIVE, TTItems.JAR_VOID)
+                .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+                .component(Ingredient.of(TTItems.PRIMORDIAL_PEARL.get()))
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+                .aspect(TTAspects.AURAM, 160)
+                .aspect(TTAspects.PRAECANTATIO, 160)
+                .aspect(TTAspects.VACUOS, 160)
+                .aspect(TTAspects.ALIENIS, 160)
+                .aspect(TAAspects.INFINITUS, 4)
+                .instability(6)
                 .unlockedBy("has", has(TTItems.JAR_VOID.get()))
                 .save(output);
 
-//        // ==================== 无限收集器（Infinitus Collector）====================
-//        // 基础：框架笼住节点，核心架于出口。以节点自身灵气为柴，吸干即止。
 //        infusion(.MISC,
 //                new ItemStackTemplate(TAItems.INFINITUS_COLLECTOR.get()),
 //                Ingredient.of(TAItems.NODE_ANCHOR.get()))
@@ -368,7 +389,6 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has", has(ModItems.neutron_ingot.get()))
                 .save(output);
 
-//        // 升级Ⅰ：紧凑——效率增强，耗灵气更慢。
 //        infusion(.MISC,
 //                new ItemStackTemplate(TAItems.INFINITUS_COLLECTOR_COMPACT.get()),
 //                Ingredient.of(TAItems.INFINITUS_COLLECTOR.get()))
@@ -387,7 +407,6 @@ public final class ModRecipeProvider extends RecipeProvider {
 //                .unlockedBy("has_infinitus_collector", has(TAItems.INFINITUS_COLLECTOR.get()))
 //                .save(output, ThaumicAvaritia.MODID + ":infinitus_collector_compact");
 
-        // 升级Ⅱ：更密——吸收要素稳定，不再啃噬节点灵气。
 //        infusion(.MISC,
 //                new ItemStackTemplate(TAItems.INFINITUS_COLLECTOR_DENSE.get()),
 //                Ingredient.of(TAItems.INFINITUS_COLLECTOR_COMPACT.get()))
@@ -407,7 +426,6 @@ public final class ModRecipeProvider extends RecipeProvider {
 //                .unlockedBy("has_infinitus_crystal", has(TAItems.INFINITUS_CRYSTAL.get()))
 //                .save(output, ThaumicAvaritia.MODID + ":infinitus_collector_dense");
 
-        // 升级Ⅲ：无垠——与无限结晶合体，自给永动。
 //        infusion(.MISC,
 //                new ItemStackTemplate(TAItems.INFINITUS_COLLECTOR_ENDLESS.get()),
 //                Ingredient.of(TAItems.INFINITUS_COLLECTOR_DENSE.get()))
@@ -428,54 +446,42 @@ public final class ModRecipeProvider extends RecipeProvider {
 //                .save(output, ThaumicAvaritia.MODID + ":infinitus_collector_endless");
     }
 
-    private InfusionRecipeBuilder infusion(ItemLike result, RecipeCategory category, ItemLike catalyst) {
+    private InfusionRecipeBuilder infusion(ItemLike result, ItemLike catalyst) {
         return (InfusionRecipeBuilder) new InfusionRecipeBuilder(
                 aspects,
-                category,
-                new ItemStackTemplate(result.asItem()),
-                Ingredient.of(catalyst))
-                .unlockedBy("has", this.has(result));
-    }
-
-    private InfusionRecipeBuilder infusion(ItemLike result, ItemLike catalyst) {
-        return infusion(result, RecipeCategory.MISC, catalyst);
-    }
-
-    private CrucibleRecipeBuilder crucible(ItemLike result, RecipeCategory category, ItemLike catalyst) {
-        return (CrucibleRecipeBuilder) new CrucibleRecipeBuilder(
-                aspects,
-                category,
+                RecipeCategory.MISC,
                 new ItemStackTemplate(result.asItem()),
                 Ingredient.of(catalyst))
                 .unlockedBy("has", this.has(result));
     }
 
     private CrucibleRecipeBuilder crucible(ItemLike result, ItemLike catalyst) {
-        return crucible(result, RecipeCategory.MISC, catalyst);
+        return (CrucibleRecipeBuilder) new CrucibleRecipeBuilder(
+                aspects,
+                RecipeCategory.MISC,
+                new ItemStackTemplate(result.asItem()),
+                Ingredient.of(catalyst))
+                .unlockedBy("has", this.has(result));
     }
 
-    private ArcaneWorkbenchShapelessRecipeBuilder arcaneShapeless(RecipeCategory recipeCategory, ItemStackTemplate result, int vis) {
-        return new ArcaneWorkbenchShapelessRecipeBuilder(recipeCategory,
+    private ArcaneWorkbenchShapelessRecipeBuilder arcaneShapeless(ItemStackTemplate result, int vis) {
+        return new ArcaneWorkbenchShapelessRecipeBuilder(RecipeCategory.MISC,
                 result,
                 aspects,
                 vis,
                 registries.lookupOrThrow(Registries.ITEM));
     }
 
-    private ArcaneWorkbenchShapelessRecipeBuilder arcaneShapeless(RecipeCategory recipeCategory, ItemLike result, int vis) {
-        return arcaneShapeless(recipeCategory, new ItemStackTemplate(result.asItem()), vis);
-    }
-
-    private ArcaneWorkbenchShapedRecipeBuilder arcaneShaped(RecipeCategory recipeCategory, ItemStackTemplate result, int vis) {
-        return new ArcaneWorkbenchShapedRecipeBuilder(recipeCategory,
+    private ArcaneWorkbenchShapedRecipeBuilder arcaneShaped(ItemStackTemplate result, int vis) {
+        return new ArcaneWorkbenchShapedRecipeBuilder(RecipeCategory.MISC,
                 result,
                 this.items,
                 aspects,
                 vis);
     }
 
-    private ArcaneWorkbenchShapedRecipeBuilder arcaneShaped(RecipeCategory recipeCategory, ItemLike result, int vis) {
-        return (ArcaneWorkbenchShapedRecipeBuilder) arcaneShaped(recipeCategory, new ItemStackTemplate(result.asItem()), vis)
+    private ArcaneWorkbenchShapedRecipeBuilder arcaneShaped(ItemLike result, int vis) {
+        return (ArcaneWorkbenchShapedRecipeBuilder) arcaneShaped(new ItemStackTemplate(result.asItem()), vis)
                 .unlockedBy("has", this.has(result.asItem()));
     }
 

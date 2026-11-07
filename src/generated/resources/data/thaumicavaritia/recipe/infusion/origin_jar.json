@@ -22,15 +22,19 @@
       "aspect": "thaumicavaritia:infinitus"
     }
   ],
-  "catalyst": "thaumaturge:jar_void",
+  "catalyst": "thaumaturge:jar_creative",
   "components": [
     "avaritia:infinity_ingot",
-    "thaumaturge:primordial_pearl",
-    "avaritia:infinity_ingot",
+    "thaumicavaritia:extremely_primordial_pearl",
     "thaumaturge:salis_mundus",
     "avaritia:infinity_ingot",
-    "thaumaturge:primordial_pearl",
+    "thaumicavaritia:extremely_primordial_pearl",
+    "thaumaturge:salis_mundus",
     "avaritia:infinity_ingot",
+    "thaumicavaritia:extremely_primordial_pearl",
+    "thaumaturge:salis_mundus",
+    "avaritia:infinity_ingot",
+    "thaumicavaritia:extremely_primordial_pearl",
     "thaumaturge:salis_mundus"
   ],
   "instability": 6,
