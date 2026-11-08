@@ -16,10 +16,11 @@
   ],
   "client": [
     "GapingVoidRenderMixin",
-    "NodeRendererMixin",
     "client.ArcaneWorkbenchScreenMixin",
     "client.AspectContainerTooltipHandlerMixin",
-    "client.AspectTagRendererMixin"
+    "client.AspectTagRendererMixin",
+    "client.CasterHudOverlayMixin",
+    "client.NodeRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

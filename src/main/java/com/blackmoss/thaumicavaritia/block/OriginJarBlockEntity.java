@@ -10,10 +10,7 @@ import com.leclowndu93150.thaumaturge.api.aspect.IAspectSource;
 import com.leclowndu93150.thaumaturge.api.essentia.IEssentiaTransport;
 import com.leclowndu93150.thaumaturge.content.essentia.jar.AbstractBlockEntityJar;
 import com.mojang.serialization.Codec;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -29,8 +26,6 @@ import org.jspecify.annotations.Nullable;
 import java.util.Objects;
 
 public class OriginJarBlockEntity extends AbstractBlockEntityJar implements IEssentiaTransport, IAspectSource {
-    public static final int PER_ASPECT_AMOUNT = 32767;
-
     private static final Codec<AspectList> CONTENTS_CODEC = AspectList.CODEC;
 
     private @Nullable AspectList contents;
@@ -53,7 +48,7 @@ public class OriginJarBlockEntity extends AbstractBlockEntityJar implements IEss
                 if (Objects.equals(holder.unwrapKey().orElse(null), TAAspects.INFINITUS)) {
                     continue;
                 }
-                filled = filled.add(new AspectInstance(holder, PER_ASPECT_AMOUNT));
+                filled = filled.add(new AspectInstance(holder, Integer.MAX_VALUE));
             }
         }
         contents = filled;
@@ -104,8 +99,7 @@ public class OriginJarBlockEntity extends AbstractBlockEntityJar implements IEss
         if (!canOutputTo(face) || aspect == null || amount <= 0) {
             return 0;
         }
-        // 万源之罐：取之不尽——库中要素（INFINITUS 除外）无限供给，但不扣减、不回填（恒为满库）。
-        return ensureContents().amountOf(aspect) > 0 ? Math.min(amount, PER_ASPECT_AMOUNT) : 0;
+        return ensureContents().amountOf(aspect) > 0 ? amount : 0;
     }
 
     @Override
@@ -172,7 +166,7 @@ public class OriginJarBlockEntity extends AbstractBlockEntityJar implements IEss
     }
 
     @Override
-    public @NonNull CompoundTag getUpdateTag(net.minecraft.core.HolderLookup.@NonNull Provider registries) {
+    public @NonNull CompoundTag getUpdateTag(HolderLookup.@NonNull Provider registries) {
         CompoundTag nbt = super.getUpdateTag(registries);
         try (ProblemReporter.ScopedCollector reporter =
                      new ProblemReporter.ScopedCollector(this.problemPath(), Thaumaturge.LOGGER)) {

@@ -1,7 +1,7 @@
 package com.blackmoss.thaumicavaritia;
 
-import com.blackmoss.thaumicavaritia.config.TAClientConfigs;
-import com.blackmoss.thaumicavaritia.config.TACommonConfigs;
+import com.blackmoss.thaumicavaritia.config.ThaumicAvaritiaClientConfig;
+import com.blackmoss.thaumicavaritia.config.ThaumicAvaritiaCommonConfig;
 import com.blackmoss.thaumicavaritia.data.ModBlockLootSubProvider;
 import com.blackmoss.thaumicavaritia.data.ModModelProvider;
 import com.blackmoss.thaumicavaritia.data.ModRecipeProvider;
@@ -36,9 +36,6 @@ public class ThaumicAvaritia {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ThaumicAvaritia(IEventBus modEventBus, ModContainer modContainer) {
-        modContainer.registerConfig(ModConfig.Type.COMMON, TACommonConfigs.COMMON.build());
-        modContainer.registerConfig(ModConfig.Type.CLIENT, TAClientConfigs.CLIENT.build());
-
         TACreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         TAItems.ITEMS.register(modEventBus);
         TABlocks.BLOCKS.register(modEventBus);
@@ -47,6 +44,9 @@ public class ThaumicAvaritia {
         TAWandParts.CAPS.register(modEventBus);
         TAWandParts.RODS.register(modEventBus);
         TAEntities.ENTITIES.register(modEventBus);
+
+        modContainer.registerConfig(ModConfig.Type.COMMON, ThaumicAvaritiaCommonConfig.BUILDER.build());
+        modContainer.registerConfig(ModConfig.Type.CLIENT, ThaumicAvaritiaClientConfig.BUILDER.build());
     }
 
     public static Identifier identifier(String path) {

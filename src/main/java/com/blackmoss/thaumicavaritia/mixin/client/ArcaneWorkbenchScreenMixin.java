@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(ArcaneWorkbenchScreen.class)
 public abstract class ArcaneWorkbenchScreenMixin {
-
     @Unique
     private static final int INFINITE_VIS = Integer.MAX_VALUE;
 

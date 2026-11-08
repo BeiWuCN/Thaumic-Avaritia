@@ -1,4 +1,4 @@
-package com.blackmoss.thaumicavaritia.mixin;
+package com.blackmoss.thaumicavaritia.mixin.client;
 
 import com.leclowndu93150.thaumaturge.client.render.blockentity.NodeRenderState;
 import com.leclowndu93150.thaumaturge.client.render.blockentity.NodeRenderer;
