@@ -18,7 +18,11 @@ public final class TAWandParts {
 
     public static final DeferredHolder<WandCap, WandCap> CRYSTAL_MATRIX = CAPS.register(
             "crystal_matrix",
-            () -> new WandCap(0.0F, List.of(), 0.0F, 9,
+            () -> new WandCap(
+                    0.0F,
+                    List.of(),
+                    0.0F,
+                    9,
                     ThaumicAvaritia.identifier("textures/models/crystal_matrix_wand_cap.png")));
 
     public static final DeferredHolder<WandRod, WandRod> NEUTRONIUM = RODS.register(
